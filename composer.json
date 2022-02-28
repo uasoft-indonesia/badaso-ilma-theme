@@ -1,15 +1,24 @@
 {
-    "name": "nsire/badaso-lms-theme",
-    "autoload": {
-        "psr-4": {
-            "Nsire\\BadasoLmsTheme\\": "src/"
-        }
+  "name": "badaso/lms-theme",
+  "authors": [
+    {
+      "name": "nofamex",
+      "email": "nsiren517@gmail.com"
+    }
+  ],
+  "require": {
+    "inertiajs/inertia-laravel": "^0.5.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Uasoft\\Badaso\\Theme\\LMSTheme\\": "src/"
     },
-    "authors": [
-        {
-            "name": "nofamex",
-            "email": "nsiren517@gmail.com"
-        }
-    ],
-    "require": {}
+    "extra": {
+      "laravel": {
+        "providers": [
+          "Uasoft\\Badaso\\Theme\\LMSTheme\\Providers\\LMSThemeProvider"
+        ]
+      }
+    }
+  }
 }
