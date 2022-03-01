@@ -96,7 +96,7 @@ class LMSThemeSetup extends Command
         ];
     }
 
-    protected function addingBadasoEnv()
+    protected function addBadasoEnv()
     {
         try {
             $env_path = base_path('.env');
