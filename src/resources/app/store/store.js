@@ -6,10 +6,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   namespaced: true,
-  state: {
-    layout: "default",
-    tests: [{ name: "AAA" }, { name: "BBB" }],
-  },
+  state: {},
   mutations: {},
   actions: {},
   getters: {
