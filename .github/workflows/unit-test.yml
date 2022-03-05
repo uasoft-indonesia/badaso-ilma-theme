@@ -2,12 +2,7 @@ on: push
 name: Unit Test
 jobs:
   unitTest:
-    name: Unit Test Trigger
-    runs-on: ubuntu-latest
+    name: Unit Test Coverage
     steps:
-      - uses: mattallty/jest-github-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          test-command: "npx test"
-          changes-only: true
+      - uses: actions/checkout@v1
+      - uses: ArtiomTr/jest-coverage-report-action@v2
