@@ -5,9 +5,9 @@ jobs:
     name: Unit Test Trigger
     runs-on: ubuntu-latest
     steps:
-      uses: mattallty/jest-github-action@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        test-command: "npx test"
-        changes-only: true
+      - uses: mattallty/jest-github-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          test-command: "npx test"
+          changes-only: true
