@@ -7,5 +7,6 @@ describe("JoinCoursePage", () => {
 
         expect(wrapper.find('#join-card').exists()).toBe(true);
         expect(wrapper.find('#title').text()).toBe('Enter Code');
+        expect(wrapper.find('#sub-title').text()).toBe('Class code provided by your teacher');
     });
 });
