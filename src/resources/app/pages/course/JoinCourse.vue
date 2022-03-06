@@ -1,6 +1,11 @@
 <template>
     <div>
-        <div class="text-blue-700">Home</div>
+        <v-card
+            id="test-join-card"
+            elevation="2"
+        >
+            Home
+        </v-card>
     </div>
 </template>
 
