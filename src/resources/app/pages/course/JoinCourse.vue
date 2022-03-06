@@ -9,6 +9,11 @@
             >
                 Enter Code
             </div>
+            <div
+                id="sub-title"
+            >
+                Class code provided by your teacher
+            </div>
         </v-card>
     </div>
 </template>
