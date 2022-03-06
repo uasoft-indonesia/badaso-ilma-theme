@@ -6,5 +6,6 @@ describe("JoinCoursePage", () => {
         const wrapper = mount(JoinCourse, {});
 
         expect(wrapper.find('#test-join-card').exists()).toBe(true);
+        expect(wrapper.find('#title').text()).toBe('Enter Code');
     });
 });
