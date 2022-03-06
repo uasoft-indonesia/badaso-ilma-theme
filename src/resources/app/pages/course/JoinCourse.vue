@@ -1,10 +1,14 @@
 <template>
     <div>
         <v-card
-            id="test-join-card"
+            id="join-card"
             elevation="2"
         >
-            Home
+            <div
+                id="title"
+            >
+                Enter Code
+            </div>
         </v-card>
     </div>
 </template>
