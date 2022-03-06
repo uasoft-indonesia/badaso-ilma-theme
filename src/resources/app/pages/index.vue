@@ -1,5 +1,6 @@
 <template>
   <div>
+<<<<<<< HEAD
     <div class="text-orange-900">{{ posts }}</div>
     <div>TAAAAAAAAAAAAAAAAAAA</div>
     <v-alert type="success">ALERT</v-alert>
@@ -23,12 +24,16 @@
         <v-btn outlined rounded text> Button </v-btn>
       </v-card-actions>
     </v-card>
+=======
+    <div class="text-blue-700">Home</div>
+>>>>>>> a39cf5b97ef6c0aa96ad0ffb6835b2357d91bbde
   </div>
 </template>
 
 <script>
 export default {
   components: {},
+<<<<<<< HEAD
   data: () => ({
     posts: "AAcxccccccccccccccccccccccccccA",
   }),
@@ -37,5 +42,7 @@ export default {
       return this.$store.layout;
     },
   },
+=======
+>>>>>>> a39cf5b97ef6c0aa96ad0ffb6835b2357d91bbde
 };
 </script>

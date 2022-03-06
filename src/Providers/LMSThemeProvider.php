@@ -32,8 +32,11 @@ class LMSThemeProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../Seeder'                       => database_path('seeders/Badaso/LMSTheme'),
             __DIR__.'/../Config/badaso-lms-theme.php' => config_path('badaso-lms-theme.php'),
+<<<<<<< HEAD
             __DIR__.'/../Images/'                      => storage_path('app/public/photos/shares'),
             __DIR__.'/../resources/customization/'     => resource_path('js/badaso/theme/lms-theme/'),
+=======
+>>>>>>> a39cf5b97ef6c0aa96ad0ffb6835b2357d91bbde
         ], 'BadasoLMSTheme');
 
         $this->publishes([
