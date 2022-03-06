@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Uasoft\Badaso\Module\LMSModule\Helpers\Route as HelpersRoute;
 use Uasoft\Badaso\Theme\LMSTheme\Middlewares\HandleInertiaRequests;
 use Uasoft\Badaso\Theme\LMSTheme\Controllers\InertiaController;
 
@@ -11,4 +11,7 @@ Route::prefix($lms_route_prefix)
     ->middleware(['web', HandleInertiaRequests::class])
     ->group(function () {
         Route::get('/', [InertiaController::class, 'home']);
+
+        /* course routes */
+        Route::get('/course/join', [InertiaController::class, 'joinCourse']);
     });
