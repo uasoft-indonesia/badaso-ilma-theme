@@ -2,13 +2,8 @@
   "name": "badaso/lms-theme",
   "authors": [
     {
-<<<<<<< HEAD
-      "name": "nofamex",
-      "email": "nsiren517@gmail.com"
-=======
       "name": "UASOFT",
       "email": "hello@uatech.co.id"
->>>>>>> a39cf5b97ef6c0aa96ad0ffb6835b2357d91bbde
     }
   ],
   "require": {
