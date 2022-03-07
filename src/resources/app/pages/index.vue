@@ -1,11 +1,19 @@
 <template>
-  <div>
-    <div class="text-blue-700">Home</div>
-  </div>
+    <div>
+        <v-app>
+            <v-btn
+                color="success"
+                elevation="2"
+            >
+                Hello
+            </v-btn>
+        </v-app>
+        <div class="text-primary">Home</div>
+    </div>
 </template>
 
 <script>
 export default {
-  components: {},
+    components: {},
 };
 </script>
