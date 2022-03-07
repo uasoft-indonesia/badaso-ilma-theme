@@ -3,6 +3,8 @@
         <v-card
             id="join-card"
             elevation="2"
+            max-width="372px"
+            class="p-6"
         >
             <div
                 id="title"
