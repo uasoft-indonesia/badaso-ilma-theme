@@ -15,6 +15,7 @@ describe("JoinCoursePage", () => {
             expect(findSubTitle().text()).toBe('Class code provided by your teacher');
 
             expect(wrapper.find('#code-form').exists()).toBe(true);
+            expect(wrapper.find('#code-form').attributes().label).toBe('Class Code');
         });
     })
 });
