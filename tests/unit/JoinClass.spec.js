@@ -18,7 +18,7 @@ describe("JoinCoursePage", () => {
             expect(findForm().exists()).toBe(true);
             expect(findForm().attributes().label).toBe('Class Code');
             expect(wrapper.find('#join-btn').exists()).toBe(true);
-            expect(wrapper.find('#join-button').text()).toBe('Join');
+            expect(wrapper.find('#join-btn').text()).toBe('Join');
         });
     })
 });
