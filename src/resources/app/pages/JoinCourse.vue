@@ -21,6 +21,16 @@
                     outlined
                 ></v-text-field>
             </div>
+            <div>
+                <v-btn
+                    id="join-btn"
+                    depressed
+                    color="#FEFEFE"
+                    disabled
+                >
+                    Join
+                </v-btn>
+            </div>
         </v-card>
     </div>
 </template>
