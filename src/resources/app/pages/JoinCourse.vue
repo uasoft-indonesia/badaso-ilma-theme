@@ -26,7 +26,7 @@
                     id="join-btn"
                     depressed
                     color="#FEFEFE"
-                    disabled
+                    :disabled=true
                 >
                     Join
                 </v-btn>
