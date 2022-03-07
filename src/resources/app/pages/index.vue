@@ -1,15 +1,15 @@
 <template>
-    <div>
-        <v-app>
+    <v-app>
+        <div>
             <v-btn
                 color="success"
                 elevation="2"
             >
                 Hello
             </v-btn>
-        </v-app>
-        <div class="text-primary">Home</div>
-    </div>
+            <div class="text-primary">Home</div>
+        </div>
+    </v-app>
 </template>
 
 <script>
