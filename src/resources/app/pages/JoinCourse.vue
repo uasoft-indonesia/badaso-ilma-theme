@@ -14,7 +14,13 @@
             >
                 Class code provided by your teacher
             </div>
-            <!-- add form -->
+            <div>
+                <v-text-field
+                    id="code-form"
+                    label="Class Code"
+                    outlined
+                ></v-text-field>
+            </div>
         </v-card>
     </div>
 </template>
