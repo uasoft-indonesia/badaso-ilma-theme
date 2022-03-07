@@ -8,14 +8,14 @@ Vue.use(Vuetify);
 const vuetify = new Vuetify({});
 
 createInertiaApp({
-  resolve: (name) => require(`./pages/${name}`),
-  setup({ el, App, props, plugin }) {
-    Vue.use(plugin);
+    resolve: (name) => require(`./pages/${name}`),
+    setup({ el, App, props, plugin }) {
+        Vue.use(plugin);
 
-    new Vue({
-      store,
-      vuetify,
-      render: (h) => h(App, props),
-    }).$mount(el);
-  },
+        new Vue({
+            store,
+            vuetify,
+            render: (h) => h(App, props),
+        }).$mount(el);
+    },
 });

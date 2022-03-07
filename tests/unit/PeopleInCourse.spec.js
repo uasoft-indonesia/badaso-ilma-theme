@@ -6,8 +6,8 @@ describe("PeopleInCourse", () => {
         it("should renders", () => {
             const wrapper = mount(PeopleInCourse, {});
             expect(wrapper.find('#title').exists()).toBe(true);
-            expect(wrapper.find('#title').text()).toBe('Teacher');
-            expect(wrapper.find('#title').text()).toBe('Classmates');
+            expect(wrapper.findAll('#title').at(0).text()).toContain('Teachers');
+            expect(wrapper.findAll('#title').at(1).text()).toContain('Classmates');
         });
     })
 });
