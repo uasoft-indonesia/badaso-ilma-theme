@@ -13,6 +13,9 @@ describe("CourseCard Component", () => {
 
             const findClassroom = () => wrapper.find('#classroom');
             expect(findClassroom().exists()).toBe(true);
+
+            const findTeacher = () => wrapper.find('#teacher-name');
+            expect(findTeacher().exists()).toBe(true);
         });
     })
 });
