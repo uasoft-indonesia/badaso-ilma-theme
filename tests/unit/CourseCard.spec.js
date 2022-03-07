@@ -7,7 +7,7 @@ describe("CourseCard Component", () => {
         it("should renders", () => {
             const wrapper = mount(CourseCard, {});
 
-            const findRoom = () => wrapper.find('#room');
+            const findRoom = () => wrapper.find('#room-tag');
             expect(findRoom().exists()).toBe(true);
             expect(findRoom().text()).toBe('Room');
 
@@ -19,6 +19,7 @@ describe("CourseCard Component", () => {
 
             const findCourseName = () => wrapper.find('#course-name');
             expect(findCourseName().exists()).toBe(true);
+            
         });
     })
 });
