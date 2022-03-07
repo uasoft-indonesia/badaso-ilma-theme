@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import JoinCourse from "../../src/resources/app/pages/course/JoinCourse";
+import JoinCourse from "../../src/resources/app/pages/JoinCourse";
 
 describe("JoinCoursePage", () => {
     describe("when loaded", () => {

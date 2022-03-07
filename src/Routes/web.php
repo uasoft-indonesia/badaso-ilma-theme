@@ -13,5 +13,5 @@ Route::prefix($lms_route_prefix)
         Route::get('/', [InertiaController::class, 'home']);
 
         /* course routes */
-        Route::get('/course/join', [InertiaController::class, 'joinCourse']);
+        Route::get('/join', [InertiaController::class, 'joinCourse']);
     });

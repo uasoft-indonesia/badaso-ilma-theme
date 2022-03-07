@@ -14,6 +14,6 @@ class InertiaController extends Controller
 
     public function joinCourse()
     {
-        return Inertia::render('course/JoinCourse', [], 'lms-theme::app');
+        return Inertia::render('JoinCourse', [], 'lms-theme::app');
     }
 }

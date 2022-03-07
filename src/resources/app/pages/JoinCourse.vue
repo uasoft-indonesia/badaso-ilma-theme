@@ -14,6 +14,7 @@
             >
                 Class code provided by your teacher
             </div>
+            <!-- add form -->
         </v-card>
     </div>
 </template>
