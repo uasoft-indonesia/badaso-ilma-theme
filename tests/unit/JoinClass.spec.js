@@ -13,6 +13,8 @@ describe("JoinCoursePage", () => {
             expect(findTitle().text()).toBe('Enter Code');
             expect(findSubTitle().exists()).toBe(true);
             expect(findSubTitle().text()).toBe('Class code provided by your teacher');
+
+            expect(wrapper.find('#code-form').exists()).toBe(true);
         });
     })
 });
