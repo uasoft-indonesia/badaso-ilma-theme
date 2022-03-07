@@ -1,5 +1,4 @@
 <template>
-  <v-app>
     <v-card
       class="mx-auto rounded-xl"
       max-width="253"
@@ -45,7 +44,6 @@
         </div>
       </v-expand-transition>
     </v-card>
-  </v-app>
 </template>
 
 <script>
