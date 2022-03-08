@@ -44,5 +44,10 @@
 <script>
 export default {
   components: {},
+  data: () => ({
+    code: '',
+    isFormValid: false,
+  }),
 };
+
 </script>
