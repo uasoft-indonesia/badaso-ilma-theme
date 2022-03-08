@@ -2,14 +2,13 @@ import {mount} from "@vue/test-utils";
 import JoinCourse from "../../src/resources/app/pages/JoinCourse";
 
 describe("JoinCoursePage", () => {
-  const wrapper = mount(JoinCourse, {});
-  const findTitle = () => wrapper.find('#title');
-  const findSubTitle = () => wrapper.find('#sub-title');
-  const findForm = () => wrapper.find('#code-form');
-  const findButton = () => wrapper.find('#join-btn');
-
   describe("when loaded", () => {
     it("should renders", () => {
+      const wrapper = mount(JoinCourse, {});
+      const findTitle = () => wrapper.find('#title');
+      const findSubTitle = () => wrapper.find('#sub-title');
+      const findForm = () => wrapper.find('#code-form');
+      const findButton = () => wrapper.find('#join-btn');
 
       expect(wrapper.find('#join-card').exists()).toBe(true);
       expect(findTitle().exists()).toBe(true);
