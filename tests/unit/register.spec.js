@@ -23,24 +23,32 @@ describe("Register", () => {
   describe("when filling the forms", () => {
     it("should show values on inputs", async () => {
       const fullnameInput = wrapper.find("#input-fullname");
-      await fullnameInput.setValue("test name");
-      expect(wrapper.find("#input-fullname").element.value).toBe("testname");
+      fullnameInput.setValue("test");
+      expect(wrapper.find("#input-fullname").element.value).toBe("test");
 
       const emailInput = wrapper.find("#input-email");
-      await emailInput.setValue("test name");
-      expect(wrapper.find("#input-email").element.value).toBe("testname");
+      emailInput.setValue("test@gmail.com");
+      expect(wrapper.find("#input-email").element.value).toBe("test@gmail.com");
 
       const usernameInput = wrapper.find("#input-username");
-      await usernameInput.setValue("test name");
-      expect(wrapper.find("#input-username").element.value).toBe("testname");
+      usernameInput.setValue("test");
+      expect(wrapper.find("#input-username").element.value).toBe("test");
 
       const passwordInput = wrapper.find("#input-fullname");
-      await passwordInput.setValue("test name");
-      expect(wrapper.find("#input-fullname").element.value).toBe("testname");
+      passwordInput.setValue("test");
+      expect(wrapper.find("#input-fullname").element.value).toBe("test");
 
       const passwordConfirmInput = wrapper.find("#input-fullname");
-      await passwordConfirmInput.setValue("test name");
-      expect(wrapper.find("#input-fullname").element.value).toBe("testname");
+      passwordConfirmInput.setValue("test");
+      expect(wrapper.find("#input-fullname").element.value).toBe("test");
+    });
+  });
+
+  describe("when filling the forms", () => {
+    let api 
+
+    it("should show values on inputs", async () => {
+      
     });
   });
 });

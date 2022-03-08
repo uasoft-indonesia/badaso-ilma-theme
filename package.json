@@ -28,6 +28,13 @@
       "json",
       "vue"
     ],
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/(?!(vuetify)/)"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tests/__mocks__/fileMock.js",
+      "\\.(css|sass)$": "<rootDir>/tests/__mocks__/styleMock.js"
+    },
     "testURL": "http://localhost/",
     "transform": {
       ".*\\.(vue)$": "@vue/vue2-jest",
@@ -41,7 +48,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.17.2",
-    "vue-router": "^4.0.13",
     "vuetify": "^2.6.3"
   }
 }
