@@ -1,7 +1,17 @@
-import {mount} from "@vue/test-utils";
+import Vue from 'vue';
+import Vuetify from 'vuetify';
+
+import {createLocalVue, mount} from "@vue/test-utils";
 import JoinCourse from "../../src/resources/app/pages/JoinCourse";
 
+const localVue = createLocalVue();
+
 describe("JoinCoursePage", () => {
+  let vuetify;
+  beforeEach(() => {
+    vuetify = new Vuetify();
+  })
+
   describe("when loaded", () => {
     it("should renders", () => {
       const wrapper = mount(JoinCourse, {});
@@ -22,4 +32,17 @@ describe("JoinCoursePage", () => {
       expect(findButton().attributes().disabled).toBe("true");
     });
   });
+
+  describe("when form is not empty", () => {
+    it("should enable join button" , async () => {
+      const wrapper = mount(JoinCourse, {
+        localVue,
+        vuetify,
+      });
+
+      wrapper.setData({code: '992044'});
+      expect(wrapper.vm.code).toBe('992044');
+      expect(wrapper.vm.isFormValid).toBe(false);
+    })
+  })
 });
