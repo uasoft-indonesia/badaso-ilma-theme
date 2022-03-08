@@ -8,6 +8,8 @@ describe("PeopleInCourse", () => {
             expect(wrapper.find('#title').exists()).toBe(true);
             expect(wrapper.findAll('#title').at(0).text()).toContain('Teachers');
             expect(wrapper.findAll('#title').at(1).text()).toContain('Classmates');
+            expect(wrapper.findAll('#name').exists()).toBe(true);
+            expect(wrapper.findAll('#avatar').exists()).toBe(true);
         });
     })
 });
