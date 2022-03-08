@@ -6,6 +6,12 @@
         <div
             class="h-48 bg-light font-semibold text-primary flex flex-col items-center"
         >
+            <div 
+            id="add-course-tag"
+            class="text-base mb-5 mt-12"
+            >
+            Add Course
+            </div>
             
         </div>  
     </v-card>
