@@ -10,6 +10,12 @@ describe("AddCourseCard Component", () => {
             const findAddCourse = () => wrapper.find('#add-course-tag');
             expect(findAddCourse().exists()).toBe(true);
             expect(findAddCourse().text()).toBe('Add Course');
+
+            const findCreateButton = () => wrapper.find('#create-btn');
+            expect(findCreateButton().exists()).toBe(true);
+
+            const findJoinButton = () => wrapper.find('#join-btn');
+            expect(findJoinButton().exists()).toBe(true);
         });
     })
 });
