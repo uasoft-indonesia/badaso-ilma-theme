@@ -1,18 +1,33 @@
 <template>
     <v-card
-      class="mx-auto rounded-xl"
+      class="mx-auto rounded-3xl"
       width="253"
     >
       <div
         class="bg-primary h-24 font-semibold text-base text-slate-50"
       >
-        <div 
-          class="pl-5 pt-5 text-base"
-          id="course-name"
-        >Software Engineering</div>
-      </div>
+        <div class="flex flex-row">
+          <div 
+            class="pl-5 pt-5 text-base"
+            id="course-name"
+          >
+            Software Engineering
+          </div>
+          <button class="flex flex-col items-end space-x-0 space-y-0 pr-1 pt-5">
+            <div class="rotate-90 font-bold">
+              ...
+            </div>
+          </button>
+        </div>
 
-      <!--buletan syaiton-->
+        <!--buletan syaiton-->
+        <div class="flex flex-row-reverse">
+          <v-avatar
+            class="bg-gray z-0 mt-5 mr-5"
+            size="60"
+          ></v-avatar>
+        </div>
+      </div>
 
       <div class="m-3">
 
