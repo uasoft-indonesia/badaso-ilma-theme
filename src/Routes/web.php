@@ -13,3 +13,4 @@ Route::prefix($lms_route_prefix)
         Route::get('/', [InertiaController::class, 'home']);
         Route::get('/landing', [InertiaController::class, 'viewCourse']);
     });
+    
