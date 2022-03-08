@@ -8,8 +8,8 @@ describe("CourseCard Component", () => {
         it("should renders", () => {
             const wrapper = mount(ViewCourse, {});
 
-            const findRoom = () => wrapper.find('#course-card');
-            expect(findRoom().exists()).toBe(true);
+            const findCard1 = () => wrapper.find('#course-card');
+            expect(findCard1().exists()).toBe(true);
         });
     })
 });
