@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Uasoft\Badaso\Theme\LMSTheme\Middlewares\HandleInertiaRequests;
 use Uasoft\Badaso\Theme\LMSTheme\Controllers\InertiaController;
+use Uasoft\Badaso\Theme\LMSTheme\Middlewares\HandleInertiaRequests;
 
 $lms_route_prefix = config('badaso-lms-theme.lms_theme_prefix');
 
