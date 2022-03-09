@@ -20,18 +20,27 @@
           Class code provided by your teacher
         </div>
         <div>
-          <v-text-field
-            id="code-form"
-            label="Class Code"
-            outlined
-          ></v-text-field>
+          <v-form
+            v-model="isFormValid"
+            ref="form"
+          >
+            <v-text-field
+              id="code-form"
+              label="Class Code"
+              v-model="code"
+              :rules="joinCodeRules"
+              required
+              outlined
+            ></v-text-field>
+          </v-form>
         </div>
         <div class="mt-3 flex justify-end">
           <v-btn
             id="join-btn"
             depressed
             color=primary
-            :disabled=false
+            type="submit"
+            :disabled="!isFormValid"
           >
             Join
           </v-btn>
@@ -47,6 +56,7 @@ export default {
   data: () => ({
     code: '',
     isFormValid: false,
+    joinCodeRules: [(v) => !!v || "Class code is required"]
   }),
 };
 
