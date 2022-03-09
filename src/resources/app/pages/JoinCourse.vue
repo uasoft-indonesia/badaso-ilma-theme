@@ -19,11 +19,11 @@
         >
           Class code provided by your teacher
         </div>
-        <div>
-          <v-form
-            v-model="isFormValid"
-            ref="form"
-          >
+        <v-form
+          v-model="isFormValid"
+          ref="form"
+        >
+          <div>
             <v-text-field
               id="code-form"
               label="Class Code"
@@ -32,25 +32,28 @@
               required
               outlined
             ></v-text-field>
-          </v-form>
-        </div>
-        <div class="mt-3 flex justify-end">
-          <v-btn
-            id="join-btn"
-            depressed
-            color=primary
-            type="submit"
-            :disabled="!isFormValid"
-          >
-            Join
-          </v-btn>
-        </div>
+          </div>
+          <div class="mt-3 flex justify-end">
+            <v-btn
+              id="join-btn"
+              depressed
+              color=primary
+              @click="submit"
+              :disabled="!isFormValid"
+            >
+              Join
+            </v-btn>
+          </div>
+        </v-form>
       </v-card>
     </div>
   </v-app>
 </template>
 
 <script>
+import api from "../../api/joinCourse";
+
+
 export default {
   components: {},
   data: () => ({
@@ -58,6 +61,23 @@ export default {
     isFormValid: false,
     joinCodeRules: [(v) => !!v || "Class code is required"]
   }),
+  methods: {
+    validate() {
+      this.$refs.form.validate();
+    },
+    async submit() {
+      this.validate();
+      if (this.isFormValid) {
+        try {
+          let res = await api.joinCourse({
+            code: this.code
+          });
+        } catch (e) {
+          console.log(e);
+        }
+      }
+    }
+  }
 };
 
 </script>
