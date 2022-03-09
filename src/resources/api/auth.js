@@ -4,7 +4,7 @@ let apiPrefix = "/badaso-api";
 
 export default {
   register(data) {
-    let ep = apiPrefix + "/module/lms/v1/user/register";
+    let ep = apiPrefix + "/module/lms/v1/auth/register";
     let response = api.post(ep, data);
     response.then((res) => {
       if (res.data.accessToken) {
