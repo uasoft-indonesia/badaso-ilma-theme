@@ -17,4 +17,8 @@ class InertiaController extends Controller
         return Inertia::render('register', [], 'lms-theme::app');
     }
 
+    public function login()
+    {
+        return Inertia::render('login', [], 'lms-theme:app');
+    }
 }
