@@ -1,7 +1,6 @@
 import { mount } from "@vue/test-utils";
 import AddCourseCard from "../../src/resources/app/components/AddCourseCard";
 
-// every test file should include AT LEAST ONE "describe()", "it()", and "expect()"
 describe("AddCourseCard Component", () => {
     describe("when loaded", () => {
         it("should renders", () => {
