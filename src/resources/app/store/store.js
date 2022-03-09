@@ -6,7 +6,11 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   namespaced: true,
-  state: {},
+  state: {
+    isAuthenticated: false,
+    user: {},
+    token: {},
+  },
   mutations: {},
   actions: {},
   getters: {
