@@ -8,4 +8,9 @@ export default {
     let response = api.post(ep, data);
     return response;
   },
+  async login(data) {
+    let ep = apiPrefix + "login";
+    let response = await api.post(ep, data);
+    return response;
+  },
 };
