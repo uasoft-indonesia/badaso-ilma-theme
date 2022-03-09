@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.17.2",
+    "axios": "^0.26.0",
     "vuetify": "^2.6.3"
   }
 }
