@@ -41,7 +41,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.17.2",
-    "vue-router": "^4.0.13",
     "vuetify": "^2.6.3"
   }
 }
