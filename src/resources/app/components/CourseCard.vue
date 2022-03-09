@@ -20,7 +20,6 @@
           </button>
         </div>
 
-        <!--buletan syaiton-->
         <div class="flex flex-row-reverse">
           <v-avatar
             class="bg-gray z-0 mt-5 mr-5"
