@@ -101,6 +101,9 @@ export default {
 };
 </script>
 
+// ToDo (opal): redirect to home page, dont allow to enter if already
+authenticated
+
 <style>
 #background-photo {
   position: absolute;
