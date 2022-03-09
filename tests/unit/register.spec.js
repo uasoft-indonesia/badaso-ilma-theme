@@ -6,8 +6,7 @@ jest.mock('../../src/resources/api/auth');
 describe("Register", () => {
 
   describe("when loaded", () => {
-    const wrapper = mount(Register, {
-    });
+    const wrapper = mount(Register, {});
     it("has all of the required elements", () => {
       expect(wrapper.find("#input-fullname").exists()).toBe(true);
       expect(wrapper.find("#input-username").exists()).toBe(true);
