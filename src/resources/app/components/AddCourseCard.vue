@@ -38,8 +38,8 @@
 
 <script>
   export default {
-	data: () => ({
-		show: false,
-	}),
+    data: () => ({
+      show: false,
+    }),
   }
 </script>
