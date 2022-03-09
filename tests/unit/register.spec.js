@@ -1,6 +1,8 @@
 import { mount } from "@vue/test-utils";
 import Register from "../../src/resources/app/pages/register.vue";
 
+jest.mock('../../src/resources/api/auth');
+
 describe("Register", () => {
 
   describe("when loaded", () => {
