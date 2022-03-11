@@ -34,7 +34,6 @@ export default (error) => {
         "Data cannot load because internet of you not connected. Please to you connect internet again!",
       errors: [],
     });
-    return Promise.reject(data);
   }
 
   return Promise.reject({});
