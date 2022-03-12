@@ -58,12 +58,17 @@
             color="primary"
             id="btn-register"
           >
-            Register
+            <span v-if="!loading"> Register </span>
+            <span v-else>
+              <v-icon dark class="animate-spin" id="loading-icon">
+                mdi-loading
+              </v-icon>
+            </span>
           </v-btn>
 
           <v-btn
             class="mt-4"
-            @click="validate"
+            @click="redirect"
             width="100%"
             depressed
             id="btn-login"
@@ -73,16 +78,19 @@
         </div>
       </v-form>
     </v-card>
-    <img :src="backgroundImage" id="background-photo" />
+    <img :src="backgroundImage" id="background-photo" alt="background" />
   </v-app>
 </template>
 
 <script>
 import api from "../../api/auth";
+import NotAuthenticated from "../components/Layout/NotAuthenticated.vue";
 
 export default {
+  layout: [NotAuthenticated],
   data() {
     return {
+      loading: false,
       valid: true,
       fullname: "",
       fullNameRules: [(v) => !!v || "Name is required"],
@@ -92,7 +100,11 @@ export default {
         (v) => /.+@.+\..+/.test(v) || "Email must be valid",
       ],
       username: "",
-      usernameRules: [(v) => !!v || "Username is required"],
+      usernameRules: [
+        (v) => !!v || "Username is required",
+        (v) =>
+          (v && v.length >= 4) || "Username must be at least 4 characters long",
+      ],
       password: "",
       passwordRules: [(v) => !!v || "Password is required"],
       passwordConfirmation: "",
@@ -116,18 +128,26 @@ export default {
     async submit() {
       this.validate();
       if (this.valid) {
+        this.loading = true;
         try {
-          res = await api.register({
+          const res = await api.register({
             name: this.fullname,
             username: this.username,
             email: this.email,
             password: this.password,
             password_confirmation: this.passwordConfirmation,
           });
+          this.$vToastify.success("Registration success");
+          this.redirect();
         } catch (e) {
           console.log(e);
+          this.$vToastify.error("Error while registering account");
         }
+        this.loading = false;
       }
+    },
+    redirect() {
+      this.$inertia.visit("/login");
     },
   },
 };
