@@ -3,21 +3,9 @@ import api from "./config";
 let apiPrefix = "/badaso-api";
 
 export default {
-  register(data) {
-    let ep = apiPrefix + "/module/lms/v1/auth/register";
-    let response = api.post(ep, data);
-    response.then((res) => {
-      if (res.data.accessToken) {
-        let token = res.data.accessToken;
-        localStorage.setItem("token", token);
-        let date = new Date();
-        let timeNow = date.getTime();
-        localStorage.setItem(
-          window.btoa("tokenAccessTime"),
-          window.btoa(timeNow)
-        );
-      }
-    });
+  async register(data) {
+    let url = apiPrefix + "/module/lms/v1/auth/register";
+    let response = await api.post(url, data);
     return response;
   },
 };
