@@ -52,13 +52,13 @@
 
           <v-btn
             @click="submit"
-            :disabled="!valid"
+            :disabled="!valid || loading"
             width="100%"
             depressed
             color="primary"
             id="btn-register"
           >
-            <span v-if="!loading"> Register </span>
+            <span v-if="!loading">Register</span>
             <span v-else>
               <v-icon dark class="animate-spin" id="loading-icon">
                 mdi-loading
@@ -71,6 +71,7 @@
             @click="redirect"
             width="100%"
             depressed
+            color="light"
             id="btn-login"
           >
             Login
@@ -91,7 +92,7 @@ export default {
   data() {
     return {
       loading: false,
-      valid: true,
+      valid: false,
       fullname: "",
       fullNameRules: [(v) => !!v || "Name is required"],
       email: "",
@@ -110,8 +111,8 @@ export default {
       passwordConfirmation: "",
       passwordConfirmationRules: [
         (v) => !!v || "Password is required",
-        (v) => {
-          if (this.password === v) {
+        () => {
+          if (this.password === this.passwordConfirmation) {
             return true;
           } else {
             return "Passwords does not match.";
@@ -158,5 +159,9 @@ export default {
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+#btn-login {
+  color: #06bbd3;
 }
 </style>
