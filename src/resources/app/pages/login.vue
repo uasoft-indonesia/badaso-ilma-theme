@@ -63,8 +63,10 @@
 
 <script>
 import api from "../../api/auth";
+import NotAuthenticated from "../components/Layout/NotAuthenticated.vue";
 
 export default {
+  layout: [NotAuthenticated],
   data() {
     return {
       loading: false,
