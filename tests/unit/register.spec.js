@@ -1,10 +1,9 @@
 import { mount } from "@vue/test-utils";
 import Register from "../../src/resources/app/pages/register.vue";
 
-jest.mock('../../src/resources/api/auth');
+jest.mock("../../src/resources/api/auth");
 
 describe("Register", () => {
-
   describe("when loaded", () => {
     const wrapper = mount(Register, {});
     it("has all of the required elements", () => {
@@ -17,6 +16,50 @@ describe("Register", () => {
       expect(wrapper.find("#btn-register").text()).toContain("Register");
       expect(wrapper.find("#btn-login").exists()).toBe(true);
       expect(wrapper.find("#btn-login").text()).toContain("Login");
+    });
+  });
+
+  describe("when sending request", () => {
+    const wrapper = mount(Register, {
+      data() {
+        return {
+          loading: false,
+          valid: true,
+          fullname: "test",
+          fullNameRules: [(v) => !!v || "Name is required"],
+          email: "test@gmail.com",
+          emailRules: [
+            (v) => !!v || "Email is required",
+            (v) => /.+@.+\..+/.test(v) || "Email must be valid",
+          ],
+          username: "test",
+          usernameRules: [
+            (v) => !!v || "Username is required",
+            (v) =>
+              (v && v.length >= 4) ||
+              "Username must be at least 4 characters long",
+          ],
+          password: "test",
+          passwordRules: [(v) => !!v || "Password is required"],
+          passwordConfirmation: "test",
+          passwordConfirmationRules: [
+            (v) => !!v || "Password is required",
+            (v) => {
+              if (this.password === v) {
+                return true;
+              } else {
+                return "Passwords does not match.";
+              }
+            },
+          ],
+          backgroundImage: "../../assets/undraw_on_the_office_re_cxds.svg",
+        };
+      },
+    });
+
+    it("should show loading on button", async () => {
+      await wrapper.setData({ loading: true });
+      expect(wrapper.find("#loading-icon").exists()).toBe(true);
     });
   });
 });
