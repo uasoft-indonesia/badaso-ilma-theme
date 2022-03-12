@@ -31,13 +31,18 @@
           <v-btn
             class="mb-4"
             @click="login"
-            :disabled="!valid"
+            :disabled="!valid || loading"
             width="100%"
             color="primary"
             depressed
             id="btn-login"
           >
-            Login
+            <span v-if="!loading">Login</span>
+            <span v-else>
+              <v-icon dark class="animate-spin" id="loading-icon">
+                mdi-loading
+              </v-icon>
+            </span>
           </v-btn>
 
           <v-btn
@@ -62,6 +67,7 @@ import api from "../../api/auth";
 export default {
   data() {
     return {
+      loading: false,
       valid: true,
       email: "",
       emailRules: [
@@ -81,6 +87,7 @@ export default {
     async login() {
       this.validate();
       if (this.valid) {
+        this.loading = true;
         try {
           const res = await api.login({
             email: this.email,
@@ -90,19 +97,18 @@ export default {
             this.$store.dispatch("SET_IS_AUTHENTICATED", true);
             this.$store.dispatch("SET_USER", res.data.user);
             localStorage.setItem("token", res.data.accessToken);
-            window.location.href = "/";
+            this.$vToastify.success("Login successfull");
+            this.$inertia.visit("/");
           }
         } catch (e) {
-          alert(e);
+          this.$vToastify.error("Login failed, please try again later");
         }
+        this.loading = false;
       }
     },
   },
 };
 </script>
-
-// ToDo (opal): redirect to home page, dont allow to enter if already
-authenticated
 
 <style>
 #background-photo {
