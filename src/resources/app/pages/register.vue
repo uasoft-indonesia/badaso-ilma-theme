@@ -138,7 +138,9 @@ export default {
             password: this.password,
             password_confirmation: this.passwordConfirmation,
           });
-          this.$vToastify.success("Registration success");
+          this.$vToastify.success(
+            "Registration successfull, please log in to the application"
+          );
           this.redirect();
         } catch (e) {
           console.log(e);
