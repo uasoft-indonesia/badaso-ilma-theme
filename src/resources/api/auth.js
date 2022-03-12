@@ -1,11 +1,16 @@
 import api from "./config";
 
-let apiPrefix = "/badaso-api";
+const apiPrefix = "/badaso-api/module/lms/v1/auth/";
 
 export default {
   async register(data) {
-    let url = apiPrefix + "/module/lms/v1/auth/register";
-    let response = await api.post(url, data);
+    const endPoint = apiPrefix + "register";
+    const response = await api.post(endPoint, data);
+    return response;
+  },
+  async login(data) {
+    const endPoint = apiPrefix + "login";
+    const response = await api.post(endPoint, data);
     return response;
   },
 };
