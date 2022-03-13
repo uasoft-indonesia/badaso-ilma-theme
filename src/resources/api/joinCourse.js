@@ -14,7 +14,7 @@ export default {
         throw response.errors;
       }
 
-      data = payload.data;
+      data = response.data;
     } catch (e) {
       error = e;
       errorMessage = "Code is invalid or you've been registered";
