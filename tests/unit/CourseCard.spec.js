@@ -1,24 +1,58 @@
-import { mount } from "@vue/test-utils";
+import Vuetify from "vuetify";
+import { mount, createLocalVue } from "@vue/test-utils";
+
 import CourseCard from "../../src/resources/app/components/CourseCard";
 
+const localVue = createLocalVue();
+
 describe("CourseCard Component", () => {
+  let vuetify;
+
+  beforeEach(() => {
+    vuetify = new Vuetify();
+  });
+
   describe("when loaded", () => {
     it("should renders", () => {
-      const wrapper = mount(CourseCard, {});
+      const wrapper = mount(CourseCard, {
+        localVue,
+        vuetify,
+      });
 
-      const findRoom = () => wrapper.find('#room-tag');
+      const findRoom = () => wrapper.find("#room-tag");
       expect(findRoom().exists()).toBe(true);
-      expect(findRoom().text()).toBe('Room');
+      expect(findRoom().text()).toBe("Room");
 
-      const findClassroom = () => wrapper.find('#classroom');
+      const findClassroom = () => wrapper.find("#classroom");
       expect(findClassroom().exists()).toBe(true);
 
-      const findTeacher = () => wrapper.find('#teacher-name');
+      const findTeacher = () => wrapper.find("#teacher-name");
       expect(findTeacher().exists()).toBe(true);
 
-      const findCourseName = () => wrapper.find('#course-name');
+      const findCourseName = () => wrapper.find("#course-name");
       expect(findCourseName().exists()).toBe(true);
-      
     });
-  })
+  });
+
+  describe("when course card clicked", () => {
+    it("shoul redirect to course page", async () => {
+      Object.defineProperty(window, "location", {
+        writable: true,
+        value: { assign: jest.fn() },
+      });
+
+      const wrapper = mount(CourseCard, {
+        localVue,
+        vuetify,
+        propsData: {
+          courseId: 1,
+        },
+      });
+
+      wrapper.find(".v-card").vm.$emit("click");
+      await wrapper.vm.$nextTick();
+
+      expect(window.location.assign).toHaveBeenCalledWith("/course/1");
+    });
+  });
 });
