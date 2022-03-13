@@ -11,13 +11,13 @@
       />
       <div v-for="post in posts" v-bind:key="post.id">
         <Card 
-        :course-name="post.name"
-        :room-num="post.room"
-        :teacher-name="post.createdBy"
+          :course-name="post.name"
+          :room-num="post.room"
+          :teacher-name="post.createdBy"
 
-        id="course-card"
-        class="mb-10"
-      />
+          id="course-card"
+          class="mb-10"
+        />
       </div>
       
 
