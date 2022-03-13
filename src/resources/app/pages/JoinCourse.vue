@@ -1,5 +1,14 @@
 <template>
   <v-app>
+    <v-snackbar v-model="snackbar.isVisible" :timeout="3000" top>
+      {{ snackbar.text }}
+      <template v-slot:action="{ attrs }">
+        <v-btn color="blue" text v-bind="attrs" @click="snackbar.isVisible = false">
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
+
     <div class="flex justify-center items-center">
       <v-card
         id="join-card"
@@ -53,10 +62,18 @@
 <script>
 import api from "../../api/joinCourse";
 
-
 export default {
   components: {},
+  beforeCreate() {
+    if (!this.$store.state.isAuthenticated) {
+      window.location.assign("/login");
+    }
+  },
   data: () => ({
+    snackbar: {
+      isVisible: false,
+      text: "",
+    },
     code: '',
     isFormValid: false,
     joinCodeRules: [(v) => !!v || "Class code is required"]
@@ -65,18 +82,30 @@ export default {
     validate() {
       this.$refs.form.validate();
     },
+
     async submit() {
       this.validate();
       if (this.isFormValid) {
-        try {
-          let res = await api.joinCourse({
-            code: this.code
-          });
-        } catch (e) {
-          console.log(e);
+        const { data, error, errorMessage } = await api.joinCourse({
+          code: this.code
+        });
+
+        if  (error) {
+          this.showSnackbar(errorMessage);
+        } else {
+          window.location.assign("/course" + data.id);
         }
       }
-    }
+    },
+
+    showSnackbar(text) {
+      this.snackbar.text = text;
+      this.snackbar.isVisible = true;
+    },
+
+    actionBackToHomepage() {
+      window.location.assign("/");
+    },
   }
 };
 
