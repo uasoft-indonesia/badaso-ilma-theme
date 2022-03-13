@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 
 class LMSThemeSetup extends Command
 {
-     protected $file;
+    protected $file;
     /**
      * The console command name.
      *
@@ -130,7 +130,7 @@ class LMSThemeSetup extends Command
 
             $this->info('Adding badaso env');
         } catch (\Exception $e) {
-            $this->error('Failed adding badaso env '.$e->getMessage());
+            $this->error('Failed adding badaso env ' . $e->getMessage());
         }
     }
 

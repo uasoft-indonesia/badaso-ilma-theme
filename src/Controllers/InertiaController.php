@@ -2,8 +2,8 @@
 
 namespace Uasoft\Badaso\Theme\LMSTheme\Controllers;
 
-use Inertia\Inertia;
 use App\Http\Controllers\Controller;
+use Inertia\Inertia;
 
 class InertiaController extends Controller
 {
