@@ -1,30 +1,20 @@
 <template>
   <div class="screen mx-16">
-    <div
-      class="h-16"
-    ></div>
-    <div
-      class="flex flex-row flex-wrap items-start space-x-10"
-    >
-      <div 
-        class="m-0"
-      />
+    <div class="h-16"></div>
+    <div class="flex flex-row flex-wrap items-start space-x-10">
+      <div class="m-0" />
       <div v-for="post in posts" v-bind:key="post.id">
-        <CourseCard 
+        <CourseCard
           :course-id="post.id"
           :course-name="post.name"
           :room-num="post.room"
           :teacher-name="post.createdBy"
-
           id="course-card"
           class="mb-10"
         />
       </div>
 
-      <AddCourseCard 
-        id="add-course-card"
-        class="mb-10"
-      />
+      <AddCourseCard id="add-course-card" class="mb-10" />
     </div>
   </div>
 </template>
@@ -35,22 +25,27 @@ import CourseCard from "../components/CourseCard.vue";
 import api from "../../api/view";
 
 export default {
+  beforeCreate() {
+    if (!this.$store.state.isAuthenticated) {
+      window.location.assign("/login");
+    }
+  },
 
   data() {
     return {
       posts: [
         {
-            "id": 0,
-            "name": "Placeholder",
-            "subject": "Placeholder",
-            "room": "R-00",
-            "joinCode": "R00M00",
-            "createdBy": 1,
-            "createdAt": null,
-            "updatedAt": null
+          id: 0,
+          name: "Placeholder",
+          subject: "Placeholder",
+          room: "R-00",
+          joinCode: "R00M00",
+          createdBy: 1,
+          createdAt: null,
+          updatedAt: null,
         },
       ],
-    }
+    };
   },
 
   methods: {
