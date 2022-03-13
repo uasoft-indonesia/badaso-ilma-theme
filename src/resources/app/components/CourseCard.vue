@@ -1,6 +1,7 @@
 <template>
   <v-card
-    class="mx-auto rounded-3xl"
+    data-testid="course-card"
+    class="mx-auto rounded-3xl course-card"
     width="253"
     @click="actionRedirectToCoursePage(courseId)"
   >
@@ -33,7 +34,12 @@
 
 <script>
 export default {
-  props: ["courseId", "courseName", "roomNum", "teacherName"],
+  props: [
+    "courseId",
+    "courseName",
+    "roomNum",
+    "teacherName",
+  ],
   methods: {
     actionRedirectToCoursePage(id) {
       window.location.assign(`/course/${id}`);
