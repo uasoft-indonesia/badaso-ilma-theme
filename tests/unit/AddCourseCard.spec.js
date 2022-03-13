@@ -16,5 +16,19 @@ describe("AddCourseCard Component", () => {
       const findJoinButton = () => wrapper.find('#join-btn');
       expect(findJoinButton().exists()).toBe(true);
     });
-  })
+  });
+
+  describe("when create button clicked", () => {
+    it("should redirect to create course page", () => {
+      Object.defineProperty(window, "location", {
+        writable: true,
+        value: { assign: jest.fn() },
+      });
+
+      const wrapper = mount(AddCourseCard, {});
+
+      wrapper.find('#create-btn').trigger('click');
+      expect(window.location.assign).toHaveBeenCalledWith('/course/create');
+    });
+  });
 });
