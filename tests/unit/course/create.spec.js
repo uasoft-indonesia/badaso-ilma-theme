@@ -89,4 +89,36 @@ describe("CreateCourse.vue", () => {
       expect(window.location.assign).toHaveBeenCalledWith("/course/1");
     });
   });
+
+  describe("when submission is failed", () => {
+    it("should display snackbar with error message", async () => {
+      const wrapper = mount(CreateCourse, {
+        localVue,
+        vuetify,
+      });
+
+      createCourse.mockReturnValueOnce({
+        data: null,
+        error: true,
+        errorMessage: "Test Error",
+      });
+
+      wrapper.setData({
+        form: {
+          values: {
+            name: "Test Course",
+            subject: "Test Subject",
+            room: "Test Room",
+          },
+        },
+      });
+
+      expect(wrapper.vm.snackbar.isVisible).toBe(false);
+      wrapper.find("#create-btn").vm.$emit("click");
+      await wrapper.vm.$nextTick();
+
+      expect(wrapper.vm.snackbar.isVisible).toBe(true);
+      expect(wrapper.vm.snackbar.text).toBe("Test Error");
+    });
+  })
 });
