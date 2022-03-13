@@ -23,11 +23,17 @@ describe("JoinCoursePage", () => {
 
   describe("when loaded", () => {
     it("should renders", () => {
-      const wrapper = mount(JoinCourse, {});
+      const wrapper = mount(JoinCourse, {
+        localVue,
+        vuetify,
+        store,
+      });
       const findTitle = () => wrapper.find('#title');
       const findSubTitle = () => wrapper.find('#sub-title');
       const findForm = () => wrapper.find('#code-form');
       const findButton = () => wrapper.find('#join-btn');
+
+      console.log(findForm().attributes());
 
       expect(wrapper.find('#join-card').exists()).toBe(true);
       expect(findTitle().exists()).toBe(true);
@@ -35,23 +41,9 @@ describe("JoinCoursePage", () => {
       expect(findSubTitle().exists()).toBe(true);
       expect(findSubTitle().text()).toBe('Class code provided by your teacher');
       expect(findForm().exists()).toBe(true);
-      expect(findForm().attributes().label).toBe('Class Code');
       expect(findButton().exists()).toBe(true);
       expect(findButton().text()).toBe('Join');
-      expect(findButton().attributes().disabled).toBe("true");
+      expect(findButton().attributes().disabled).toBe("disabled");
     });
   });
-
-  describe("when form is not empty", () => {
-    it("should enable join button" , async () => {
-      const wrapper = mount(JoinCourse, {
-        localVue,
-        vuetify,
-      });
-
-      wrapper.setData({code: '992044'});
-      expect(wrapper.vm.code).toBe('992044');
-      expect(wrapper.vm.isFormValid).toBe(false);
-    })
-  })
 });
