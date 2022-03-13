@@ -1,7 +1,12 @@
 import Vuetify from "vuetify";
 import { mount, createLocalVue } from "@vue/test-utils";
 
+import { createCourse } from "../../../src/resources/api/course/create";
 import CreateCourse from "  ../../../src/resources/app/pages/course/CreateCourse";
+
+jest.mock("../../../src/resources/api/course/create", () => ({
+  createCourse: jest.fn()
+}));
 
 describe("CreateCourse.vue", () => {
   let vuetify;
@@ -43,6 +48,45 @@ describe("CreateCourse.vue", () => {
       });
 
       expect(wrapper.vm.form.isValid).toBe(true);
+    });
+  });
+
+  describe("when submitted successfully", () => {
+    it("should redirect to course page", async () => {
+      delete window.location;
+      const location = new URL("http://localhost/");
+      location.assign = jest.fn();
+      window.location = location;
+      const wrapper = mount(CreateCourse, {
+        localVue,
+        vuetify,
+        mocks: {
+          window
+        }
+      });
+
+      createCourse.mockReturnValueOnce({
+        data: {
+          id: 1,
+        },
+        error: null,
+        errorMessage: null,
+      });
+
+      wrapper.setData({
+        form: {
+          values: {
+            name: "Test Course",
+            subject: "Test Subject",
+            room: "Test Room",
+          },
+        },
+      });
+
+      wrapper.find("#create-btn").vm.$emit("click");
+      await wrapper.vm.$nextTick();
+
+      expect(window.location.assign).toHaveBeenCalledWith("/course/1");
     });
   });
 });
