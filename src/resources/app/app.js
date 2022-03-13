@@ -3,9 +3,13 @@ import Vue from "vue";
 import Vuetify from "vuetify/lib";
 import vuetify from "../../plugins/vuetify";
 import "vuetify/dist/vuetify.min.css";
-import { createInertiaApp } from "@inertiajs/inertia-vue";
+import {
+  createInertiaApp,
+  plugin as InertiaPlugin,
+} from "@inertiajs/inertia-vue";
 
 Vue.use(Vuetify);
+Vue.use(InertiaPlugin);
 
 createInertiaApp({
   resolve: (name) => require(`./pages/${name}`),
