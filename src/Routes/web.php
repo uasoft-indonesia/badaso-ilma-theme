@@ -15,6 +15,6 @@ Route::prefix($lms_route_prefix)
         Route::get('/login', [InertiaController::class, 'login']);
 
         Route::prefix('/course')->as('course.')->group(function () {
-            Route::get('/course/{id}/people', [InertiaController::class, 'people']);
+            Route::get('/{id}/people', [InertiaController::class, 'people']);
         });
     });

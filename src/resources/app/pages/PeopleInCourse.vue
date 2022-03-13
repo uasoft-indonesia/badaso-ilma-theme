@@ -49,7 +49,6 @@ export default {
       try {
         const res = await api.people();
         this.peoples = res.data;
-        console.log(peoples);
       } catch (e) {
         console.log(e);
       }
