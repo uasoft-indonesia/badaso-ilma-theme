@@ -3,6 +3,14 @@ import { mount, createLocalVue } from "@vue/test-utils";
 
 import { createCourse } from "../../../src/resources/api/course/create";
 import CreateCourse from "  ../../../src/resources/app/pages/course/CreateCourse";
+import store from "../../../src/resources/app/store/store";
+
+Object.defineProperty(window, "location", {
+  writable: true,
+  value: { assign: jest.fn() },
+}); 
+
+const localVue = createLocalVue();
 
 jest.mock("../../../src/resources/api/course/create", () => ({
   createCourse: jest.fn()
@@ -10,7 +18,6 @@ jest.mock("../../../src/resources/api/course/create", () => ({
 
 describe("CreateCourse.vue", () => {
   let vuetify;
-  const localVue = createLocalVue();
 
   beforeEach(() => {
     vuetify = new Vuetify();
@@ -20,6 +27,7 @@ describe("CreateCourse.vue", () => {
     const wrapper = mount(CreateCourse, {
       localVue,
       vuetify,
+      store,
     });
 
     expect(wrapper.find("#title").text()).toBeTruthy();
@@ -35,6 +43,7 @@ describe("CreateCourse.vue", () => {
       const wrapper = mount(CreateCourse, {
         vuetify,
         localVue,
+        store,
       });
 
       wrapper.setData({
@@ -53,16 +62,13 @@ describe("CreateCourse.vue", () => {
 
   describe("when submitted successfully", () => {
     it("should redirect to course page", async () => {
-      delete window.location;
-      const location = new URL("http://localhost/");
-      location.assign = jest.fn();
-      window.location = location;
       const wrapper = mount(CreateCourse, {
         localVue,
         vuetify,
+        store,
         mocks: {
-          window
-        }
+          window,
+        },
       });
 
       createCourse.mockReturnValueOnce({
@@ -95,6 +101,7 @@ describe("CreateCourse.vue", () => {
       const wrapper = mount(CreateCourse, {
         localVue,
         vuetify,
+        store,
       });
 
       createCourse.mockReturnValueOnce({
@@ -124,16 +131,13 @@ describe("CreateCourse.vue", () => {
 
   describe("when cancel button is clicked", () => {
     it("should redirect to home page", async () => {
-      delete window.location;
-      const location = new URL("http://localhost/");
-      location.assign = jest.fn();
-      window.location = location;
       const wrapper = mount(CreateCourse, {
         localVue,
         vuetify,
+        store,
         mocks: {
-          window
-        }
+          window,
+        },
       });
 
       wrapper.find("#cancel-btn").vm.$emit("click");
