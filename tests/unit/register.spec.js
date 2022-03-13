@@ -1,46 +1,24 @@
-import { mount } from "@vue/test-utils";
+import { mount, createLocalVue } from "@vue/test-utils";
+import Vuetify from "vuetify";
 import Register from "../../src/resources/app/pages/register.vue";
 
-jest.mock("../../src/resources/api/auth");
+jest.mock('../../src/resources/api/auth');
+const localVue = createLocalVue();
 
 describe("Register", () => {
+  let vuetify;
+
+  beforeEach(() => {
+    vuetify = new Vuetify();
+  });
+
   describe("when loaded", () => {
-    const wrapper = mount(Register, {
-      data() {
-        return {
-          loading: false,
-          valid: true,
-          fullname: "test",
-          fullNameRules: [(v) => !!v || "Name is required"],
-          email: "test@gmail.com",
-          emailRules: [
-            (v) => !!v || "Email is required",
-            (v) => /.+@.+\..+/.test(v) || "Email must be valid",
-          ],
-          username: "test",
-          usernameRules: [
-            (v) => !!v || "Username is required",
-            (v) =>
-              (v && v.length >= 4) ||
-              "Username must be at least 4 characters long",
-          ],
-          password: "test",
-          passwordRules: [(v) => !!v || "Password is required"],
-          passwordConfirmation: "test",
-          passwordConfirmationRules: [
-            (v) => !!v || "Password is required",
-            (v) => {
-              if (this.password === v) {
-                return true;
-              } else {
-                return "Passwords does not match.";
-              }
-            },
-          ],
-        };
-      },
-    });
     it("has all of the required elements", () => {
+      const wrapper = mount(Register, {
+        localVue,
+        vuetify,
+      });
+
       expect(wrapper.find("#input-fullname").exists()).toBe(true);
       expect(wrapper.find("#input-username").exists()).toBe(true);
       expect(wrapper.find("#input-email").exists()).toBe(true);
@@ -54,43 +32,17 @@ describe("Register", () => {
   });
 
   describe("when sending request", () => {
-    const wrapper = mount(Register, {
-      data() {
-        return {
-          loading: false,
-          valid: true,
-          fullname: "test",
-          fullNameRules: [(v) => !!v || "Name is required"],
-          email: "test@gmail.com",
-          emailRules: [
-            (v) => !!v || "Email is required",
-            (v) => /.+@.+\..+/.test(v) || "Email must be valid",
-          ],
-          username: "test",
-          usernameRules: [
-            (v) => !!v || "Username is required",
-            (v) =>
-              (v && v.length >= 4) ||
-              "Username must be at least 4 characters long",
-          ],
-          password: "test",
-          passwordRules: [(v) => !!v || "Password is required"],
-          passwordConfirmation: "test",
-          passwordConfirmationRules: [
-            (v) => !!v || "Password is required",
-            (v) => {
-              if (this.password === v) {
-                return true;
-              } else {
-                return "Passwords does not match.";
-              }
-            },
-          ],
-        };
-      },
-    });
-
+    
     it("should show loading on button", async () => {
+      const wrapper = mount(Register, {
+        localVue,
+        vuetify,
+        data() {
+          return {
+            loading: false,
+          };
+        },
+      });
       await wrapper.setData({ loading: true });
       expect(wrapper.find("#loading-icon").exists()).toBe(true);
     });

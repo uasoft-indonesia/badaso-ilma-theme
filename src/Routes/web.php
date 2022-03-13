@@ -10,7 +10,12 @@ Route::prefix($lms_route_prefix)
     ->as('badaso.lms-theme.')
     ->middleware(['web', HandleInertiaRequests::class])
     ->group(function () {
-        Route::get('/', [InertiaController::class, 'home'])->name('home');
-        Route::get('/register', [InertiaController::class, 'register'])->name('register');
-        Route::get('/login', [InertiaController::class, 'login'])->name('login');
-    });
+        Route::get('/', [InertiaController::class, 'home']);
+        Route::get('/register', [InertiaController::class, 'register']);
+        Route::get('/login', [InertiaController::class, 'login']);
+
+        Route::prefix('/course')->as('course.')->group(function () {
+            Route::get('/create', [InertiaController::class, 'createCourse']);
+        });
+    }
+);
