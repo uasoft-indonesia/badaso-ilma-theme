@@ -1,8 +1,8 @@
 <?php
 
-use Uasoft\Badaso\Module\LMSModule\Helpers\Route as HelpersRoute;
-use Uasoft\Badaso\Theme\LMSTheme\Middlewares\HandleInertiaRequests;
+use Illuminate\Support\Facades\Route;
 use Uasoft\Badaso\Theme\LMSTheme\Controllers\InertiaController;
+use Uasoft\Badaso\Theme\LMSTheme\Middlewares\HandleInertiaRequests;
 
 $lms_route_prefix = config('badaso-lms-theme.lms_theme_prefix');
 
@@ -15,4 +15,10 @@ Route::prefix($lms_route_prefix)
         /* course routes */
         Route::get('/join', [InertiaController::class, 'joinCourse']);
         Route::get('/register', [InertiaController::class, 'register']);
-    });
+        Route::get('/login', [InertiaController::class, 'login']);
+
+        Route::prefix('/course')->as('course.')->group(function () {
+            Route::get('/create', [InertiaController::class, 'createCourse']);
+        });
+    }
+);

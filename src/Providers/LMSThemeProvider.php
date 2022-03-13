@@ -8,7 +8,6 @@ use Uasoft\Badaso\Theme\LMSTheme\Commands\LMSThemeSetup;
 use Uasoft\Badaso\Theme\LMSTheme\Facades\LMSTheme as FacadesLMSTheme;
 use Uasoft\Badaso\Theme\LMSTheme\LMSTheme;
 
-
 class LMSThemeProvider extends ServiceProvider
 {
     /**
