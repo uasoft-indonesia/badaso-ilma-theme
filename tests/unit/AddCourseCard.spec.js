@@ -31,4 +31,18 @@ describe("AddCourseCard Component", () => {
       expect(window.location.assign).toHaveBeenCalledWith('/course/create');
     });
   });
+
+  describe("when join button clicked", () => {
+    it("should redirect to join course page", () => {
+      Object.defineProperty(window, "location", {
+        writable: true,
+        value: { assign: jest.fn() },
+      });
+
+      const wrapper = mount(AddCourseCard, {});
+
+      wrapper.find('#join-btn').trigger('click');
+      expect(window.location.assign).toHaveBeenCalledWith('/course/join');
+    });
+  });
 });
