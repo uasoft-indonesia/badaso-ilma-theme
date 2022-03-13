@@ -12,4 +12,5 @@ Route::prefix($lms_route_prefix)
     ->group(function () {
         Route::get('/', [InertiaController::class, 'home']);
         Route::get('/course/{id}/people', [InertiaController::class, 'people']);
+        Route::get('/register', [InertiaController::class, 'register']);
     });
