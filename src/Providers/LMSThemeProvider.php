@@ -24,17 +24,17 @@ class LMSThemeProvider extends ServiceProvider
             return new LMSTheme();
         });
 
-        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'badaso-lms');
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'lms-theme');
-        $this->loadRoutesFrom(__DIR__ . '/../Routes/web.php');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'badaso-lms');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'lms-theme');
+        $this->loadRoutesFrom(__DIR__.'/../Routes/web.php');
 
         $this->publishes([
-            __DIR__ . '/../Seeder'                       => database_path('seeders/Badaso/LMSTheme'),
-            __DIR__ . '/../Config/badaso-lms-theme.php' => config_path('badaso-lms-theme.php'),
+            __DIR__.'/../Seeder'                       => database_path('seeders/Badaso/LMSTheme'),
+            __DIR__.'/../Config/badaso-lms-theme.php' => config_path('badaso-lms-theme.php'),
         ], 'BadasoLMSTheme');
 
         $this->publishes([
-            __DIR__ . '/../resources/views' => resource_path('views/vendor/uasoft-indonesia/lms-theme'),
+            __DIR__.'/../resources/views' => resource_path('views/vendor/uasoft-indonesia/lms-theme'),
         ], 'BadasoLMSThemeViews');
     }
 
