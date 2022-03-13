@@ -131,6 +131,8 @@ export default {
     },
 
     showSnackbar(text) {
+      this.snackbar.text = text;
+      this.snackbar.isVisible = true;
     },
     actionBackToHomepage() {
     },
