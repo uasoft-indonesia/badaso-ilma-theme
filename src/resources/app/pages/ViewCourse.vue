@@ -9,28 +9,18 @@
       <div 
         class="m-0"
       />
-      <Card 
+      <div v-for="post in posts" v-bind:key="post.id">
+        <Card 
+        :course-name="post.name"
+        :room-num="post.room"
+        :teacher-name="post.createdBy"
+
         id="course-card"
         class="mb-10"
       />
-      <Card 
-        class="mb-10"
-      />
-      <Card 
-        class="mb-10"
-      />
-      <Card 
-        class="mb-10"
-      />
-      <Card 
-        class="mb-10"
-      />
-      <Card 
-        class="mb-10"
-      />
-      <Card 
-        class="mb-10"
-      />
+      </div>
+      
+
       <Add 
         id="add-course-card"
         class="mb-10"
@@ -42,8 +32,46 @@
 <script>
 import Card from "../components/CourseCard.vue";
 import Add from "../components/AddCourseCard.vue";
+import api from "../../api/view";
 
 export default {
+
+  data() {
+    return {
+      posts: [
+        {
+            "id": 0,
+            "name": "Placeholder",
+            "subject": "Placeholder",
+            "room": "R-00",
+            "joinCode": "R00M00",
+            "createdBy": 1,
+            "createdAt": null,
+            "updatedAt": null
+        },
+      ],
+    }
+    // course: 'Software Engineering',
+    // room: 'A-1002',
+    // teacher: 'Pa Nofaldi'
+  },
+
+  methods: {
+    async getData() {
+      try {
+        const res = await api.view();
+        this.posts = res.data;
+        console.log(posts);
+      } catch (e) {
+        console.log(e);
+      }
+    },
+  },
+
+  mounted() {
+    this.getData();
+  },
+
   components: {
     Card,
     Add,
