@@ -11,6 +11,7 @@
       />
       <div v-for="post in posts" v-bind:key="post.id">
         <CourseCard 
+          :course-id="post.id"
           :course-name="post.name"
           :room-num="post.room"
           :teacher-name="post.createdBy"
