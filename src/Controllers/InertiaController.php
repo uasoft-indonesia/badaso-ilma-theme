@@ -2,8 +2,8 @@
 
 namespace Uasoft\Badaso\Theme\LMSTheme\Controllers;
 
-use Inertia\Inertia;
 use App\Http\Controllers\Controller;
+use Inertia\Inertia;
 
 class InertiaController extends Controller
 {
@@ -20,5 +20,10 @@ class InertiaController extends Controller
     public function view()
     {
         return Inertia::render('ViewCourse', [], 'lms-theme::app');
+    }
+    
+    public function login()
+    {
+        return Inertia::render('login', [], 'lms-theme:app');
     }
 }

@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 
 class LMSThemeSetup extends Command
 {
-     protected $file;
+    protected $file;
     /**
      * The console command name.
      *
@@ -56,7 +56,7 @@ class LMSThemeSetup extends Command
 
     protected function checkExist($file, $search)
     {
-        return $this->file->exists($file) && !Str::contains($this->file->get($file), $search);
+        return $this->file->exists($file) && ! Str::contains($this->file->get($file), $search);
     }
 
     protected function updateWebpackMix()
