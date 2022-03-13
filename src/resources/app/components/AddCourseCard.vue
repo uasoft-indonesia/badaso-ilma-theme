@@ -29,7 +29,7 @@
           <div
             id="join-btn"
             class="text-white font-medium text-sm"
-          <div class="text-white font-medium text-sm" id="join-btn">
+            @click="actionRedirectToJoinCoursePage"
           >
             Join
           </div>
@@ -46,6 +46,9 @@ export default {
       window.location.assign("/course/create");
     },
 
+    actionRedirectToJoinCoursePage() {
+      window.location.assign("/course/join");
+    },
   },
 };
 </script>
