@@ -71,6 +71,8 @@
 </template>
 
 <script>
+import { createCourse } from "../../../api/course/create";
+
 export default {
   components: {},
   data: () => ({
@@ -103,8 +105,31 @@ export default {
     },
   }),
   methods: {
-    async submitForm() {
+    validate() {
+      this.$refs.form.validate();
     },
+
+    async submitForm() {
+      this.form.isSubmitting = true;
+      this.validate();
+
+      if (!this.form.isValid) return;
+
+      const { data, error, errorMessage } = await createCourse({
+        name: this.form.values.name,
+        subject: this.form.values.subject,
+        room: this.form.values.room,
+      });
+
+      if (error) {
+        this.showSnackbar(errorMessage);
+        this.form.isSubmitting = false;
+        return;
+      }
+
+      window.location.assign("/course/" + data.id);
+    },
+
     showSnackbar(text) {
     },
     actionBackToHomepage() {
