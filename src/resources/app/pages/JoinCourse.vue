@@ -93,7 +93,7 @@ export default {
         if  (error) {
           this.showSnackbar(errorMessage);
         } else {
-          window.location.assign("/course/" + data.id);
+          window.location.assign("/course/" + data.courseId);
         }
       }
     },
