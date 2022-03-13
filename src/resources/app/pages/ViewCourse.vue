@@ -50,9 +50,6 @@ export default {
         },
       ],
     }
-    // course: 'Software Engineering',
-    // room: 'A-1002',
-    // teacher: 'Pa Nofaldi'
   },
 
   methods: {

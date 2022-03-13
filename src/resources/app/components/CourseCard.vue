@@ -29,7 +29,6 @@
       </div>
 
       <div class="m-3">
-
         <div 
           class="font-normal text-xs"
           id="room-tag"
