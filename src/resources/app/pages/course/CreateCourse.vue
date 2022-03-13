@@ -87,6 +87,18 @@ export default {
         room: "",
       },
       rules: {
+        name: [
+          (v) => v.length <= 255 || "Name must be less than 256 characters",
+          (v) => !!v || "Name is required",
+        ],
+        subject: [
+          (v) => v.length <= 255 || "Subject must be less than 256 characters",
+          (v) => !!v || "Subject is required",
+        ],
+        room: [
+          (v) => v.length <= 255 || "Room must be less than 256 characters",
+          (v) => !!v || "Room is required",
+        ],
       },
     },
   }),
