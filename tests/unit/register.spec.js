@@ -30,4 +30,21 @@ describe("Register", () => {
       expect(wrapper.find("#btn-login").text()).toContain("Login");
     });
   });
+
+  describe("when sending request", () => {
+    
+    it("should show loading on button", async () => {
+      const wrapper = mount(Register, {
+        localVue,
+        vuetify,
+        data() {
+          return {
+            loading: false,
+          };
+        },
+      });
+      await wrapper.setData({ loading: true });
+      expect(wrapper.find("#loading-icon").exists()).toBe(true);
+    });
+  });
 });
