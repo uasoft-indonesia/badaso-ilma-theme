@@ -40,7 +40,10 @@
     "collectCoverageFrom": [
       "**/*.vue"
     ],
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "setupFiles": [
+      "<rootDir>/tests/unit/setup.js"
+    ]
   },
   "dependencies": {
     "@babel/runtime": "^7.17.2",
