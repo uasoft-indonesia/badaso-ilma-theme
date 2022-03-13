@@ -75,6 +75,11 @@ import { createCourse } from "../../../api/course/create";
 
 export default {
   components: {},
+  beforeCreate() {
+    if (!this.$store.state.isAuthenticated) {
+      window.location.assign("/login");
+    }
+  },
   data: () => ({
     snackbar: {
       isVisible: false,
