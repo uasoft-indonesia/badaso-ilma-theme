@@ -12,8 +12,7 @@ function createResource() {
 
     instance.interceptors.request.use(
         (config) => {
-            //const token = localStorage.getItem("token");
-            const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL2FkbWluXC92MVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2NDcxMDMzNDIsImV4cCI6MTY0OTY5NTM0MiwibmJmIjoxNjQ3MTAzMzQyLCJqdGkiOiJxNXRKeENxMTd0REE1aGlEIiwic3ViIjoxLCJwcnYiOiI3NjFkYmE4MDAwOThmNDYzNmVkMGE4NWY5NjNlOTk3MjY1MjhjZmYxIn0.7twAsaH2-INKqCv30wBbcC-tmIeRVO-Vky5K0F1XNFw"
+            const token = localStorage.getItem("token");
             if (token) config.headers.Authorization = "Bearer " + token;
             beforeRequest(config);
 
