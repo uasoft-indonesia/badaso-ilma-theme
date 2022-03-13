@@ -10,7 +10,7 @@
         class="m-0"
       />
       <div v-for="post in posts" v-bind:key="post.id">
-        <Card 
+        <CourseCard 
           :course-name="post.name"
           :room-num="post.room"
           :teacher-name="post.createdBy"
@@ -20,7 +20,7 @@
         />
       </div>
 
-      <Add 
+      <AddCourseCard 
         id="add-course-card"
         class="mb-10"
       />
@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import Card from "../components/CourseCard.vue";
-import Add from "../components/AddCourseCard.vue";
+import AddCourseCard from "../components/AddCourseCard.vue";
+import CourseCard from "../components/CourseCard.vue";
 import api from "../../api/view";
 
 export default {
@@ -72,8 +72,8 @@ export default {
   },
 
   components: {
-    Card,
-    Add,
+    CourseCard,
+    AddCourseCard,
   },
 };
 </script>
