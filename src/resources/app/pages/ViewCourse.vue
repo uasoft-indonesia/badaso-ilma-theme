@@ -19,7 +19,6 @@
           class="mb-10"
         />
       </div>
-      
 
       <Add 
         id="add-course-card"
