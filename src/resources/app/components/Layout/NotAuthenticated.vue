@@ -9,7 +9,7 @@ export default {
   name: "NotAuthenticated",
   beforeCreate() {
     if (this.$store.state.isAuthenticated) {
-      this.$inertia.visit("/");
+      this.$inertia.visit("/landing");
     }
   },
 };
