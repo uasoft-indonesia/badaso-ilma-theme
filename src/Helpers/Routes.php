@@ -10,8 +10,8 @@ class Routes
         $controllers = config('badaso-lms-theme.controllers');
 
         // if the key is not found, return $key
-        if (!isset($controllers[$key])) {
-            return 'Uasoft\\Badaso\\Theme\\LMSTheme\\Controllers\\' . $key;
+        if (! isset($controllers[$key])) {
+            return 'Uasoft\\Badaso\\Theme\\LMSTheme\\Controllers\\'.$key;
         }
 
         // return the value of the key
