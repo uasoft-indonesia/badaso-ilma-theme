@@ -13,13 +13,14 @@ Route::prefix($lms_route_prefix)
         Route::get('/', [InertiaController::class, 'home']);
 
         /* course routes */
-        Route::get('/join', [InertiaController::class, 'joinCourse']);
         Route::get('/register', [InertiaController::class, 'register']);
         Route::get('/landing', [InertiaController::class, 'view']);
+        Route::get('/login', [InertiaController::class, 'login']);
 
         Route::prefix('/course')->as('course.')->group(function () {
             Route::get('/create', [InertiaController::class, 'createCourse']);
             Route::get('/{id}/people', [InertiaController::class, 'people']);
-            Route::get('/login', [InertiaController::class, 'login']);
+            Route::get('/join', [InertiaController::class, 'joinCourse']);
+
         });
     });
