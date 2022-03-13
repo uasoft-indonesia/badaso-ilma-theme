@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\example.spec.js">
-    <testCase name="displays message should renders" duration="39"/>
-  </file>
   <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\notAuthenticated.spec.js">
     <testCase name="Not Authenticated Guard when not authenticated should pass" duration="4"/>
     <testCase name="Not Authenticated Guard when authenticated should redirect to homepage" duration="1"/>
   </file>
+  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\example.spec.js">
+    <testCase name="displays message should renders" duration="38"/>
+  </file>
   <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\login.spec.js">
-    <testCase name="Login when loaded has all of the required elements" duration="18"/>
-    <testCase name="Login when loaded test data input for login component" duration="19"/>
+    <testCase name="Login when loaded has all of the required elements" duration="19"/>
+    <testCase name="Login when loaded test data input for login component" duration="11"/>
   </file>
   <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\register.spec.js">
-    <testCase name="Register when loaded has all of the required elements" duration="20"/>
-    <testCase name="Register when sending request should show loading on button" duration="9"/>
+    <testCase name="Register when loaded has all of the required elements" duration="15"/>
+    <testCase name="Register when sending request should show loading on button" duration="7"/>
   </file>
 </testExecutions>

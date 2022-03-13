@@ -593,7 +593,6 @@
 <script>
 import api from "../../api/auth";
 import NotAuthenticated from "../components/Layout/NotAuthenticated.vue";
-import background from "../../assets/undraw_on_the_office_re_cxds.svg";
 
 export default {
   layout: [NotAuthenticated],
@@ -627,7 +626,6 @@ export default {
           }
         },
       ],
-      backgroundImage: background,
     };
   },
   methods: {

@@ -15,6 +15,7 @@
     "@vue/vue2-jest": "^27.0.0-alpha.4",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^27.5.1",
+    "identity-obj-proxy": "^3.0.0",
     "jest-sonar-reporter": "^2.0.0",
     "jsdom-global": "^3.0.2",
     "node-sass": "^7.0.1",
@@ -29,6 +30,9 @@
       "json",
       "vue"
     ],
+    "moduleNameMapper": {
+      ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "identity-obj-proxy"
+    },
     "testURL": "http://localhost/",
     "transform": {
       ".*\\.(vue)$": "@vue/vue2-jest",
