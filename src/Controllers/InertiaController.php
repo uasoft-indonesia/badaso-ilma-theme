@@ -16,4 +16,9 @@ class InertiaController extends Controller
     {
         return Inertia::render('register', [], 'lms-theme::app');
     }
+
+    public function createCourse()
+    {
+        return Inertia::render('course/CreateCourse', [], 'lms-theme::app');
+    }
 }

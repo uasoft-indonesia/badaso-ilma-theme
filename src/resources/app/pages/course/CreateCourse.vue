@@ -1,0 +1,102 @@
+<template>
+  <v-app>
+    <v-snackbar v-model="snackbar.isVisible" :timeout="3000" top>
+      {{ snackbar.text }}
+      <template v-slot:action="{ attrs }">
+        <v-btn color="blue" text v-bind="attrs" @click="snackbar.isVisible = false">
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
+
+    <div class="flex justify-center items-center">
+      <v-card id="join-card" elevation="2" width="400px" class="p-6">
+        <div id="title" class="text-base mb-2">Create a New Course</div>
+        <v-form v-model="form.isValid" ref="form">
+          <div>
+            <v-text-field
+              id="name-form"
+              label="Course Name"
+              v-model="form.values.name"
+              :rules="form.rules.name"
+              required
+              outlined
+            ></v-text-field>
+          </div>
+          <div>
+            <v-text-field
+              id="subject-form"
+              label="Subject"
+              v-model="form.values.subject"
+              :rules="form.rules.subject"
+              required
+              outlined
+            ></v-text-field>
+          </div>
+          <div>
+            <v-text-field
+              id="room-form"
+              label="Room"
+              v-model="form.values.room"
+              :rules="form.rules.room"
+              required
+              outlined
+            ></v-text-field>
+          </div>
+          <div class="mt-3 flex justify-end">
+            <v-btn
+              id="cancel-btn"
+              depressed
+              color="gray"
+              @click="actionBackToHomepage"
+            >
+              Cancel
+            </v-btn>
+            <v-btn
+              id="create-btn"
+              class="ml-3"
+              depressed
+              color="primary"
+              @click="submitForm"
+              :loading="form.isSubmitting"
+              :disabled="!form.isValid"
+            >
+              Create
+            </v-btn>
+          </div>
+        </v-form>
+      </v-card>
+    </div>
+  </v-app>
+</template>
+
+<script>
+export default {
+  components: {},
+  data: () => ({
+    snackbar: {
+      isVisible: false,
+      text: "",
+    },
+    form: {
+      isValid: false,
+      isSubmitting: false,
+      values: {
+        name: "",
+        subject: "",
+        room: "",
+      },
+      rules: {
+      },
+    },
+  }),
+  methods: {
+    async submitForm() {
+    },
+    showSnackbar(text) {
+    },
+    actionBackToHomepage() {
+    },
+  },
+};
+</script>
