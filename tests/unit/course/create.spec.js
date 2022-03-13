@@ -24,4 +24,25 @@ describe("CreateCourse.vue", () => {
     expect(wrapper.find("#cancel-btn").exists()).toBe(true);
     expect(wrapper.find("#create-btn").exists()).toBe(true);
   });
+
+  describe("when all fields are filled", () => {
+    it("form should be valid", async () => {
+      const wrapper = mount(CreateCourse, {
+        vuetify,
+        localVue,
+      });
+
+      wrapper.setData({
+        form: {
+          values: {
+            name: "Test Course",
+            subject: "Test Subject",
+            room: "Test Room",
+          },
+        }
+      });
+
+      expect(wrapper.vm.form.isValid).toBe(true);
+    });
+  });
 });
