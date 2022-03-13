@@ -121,4 +121,25 @@ describe("CreateCourse.vue", () => {
       expect(wrapper.vm.snackbar.text).toBe("Test Error");
     });
   })
+
+  describe("when cancel button is clicked", () => {
+    it("should redirect to home page", async () => {
+      delete window.location;
+      const location = new URL("http://localhost/");
+      location.assign = jest.fn();
+      window.location = location;
+      const wrapper = mount(CreateCourse, {
+        localVue,
+        vuetify,
+        mocks: {
+          window
+        }
+      });
+
+      wrapper.find("#cancel-btn").vm.$emit("click");
+      await wrapper.vm.$nextTick();
+
+      expect(window.location.assign).toHaveBeenCalledWith("/");
+    });
+  });
 });
