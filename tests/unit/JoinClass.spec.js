@@ -3,14 +3,23 @@ import Vuetify from 'vuetify';
 
 import {createLocalVue, mount} from "@vue/test-utils";
 import JoinCourse from "../../src/resources/app/pages/JoinCourse";
+import Vuex from "vuex";
 
 const localVue = createLocalVue();
+localVue.use(Vuex);
 
 describe("JoinCoursePage", () => {
   let vuetify;
+  let store;
+
   beforeEach(() => {
     vuetify = new Vuetify();
-  })
+    store = new Vuex.Store({
+      state: {
+        isAuthenticated: true,
+      },
+    });
+  });
 
   describe("when loaded", () => {
     it("should renders", () => {
