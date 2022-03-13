@@ -134,7 +134,9 @@ export default {
       this.snackbar.text = text;
       this.snackbar.isVisible = true;
     },
+
     actionBackToHomepage() {
+      window.location.assign("/");
     },
   },
 };
