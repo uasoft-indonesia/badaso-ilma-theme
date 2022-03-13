@@ -3,6 +3,11 @@ import { mount, createLocalVue } from "@vue/test-utils";
 
 import CourseCard from "../../src/resources/app/components/CourseCard";
 
+Object.defineProperty(window, "location", {
+  writable: true,
+  value: { assign: jest.fn() },
+});
+
 const localVue = createLocalVue();
 
 describe("CourseCard Component", () => {
@@ -35,7 +40,7 @@ describe("CourseCard Component", () => {
   });
 
   describe("when course card clicked", () => {
-    it("shoul redirect to course page", async () => {
+    it("should redirect to course page", async () => {
       Object.defineProperty(window, "location", {
         writable: true,
         value: { assign: jest.fn() },
@@ -47,9 +52,12 @@ describe("CourseCard Component", () => {
         propsData: {
           courseId: 1,
         },
+        mocks: {
+          window,
+        },
       });
 
-      wrapper.find(".v-card").vm.$emit("click");
+      wrapper.find('[data-testid="course-card"]').trigger("click");
       await wrapper.vm.$nextTick();
 
       expect(window.location.assign).toHaveBeenCalledWith("/course/1");
