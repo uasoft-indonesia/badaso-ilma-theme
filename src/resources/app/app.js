@@ -7,9 +7,7 @@ import {
   createInertiaApp,
   plugin as InertiaPlugin,
 } from "@inertiajs/inertia-vue";
-import VueToastify from "vue-toastify";
 
-Vue.use(VueToastify);
 Vue.use(Vuetify);
 Vue.use(InertiaPlugin);
 

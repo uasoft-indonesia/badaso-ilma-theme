@@ -1,5 +1,19 @@
 <template>
-  <v-app>
+  <v-app class="overflow-hidden">
+    <v-snackbar v-model="snackbar.isVisible" :timeout="3000" top>
+      {{ snackbar.text }}
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          color="blue"
+          text
+          v-bind="attrs"
+          @click="snackbar.isVisible = false"
+        >
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
+
     <v-card
       elevation="5"
       class="pa-6 ma-auto rounded-lg"
@@ -598,6 +612,10 @@ export default {
   layout: [NotAuthenticated],
   data() {
     return {
+      snackbar: {
+        isVisible: false,
+        text: "",
+      },
       loading: false,
       valid: false,
       fullname: "",
@@ -644,19 +662,20 @@ export default {
             password: this.password,
             password_confirmation: this.passwordConfirmation,
           });
-          this.$vToastify.success(
-            "Registration successfull, please log in to the application"
-          );
           this.redirect();
         } catch (e) {
           console.log(e);
-          this.$vToastify.error("Error while registering account");
+          this.showSnackbar("Error while registering account");
         }
         this.loading = false;
       }
     },
     redirect() {
       this.$inertia.visit("/login");
+    },
+    showSnackbar(text) {
+      this.snackbar.text = text;
+      this.snackbar.isVisible = true;
     },
   },
 };

@@ -1,6 +1,20 @@
 <template>
-  <v-app
-    ><v-card
+  <v-app class="overflow-hidden">
+    <v-snackbar v-model="snackbar.isVisible" :timeout="3000" top>
+      {{ snackbar.text }}
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          color="blue"
+          text
+          v-bind="attrs"
+          @click="snackbar.isVisible = false"
+        >
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
+
+    <v-card
       elevation="5"
       class="pa-6 ma-auto rounded-lg"
       width="400px"
@@ -576,6 +590,10 @@ export default {
   layout: [NotAuthenticated],
   data() {
     return {
+      snackbar: {
+        isVisible: false,
+        text: "",
+      },
       loading: false,
       valid: true,
       email: "",
@@ -606,17 +624,20 @@ export default {
             this.$store.dispatch("SET_IS_AUTHENTICATED", true);
             this.$store.dispatch("SET_USER", res.data.user);
             localStorage.setItem("token", res.data.accessToken);
-            this.$vToastify.success("Login successfull");
             this.$inertia.visit("/landing");
           }
         } catch (e) {
-          this.$vToastify.error("Login failed, please try again later");
+          this.showSnackbar("Login failed, please try again later");
         }
         this.loading = false;
       }
     },
     redirect() {
       this.$inertia.visit("/register");
+    },
+    showSnackbar(text) {
+      this.snackbar.text = text;
+      this.snackbar.isVisible = true;
     },
   },
 };
