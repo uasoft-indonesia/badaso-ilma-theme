@@ -35,12 +35,7 @@ describe("ViewCourse Component", () => {
   });
 
   describe("when user is not authenticated", () => {
-    it("should redirect to login page", () => {
-      Object.defineProperty(window, "location", {
-        writable: true,
-        value: { assign: jest.fn() },
-      });
-
+    it("should redirect to login page", async () => {
       const mockInertiaVisit = jest.fn();
       const wrapper = mount(ViewCourse, {
         localVue,
@@ -57,17 +52,14 @@ describe("ViewCourse Component", () => {
         },
       });
 
+      await wrapper.vm.$nextTick();
+
       expect(mockInertiaVisit).toHaveBeenCalledWith("/login");
     });
   });
 
   describe("when user is authenticated", () => {
     it("should not redirect anywhere", async () => {
-      Object.defineProperty(window, "location", {
-        writable: true,
-        value: { assign: jest.fn() },
-      });
-
       const mockInertiaVisit = jest.fn();
       const wrapper = mount(ViewCourse, {
         localVue,
@@ -83,6 +75,8 @@ describe("ViewCourse Component", () => {
           }
         },
       });
+
+      await wrapper.vm.$nextTick();
 
       expect(mockInertiaVisit).not.toHaveBeenCalled();
     });
