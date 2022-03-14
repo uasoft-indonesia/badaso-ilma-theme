@@ -1,10 +1,6 @@
 import { mount } from "@vue/test-utils";
 import AddCourseCard from "../../src/resources/app/components/AddCourseCard";
 
-Object.defineProperty(window, "location", {
-  writable: true,
-  value: { assign: jest.fn() },
-});
 
 describe("AddCourseCard Component", () => {
   describe("when loaded", () => {
@@ -25,15 +21,16 @@ describe("AddCourseCard Component", () => {
 
   describe("when create button clicked", () => {
     it("should redirect to create course page", () => {
-      Object.defineProperty(window, "location", {
-        writable: true,
-        value: { assign: jest.fn() },
+      const wrapper = mount(AddCourseCard, {
+        mocks: {
+          $inertia: {
+            visit: jest.fn(),
+          }
+        }
       });
 
-      const wrapper = mount(AddCourseCard, {});
-
       wrapper.find("#create-btn").trigger("click");
-      expect(window.location.assign).toHaveBeenCalledWith("/course/create");
+      expect(wraper.vm.$inertia.visit).toHaveBeenCalledWith("/course/create");
     });
   });
 });
