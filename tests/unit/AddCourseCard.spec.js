@@ -52,14 +52,9 @@ describe("AddCourseCard Component", () => {
           $store: {},
         },
       });
-      mockInertiaVisit();
 
       await wrapper.find("#create-btn").trigger("click");
       await wrapper.vm.$nextTick();
-      console.log(wrapper.vm.$inertia);
-      // assert inertia visit called
-      expect(true).toBe(true);
-      expect(wrapper.vm.$inertia.visit).not.toBeNull();
       expect(mockInertiaVisit).toHaveBeenCalled();
     });
   });
