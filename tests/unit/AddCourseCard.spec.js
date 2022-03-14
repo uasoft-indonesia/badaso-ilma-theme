@@ -57,6 +57,7 @@ describe("AddCourseCard Component", () => {
       console.log(wrapper.vm.$inertia);
       // assert inertia visit called
       expect(true).toBe(true);
+      expect(wrapper.vm.$inertia.visit).not.toBeNull();
       // expect(wrapper.vm.$inertia.visit).toHaveBeenCalledWith("/course/create");
     });
   });
