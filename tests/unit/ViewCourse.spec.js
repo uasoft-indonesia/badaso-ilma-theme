@@ -13,7 +13,7 @@ describe("ViewCourse Component", () => {
   });
 
   describe("when loaded", () => {
-    it("should renders", (done) => {
+    it("should renders", () => {
       const wrapper = mount(ViewCourse, {
         localVue,
         vuetify,
@@ -31,12 +31,11 @@ describe("ViewCourse Component", () => {
 
       const findCard2 = () => wrapper.find("#add-course-card");
       expect(findCard2().exists()).toBe(true);
-      done();
     });
   });
 
   describe("when user is not authenticated", () => {
-    it("should redirect to login page", (done) => {
+    it("should redirect to login page", () => {
       const mockInertiaVisit = jest.fn();
       const wrapper = mount(ViewCourse, {
         localVue,
@@ -54,12 +53,11 @@ describe("ViewCourse Component", () => {
       });
 
       expect(mockInertiaVisit).toHaveBeenCalledWith("/login");
-      done();
     });
   });
 
   describe("when user is authenticated", () => {
-    it("should not redirect anywhere", (done) => {
+    it("should not redirect anywhere", () => {
       const mockInertiaVisit = jest.fn();
       const wrapper = mount(ViewCourse, {
         localVue,
@@ -77,7 +75,6 @@ describe("ViewCourse Component", () => {
       });
 
       expect(mockInertiaVisit).not.toHaveBeenCalled();
-      done();
     });
   });
 });
