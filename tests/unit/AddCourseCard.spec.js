@@ -1,10 +1,22 @@
-import { mount } from "@vue/test-utils";
+import { mount, createLocalVue } from "@vue/test-utils";
 import AddCourseCard from "../../src/resources/app/components/AddCourseCard";
 
+const localVue = createLocalVue();
+
+
 describe("AddCourseCard Component", () => {
+  let vuetify;
+
+  beforeEach(() => {
+    vuetify = new Vuetify();
+  });
+
   describe("when loaded", () => {
     it("should renders", () => {
-      const wrapper = mount(AddCourseCard, {});
+      const wrapper = mount(AddCourseCard, {
+        localVue,
+        vuetify,
+      });
       
       const findAddCourse = () => wrapper.find('#add-course-tag');
       expect(findAddCourse().exists()).toBe(true);
@@ -25,7 +37,10 @@ describe("AddCourseCard Component", () => {
         value: { assign: jest.fn() },
       });
 
-      const wrapper = mount(AddCourseCard, {});
+      const wrapper = mount(AddCourseCard, {
+        localVue,
+        vuetify,
+      });
 
       wrapper.find('#create-btn').trigger('click');
       expect(window.location.assign).toHaveBeenCalledWith('/course/create');
