@@ -3,10 +3,6 @@ import Vuex from "vuex";
 import { shallowMount, mount, createLocalVue } from "@vue/test-utils";
 import AddCourseCard from "../../src/resources/app/components/AddCourseCard";
 
-Object.defineProperty(window, "location", {
-  writable: true,
-  value: { assign: jest.fn() },
-});
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
