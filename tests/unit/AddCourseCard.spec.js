@@ -20,16 +20,12 @@ describe("AddCourseCard Component", () => {
 
   describe("when create button clicked", () => {
     it("should redirect to create course page", () => {
-      Object.defineProperty(window, "location", {
-        writable: true,
-        value: { assign: jest.fn() },
-      });
+      // Object.defineProperty(window, "location", {
+      //   writable: true,
+      //   value: { assign: jest.fn() },
+      // });
 
-      const wrapper = mount(AddCourseCard, {
-        mocks: {
-          window,
-        },
-      });
+      const wrapper = mount(AddCourseCard, {});
 
       wrapper.find("#create-btn").trigger("click");
       expect(window.location.assign).toHaveBeenCalledWith("/course/create");
