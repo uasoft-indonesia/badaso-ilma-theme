@@ -49,7 +49,7 @@ describe("AddCourseCard Component", () => {
         },
       });
 
-      wrapper.find("#create-btn").trigger("click");
+      wrapper.find("#create-btn").vm.$emit("click");
       await wrapper.vm.$nextTick();
       expect(wrapper.vm.$inertia.visit).toHaveBeenCalledWith("/course/create");
     });
