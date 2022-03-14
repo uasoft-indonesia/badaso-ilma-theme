@@ -1,5 +1,5 @@
 import Vuetify from "vuetify";
-import { mount } from "@vue/test-utils";
+import { mount, createLocalVue } from "@vue/test-utils";
 
 import AddCourseCard from "../../src/resources/app/components/AddCourseCard";
 
