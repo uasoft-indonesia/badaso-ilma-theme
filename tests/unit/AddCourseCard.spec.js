@@ -1,8 +1,9 @@
+import Vuetify from "vuetify";
 import { mount, createLocalVue } from "@vue/test-utils";
+
 import AddCourseCard from "../../src/resources/app/components/AddCourseCard";
 
 const localVue = createLocalVue();
-
 
 describe("AddCourseCard Component", () => {
   let vuetify;
