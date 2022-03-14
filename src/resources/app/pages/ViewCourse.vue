@@ -27,7 +27,7 @@ import api from "../../api/view";
 export default {
   beforeCreate() {
     if (!this.$store.state.isAuthenticated) {
-      window.location.assign("/login");
+      this.$inertia.visit("/login");
     }
   },
 

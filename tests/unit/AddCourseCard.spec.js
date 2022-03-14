@@ -5,44 +5,48 @@ describe("AddCourseCard Component", () => {
   describe("when loaded", () => {
     it("should renders", () => {
       const wrapper = mount(AddCourseCard, {});
-      
-      const findAddCourse = () => wrapper.find('#add-course-tag');
-      expect(findAddCourse().exists()).toBe(true);
-      expect(findAddCourse().text()).toBe('Add Course');
 
-      const findCreateButton = () => wrapper.find('#create-btn');
+      const findAddCourse = () => wrapper.find("#add-course-tag");
+      expect(findAddCourse().exists()).toBe(true);
+      expect(findAddCourse().text()).toBe("Add Course");
+
+      const findCreateButton = () => wrapper.find("#create-btn");
       expect(findCreateButton().exists()).toBe(true);
 
-      const findJoinButton = () => wrapper.find('#join-btn');
+      const findJoinButton = () => wrapper.find("#join-btn");
       expect(findJoinButton().exists()).toBe(true);
     });
   });
 
   describe("when create button clicked", () => {
     it("should redirect to create course page", () => {
-      Object.defineProperty(window, "location", {
-        writable: true,
-        value: { assign: jest.fn() },
+      const mockInertiaVisit = jest.fn();
+      const wrapper = mount(AddCourseCard, {
+        mocks: {
+          $inertia: {
+            visit: mockInertiaVisit,
+          },
+        },
       });
 
-      const wrapper = mount(AddCourseCard, {});
-
-      wrapper.find('#create-btn').trigger('click');
-      expect(window.location.assign).toHaveBeenCalledWith('/course/create');
+      wrapper.find("#create-btn").trigger("click");
+      expect(mockInertiaVisit).toHaveBeenCalledWith("/course/create");
     });
   });
 
   describe("when join button clicked", () => {
     it("should redirect to join course page", () => {
-      Object.defineProperty(window, "location", {
-        writable: true,
-        value: { assign: jest.fn() },
+      const mockInertiaVisit = jest.fn();
+      const wrapper = mount(AddCourseCard, {
+        mocks: {
+          $inertia: {
+            visit: mockInertiaVisit,
+          },
+        },
       });
 
-      const wrapper = mount(AddCourseCard, {});
-
-      wrapper.find('#join-btn').trigger('click');
-      expect(window.location.assign).toHaveBeenCalledWith('/course/join');
+      wrapper.find("#join-btn").trigger("click");
+      expect(mockInertiaVisit).toHaveBeenCalledWith("/course/join");
     });
   });
 });

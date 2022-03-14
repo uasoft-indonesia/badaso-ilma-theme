@@ -43,11 +43,11 @@
 export default {
   methods: {
     actionRedirectToCreateCoursePage() {
-      window.location.assign("/course/create");
+      this.$inertia.visit("/course/create");
     },
 
     actionRedirectToJoinCoursePage() {
-      window.location.assign("/course/join");
+      this.$inertia.visit("/course/join");
     },
   },
 };

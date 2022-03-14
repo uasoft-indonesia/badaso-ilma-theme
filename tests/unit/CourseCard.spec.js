@@ -41,11 +41,7 @@ describe("CourseCard Component", () => {
 
   describe("when course card clicked", () => {
     it("should redirect to course page", async () => {
-      Object.defineProperty(window, "location", {
-        writable: true,
-        value: { assign: jest.fn() },
-      });
-
+      const mockInertiaVisit = jest.fn();
       const wrapper = mount(CourseCard, {
         localVue,
         vuetify,
@@ -53,14 +49,16 @@ describe("CourseCard Component", () => {
           courseId: 1,
         },
         mocks: {
-          window,
+          $inertia: {
+            visit: mockInertiaVisit,
+          },
         },
       });
 
       wrapper.find('[data-testid="course-card"]').trigger("click");
       await wrapper.vm.$nextTick();
 
-      expect(window.location.assign).toHaveBeenCalledWith("/course/1");
+      expect(mockInertiaVisit).toHaveBeenCalledWith("/course/1");
     });
   });
 });

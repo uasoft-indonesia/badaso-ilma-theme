@@ -42,7 +42,7 @@ export default {
   ],
   methods: {
     actionRedirectToCoursePage(id) {
-      window.location.assign(`/course/${id}`);
+      this.$inertia.visit(`/course/${id}`);
     },
   },
 };

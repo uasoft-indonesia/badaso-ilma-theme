@@ -41,6 +41,7 @@ describe("ViewCourse Component", () => {
         value: { assign: jest.fn() },
       });
 
+      const mockInertiaVisit = jest.fn();
       const wrapper = mount(ViewCourse, {
         localVue,
         vuetify,
@@ -50,10 +51,13 @@ describe("ViewCourse Component", () => {
               isAuthenticated: false,
             },
           },
+          $inertia: {
+            visit: mockInertiaVisit,
+          },
         },
       });
 
-      expect(window.location.assign).toHaveBeenCalledWith("/login");
+      expect(mockInertiaVisit).toHaveBeenCalledWith("/login");
     });
   });
 
@@ -64,6 +68,7 @@ describe("ViewCourse Component", () => {
         value: { assign: jest.fn() },
       });
 
+      const mockInertiaVisit = jest.fn();
       const wrapper = mount(ViewCourse, {
         localVue,
         vuetify,
@@ -73,10 +78,13 @@ describe("ViewCourse Component", () => {
               isAuthenticated: true,
             },
           },
+          $inertia: {
+            visit: mockInertiaVisit,
+          }
         },
       });
 
-      expect(window.location.assign).not.toHaveBeenCalled();
+      expect(mockInertiaVisit).not.toHaveBeenCalled();
     });
   });
 });
