@@ -55,7 +55,7 @@ describe("AddCourseCard Component", () => {
 
       await wrapper.find("#create-btn").trigger("click");
       await wrapper.vm.$nextTick();
-      expect(mockInertiaVisit).toHaveBeenCalled("/course/create");
+      expect(mockInertiaVisit).toHaveBeenCalledWith("/course/create");
     });
   });
 });
