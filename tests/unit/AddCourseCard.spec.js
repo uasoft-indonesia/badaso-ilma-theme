@@ -52,6 +52,8 @@ describe("AddCourseCard Component", () => {
         },
       });
 
+      wrapper.vm.$inertia.visit = jest.fn();
+
       let mockFunc = jest.fn();
       mockFunc();
       expect(mockFunc).toHaveBeenCalled();
@@ -62,7 +64,7 @@ describe("AddCourseCard Component", () => {
       // assert inertia visit called
       expect(true).toBe(true);
       expect(wrapper.vm.$inertia.visit).not.toBeNull();
-      // expect(wrapper.vm.$inertia.visit).toHaveBeenCalledWith("/course/create");
+      expect(wrapper.vm.$inertia.visit).toHaveBeenCalledWith("/course/create");
     });
   });
 });
