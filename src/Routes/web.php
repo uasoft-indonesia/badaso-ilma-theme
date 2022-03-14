@@ -22,4 +22,4 @@ Route::prefix($lms_route_prefix)
             Route::get('/{id}/people', [InertiaController::class, 'people']);
             Route::get('/join', [InertiaController::class, 'joinCourse']);
         });
-    });    
+    });
