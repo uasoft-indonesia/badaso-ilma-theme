@@ -53,8 +53,6 @@ describe("AddCourseCard Component", () => {
         },
       });
 
-      wrapper.vm.$inertia.visit = jest.fn();
-
       await wrapper.find("#create-btn").trigger("click");
       await wrapper.vm.$nextTick();
       console.log(wrapper.vm.$inertia);
