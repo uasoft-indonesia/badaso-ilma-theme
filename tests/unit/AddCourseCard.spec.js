@@ -32,11 +32,6 @@ describe("AddCourseCard Component", () => {
 
   describe("when create button clicked", () => {
     it("should redirect to create course page", async () => {
-      Object.defineProperty(window, "location", {
-        writable: true,
-        value: { assign: jest.fn() },
-      });
-
       const mockInertiaVisit = jest.fn();
       const wrapper = shallowMount(AddCourseCard, {
         localVue,
