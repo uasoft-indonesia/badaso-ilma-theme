@@ -1,8 +1,21 @@
-import { mount } from "@vue/test-utils";
+import Vuetify from "vuetify";
+import { mount, createLocalVue } from "@vue/test-utils";
 import AddCourseCard from "../../src/resources/app/components/AddCourseCard";
 
+Object.defineProperty(window, "location", {
+  writable: true,
+  value: { assign: jest.fn() },
+});
+
+const localVue = createLocalVue();
 
 describe("AddCourseCard Component", () => {
+  let vuetify;
+
+  beforeEach(() => {
+    vuetify = new Vuetify();
+  });
+  
   describe("when loaded", () => {
     it("should renders", () => {
       const wrapper = mount(AddCourseCard, {});
@@ -21,7 +34,14 @@ describe("AddCourseCard Component", () => {
 
   describe("when create button clicked", () => {
     it("should redirect to create course page", async () => {
+      Object.defineProperty(window, "location", {
+        writable: true,
+        value: { assign: jest.fn() },
+      });
+
       const wrapper = mount(AddCourseCard, {
+        localVue,
+        vuetify,
         mocks: {
           $inertia: {
             visit: jest.fn(),
