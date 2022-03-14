@@ -1,10 +1,10 @@
 import { mount } from "@vue/test-utils";
 import AddCourseCard from "../../src/resources/app/components/AddCourseCard";
 
-// Object.defineProperty(window, "location", {
-//   writable: true,
-//   value: { assign: jest.fn() },
-// });
+Object.defineProperty(window, "location", {
+  writable: true,
+  value: { assign: jest.fn() },
+});
 
 describe("AddCourseCard Component", () => {
   describe("when loaded", () => {
