@@ -45,13 +45,13 @@ describe("AddCourseCard Component", () => {
         mocks: {
           $inertia: {
             visit: jest.fn(),
-          }
-        }
+          },
+        },
       });
 
       wrapper.find("#create-btn").trigger("click");
       await wrapper.vm.$nextTick();
-      // expect(wrapper.vm.$inertia.visit).toHaveBeenCalledWith("/course/create");
+      expect(wrapper.vm.$inertia.visit).toHaveBeenCalledWith("/course/create");
     });
   });
 });
