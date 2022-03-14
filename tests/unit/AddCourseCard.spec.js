@@ -27,7 +27,7 @@ describe("AddCourseCard Component", () => {
 
       const wrapper = mount(AddCourseCard, {});
 
-      // wrapper.find("#create-btn").trigger("click");
+      wrapper.find("#create-btn").trigger("click");
       // expect(window.location.assign).toHaveBeenCalledWith("/course/create");
     });
   });
