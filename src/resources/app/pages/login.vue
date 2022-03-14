@@ -23,24 +23,6 @@
       <v-form ref="form" v-model="valid">
         <div class="grid">
           <v-text-field
-            v-model="fullname"
-            :rules="fullNameRules"
-            label="Fullname"
-            required
-            outlined
-            id="input-fullname"
-          ></v-text-field>
-
-          <v-text-field
-            v-model="username"
-            label="Username"
-            required
-            outlined
-            :rules="usernameRules"
-            id="input-username"
-          ></v-text-field>
-
-          <v-text-field
             v-model="email"
             :rules="emailRules"
             label="E-mail"
@@ -59,25 +41,22 @@
             id="input-password"
           ></v-text-field>
 
-          <v-text-field
-            v-model="passwordConfirmation"
-            :rules="passwordConfirmationRules"
-            label="Password Confirmation"
-            type="password"
-            required
-            outlined
-            id="input-password-confirmation"
-          ></v-text-field>
+          <v-checkbox
+            v-model="remember"
+            label="Remember me?"
+            id="login-checkbox"
+          ></v-checkbox>
 
           <v-btn
-            @click="submit"
+            class="mb-4"
+            @click="login"
             :disabled="!valid || loading"
             width="100%"
-            depressed
             color="primary"
-            id="btn-register"
+            depressed
+            id="btn-login"
           >
-            <span v-if="!loading">Register</span>
+            <span v-if="!loading">Login</span>
             <span v-else>
               <v-icon dark class="animate-spin" id="loading-icon">
                 mdi-loading
@@ -86,14 +65,13 @@
           </v-btn>
 
           <v-btn
-            class="mt-4"
             @click="redirect"
             width="100%"
             depressed
             color="light"
-            id="btn-login"
+            id="btn-register"
           >
-            Login
+            Register
           </v-btn>
         </div>
       </v-form>
@@ -617,61 +595,45 @@ export default {
         text: "",
       },
       loading: false,
-      valid: false,
-      fullname: "",
-      fullNameRules: [(v) => !!v || "Name is required"],
+      valid: true,
       email: "",
       emailRules: [
         (v) => !!v || "Email is required",
         (v) => /.+@.+\..+/.test(v) || "Email must be valid",
       ],
-      username: "",
-      usernameRules: [
-        (v) => !!v || "Username is required",
-        (v) =>
-          (v && v.length >= 4) || "Username must be at least 4 characters long",
-      ],
       password: "",
       passwordRules: [(v) => !!v || "Password is required"],
-      passwordConfirmation: "",
-      passwordConfirmationRules: [
-        (v) => !!v || "Password is required",
-        () => {
-          if (this.password === this.passwordConfirmation) {
-            return true;
-          } else {
-            return "Passwords does not match.";
-          }
-        },
-      ],
+      remember: false,
+      backgroundImage: "../../assets/undraw_on_the_office_re_cxds.svg",
     };
   },
   methods: {
     validate() {
       this.$refs.form.validate();
     },
-    async submit() {
+    async login() {
       this.validate();
       if (this.valid) {
         this.loading = true;
         try {
-          const res = await api.register({
-            name: this.fullname,
-            username: this.username,
+          const res = await api.login({
             email: this.email,
             password: this.password,
-            password_confirmation: this.passwordConfirmation,
           });
-          this.redirect();
+          if (res.errors === null) {
+            this.$store.dispatch("SET_IS_AUTHENTICATED", true);
+            this.$store.dispatch("SET_USER", res.data.user);
+            localStorage.setItem("token", res.data.accessToken);
+            this.$inertia.visit("/landing");
+          }
         } catch (e) {
-          console.log(e);
-          this.showSnackbar("Error while registering account");
+          this.showSnackbar("Login failed, please try again later");
         }
         this.loading = false;
       }
     },
     redirect() {
-      this.$inertia.visit("/login");
+      this.$inertia.visit("/register");
     },
     showSnackbar(text) {
       this.snackbar.text = text;
@@ -694,7 +656,7 @@ export default {
   z-index: 10;
 }
 
-#btn-login {
+#btn-register {
   color: #06bbd3;
 }
 </style>

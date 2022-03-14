@@ -6,15 +6,16 @@ class Routes
 {
     public static function getController($key)
     {
-        // get config 'controllers' from config/badaso-lms-theme.php
         $controllers = config('badaso-lms-theme.controllers');
 
+<<<<<<< HEAD
         // if the key is not found, return $key
+=======
+>>>>>>> 8e1a5b857480d0421e83220957ebaabbfe45f485
         if (! isset($controllers[$key])) {
             return 'Uasoft\\Badaso\\Theme\\LMSTheme\\Controllers\\'.$key;
         }
 
-        // return the value of the key
         return $controllers[$key];
     }
 }

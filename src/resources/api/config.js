@@ -43,4 +43,6 @@ web.interceptors.request.use((config) => {
   return config;
 });
 
-export { web };
+const apiPrefix = "/badaso-api";
+
+export { web, apiPrefix };
