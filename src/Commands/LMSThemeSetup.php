@@ -44,7 +44,7 @@ class LMSThemeSetup extends Command
         $this->updateWebpackMix();
         $this->updatePackageJson();
         $this->publishConfig();
-        $this->addingBadasoEnv();
+        $this->addBadasoEnv();
     }
 
     protected function publishConfig()
