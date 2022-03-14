@@ -49,7 +49,12 @@
     "testResultsProcessor": "jest-sonar-reporter",
     "setupFiles": [
       "<rootDir>/tests/unit/setup.js"
-    ]
+    ],
+    "coverageThreshold": {
+      "global": {
+        "lines": 0
+      }
+    }
   },
   "dependencies": {
     "@babel/runtime": "^7.17.2",
