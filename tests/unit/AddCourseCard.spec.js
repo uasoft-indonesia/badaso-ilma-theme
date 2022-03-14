@@ -1,6 +1,6 @@
 import Vuetify from "vuetify";
 import Vuex from "vuex";
-import { mount, createLocalVue } from "@vue/test-utils";
+import { shallowMount, mount, createLocalVue } from "@vue/test-utils";
 import AddCourseCard from "../../src/resources/app/components/AddCourseCard";
 
 Object.defineProperty(window, "location", {
@@ -41,7 +41,7 @@ describe("AddCourseCard Component", () => {
         value: { assign: jest.fn() },
       });
 
-      const wrapper = mount(AddCourseCard, {
+      const wrapper = shallowMount(AddCourseCard, {
         localVue,
         vuetify,
         mocks: {
@@ -56,7 +56,7 @@ describe("AddCourseCard Component", () => {
       await wrapper.vm.$nextTick();
       console.log(wrapper.vm.$inertia);
       // assert inertia visit called
-      expect(wrapper.vm.$inertia.visit).toHaveBeenCalled();
+      expect(wrapper.vm.$inertia.visit).toHaveBeenCalledWith("/course/create");
     });
   });
 });
