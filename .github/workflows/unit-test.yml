@@ -5,6 +5,7 @@ jobs:
     name: Unit Test Coverage
     runs-on: ubuntu-latest
     steps:
-      - uses: ziishaned/jest-reporter-action@v0.0.1
+      - uses: actions/checkout@v1
+      - uses: ArtiomTr/jest-coverage-report-action@v2
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          test-script: npm test
