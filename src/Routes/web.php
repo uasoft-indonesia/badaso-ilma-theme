@@ -23,4 +23,5 @@ Route::prefix($lms_route_prefix)
             Route::get('/join', [InertiaController::class, 'joinCourse']);
         });
 
+
     });
