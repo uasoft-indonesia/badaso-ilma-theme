@@ -56,16 +56,6 @@
       }
     }
   },
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ],
-    "plugins": [
-      [
-        "@babel/transform-runtime"
-      ]
-    ]
-  },
   "dependencies": {
     "@babel/runtime": "^7.17.2",
     "@inertiajs/inertia": "^0.11.0",
