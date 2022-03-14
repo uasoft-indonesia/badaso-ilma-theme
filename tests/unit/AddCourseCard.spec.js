@@ -41,22 +41,19 @@ describe("AddCourseCard Component", () => {
         value: { assign: jest.fn() },
       });
 
+      const mockInertiaVisit = jest.fn();
       const wrapper = shallowMount(AddCourseCard, {
         localVue,
         vuetify,
         mocks: {
           $inertia: {
-            visit: jest.fn(),
+            visit: mockInertiaVisit,
           },
-          $store: {}
+          $store: {},
         },
       });
 
       wrapper.vm.$inertia.visit = jest.fn();
-
-      let mockFunc = jest.fn();
-      mockFunc();
-      expect(mockFunc).toHaveBeenCalled();
 
       await wrapper.find("#create-btn").trigger("click");
       await wrapper.vm.$nextTick();
@@ -64,7 +61,7 @@ describe("AddCourseCard Component", () => {
       // assert inertia visit called
       expect(true).toBe(true);
       expect(wrapper.vm.$inertia.visit).not.toBeNull();
-      expect(wrapper.vm.$inertia.visit).toHaveBeenCalledWith("/course/create");
+      expect(mockInertiaVisit).toHaveBeenCalledWith("/course/create");
     });
   });
 });
