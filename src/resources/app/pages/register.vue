@@ -662,7 +662,9 @@ export default {
             password: this.password,
             password_confirmation: this.passwordConfirmation,
           });
-          this.redirect();
+          if (res.errors === null) {
+            this.redirect();
+          }
         } catch (e) {
           console.log(e);
           this.showSnackbar("Error while registering account");
