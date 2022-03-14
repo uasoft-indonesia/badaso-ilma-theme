@@ -9,7 +9,7 @@ export default {
     
     if (response.data) {
       let courses = response.data;
-      localStorage.setItem("courses", courses);
+      // localStorage.setItem("courses", courses);
     }
     return response;
   },
