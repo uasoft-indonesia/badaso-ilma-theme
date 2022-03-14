@@ -59,7 +59,7 @@ describe("AddCourseCard Component", () => {
       // assert inertia visit called
       expect(true).toBe(true);
       expect(wrapper.vm.$inertia.visit).not.toBeNull();
-      expect(mockInertiaVisit).toHaveBeenCalledWith("/course/create");
+      expect(mockInertiaVisit.mock.calls[0][0]).toBe("/course/create");
     });
   });
 });
