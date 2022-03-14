@@ -3,8 +3,8 @@ import api from "./config";
 let apiPrefix = "/badaso-api";
 
 export default {
-    async people() {
-        let apiUrl = apiPrefix + "/module/lms/v1/course/1/people";
+    async people(id) {
+        let apiUrl = apiPrefix + "/module/lms/v1/course/" + id + "/people";
         let response = await api.get(apiUrl);
 
         if (response.data) {
