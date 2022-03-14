@@ -1,10 +1,23 @@
+import Vuetify from "vuetify";
 import { mount } from "@vue/test-utils";
+
 import AddCourseCard from "../../src/resources/app/components/AddCourseCard";
 
+const localVue = createLocalVue();
+
 describe("AddCourseCard Component", () => {
+  let vuetify;
+
+  beforeEach(() => {
+    vuetify = new Vuetify();
+  });
+
   describe("when loaded", () => {
     it("should renders", () => {
-      const wrapper = mount(AddCourseCard, {});
+      const wrapper = mount(AddCourseCard, {
+        localVue,
+        vuetify,
+      });
 
       const findAddCourse = () => wrapper.find("#add-course-tag");
       expect(findAddCourse().exists()).toBe(true);
@@ -22,6 +35,8 @@ describe("AddCourseCard Component", () => {
     it("should redirect to create course page", () => {
       const mockInertiaVisit = jest.fn();
       const wrapper = mount(AddCourseCard, {
+        localVue,
+        vuetify,
         mocks: {
           $inertia: {
             visit: mockInertiaVisit,
@@ -38,6 +53,8 @@ describe("AddCourseCard Component", () => {
     it("should redirect to join course page", () => {
       const mockInertiaVisit = jest.fn();
       const wrapper = mount(AddCourseCard, {
+        localVue,
+        vuetify,
         mocks: {
           $inertia: {
             visit: mockInertiaVisit,
