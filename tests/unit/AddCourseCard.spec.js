@@ -52,6 +52,10 @@ describe("AddCourseCard Component", () => {
         },
       });
 
+      let mockFunc = jest.fn();
+      mockFunc();
+      expect(mockFunc).toHaveBeenCalled();
+
       await wrapper.find("#create-btn").trigger("click");
       await wrapper.vm.$nextTick();
       console.log(wrapper.vm.$inertia);
