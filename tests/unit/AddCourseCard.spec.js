@@ -1,4 +1,5 @@
 import Vuetify from "vuetify";
+import Vuex from "vuex";
 import { mount, createLocalVue } from "@vue/test-utils";
 import AddCourseCard from "../../src/resources/app/components/AddCourseCard";
 
@@ -8,6 +9,7 @@ Object.defineProperty(window, "location", {
 });
 
 const localVue = createLocalVue();
+localVue.use(Vuex);
 
 describe("AddCourseCard Component", () => {
   let vuetify;
@@ -46,13 +48,14 @@ describe("AddCourseCard Component", () => {
           $inertia: {
             visit: jest.fn(),
           },
+          $store: {}
         },
       });
 
       wrapper.find("#create-btn").trigger("click");
       await wrapper.vm.$nextTick();
       console.log(wrapper.vm.$inertia);
-      // expect(wrapper.vm.$inertia.visit).toHaveBeenCalledWith("/course/create");
+      expect(wrapper.vm.$inertia.visit).toHaveBeenCalledWith("/course/create");
     });
   });
 });
