@@ -17,9 +17,10 @@
       >
         <button 
           class="bg-white hover:bg-gray w-20 p-1 border border-gray-400 rounded shadow"
+          id="create-btn"
           color="error"
         >
-          <div class="text-primary font-medium text-sm" id="create-btn">
+          <div class="text-primary font-medium text-sm">
             Create
           </div>
         </button>
