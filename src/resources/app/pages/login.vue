@@ -1,8 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <v-app
-    ><v-card elevation="5" class="pa-6 ma-auto rounded-lg" width="400px">
-=======
   <v-app class="overflow-hidden">
     <v-snackbar v-model="snackbar.isVisible" :timeout="3000" top>
       {{ snackbar.text }}
@@ -24,7 +20,6 @@
       width="400px"
       id="card"
     >
->>>>>>> 2e49ac125524bc500fc979301281c3a00c2e4afb
       <v-form ref="form" v-model="valid">
         <div class="grid">
           <v-text-field
@@ -55,23 +50,12 @@
           <v-btn
             class="mb-4"
             @click="login"
-<<<<<<< HEAD
-            :disabled="!valid"
-=======
             :disabled="!valid || loading"
->>>>>>> 2e49ac125524bc500fc979301281c3a00c2e4afb
             width="100%"
             color="primary"
             depressed
             id="btn-login"
           >
-<<<<<<< HEAD
-            Login
-          </v-btn>
-
-          <v-btn
-            @click="submit"
-=======
             <span v-if="!loading">Login</span>
             <span v-else>
               <v-icon dark class="animate-spin" id="loading-icon">
@@ -82,7 +66,6 @@
 
           <v-btn
             @click="redirect"
->>>>>>> 2e49ac125524bc500fc979301281c3a00c2e4afb
             width="100%"
             depressed
             color="light"
@@ -93,9 +76,6 @@
         </div>
       </v-form>
     </v-card>
-<<<<<<< HEAD
-    <img :src="backgroundImage" id="background-photo" />
-=======
     <svg
       id="background-photo"
       xmlns="http://www.w3.org/2000/svg"
@@ -599,18 +579,11 @@
         fill="#cacaca"
       />
     </svg>
->>>>>>> 2e49ac125524bc500fc979301281c3a00c2e4afb
   </v-app>
 </template>
 
 <script>
 import api from "../../api/auth";
-<<<<<<< HEAD
-
-export default {
-  data() {
-    return {
-=======
 import NotAuthenticated from "../components/Layout/NotAuthenticated.vue";
 
 export default {
@@ -622,7 +595,6 @@ export default {
         text: "",
       },
       loading: false,
->>>>>>> 2e49ac125524bc500fc979301281c3a00c2e4afb
       valid: true,
       email: "",
       emailRules: [
@@ -642,10 +614,7 @@ export default {
     async login() {
       this.validate();
       if (this.valid) {
-<<<<<<< HEAD
-=======
         this.loading = true;
->>>>>>> 2e49ac125524bc500fc979301281c3a00c2e4afb
         try {
           const res = await api.login({
             email: this.email,
@@ -655,15 +624,6 @@ export default {
             this.$store.dispatch("SET_IS_AUTHENTICATED", true);
             this.$store.dispatch("SET_USER", res.data.user);
             localStorage.setItem("token", res.data.accessToken);
-<<<<<<< HEAD
-            window.location.href = "/";
-          }
-        } catch (e) {
-          alert(e);
-        }
-      }
-    },
-=======
             this.$inertia.visit("/landing");
           }
         } catch (e) {
@@ -679,21 +639,10 @@ export default {
       this.snackbar.text = text;
       this.snackbar.isVisible = true;
     },
->>>>>>> 2e49ac125524bc500fc979301281c3a00c2e4afb
   },
 };
 </script>
 
-<<<<<<< HEAD
-// ToDo (opal): redirect to home page, dont allow to enter if already
-authenticated
-
-<style>
-#background-photo {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-=======
 <style>
 #background-photo {
   position: absolute;
@@ -705,7 +654,6 @@ authenticated
 
 #card {
   z-index: 10;
->>>>>>> 2e49ac125524bc500fc979301281c3a00c2e4afb
 }
 
 #btn-register {
