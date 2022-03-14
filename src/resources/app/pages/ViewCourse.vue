@@ -53,9 +53,7 @@ export default {
       try {
         const res = await api.view();
         this.posts = res.data;
-        // console.log(posts);
       } catch (e) {
-        // console.log(e);
       }
     },
   },
