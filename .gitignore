@@ -1,9 +1,4 @@
 /vendor/
 node_modules
 package-lock.json
-<<<<<<< HEAD
-/coverage/
 yarn.lock
-=======
-yarn.lock
->>>>>>> 2e49ac125524bc500fc979301281c3a00c2e4afb
