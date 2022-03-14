@@ -5,8 +5,7 @@ jobs:
     name: Unit Test Coverage
     runs-on: ubuntu-latest
     steps:
-      - uses: mattallty/jest-github-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: ziishaned/jest-reporter-action@v0.0.1
         with:
-          test-command: "npx test"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          test-command: "npx jest"
