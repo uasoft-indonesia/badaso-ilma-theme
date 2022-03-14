@@ -3,11 +3,6 @@ import { mount, createLocalVue } from "@vue/test-utils";
 
 import CourseCard from "../../src/resources/app/components/CourseCard";
 
-Object.defineProperty(window, "location", {
-  writable: true,
-  value: { assign: jest.fn() },
-});
-
 const localVue = createLocalVue();
 
 describe("CourseCard Component", () => {
