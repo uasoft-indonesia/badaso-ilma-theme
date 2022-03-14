@@ -20,7 +20,7 @@ describe("AddCourseCard Component", () => {
   });
 
   describe("when create button clicked", () => {
-    it("should redirect to create course page", () => {
+    it("should redirect to create course page", async () => {
       const wrapper = mount(AddCourseCard, {
         mocks: {
           $inertia: {
@@ -30,7 +30,8 @@ describe("AddCourseCard Component", () => {
       });
 
       wrapper.find("#create-btn").trigger("click");
-      expect(wraper.vm.$inertia.visit).toHaveBeenCalledWith("/course/create");
+      await wrapper.vm.$nextTick();
+      expect(wrapper.vm.$inertia.visit).toHaveBeenCalledWith("/course/create");
     });
   });
 });
