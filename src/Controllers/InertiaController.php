@@ -7,11 +7,6 @@ use Inertia\Inertia;
 
 class InertiaController extends Controller
 {
-    public function home()
-    {
-        return Inertia::render('index', [], 'lms-theme::app');
-    }
-
     public function joinCourse()
     {
         return Inertia::render('JoinCourse', [], 'lms-theme::app');
@@ -30,6 +25,11 @@ class InertiaController extends Controller
     public function view()
     {
         return Inertia::render('ViewCourse', [], 'lms-theme::app');
+    }
+
+    public function courseStream()
+    {
+        return Inertia::render('courseStream', [], 'lms-theme::app');
     }
 
     public function login()
