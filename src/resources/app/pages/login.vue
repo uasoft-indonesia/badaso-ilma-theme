@@ -624,7 +624,7 @@ export default {
             this.$store.dispatch("SET_IS_AUTHENTICATED", true);
             this.$store.dispatch("SET_USER", res.data.user);
             localStorage.setItem("token", res.data.accessToken);
-            this.$inertia.visit("/landing");
+            this.$inertia.visit("/");
           }
         } catch (e) {
           this.showSnackbar("Login failed, please try again later");
