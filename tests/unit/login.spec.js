@@ -29,9 +29,6 @@ describe("Login", () => {
             backgroundImage: "../../assets/undraw_on_the_office_re_cxds.svg",
           };
         },
-        methods() {
-          validate(), login();
-        },
         localVue,
         vuetify,
       });
@@ -60,9 +57,6 @@ describe("Login", () => {
             remember: false,
             backgroundImage: "../../assets/undraw_on_the_office_re_cxds.svg",
           };
-        },
-        methods() {
-          validate(), login();
         },
         localVue,
         vuetify,

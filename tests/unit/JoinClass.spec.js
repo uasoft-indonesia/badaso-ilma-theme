@@ -33,8 +33,6 @@ describe("JoinCoursePage", () => {
       const findForm = () => wrapper.find('#code-form');
       const findButton = () => wrapper.find('#join-btn');
 
-      console.log(findForm().attributes());
-
       expect(wrapper.find('#join-card').exists()).toBe(true);
       expect(findTitle().exists()).toBe(true);
       expect(findTitle().text()).toBe('Enter Code');
