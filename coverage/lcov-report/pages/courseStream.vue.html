@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for pages/index.vue</title>
+    <title>Code coverage report for pages/courseStream.vue</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">pages</a> index.vue</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">pages</a> courseStream.vue</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -39,7 +39,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -82,7 +82,17 @@
 <a name='L17'></a><a href='#L17'>17</a>
 <a name='L18'></a><a href='#L18'>18</a>
 <a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">6x</span>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -102,22 +112,27 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;v-app&gt;
-    &lt;div&gt;
-      &lt;v-btn
-        color="success"
-        elevation="2"
-      &gt;
-        Hello
-      &lt;/v-btn&gt;
-      &lt;div class="text-primary"&gt;Home&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/v-app&gt;
+  &lt;v-card elevation="2" outlined shaped&gt;
+    &lt;v-card-text&gt;
+      &lt;h2 id="code-title"&gt;Class code&lt;/h2&gt;
+      &lt;div id="class-code"&gt;R00M00&lt;/div&gt;
+      &lt;v-btn @click="copyCode('R00M00')" id="copy-btn"&gt; Copy &lt;/v-btn&gt;
+    &lt;/v-card-text&gt;
+  &lt;/v-card&gt;
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
 export default {
-  components: {},
+  methods: {
+    async copyCode(code) {
+      try {
+        await navigator.clipboard.writeText(code);
+        alert("Copied");
+      } catch ($e) {
+        alert("Cannot copy");
+      }
+    },
+  },
 };
 &lt;/script&gt;
 &nbsp;</pre></td></tr></table></pre>
