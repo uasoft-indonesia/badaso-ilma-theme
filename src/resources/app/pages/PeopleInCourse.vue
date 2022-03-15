@@ -34,6 +34,11 @@
 import api from "../../api/people";
 
 export default {
+  props: {
+    id: {
+      default: 1,
+    },
+  },
   data() {
     return {
       peoples: [
@@ -45,9 +50,9 @@ export default {
     };
   },
   methods: {
-    async getData() {
+    async getData(id) {
       try {
-        const res = await api.people();
+        const res = await api.people(id);
         this.peoples = res.data;
       } catch (e) {
         console.log(e);
@@ -55,7 +60,7 @@ export default {
     },
   },
   mounted() {
-    this.getData();
+    this.getData(this.id);
   },
 };
 </script>
