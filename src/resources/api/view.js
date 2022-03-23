@@ -4,7 +4,7 @@ let apiPrefix = "/badaso-api";
 
 export default {
   async view() {
-    let ep = apiPrefix + "/module/lms/v1/courseuser/view";
+    let ep = apiPrefix + "/module/lms/v1/course/view";
     let response = await api.get(ep);
 
     return response;
