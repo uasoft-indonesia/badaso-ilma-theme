@@ -21,6 +21,9 @@ describe("AnnouncementCard", () => {
 
         const findAnnouncement = wrapper.find("#announcemet");
         expect(findAnnouncement.exists()).toBe(true);
+
+        const findComment = wrapper.find("#comments");
+        expect(findComment.exists()).toBe(false);
       });
     });
   });
