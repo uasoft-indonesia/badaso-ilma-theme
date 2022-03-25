@@ -27,6 +27,9 @@ describe("AnnouncementContent", () => {
 
         const findContent = wrapper.find("#content");
         expect(findContent.exists()).toBe(true);
+
+        const findMenu = wrapper.find("#menu");
+        expect(findMenu.exists()).toBe(true);
       });
     });
   });
