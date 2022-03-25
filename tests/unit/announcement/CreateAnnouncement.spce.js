@@ -45,10 +45,15 @@ describe("CreateAnnouncement", () => {
         vuetify,
       });
 
-      wrapper.setData({startWritng : true})
+      wrapper.setData({startWriting : true})
 
       const findInitialForm = wrapper.find("#initial-form");
       expect(findInitialForm.exists()).toBe(false);
+
+      const initialText = wrapper.find("#initial-text");
+      expect(initialText.exists()).toBe(false);
+
+
     })
   });
 });
