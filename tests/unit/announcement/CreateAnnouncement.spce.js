@@ -23,6 +23,7 @@ describe("CreateAnnouncement", () => {
 
       const initialText = wrapper.find("#initial-text");
       expect(initialText.exists()).toBe(true);
+      expect(initialText.text()).toBe("Write Something");
     });
   });
 });
