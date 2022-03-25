@@ -19,7 +19,7 @@ describe("AnnouncementCard", () => {
           vuetify,
         });
 
-        const findAnnouncement = wrapper.find("#announcemet");
+        const findAnnouncement = wrapper.find("#announcement");
         expect(findAnnouncement.exists()).toBe(true);
 
         const findComment = wrapper.find("#comments");
@@ -28,7 +28,7 @@ describe("AnnouncementCard", () => {
     });
 
     describe("and when comment exist", () => {
-      it("comments should be renderred", async() => {
+      it("comments should be rendered", async() => {
         const wrapper = mount(AnnouncementCard, {
           localVue,
           vuetify,
