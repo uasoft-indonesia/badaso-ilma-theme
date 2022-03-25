@@ -36,7 +36,7 @@ describe("CreateAnnouncement", () => {
     });
   });
 
-  descibe("when initial form is clicked", () => {
+  describe("when initial form is clicked", () => {
     it("should hide and load components", () => {
       const wrapper = mount(CreateAnnouncement, {
         localVue,
