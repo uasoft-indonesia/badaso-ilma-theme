@@ -37,4 +37,18 @@ describe("CreateAnnouncement", () => {
       expect(findPostButton.text()).toBe("Post");
     });
   });
+
+  descibe("when initial form is clicked", () => {
+    it("should hide and load components", () => {
+      const wrapper = mount(CreateAnnouncement, {
+        localVue,
+        vuetify,
+      });
+
+      wrapper.setData({startWritng : true})
+
+      const findInitialForm = wrapper.find("#initial-form");
+      expect(findInitialForm.exists()).toBe(false);
+    })
+  });
 });
