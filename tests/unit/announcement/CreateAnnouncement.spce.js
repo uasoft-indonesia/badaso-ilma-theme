@@ -20,6 +20,9 @@ describe("CreateAnnouncement", () => {
 
       const findInitialForm = wrapper.find("#initial-form");
       expect(findInitialForm.exists()).toBe(true);
+
+      const initialText = wrapper.find("#initial-text");
+      expect(initialText.exists()).toBe(true);
     });
   });
 });
