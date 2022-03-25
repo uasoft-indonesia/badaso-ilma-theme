@@ -1,2 +1,2 @@
-# badaso/lms-theme
-Official theme for badaso LMS module
+# badaso/ilma-theme
+ilma theme is official free theme for badaso LMS module
