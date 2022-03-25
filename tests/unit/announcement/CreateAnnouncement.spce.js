@@ -27,6 +27,10 @@ describe("CreateAnnouncement", () => {
 
       const findTrueForm = wrapper.find("#true-form");
       expect(findTrueForm.exists()).toBe(false);
+
+      const findCancelButton = wrapper.find("#cancel-button");
+      expect(findCancelButton.exists()).toBe(false);
+      expect(findCancelButton.text()).toBe("Cancel");
     });
   });
 });
