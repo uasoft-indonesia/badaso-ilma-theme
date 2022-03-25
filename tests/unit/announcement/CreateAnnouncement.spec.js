@@ -37,16 +37,16 @@ describe("CreateAnnouncement", () => {
   });
 
   describe("when initial form is clicked", () => {
-    it("should hide and load components", () => {
+    test("should hide and load components", async() => {
       const wrapper = mount(CreateAnnouncement, {
         localVue,
         vuetify,
       });
 
-      wrapper.setData({startWriting : true})
+      await wrapper.setData({startWriting : true})
 
       const findInitialForm = wrapper.find("#initial-form");
-      expect(findInitialForm.exists()).toBe(false);
+      await expect(findInitialForm.exists()).toBe(false);
 
       const initialText = wrapper.find("#initial-text");
       expect(initialText.exists()).toBe(false);
@@ -59,7 +59,7 @@ describe("CreateAnnouncement", () => {
       expect(findCancelButton.text()).toBe("Cancel");
 
       const findPostButton = wrapper.find("#post-button");
-      expect(findPostButton.exists()).toBe(false);
+      expect(findPostButton.exists()).toBe(true);
       expect(findPostButton.text()).toBe("Post");
     })
   });
