@@ -21,6 +21,9 @@ describe("AnnouncementContent", () => {
 
         const findAuthor = wrapper.find("#author");
         expect(findAuthor.exists()).toBe(true);
+
+        const findDate = wrapper.find("#date")
+        expect(findDate.exists()).toBe(true);
       });
     });
   });
