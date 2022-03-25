@@ -31,6 +31,10 @@ describe("CreateAnnouncement", () => {
       const findCancelButton = wrapper.find("#cancel-button");
       expect(findCancelButton.exists()).toBe(false);
       expect(findCancelButton.text()).toBe("Cancel");
+
+      const findPostButton = wrapper.find("#post-button");
+      expect(findPostButton.exists()).toBe(false);
+      expect(findPostButton.text()).toBe("Post");
     });
   });
 });
