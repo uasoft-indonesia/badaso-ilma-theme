@@ -1,15 +1,46 @@
 {
-    "name": "nsire/badaso-lms-theme",
+    "name": "badaso/ilma-theme",
+    "version": "0.1.0",
+    "description": "ilma theme is official free theme for badaso LMS module",
+    "keywords": [
+        "laravel",
+        "admin",
+        "panel",
+        "dashboard",
+        "pwa",
+        "vue",
+        "generator",
+        "lms",
+        "badaso"
+    ],
+    "license": "MIT",
+    "homepage": "https://badaso-ilma.uatech.co.id/",
+    "support": {
+        "issues": "https://github.com/uasoft-indonesia/badaso-ilma-theme/issues",
+        "discussion": "https://github.com/uasoft-indonesia/badaso-ilma-theme/discussions",
+        "source": "https://github.com/uasoft-indonesia/badaso-ilma-theme"
+    },
     "autoload": {
         "psr-4": {
-            "Nsire\\BadasoLmsTheme\\": "src/"
+            "Uasoft\\Badaso\\Theme\\Ilma\\": "src/"
         }
     },
     "authors": [
+        {
+            "name": "Uasoft",
+            "email": "hello@uatech.co.id"
+        },
         {
             "name": "nofamex",
             "email": "nsiren517@gmail.com"
         }
     ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Uasoft\\Badaso\\Theme\\Ilma\\Providers\\BadasoIlmaThemeProvider"
+            ]
+        }
+    }
     "require": {}
 }
