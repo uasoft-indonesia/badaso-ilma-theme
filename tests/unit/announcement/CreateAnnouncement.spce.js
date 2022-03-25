@@ -24,6 +24,9 @@ describe("CreateAnnouncement", () => {
       const initialText = wrapper.find("#initial-text");
       expect(initialText.exists()).toBe(true);
       expect(initialText.text()).toBe("Write Something");
+
+      const findTrueForm = wrapper.find("#true-form");
+      expect(findTrueForm.exists()).toBe(false);
     });
   });
 });
