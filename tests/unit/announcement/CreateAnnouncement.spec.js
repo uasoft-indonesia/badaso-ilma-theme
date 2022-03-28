@@ -38,7 +38,7 @@ describe("CreateAnnouncement", () => {
 
   describe("when initial form is clicked", () => {
     test("should hide and load components", async() => {
-      const wrapper = mount(CreateAnnouncement, {
+      const wrapper = await mount(CreateAnnouncement, {
         localVue,
         vuetify,
       });
