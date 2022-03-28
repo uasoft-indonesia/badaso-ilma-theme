@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -112,20 +112,7 @@
 <a name='L47'></a><a href='#L47'>47</a>
 <a name='L48'></a><a href='#L48'>48</a>
 <a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">12x</span>
+<a name='L50'></a><a href='#L50'>50</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">22x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -169,85 +156,59 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-    &lt;v-card
-      class="mx-auto rounded-3xl"
-      width="253"
-    &gt;
-      &lt;div
-        class="bg-primary h-24 font-semibold text-base text-slate-50"
-      &gt;
-        &lt;div class="flex flex-row"&gt;
-          &lt;div 
-            class="pl-5 pt-5 text-base"
-            id="course-name"
-          &gt;
-            {{courseName}}
-          &lt;/div&gt;
-          &lt;button class="flex flex-col items-end space-x-0 space-y-0 pr-1 pt-5"&gt;
-            &lt;div class="rotate-90 font-bold"&gt;
-              ...
-            &lt;/div&gt;
-          &lt;/button&gt;
+  &lt;v-card
+    data-testid="course-card"
+    class="mx-auto rounded-3xl course-card"
+    width="253"
+    @click="actionRedirectToCoursePage(courseId)"
+  &gt;
+    &lt;div class="bg-primary h-24 font-semibold text-base text-slate-50"&gt;
+      &lt;div class="flex flex-row"&gt;
+        &lt;div class="pl-5 pt-5 text-base" id="course-name"&gt;
+          {{ courseName }}
         &lt;/div&gt;
-&nbsp;
-        &lt;div class="flex flex-row-reverse"&gt;
-          &lt;v-avatar
-            class="bg-gray z-0 mt-5 mr-5"
-            size="60"
-          &gt;&lt;/v-avatar&gt;
-        &lt;/div&gt;
+        &lt;button class="flex flex-col items-end space-x-0 space-y-0 pr-1 pt-5"&gt;
+          &lt;div class="rotate-90 font-bold"&gt;...&lt;/div&gt;
+        &lt;/button&gt;
       &lt;/div&gt;
 &nbsp;
-      &lt;div class="m-3"&gt;
-        &lt;div 
-          class="font-normal text-xs"
-          id="room-tag"
-        &gt;
-          Room
-        &lt;/div&gt;
-        &lt;div 
-          class="font-medium text-sm mb-3"
-          id="classroom"
-        &gt;
-          {{roomNum}}
-        &lt;/div&gt;
-        &lt;div 
-          class="font-normal text-sm"
-          id="teacher-name"
-        &gt;
-          {{teacherName}}
-        &lt;/div&gt;
+      &lt;div class="flex flex-row-reverse"&gt;
+        &lt;v-avatar class="bg-gray z-0 mt-5 mr-5" size="60"&gt;&lt;/v-avatar&gt;
       &lt;/div&gt;
-    &lt;/v-card&gt;
+    &lt;/div&gt;
+&nbsp;
+    &lt;div class="m-3"&gt;
+      &lt;div class="font-normal text-xs" id="room-tag"&gt;Room&lt;/div&gt;
+      &lt;div class="font-medium text-sm mb-3" id="classroom"&gt;
+        {{ roomNum }}
+      &lt;/div&gt;
+      &lt;div class="font-normal text-sm" id="teacher-name"&gt;
+        {{ teacherName }}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/v-card&gt;
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
-  export default {
-    props: [
-      "courseName",
-      "roomNum",
-      "teacherName",
-    ]
-  };
+export default {
+  props: [
+    "courseId",
+    "courseName",
+    "roomNum",
+    "teacherName",
+  ],
+  methods: {
+    actionRedirectToCoursePage(id) {
+      this.$inertia.visit(`/course/${id}`);
+    },
+  },
+};
 &lt;/script&gt;
 &nbsp;</pre></td></tr></table></pre>
 
@@ -256,7 +217,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Tue Mar 15 2022 01:11:59 GMT+0700 (Western Indonesia Time)
+                at Tue Mar 29 2022 00:08:12 GMT+0700 (Western Indonesia Time)
             </div>
         <script src="../prettify.js"></script>
         <script>
