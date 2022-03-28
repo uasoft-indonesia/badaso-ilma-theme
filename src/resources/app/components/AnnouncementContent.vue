@@ -74,7 +74,6 @@ export default {
     dateSlicing(){
       let date = new Date (this.$props.date);
       date = date.toString().split(" ");
-      console.log(date)
       return date[0] + ", " + date[2] + " " + date[1] + " " + date[3] + " " + date[4]
     }
   }
