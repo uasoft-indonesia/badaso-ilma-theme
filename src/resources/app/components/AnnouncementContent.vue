@@ -10,7 +10,7 @@
           <div
             id="date"
             class="text-sm text-textGray">
-            {{ date }}
+            {{ announcementDate }}
           </div>
         </div>
       </div>
@@ -60,6 +60,7 @@ export default {
   ],
   data (){
     return {
+      announcementDate: this.dateSlicing(),
       items:[{
         title: 'Edit',
         link: ''
@@ -67,6 +68,14 @@ export default {
         title : 'Delete',
         link: '',
       }]
+    }
+  },
+  methods: {
+    dateSlicing(){
+      let date = new Date (this.$props.date);
+      date = date.toString().split(" ");
+      console.log(date)
+      return date[0] + ", " + date[2] + " " + date[1] + " " + date[3] + " " + date[4]
     }
   }
 }

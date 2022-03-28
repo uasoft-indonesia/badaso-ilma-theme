@@ -6,7 +6,9 @@
     <div v-for="announcement in announcements" v-bind:key="announcement.id">
       <AnnouncementCard
         :content="announcement.content"
-        :created-by="announcement.createdBy"
+        :created-by="announcement.author"
+        :date-created="announcement.createdAt"
+        :date-updated="announcement.updatedAt"
       />
     </div>
   </div>
