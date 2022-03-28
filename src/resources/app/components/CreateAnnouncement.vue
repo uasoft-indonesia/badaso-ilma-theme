@@ -90,6 +90,9 @@ const courseId = window.location.href.split("/")[4];
 
 export default {
   name: "CreateAnnouncement",
+  props: [
+    "getAnnouncement"
+  ],
   data() {
     return {
       announcement: '',
@@ -118,6 +121,9 @@ export default {
 
         if (error) {
           this.showSnackbar(errorMessage);
+        } else {
+          this.startWriting = false;
+          this.$props.getAnnouncement();
         }
       }
     },

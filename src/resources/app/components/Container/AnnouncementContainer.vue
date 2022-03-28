@@ -1,6 +1,8 @@
 <template>
   <div id="container">
-    <CreateAnnouncement/>
+    <CreateAnnouncement
+      :getAnnouncement="this.getAnnouncements()"
+    />
     <div v-for="announcement in announcements" v-bind:key="announcement.id">
       <AnnouncementCard
         :content="announcement.content"
