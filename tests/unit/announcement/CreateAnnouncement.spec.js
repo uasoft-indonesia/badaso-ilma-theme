@@ -49,18 +49,18 @@ describe("CreateAnnouncement", () => {
       await expect(findInitialForm.exists()).toBe(false);
 
       const initialText = wrapper.find("#initial-text");
-      expect(initialText.exists()).toBe(false);
+      await expect(initialText.exists()).toBe(false);
 
       const findTrueForm = wrapper.find("#true-form");
-      expect(findTrueForm.exists()).toBe(true);
+      await expect(findTrueForm.exists()).toBe(true);
 
       const findCancelButton = wrapper.find("#cancel-button");
-      expect(findCancelButton.exists()).toBe(true);
-      expect(findCancelButton.text()).toBe("Cancel");
+      await expect(findCancelButton.exists()).toBe(true);
+      await expect(findCancelButton.text()).toBe("Cancel");
 
       const findPostButton = wrapper.find("#post-button");
-      expect(findPostButton.exists()).toBe(true);
-      expect(findPostButton.text()).toBe("Post");
+      await expect(findPostButton.exists()).toBe(true);
+      await expect(findPostButton.text()).toBe("Post");
     })
   });
 });
