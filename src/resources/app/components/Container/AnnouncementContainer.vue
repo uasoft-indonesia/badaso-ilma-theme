@@ -28,7 +28,6 @@ export default {
   },
   methods: {
     async getAnnouncements() {
-      console.log("test")
       try {
         const response = await api.GetAnnouncements(courseId);
         this.announcements = response.data;
