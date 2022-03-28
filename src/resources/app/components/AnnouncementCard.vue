@@ -6,9 +6,9 @@
   >
     <div id="announcement">
       <AnnouncementContent
-        :name="'User'"
+        :name=this.$props.createdBy
         :date="'19 January 2022'"
-        :content="'Test Content'"
+        :content=this.$props.content
       />
     </div>
 
@@ -35,6 +35,11 @@ import AnnouncementContent from "./AnnouncementContent";
 
 export default {
   name: "AnnouncementCard",
+  props: [
+    "createdBy",
+    "content",
+    "dateCreated",
+  ],
   components: {AnnouncementContent},
   data() {
     return {
