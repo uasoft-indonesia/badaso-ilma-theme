@@ -122,6 +122,7 @@ export default {
         if (error) {
           this.showSnackbar(errorMessage);
         } else {
+          this.$refs.form.reset();
           this.startWriting = false;
           this.$props.getAnnouncement();
         }
