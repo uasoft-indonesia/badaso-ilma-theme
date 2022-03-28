@@ -32,7 +32,6 @@ export default {
         const response = await api.GetAnnouncements(courseId);
         this.announcements = response.data;
       } catch (error) {
-        console.log(error);
       }
     },
   },
