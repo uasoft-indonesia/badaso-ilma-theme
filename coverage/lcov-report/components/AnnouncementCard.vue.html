@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for pages/PeopleInCourse.vue</title>
+    <title>Code coverage report for components/AnnouncementCard.vue</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">pages</a> PeopleInCourse.vue</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> AnnouncementCard.vue</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
@@ -117,22 +117,7 @@
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">8x</span>
+<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -186,89 +171,59 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;v-container&gt;
-    &lt;div class="my-10 mx-10"&gt;
-      &lt;v-col cols="6"&gt;
-        &lt;v-row class="text-primary text-lg" id="title"&gt; Teachers &lt;/v-row&gt;
-        &lt;v-row&gt;
-          &lt;v-divider class="bg-primary my-1"&gt;&lt;/v-divider&gt;
-        &lt;/v-row&gt;
-        &lt;v-row
-          v-for="teacher in peoples"
-          v-bind:key="teacher.name"
-          v-if="teacher.role == 'teacher'"
-        &gt;
-          &lt;v-avatar class="bg-primary my-3" id="avatar" size="36"&gt;&lt;/v-avatar&gt;
-          &lt;div class="ml-3 my-4" id="name"&gt;{{ teacher.name }}&lt;/div&gt;
-        &lt;/v-row&gt;
-        &lt;v-row class="text-primary text-lg" id="title"&gt; Classmates &lt;/v-row&gt;
-        &lt;v-row&gt;
-          &lt;v-divider class="bg-primary my-1"&gt;&lt;/v-divider&gt;
-        &lt;/v-row&gt;
-        &lt;v-row
-          v-for="student in peoples"
-          v-bind:key="student.name"
-          v-if="student.role == 'student'"
-        &gt;
-          &lt;v-avatar class="bg-primary my-3" id="avatar" size="36"&gt;&lt;/v-avatar&gt;
-          &lt;div class="ml-3 my-4" id="name"&gt;{{ student.name }}&lt;/div&gt;
-        &lt;/v-row&gt;
-      &lt;/v-col&gt;
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="branch-1 cbranch-no" title="branch not covered" >&lt;template&gt;</span>
+  &lt;v-card
+    class="mx-auto my-3"
+    width="650"
+    outlined
+  &gt;
+    &lt;div id="announcement"&gt;
+      &lt;AnnouncementContent
+        :name=this.$props.createdBy
+        :date="this.$props.date"
+        :content=this.$props.content
+        :id="this.$props.id"
+      /&gt;
     &lt;/div&gt;
-  &lt;/v-container&gt;
+&nbsp;
+    &lt;!--announcement comments--&gt;
+    &lt;div
+      id="comments"
+      v-if="comments.length !== 0"
+      v-for="comment in comments"
+      v-bind:key="comment.id"
+    &gt;
+      &lt;v-divider&gt;&lt;/v-divider&gt;
+      &lt;AnnouncementContent
+        :name="comment.name"
+        :date="comment.date"
+        :content="comment.content"
+        :id="comment.id"
+      /&gt;
+    &lt;/div&gt;
+  &lt;/v-card&gt;
+&nbsp;
 &lt;/template&gt;
+&nbsp;
 &lt;script&gt;
-import api from "../../api/people";
-import CourseStream from "./courseStream.vue";
-import AppLayout from "../components/Layout/AppLayout.vue";
+import AnnouncementContent from "./AnnouncementContent";
 &nbsp;
 export default {
-  layout: [AppLayout, CourseStream],
-  props: {
-    id: {
-      default: 1,
-    },
-  },
+  name: "AnnouncementCard",
+  props: [
+    "id",
+    "createdBy",
+    "content",
+    "date",
+  ],
+  components: {AnnouncementContent},
   data() {
     return {
-      peoples: [
-        {
-          name: "Placeholder",
-          role: "teacher",
-        },
-      ],
-    };
+      comments: [],
+    }
   },
-  methods: {
-    async getData(id) {
-      try {
-        const res = await api.people(id);
-        this.peoples = res.data;
-      } catch (e) {
-        console.log(e);
-      }
-    },
-  },
-  mounted() {
-    this.getData(this.id);
-  },
-};
+}
+&nbsp;
 &lt;/script&gt;
 &nbsp;</pre></td></tr></table></pre>
 

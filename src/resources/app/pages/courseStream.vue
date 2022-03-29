@@ -84,7 +84,7 @@ export default {
       }
     },
     redirectTab(href) {
-      this.$inertia.visit("/course/1" + href);
+      this.$inertia.visit("/course/2" + href);
     },
     getActiveTab() {
       const pathname = window.location.pathname.split("/");

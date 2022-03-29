@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for pages/course/CreateCourse.vue</title>
+    <title>Code coverage report for components/AnnouncementContent.vue</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../prettify.css" />
-    <link rel="stylesheet" href="../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../sort-arrow-sprite.png);
+            background-image: url(../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">pages/course</a> CreateCourse.vue</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> AnnouncementContent.vue</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -32,7 +32,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -218,7 +218,15 @@
 <a name='L153'></a><a href='#L153'>153</a>
 <a name='L154'></a><a href='#L154'>154</a>
 <a name='L155'></a><a href='#L155'>155</a>
-<a name='L156'></a><a href='#L156'>156</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">172x</span>
+<a name='L156'></a><a href='#L156'>156</a>
+<a name='L157'></a><a href='#L157'>157</a>
+<a name='L158'></a><a href='#L158'>158</a>
+<a name='L159'></a><a href='#L159'>159</a>
+<a name='L160'></a><a href='#L160'>160</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">67x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -374,159 +382,163 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;v-app&gt;
-    &lt;v-snackbar v-model="snackbar.isVisible" :timeout="3000" top&gt;
-      {{ snackbar.text }}
-      &lt;template v-slot:action="{ attrs }"&gt;
-        &lt;v-btn
-          color="blue"
-          text
-          v-bind="attrs"
-          @click="snackbar.isVisible = false"
-        &gt;
-          Close
-        &lt;/v-btn&gt;
-      &lt;/template&gt;
-    &lt;/v-snackbar&gt;
+  &lt;div class="px-6 py-4"&gt;
+    &lt;div class="d-flex justify-between"&gt;
+      &lt;div class="d-flex"&gt;
+        &lt;v-avatar class="bg-primary mr-4" id="avatar" size="48"&gt;&lt;/v-avatar&gt;
+        &lt;div&gt;
+          &lt;div id="author"&gt;
+            {{ name }}
+          &lt;/div&gt;
+          &lt;div
+            id="date"
+            class="text-sm text-textGray"&gt;
+            {{ announcementDate }}
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;v-menu
+        id="menu"
+        bottom
+        right
+      &gt;
+        &lt;template v-slot:activator="{ on, attrs }"&gt;
+          &lt;v-btn
+            icon
+            v-bind="attrs"
+            v-on="on"
+          &gt;
+            &lt;v-icon&gt;mdi-dots-vertical&lt;/v-icon&gt;
+          &lt;/v-btn&gt;
+        &lt;/template&gt;
 &nbsp;
-    &lt;div class="flex justify-center items-center"&gt;
-      &lt;v-card id="join-card" elevation="2" width="400px" class="p-6"&gt;
-        &lt;div id="title" class="text-base mb-2"&gt;Create a New Course&lt;/div&gt;
-        &lt;v-form v-model="form.isValid" ref="form"&gt;
-          &lt;div&gt;
-            &lt;v-text-field
-              id="name-form"
-              label="Course Name"
-              v-model="form.values.name"
-              :rules="form.rules.name"
-              required
-              outlined
-            &gt;&lt;/v-text-field&gt;
-          &lt;/div&gt;
-          &lt;div&gt;
-            &lt;v-text-field
-              id="subject-form"
-              label="Subject"
-              v-model="form.values.subject"
-              :rules="form.rules.subject"
-              required
-              outlined
-            &gt;&lt;/v-text-field&gt;
-          &lt;/div&gt;
-          &lt;div&gt;
-            &lt;v-text-field
-              id="room-form"
-              label="Room"
-              v-model="form.values.room"
-              :rules="form.rules.room"
-              required
-              outlined
-            &gt;&lt;/v-text-field&gt;
-          &lt;/div&gt;
-          &lt;div class="mt-3 flex justify-end"&gt;
-            &lt;v-btn
-              id="cancel-btn"
-              depressed
-              color="gray"
-              @click="actionBackToHomepage"
+        &lt;v-list&gt;
+          &lt;v-list-item
+            link
+            v-for="(item, i) in items"
+            :key="i"
+          &gt;
+            &lt;v-list-item-title
+              :class="item.class"
+              @click="isEditing=true"
+            &gt;{{ item.title }}
+            &lt;/v-list-item-title&gt;
+          &lt;/v-list-item&gt;
+        &lt;/v-list&gt;
+      &lt;/v-menu&gt;
+    &lt;/div&gt;
+    &lt;div
+      id="content"
+      class="mt-4"
+      v-if="!isEditing"
+    &gt;
+      {{ content }}
+    &lt;/div&gt;
+    &lt;div
+      id="edit-form"
+      v-if="isEditing"
+    &gt;
+      &lt;v-form
+        v-model="isFormValid"
+        ref="form"
+        class="mx-6 my-4"
+      &gt;
+        &lt;div&gt;
+          &lt;v-textarea
+            outlined
+            v-model="announcement"
+            :rules="announceRules.concat(lengthRules)"
+            :counter="65535"
+            label="Announcement"
+            placeholder="Announcement for everyone..."
+          &gt;&lt;/v-textarea&gt;
+        &lt;/div&gt;
+        &lt;div class="text-right"&gt;
+          &lt;v-btn
+            depressed
+            color=light
+            @click="isEditing = false; announcement = content"
+            class="mr-4"
+          &gt;
+            &lt;div
+              id="cancel-button"
+              class="text-primary"
             &gt;
               Cancel
-            &lt;/v-btn&gt;
-            &lt;v-btn
-              id="create-btn"
-              class="ml-3"
-              depressed
-              color="primary"
-              @click="submitForm"
-              :loading="form.isSubmitting"
-              :disabled="!form.isValid"
-            &gt;
-              Create
-            &lt;/v-btn&gt;
-          &lt;/div&gt;
-        &lt;/v-form&gt;
-      &lt;/v-card&gt;
+            &lt;/div&gt;
+          &lt;/v-btn&gt;
+          &lt;v-btn
+            id="post-button"
+            depressed
+            color=primary
+            @click="editAnnouncement"
+            :disabled="!isFormValid"
+          &gt;
+            Post
+          &lt;/v-btn&gt;
+        &lt;/div&gt;
+      &lt;/v-form&gt;
     &lt;/div&gt;
-  &lt;/v-app&gt;
+  &lt;/div&gt;
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
-import { createCourse } from "../../../api/course/create";
-import AppLayout from "../../components/Layout/AppLayout.vue";
+import {EditAnnouncement} from "../../api/announcement/EditAnnouncement";
 &nbsp;
 export default {
-  layout: [AppLayout],
-  components: {},
-  beforeCreate() {
-    if (!this.$store.state.isAuthenticated) {
-      window.location.assign("/login");
+  name: "AnnouncementContent",
+  props: [
+    "id",
+    "name",
+    "date",
+    "content",
+  ],
+  data() {
+    return {
+      announcementDate: this.dateSlicing(),
+      announcement: this.$props.content,
+      isEditing: false,
+      isFormValid: false,
+      announceRules: [(v) =&gt; (!!v || "Announcement cannot be empty")],
+      lengthRules: [(v) =&gt; (v.length &lt;= 65535 || "Characters are off limit")],
+      items: [{
+        title: 'Edit',
+        action: "isEditing=True",
+        class: 'w-28 text-sm',
+      }, {
+        title: 'Delete',
+        action: '',
+        class: 'w-28 text-sm text-error',
+      }]
     }
   },
-  data: () =&gt; ({
-    snackbar: {
-      isVisible: false,
-      text: "",
-    },
-    form: {
-      isValid: false,
-      isSubmitting: false,
-      values: {
-        name: "",
-        subject: "",
-        room: "",
-      },
-      rules: {
-        name: [
-          (v) =&gt; v.length &lt;= 255 || "Name must be less than 256 characters",
-          (v) =&gt; !!v || "Name is required",
-        ],
-        subject: [
-          (v) =&gt; v.length &lt;= 255 || "Subject must be less than 256 characters",
-          (v) =&gt; !!v || "Subject is required",
-        ],
-        room: [
-          (v) =&gt; v.length &lt;= 255 || "Room must be less than 256 characters",
-          (v) =&gt; !!v || "Room is required",
-        ],
-      },
-    },
-  }),
   methods: {
     validate() {
       this.$refs.form.validate();
     },
 &nbsp;
-    async submitForm() {
-      this.form.isSubmitting = true;
-      this.validate();
+    async editAnnouncement(){
+      if (this.isFormValid) {
+        const {data, error, errorMessage} = await EditAnnouncement({
+          content: this.announcement,
+        }, this.$props.id);
 &nbsp;
-      if (!this.form.isValid) return;
-&nbsp;
-      const { data, error, errorMessage } = await createCourse({
-        name: this.form.values.name,
-        subject: this.form.values.subject,
-        room: this.form.values.room,
-      });
-&nbsp;
-      if (error) {
-        this.showSnackbar(errorMessage);
-        this.form.isSubmitting = false;
-        return;
+        if (error) {
+          this.showSnackbar(errorMessage);
+        } else {
+          this.isEditing = false;
+          this.$props.content = this.announcement;
+        }
       }
-&nbsp;
-      window.location.assign("/course/" + data.id);
     },
 &nbsp;
-    showSnackbar(text) {
-      this.snackbar.text = text;
-      this.snackbar.isVisible = true;
-    },
-&nbsp;
-    actionBackToHomepage() {
-      window.location.assign("/");
-    },
-  },
-};
+    dateSlicing() {
+      let date = new Date(this.$props.date);
+      date = date.toString().split(" ");
+      return date[0] + ", " + date[2] + " " + date[1] + " " + date[3] + " " + date[4]
+    }
+  }
+}
 &lt;/script&gt;
 &nbsp;</pre></td></tr></table></pre>
 
@@ -537,14 +549,14 @@ export default {
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
                 at Tue Mar 29 2022 18:16:00 GMT+0700 (Western Indonesia Time)
             </div>
-        <script src="../../prettify.js"></script>
+        <script src="../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../sorter.js"></script>
-        <script src="../../block-navigation.js"></script>
+        <script src="../sorter.js"></script>
+        <script src="../block-navigation.js"></script>
     </body>
 </html>
     
