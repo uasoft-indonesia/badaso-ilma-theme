@@ -7,8 +7,7 @@
       <AnnouncementCard
         :content="announcement.content"
         :created-by="announcement.author"
-        :date-created="announcement.createdAt"
-        :date-updated="announcement.updatedAt"
+        :date="announcement.createdAt"
         :id="announcement.id"
       />
     </div>

@@ -7,7 +7,7 @@
     <div id="announcement">
       <AnnouncementContent
         :name=this.$props.createdBy
-        :date="this.$props.dateCreated !== this.$props.dateUpdated ? this.$props.dateUpdated : this.$props.dateCreated"
+        :date="this.$props.date"
         :content=this.$props.content
         :id="this.$props.id"
       />
@@ -41,8 +41,7 @@ export default {
     "id",
     "createdBy",
     "content",
-    "dateCreated",
-    "dateUpdated",
+    "date",
   ],
   components: {AnnouncementContent},
   data() {
