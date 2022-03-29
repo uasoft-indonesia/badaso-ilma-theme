@@ -37,7 +37,7 @@ export default {
       }
     },
   },
-  mounted() {
+  created() {
     this.getAnnouncements();
   },
   components: {AnnouncementCard, CreateAnnouncement}
