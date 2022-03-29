@@ -1,11 +1,15 @@
 <template>
-  <v-app>
+  <div id="announcement-container">
     <AnnouncementContainer/>
-  </v-app>
+  </div>
 </template>
 <script>
 import AnnouncementContainer from "../../components/Container/AnnouncementContainer";
+import CourseStream from "../courseStream";
+import AppLayout from "../../components/Layout/AppLayout";
+
 export default {
+  layout: [AppLayout, CourseStream],
   components: {AnnouncementContainer}
 }
 </script>
