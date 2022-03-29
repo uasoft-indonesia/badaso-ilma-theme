@@ -52,6 +52,7 @@
       {{ content }}
     </div>
     <div
+      id="edit-form"
       v-if="isEditing"
     >
       <v-form
