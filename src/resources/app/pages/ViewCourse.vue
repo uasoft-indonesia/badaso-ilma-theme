@@ -1,5 +1,5 @@
 <template>
-  <div class="screen mx-16">
+  <div>
     <div class="h-16"></div>
     <div class="flex flex-row flex-wrap items-start space-x-10">
       <div class="m-0" />
@@ -22,9 +22,12 @@
 <script>
 import AddCourseCard from "../components/AddCourseCard.vue";
 import CourseCard from "../components/CourseCard.vue";
+import AppLayout from "../components/Layout/AppLayout.vue";
 import api from "../../api/view";
 
 export default {
+  layout: [AppLayout],
+
   beforeCreate() {
     if (!this.$store.state.isAuthenticated) {
       this.$inertia.visit("/login");
@@ -53,8 +56,7 @@ export default {
       try {
         const res = await api.view();
         this.posts = res.data;
-      } catch (e) {
-      }
+      } catch (e) {}
     },
   },
 

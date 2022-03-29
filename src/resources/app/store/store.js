@@ -10,6 +10,10 @@ export default new Vuex.Store({
     isAuthenticated: false,
     user: {},
     token: {},
+    snackbar: {
+      isVisible: false,
+      content: "",
+    },
   },
   mutations: {
     SET_IS_AUTHENTICATED(state, payload) {
@@ -18,6 +22,9 @@ export default new Vuex.Store({
     SET_USER(state, user) {
       state.user = user;
     },
+    SET_SNACKBAR(state, snackbar) {
+      state.snackbar = snackbar;
+    },
   },
   actions: {
     SET_IS_AUTHENTICATED({ commit }, payload) {
@@ -25,6 +32,17 @@ export default new Vuex.Store({
     },
     SET_USER({ commit }, payload) {
       commit("SET_USER", payload);
+    },
+    OPEN_SNACKBAR({ commit }, content) {
+      commit("SET_SNACKBAR", { content, isVisible: true });
+    },
+    CLOSE_SNACKBAR({ commit }) {
+      commit("SET_SNACKBAR", { isVisible: false });
+    },
+    LOGOUT({ commit }) {
+      commit("SET_IS_AUTHENTICATED", false);
+      commit("SET_USER", {});
+      localStorage.removeItem("token");
     },
   },
   getters: {
