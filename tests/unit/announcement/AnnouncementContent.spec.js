@@ -12,7 +12,7 @@ describe("AnnouncementContent", () => {
   });
 
   describe("when loaded", () => {
-    describe('and when no comment exist', () => {
+    describe('and when not editing', () => {
       it("should renders",  () => {
         const wrapper = mount(AnnouncementContent, {
           localVue,
@@ -30,7 +30,27 @@ describe("AnnouncementContent", () => {
 
         const findMenu = wrapper.find("#menu");
         expect(findMenu.exists()).toBe(true);
+
+        const findEditForm = wrapper.find("#edit-form");
+        expect(findEditForm.exists()).toBe(false);
       });
     });
+
+    describe('and when editing announcement', () => {
+      it("should renders", async () => {
+        const wrapper = await mount(AnnouncementContent, {
+          localVue,
+          vuetify,
+        });
+
+        await wrapper.setData({isEditing : true})
+
+        const findEditForm = wrapper.find("#edit-form");
+        await expect(findEditForm.exists()).toBe(true);
+
+        const findContent = wrapper.find("#content");
+        await expect(findContent.exists()).toBe(false);
+      })
+    })
   });
 });
