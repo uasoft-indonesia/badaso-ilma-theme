@@ -46,7 +46,7 @@
               <v-textarea
                 outlined
                 v-model="announcement"
-                :rules="announceRules"
+                :rules="announceRules.concat(lengthRules)"
                 :counter="65535"
                 label="Announcement"
                 placeholder="Announcement for everyone..."
@@ -98,8 +98,8 @@ export default {
       announcement: '',
       startWriting: false,
       isFormValid: false,
-      announceRules: [(v) => (!!v || "Announcement cannot be empty")
-        && (v.length <= 65535 || "Characters are off limit")],
+      announceRules: [(v) => (!!v || "Announcement cannot be empty")],
+      lengthRules: [(v) => (v.length <= 65535 || "Characters are off limit")],
       snackbar: {
         isVisible: false,
         text: "",
