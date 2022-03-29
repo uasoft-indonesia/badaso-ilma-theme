@@ -3,7 +3,12 @@
     <v-snackbar v-model="snackbar.isVisible" :timeout="3000" top>
       {{ snackbar.text }}
       <template v-slot:action="{ attrs }">
-        <v-btn color="blue" text v-bind="attrs" @click="snackbar.isVisible = false">
+        <v-btn
+          color="blue"
+          text
+          v-bind="attrs"
+          @click="snackbar.isVisible = false"
+        >
           Close
         </v-btn>
       </template>
@@ -72,8 +77,10 @@
 
 <script>
 import { createCourse } from "../../../api/course/create";
+import AppLayout from "../../components/Layout/AppLayout.vue";
 
 export default {
+  layout: [AppLayout],
   components: {},
   beforeCreate() {
     if (!this.$store.state.isAuthenticated) {

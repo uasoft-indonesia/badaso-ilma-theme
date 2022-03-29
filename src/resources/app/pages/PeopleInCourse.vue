@@ -34,6 +34,8 @@
 </template>
 <script>
 import api from "../../api/people";
+import CourseStream from "./courseStream.vue";
+import AppLayout from "../components/Layout/AppLayout.vue";
 
 export default {
   beforeCreate() {
@@ -42,6 +44,7 @@ export default {
     }
   },
 
+  layout: [AppLayout, CourseStream],
   props: {
     id: {
     },

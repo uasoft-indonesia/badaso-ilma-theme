@@ -14,7 +14,7 @@ describe("Class Code Widget", () => {
     vuetify = new Vuetify();
     store = new Vuex.Store({
       state: {
-        isAuthenticated: false,
+        isAuthenticated: true,
       },
     });
   });
@@ -28,13 +28,11 @@ describe("Class Code Widget", () => {
       expect(classCode().exists()).toBe(true);
       const copyBtn = () => wrapper.find("#copy-btn");
       expect(copyBtn().exists()).toBe(true);
-
-      
     });
   });
   describe("When click", () => {
     it("should call function", async () => {
-        window.alert = jest.fn()
+      window.alert = jest.fn();
       const wrapper = mount(courseStream, {
         localVue,
         vuetify,
@@ -46,13 +44,13 @@ describe("Class Code Widget", () => {
         },
       });
       global.navigator.clipboard = {
-          writeText:jest.fn()
-      }
+        writeText: jest.fn(),
+      };
       const copyBtn = () => wrapper.find("#copy-btn");
       copyBtn().trigger("click");
       copyBtn().vm.$emit("click");
       await wrapper.vm.$nextTick();
-      
+
       expect(navigator.clipboard.writeText).toHaveBeenCalled();
     });
   });

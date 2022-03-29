@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for register.vue</title>
+    <title>Code coverage report for components/CreateAnnouncement.vue</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="prettify.css" />
-    <link rel="stylesheet" href="base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(sort-arrow-sprite.png);
+            background-image: url(../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> register.vue</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> CreateAnnouncement.vue</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -205,7 +205,7 @@
 <a name='L140'></a><a href='#L140'>140</a>
 <a name='L141'></a><a href='#L141'>141</a>
 <a name='L142'></a><a href='#L142'>142</a>
-<a name='L143'></a><a href='#L143'>143</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">6x</span>
+<a name='L143'></a><a href='#L143'>143</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">46x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -293,7 +293,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -348,146 +348,146 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;v-app&gt;
-    &lt;v-card elevation="5" class="pa-6 ma-auto rounded-lg" width="400px"&gt;
-      &lt;v-form ref="form" v-model="valid"&gt;
-        &lt;div class="grid"&gt;
-          &lt;v-text-field
-            v-model="fullname"
-            :rules="fullNameRules"
-            label="Fullname"
-            required
-            outlined
-            id="input-fullname"
-          &gt;&lt;/v-text-field&gt;
+  &lt;div&gt;
+    &lt;v-snackbar v-model="snackbar.isVisible" :timeout="3000" top&gt;
+      {{ snackbar.text }}
+      &lt;template v-slot:action="{ attrs }"&gt;
+        &lt;v-btn color="blue" text v-bind="attrs" @click="snackbar.isVisible = false"&gt;
+          Close
+        &lt;/v-btn&gt;
+      &lt;/template&gt;
+    &lt;/v-snackbar&gt;
 &nbsp;
-          &lt;v-text-field
-            v-model="username"
-            label="Username"
-            required
-            outlined
-            :rules="usernameRules"
-            id="input-username"
-          &gt;&lt;/v-text-field&gt;
-&nbsp;
-          &lt;v-text-field
-            v-model="email"
-            :rules="emailRules"
-            label="E-mail"
-            required
-            outlined
-            id="input-email"
-          &gt;&lt;/v-text-field&gt;
-&nbsp;
-          &lt;v-text-field
-            v-model="password"
-            :rules="passwordRules"
-            label="Password"
-            type="password"
-            required
-            outlined
-            id="input-password"
-          &gt;&lt;/v-text-field&gt;
-&nbsp;
-          &lt;v-text-field
-            v-model="passwordConfirmation"
-            :rules="passwordConfirmationRules"
-            label="Password Confirmation"
-            type="password"
-            required
-            outlined
-            id="input-password-confirmation"
-          &gt;&lt;/v-text-field&gt;
-&nbsp;
-          &lt;v-btn
-            @click="submit"
-            :disabled="!valid"
-            width="100%"
-            depressed
-            color="primary"
-            id="btn-register"
+    &lt;v-hover
+      v-slot="{ hover }"
+      true
+    &gt;
+      &lt;v-card
+        :elevation="hover &amp;&amp; !startWriting ? 5 : 0"
+        class="mx-auto my-3"
+        width="650"
+        outlined
+      &gt;
+        &lt;div
+          id="initial-form"
+          v-on:click="startWriting = true"
+          v-if="!startWriting"
+          class="cursor-pointer px-6 py-4"
+        &gt;
+          &lt;v-avatar class="bg-primary mr-4" id="avatar" size="48"&gt;&lt;/v-avatar&gt;
+          &lt;span
+            id="initial-text"
+            class="text-textGray"
           &gt;
-            Register
-          &lt;/v-btn&gt;
-&nbsp;
-          &lt;v-btn
-            class="mt-4"
-            @click="validate"
-            width="100%"
-            depressed
-            id="btn-login"
-          &gt;
-            Login
-          &lt;/v-btn&gt;
+          Write Something
+        &lt;/span&gt;
         &lt;/div&gt;
-      &lt;/v-form&gt;
-    &lt;/v-card&gt;
-    &lt;img :src="backgroundImage" id="background-photo" /&gt;
-  &lt;/v-app&gt;
+        &lt;div
+          id="true-form"
+          v-if="startWriting"
+        &gt;
+          &lt;v-form
+            v-model="isFormValid"
+            ref="form"
+            class="mx-6 my-4"
+          &gt;
+            &lt;div&gt;
+              &lt;v-textarea
+                outlined
+                v-model="announcement"
+                :rules="announceRules.concat(lengthRules)"
+                :counter="65535"
+                label="Announcement"
+                placeholder="Announcement for everyone..."
+              &gt;&lt;/v-textarea&gt;
+            &lt;/div&gt;
+            &lt;div class="text-right"&gt;
+              &lt;v-btn
+                depressed
+                color=light
+                @click="startWriting = false"
+                class="mr-4"
+              &gt;
+                &lt;div
+                  id="cancel-button"
+                  class="text-primary"
+                &gt;
+                  Cancel
+                &lt;/div&gt;
+              &lt;/v-btn&gt;
+              &lt;v-btn
+                id="post-button"
+                depressed
+                color=primary
+                @click="postAnnouncement"
+                :disabled="!isFormValid"
+              &gt;
+                Post
+              &lt;/v-btn&gt;
+            &lt;/div&gt;
+          &lt;/v-form&gt;
+        &lt;/div&gt;
+      &lt;/v-card&gt;
+    &lt;/v-hover&gt;
+  &lt;/div&gt;
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
-import api from "../../api/auth";
+import {CreateAnnouncement} from "../../api/announcement/CreateAnnouncement";
+&nbsp;
+const courseId = window.location.href.split("/")[4];
 &nbsp;
 export default {
+  name: "CreateAnnouncement",
+  props: [
+    "getAnnouncement"
+  ],
   data() {
     return {
-      valid: true,
-      fullname: "",
-      fullNameRules: [(v) =&gt; !!v || "Name is required"],
-      email: "",
-      emailRules: [
-        (v) =&gt; !!v || "Email is required",
-        (v) =&gt; /.+@.+\..+/.test(v) || "Email must be valid",
-      ],
-      username: "",
-      usernameRules: [(v) =&gt; !!v || "Username is required"],
-      password: "",
-      passwordRules: [(v) =&gt; !!v || "Password is required"],
-      passwordConfirmation: "",
-      passwordConfirmationRules: [
-        (v) =&gt; !!v || "Password is required",
-        (v) =&gt; {
-          if (this.password === v) {
-            return true;
-          } else {
-            return "Passwords does not match.";
-          }
-        },
-      ],
-      backgroundImage: "../../assets/undraw_on_the_office_re_cxds.svg",
-    };
+      announcement: '',
+      startWriting: false,
+      isFormValid: false,
+      announceRules: [(v) =&gt; (!!v || "Announcement cannot be empty")],
+      lengthRules: [(v) =&gt; (v.length &lt;= 65535 || "Characters are off limit")],
+      snackbar: {
+        isVisible: false,
+        text: "",
+      },
+    }
   },
   methods: {
     validate() {
       this.$refs.form.validate();
     },
-    async submit() {
+&nbsp;
+    async postAnnouncement() {
       this.validate();
-      if (this.valid) {
-        try {
-          res = await api.register({
-            name: this.fullname,
-            username: this.username,
-            email: this.email,
-            password: this.password,
-            password_confirmation: this.passwordConfirmation,
-          });
-        } catch (e) {
-          console.log(e);
+      if (this.isFormValid) {
+        const {data, error, errorMessage} = await CreateAnnouncement({
+          courseId: parseInt(courseId),
+          content: this.announcement,
+        });
+&nbsp;
+        if (error) {
+          this.showSnackbar(errorMessage);
+        } else {
+          this.$refs.form.reset();
+          this.startWriting = false;
+          this.$props.getAnnouncement();
         }
       }
     },
-  },
-};
+&nbsp;
+    showSnackbar(text) {
+      this.snackbar.text = text;
+      this.snackbar.isVisible = true;
+    },
+  }
+}
 &lt;/script&gt;
 &nbsp;
-&lt;style&gt;
-#background-photo {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
+&lt;style scoped&gt;
+&nbsp;
 &lt;/style&gt;
 &nbsp;</pre></td></tr></table></pre>
 
@@ -496,16 +496,16 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Sun Mar 13 2022 00:26:04 GMT+0700 (Indochina Time)
+                at Wed Mar 30 2022 00:16:45 GMT+0700 (Indochina Time)
             </div>
-        <script src="prettify.js"></script>
+        <script src="../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="sorter.js"></script>
-        <script src="block-navigation.js"></script>
+        <script src="../sorter.js"></script>
+        <script src="../block-navigation.js"></script>
     </body>
 </html>
     
