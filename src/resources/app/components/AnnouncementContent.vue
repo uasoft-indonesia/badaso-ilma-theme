@@ -30,18 +30,14 @@
         </template>
 
         <v-list>
-          <v-list-item link>
+          <v-list-item
+            link
+            v-for="(item, i) in items"
+            :key="i"
+          >
             <v-list-item-title
-              class="w-28 text-sm"
-            >
-              Edit
-            </v-list-item-title>
-          </v-list-item>
-          <v-list-item link>
-            <v-list-item-title
-              class="w-28 text-sm text-error"
-            >
-              Delete
+              :class="item.class"
+            >{{ item.title }}
             </v-list-item-title>
           </v-list-item>
         </v-list>
@@ -66,6 +62,15 @@ export default {
   data() {
     return {
       announcementDate: this.dateSlicing(),
+      items: [{
+        title: 'Edit',
+        link: '',
+        class: 'w-28 text-sm',
+      }, {
+        title: 'Delete',
+        link: '',
+        class: 'w-28 text-sm text-error',
+      }]
     }
   },
   methods: {
