@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\copyClassCode.spec.js">
+    <testCase name="Class Code Widget when loaded should renders" duration="101"/>
+    <testCase name="Class Code Widget When click should call function" duration="146"/>
+  </file>
+</testExecutions>
