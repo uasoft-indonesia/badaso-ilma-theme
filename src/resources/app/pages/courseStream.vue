@@ -59,6 +59,10 @@ export default {
     return {
       tabs: [
         {
+          name: "Announcements",
+          href: "",
+        },
+        {
           name: "Classwork",
           href: "/classwork",
         },
@@ -66,12 +70,8 @@ export default {
           name: "People",
           href: "/people",
         },
-        {
-          name: "Main Page",
-          href: "",
-        },
       ],
-      activeTab: "Main Page",
+      activeTab: "Announcements",
     };
   },
   methods: {
