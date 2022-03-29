@@ -59,7 +59,7 @@ export default {
     return {
       tabs: [
         {
-          name: "Announcements",
+          name: "Main Page",
           href: "",
         },
         {
@@ -71,7 +71,7 @@ export default {
           href: "/people",
         },
       ],
-      activeTab: "Announcements",
+      activeTab: "Main Page",
     };
   },
   methods: {
@@ -88,7 +88,6 @@ export default {
     },
     getActiveTab() {
       const pathname = window.location.pathname.split("/");
-      console.log(pathname);
       if (pathname.length == 3) {
         this.activeTab = "Main Page";
       } else if (pathname.length >= 4 && pathname[3] == "people") {
