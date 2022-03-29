@@ -9,6 +9,7 @@
         :name=this.$props.createdBy
         :date="this.$props.dateCreated !== this.$props.dateUpdated ? this.$props.dateUpdated : this.$props.dateCreated"
         :content=this.$props.content
+        :id="this.$props.id"
       />
     </div>
 
@@ -24,6 +25,7 @@
         :name="comment.name"
         :date="comment.date"
         :content="comment.content"
+        :id="comment.id"
       />
     </div>
   </v-card>
@@ -36,6 +38,7 @@ import AnnouncementContent from "./AnnouncementContent";
 export default {
   name: "AnnouncementCard",
   props: [
+    "id",
     "createdBy",
     "content",
     "dateCreated",

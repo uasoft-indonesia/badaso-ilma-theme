@@ -9,6 +9,7 @@
         :created-by="announcement.author"
         :date-created="announcement.createdAt"
         :date-updated="announcement.updatedAt"
+        :id="announcement.id"
       />
     </div>
   </div>
