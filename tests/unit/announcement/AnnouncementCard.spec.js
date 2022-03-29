@@ -29,7 +29,7 @@ describe("AnnouncementCard", () => {
 
     describe("and when comment exist", () => {
       it("comments should be rendered", async() => {
-        const wrapper = await mount(AnnouncementCard, {
+        const wrapper = mount(AnnouncementCard, {
           localVue,
           vuetify,
         });
@@ -37,7 +37,8 @@ describe("AnnouncementCard", () => {
         const comment = {
           name: "Author",
           date: "19 January 2021",
-          content: "Test content"
+          content: "Test content",
+          id: 1,
         }
 
         await wrapper.setData({comments: [comment]})
