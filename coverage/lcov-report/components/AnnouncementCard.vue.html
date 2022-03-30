@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/AddCourseCard.vue</title>
+    <title>Code coverage report for components/AnnouncementCard.vue</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> AddCourseCard.vue</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> AnnouncementCard.vue</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
@@ -117,7 +117,7 @@
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">24x</span>
+<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -162,68 +162,68 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;v-card class="mx-auto rounded-xl" width="253"&gt;
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="branch-1 cbranch-no" title="branch not covered" >&lt;template&gt;</span>
+  &lt;v-card
+    class="mx-auto my-3"
+    width="650"
+    outlined
+  &gt;
+    &lt;div id="announcement"&gt;
+      &lt;AnnouncementContent
+        :name=this.$props.createdBy
+        :date="this.$props.date"
+        :content=this.$props.content
+        :id="this.$props.id"
+      /&gt;
+    &lt;/div&gt;
+&nbsp;
+    &lt;!--announcement comments--&gt;
     &lt;div
-      class="h-48 bg-light font-semibold text-primary flex flex-col items-center"
+      id="comments"
+      v-if="comments.length !== 0"
+      v-for="comment in comments"
+      v-bind:key="comment.id"
     &gt;
-      &lt;div
-        class="text-base mb-5 mt-12"
-        id="add-course-tag"
-      &gt;
-        Add Course
-      &lt;/div&gt;
-      &lt;div class="space-x-2"&gt;
-        &lt;button
-          class="bg-white hover:bg-gray w-20 p-1 border border-gray-400 rounded shadow"
-          color="error"
-        &gt;
-          &lt;div
-            id="create-btn"
-            class="text-primary font-medium text-sm"
-            @click="actionRedirectToCreateCoursePage"
-          &gt;
-            Create
-          &lt;/div&gt;
-        &lt;/button&gt;
-        &lt;button
-          class="bg-primary hover:bg-secondary w-20 p-1 border border-gray-400 rounded shadow"
-          elevation="0"
-        &gt;
-          &lt;div
-            id="join-btn"
-            class="text-white font-medium text-sm"
-            @click="actionRedirectToJoinCoursePage"
-          &gt;
-            Join
-          &lt;/div&gt;
-        &lt;/button&gt;
-      &lt;/div&gt;
+      &lt;v-divider&gt;&lt;/v-divider&gt;
+      &lt;AnnouncementContent
+        :name="comment.name"
+        :date="comment.date"
+        :content="comment.content"
+        :id="comment.id"
+      /&gt;
     &lt;/div&gt;
   &lt;/v-card&gt;
+&nbsp;
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
-export default {
-  methods: {
-    actionRedirectToCreateCoursePage() {
-      this.$inertia.visit("/course/create");
-    },
+import AnnouncementContent from "./AnnouncementContent";
 &nbsp;
-    actionRedirectToJoinCoursePage() {
-      this.$inertia.visit("/course/join");
-    },
+export default {
+  name: "AnnouncementCard",
+  props: [
+    "id",
+    "createdBy",
+    "content",
+    "date",
+  ],
+  components: {AnnouncementContent},
+  data() {
+    return {
+      comments: [],
+    }
   },
-};
+}
+&nbsp;
 &lt;/script&gt;
 &nbsp;</pre></td></tr></table></pre>
 

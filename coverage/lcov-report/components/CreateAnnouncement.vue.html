@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for pages/course/CreateCourse.vue</title>
+    <title>Code coverage report for components/CreateAnnouncement.vue</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../prettify.css" />
-    <link rel="stylesheet" href="../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../sort-arrow-sprite.png);
+            background-image: url(../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">pages/course</a> CreateCourse.vue</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> CreateAnnouncement.vue</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -205,20 +205,7 @@
 <a name='L140'></a><a href='#L140'>140</a>
 <a name='L141'></a><a href='#L141'>141</a>
 <a name='L142'></a><a href='#L142'>142</a>
-<a name='L143'></a><a href='#L143'>143</a>
-<a name='L144'></a><a href='#L144'>144</a>
-<a name='L145'></a><a href='#L145'>145</a>
-<a name='L146'></a><a href='#L146'>146</a>
-<a name='L147'></a><a href='#L147'>147</a>
-<a name='L148'></a><a href='#L148'>148</a>
-<a name='L149'></a><a href='#L149'>149</a>
-<a name='L150'></a><a href='#L150'>150</a>
-<a name='L151'></a><a href='#L151'>151</a>
-<a name='L152'></a><a href='#L152'>152</a>
-<a name='L153'></a><a href='#L153'>153</a>
-<a name='L154'></a><a href='#L154'>154</a>
-<a name='L155'></a><a href='#L155'>155</a>
-<a name='L156'></a><a href='#L156'>156</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">172x</span>
+<a name='L143'></a><a href='#L143'>143</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">46x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -306,20 +293,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -374,160 +348,147 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;v-app&gt;
+  &lt;div&gt;
     &lt;v-snackbar v-model="snackbar.isVisible" :timeout="3000" top&gt;
       {{ snackbar.text }}
       &lt;template v-slot:action="{ attrs }"&gt;
-        &lt;v-btn
-          color="blue"
-          text
-          v-bind="attrs"
-          @click="snackbar.isVisible = false"
-        &gt;
+        &lt;v-btn color="blue" text v-bind="attrs" @click="snackbar.isVisible = false"&gt;
           Close
         &lt;/v-btn&gt;
       &lt;/template&gt;
     &lt;/v-snackbar&gt;
 &nbsp;
-    &lt;div class="flex justify-center items-center"&gt;
-      &lt;v-card id="join-card" elevation="2" width="400px" class="p-6"&gt;
-        &lt;div id="title" class="text-base mb-2"&gt;Create a New Course&lt;/div&gt;
-        &lt;v-form v-model="form.isValid" ref="form"&gt;
-          &lt;div&gt;
-            &lt;v-text-field
-              id="name-form"
-              label="Course Name"
-              v-model="form.values.name"
-              :rules="form.rules.name"
-              required
-              outlined
-            &gt;&lt;/v-text-field&gt;
-          &lt;/div&gt;
-          &lt;div&gt;
-            &lt;v-text-field
-              id="subject-form"
-              label="Subject"
-              v-model="form.values.subject"
-              :rules="form.rules.subject"
-              required
-              outlined
-            &gt;&lt;/v-text-field&gt;
-          &lt;/div&gt;
-          &lt;div&gt;
-            &lt;v-text-field
-              id="room-form"
-              label="Room"
-              v-model="form.values.room"
-              :rules="form.rules.room"
-              required
-              outlined
-            &gt;&lt;/v-text-field&gt;
-          &lt;/div&gt;
-          &lt;div class="mt-3 flex justify-end"&gt;
-            &lt;v-btn
-              id="cancel-btn"
-              depressed
-              color="gray"
-              @click="actionBackToHomepage"
-            &gt;
-              Cancel
-            &lt;/v-btn&gt;
-            &lt;v-btn
-              id="create-btn"
-              class="ml-3"
-              depressed
-              color="primary"
-              @click="submitForm"
-              :loading="form.isSubmitting"
-              :disabled="!form.isValid"
-            &gt;
-              Create
-            &lt;/v-btn&gt;
-          &lt;/div&gt;
-        &lt;/v-form&gt;
+    &lt;v-hover
+      v-slot="{ hover }"
+      true
+    &gt;
+      &lt;v-card
+        :elevation="hover &amp;&amp; !startWriting ? 5 : 0"
+        class="mx-auto my-3"
+        width="650"
+        outlined
+      &gt;
+        &lt;div
+          id="initial-form"
+          v-on:click="startWriting = true"
+          v-if="!startWriting"
+          class="cursor-pointer px-6 py-4"
+        &gt;
+          &lt;v-avatar class="bg-primary mr-4" id="avatar" size="48"&gt;&lt;/v-avatar&gt;
+          &lt;span
+            id="initial-text"
+            class="text-textGray"
+          &gt;
+          Write Something
+        &lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div
+          id="true-form"
+          v-if="startWriting"
+        &gt;
+          &lt;v-form
+            v-model="isFormValid"
+            ref="form"
+            class="mx-6 my-4"
+          &gt;
+            &lt;div&gt;
+              &lt;v-textarea
+                outlined
+                v-model="announcement"
+                :rules="announceRules.concat(lengthRules)"
+                :counter="65535"
+                label="Announcement"
+                placeholder="Announcement for everyone..."
+              &gt;&lt;/v-textarea&gt;
+            &lt;/div&gt;
+            &lt;div class="text-right"&gt;
+              &lt;v-btn
+                depressed
+                color=light
+                @click="startWriting = false"
+                class="mr-4"
+              &gt;
+                &lt;div
+                  id="cancel-button"
+                  class="text-primary"
+                &gt;
+                  Cancel
+                &lt;/div&gt;
+              &lt;/v-btn&gt;
+              &lt;v-btn
+                id="post-button"
+                depressed
+                color=primary
+                @click="postAnnouncement"
+                :disabled="!isFormValid"
+              &gt;
+                Post
+              &lt;/v-btn&gt;
+            &lt;/div&gt;
+          &lt;/v-form&gt;
+        &lt;/div&gt;
       &lt;/v-card&gt;
-    &lt;/div&gt;
-  &lt;/v-app&gt;
+    &lt;/v-hover&gt;
+  &lt;/div&gt;
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
-import { createCourse } from "../../../api/course/create";
-import AppLayout from "../../components/Layout/AppLayout.vue";
+import {CreateAnnouncement} from "../../api/announcement/CreateAnnouncement";
+&nbsp;
+const courseId = window.location.href.split("/")[4];
 &nbsp;
 export default {
-  layout: [AppLayout],
-  components: {},
-  beforeCreate() {
-    if (!this.$store.state.isAuthenticated) {
-      window.location.assign("/login");
+  name: "CreateAnnouncement",
+  props: [
+    "getAnnouncement"
+  ],
+  data() {
+    return {
+      announcement: '',
+      startWriting: false,
+      isFormValid: false,
+      announceRules: [(v) =&gt; (!!v || "Announcement cannot be empty")],
+      lengthRules: [(v) =&gt; (v.length &lt;= 65535 || "Characters are off limit")],
+      snackbar: {
+        isVisible: false,
+        text: "",
+      },
     }
   },
-  data: () =&gt; ({
-    snackbar: {
-      isVisible: false,
-      text: "",
-    },
-    form: {
-      isValid: false,
-      isSubmitting: false,
-      values: {
-        name: "",
-        subject: "",
-        room: "",
-      },
-      rules: {
-        name: [
-          (v) =&gt; v.length &lt;= 255 || "Name must be less than 256 characters",
-          (v) =&gt; !!v || "Name is required",
-        ],
-        subject: [
-          (v) =&gt; v.length &lt;= 255 || "Subject must be less than 256 characters",
-          (v) =&gt; !!v || "Subject is required",
-        ],
-        room: [
-          (v) =&gt; v.length &lt;= 255 || "Room must be less than 256 characters",
-          (v) =&gt; !!v || "Room is required",
-        ],
-      },
-    },
-  }),
   methods: {
     validate() {
       this.$refs.form.validate();
     },
 &nbsp;
-    async submitForm() {
-      this.form.isSubmitting = true;
+    async postAnnouncement() {
       this.validate();
+      if (this.isFormValid) {
+        const {data, error, errorMessage} = await CreateAnnouncement({
+          courseId: parseInt(courseId),
+          content: this.announcement,
+        });
 &nbsp;
-      if (!this.form.isValid) return;
-&nbsp;
-      const { data, error, errorMessage } = await createCourse({
-        name: this.form.values.name,
-        subject: this.form.values.subject,
-        room: this.form.values.room,
-      });
-&nbsp;
-      if (error) {
-        this.showSnackbar(errorMessage);
-        this.form.isSubmitting = false;
-        return;
+        if (error) {
+          this.showSnackbar(errorMessage);
+        } else {
+          this.$refs.form.reset();
+          this.startWriting = false;
+          this.$props.getAnnouncement();
+        }
       }
-&nbsp;
-      window.location.assign("/course/" + data.id);
     },
 &nbsp;
     showSnackbar(text) {
       this.snackbar.text = text;
       this.snackbar.isVisible = true;
     },
-&nbsp;
-    actionBackToHomepage() {
-      window.location.assign("/");
-    },
-  },
-};
+  }
+}
 &lt;/script&gt;
+&nbsp;
+&lt;style scoped&gt;
+&nbsp;
+&lt;/style&gt;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -537,14 +498,14 @@ export default {
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
                 at Wed Mar 30 2022 21:05:12 GMT+0700 (Indochina Time)
             </div>
-        <script src="../../prettify.js"></script>
+        <script src="../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../sorter.js"></script>
-        <script src="../../block-navigation.js"></script>
+        <script src="../sorter.js"></script>
+        <script src="../block-navigation.js"></script>
     </body>
 </html>
     

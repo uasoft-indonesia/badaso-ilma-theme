@@ -93,7 +93,6 @@ export default {
         if  (error) {
           this.showSnackbar(errorMessage);
         } else {
-          console.log(data)
           window.location.assign("/course/" + data.courseId);
         }
       }
