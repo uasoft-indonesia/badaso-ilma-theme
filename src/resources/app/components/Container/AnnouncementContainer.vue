@@ -1,15 +1,25 @@
 <template>
   <div id="container">
     <CreateAnnouncement
+<<<<<<< HEAD
       :get-announcement="this.getAnnouncements"
+=======
+      :getAnnouncement="this.getAnnouncements()"
+>>>>>>> b150f07ccb46d7c9b3093e95060d8204830c5234
     />
     <div v-for="announcement in announcements" v-bind:key="announcement.id">
       <AnnouncementCard
         :content="announcement.content"
+<<<<<<< HEAD
         :author="announcement.author"
         :date="announcement.createdAt"
         :id="announcement.id"
         :author-id="announcement.createdBy"
+=======
+        :created-by="announcement.author"
+        :date="announcement.createdAt"
+        :id="announcement.id"
+>>>>>>> b150f07ccb46d7c9b3093e95060d8204830c5234
       />
     </div>
   </div>

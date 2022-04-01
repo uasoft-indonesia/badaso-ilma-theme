@@ -16,7 +16,10 @@
       </div>
       <v-menu
         id="menu"
+<<<<<<< HEAD
         v-if="getUserId === this.$props.authorId"
+=======
+>>>>>>> b150f07ccb46d7c9b3093e95060d8204830c5234
         bottom
         right
       >
@@ -110,7 +113,10 @@ export default {
     "name",
     "date",
     "content",
+<<<<<<< HEAD
     "authorId"
+=======
+>>>>>>> b150f07ccb46d7c9b3093e95060d8204830c5234
   ],
   data() {
     return {
@@ -156,11 +162,14 @@ export default {
       date = date.toString().split(" ");
       return date[0] + ", " + date[2] + " " + date[1] + " " + date[3] + " " + date[4]
     }
+<<<<<<< HEAD
   },
   computed: {
     getUserId() {
       return this.$store.state.user.id;
     }
+=======
+>>>>>>> b150f07ccb46d7c9b3093e95060d8204830c5234
   }
 }
 </script>

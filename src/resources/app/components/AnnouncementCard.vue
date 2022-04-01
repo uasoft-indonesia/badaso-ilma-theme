@@ -6,11 +6,18 @@
   >
     <div id="announcement">
       <AnnouncementContent
+<<<<<<< HEAD
         :name=this.$props.author
         :date="this.$props.date"
         :content=this.$props.content
         :id="this.$props.id"
         :author-id="this.$props.authorId"
+=======
+        :name=this.$props.createdBy
+        :date="this.$props.date"
+        :content=this.$props.content
+        :id="this.$props.id"
+>>>>>>> b150f07ccb46d7c9b3093e95060d8204830c5234
       />
     </div>
 
@@ -40,8 +47,12 @@ export default {
   name: "AnnouncementCard",
   props: [
     "id",
+<<<<<<< HEAD
     "author",
     "authorId",
+=======
+    "createdBy",
+>>>>>>> b150f07ccb46d7c9b3093e95060d8204830c5234
     "content",
     "date",
   ],
