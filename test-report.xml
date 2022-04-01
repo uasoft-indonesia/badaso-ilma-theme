@@ -1,83 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="C:\Users\Milo\Documents\University\CS\Term 6\PPL\Badaso LMS Demo\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\notAuthenticated.spec.js">
-    <testCase name="Not Authenticated Guard when not authenticated should pass" duration="3"/>
-    <testCase name="Not Authenticated Guard when authenticated should redirect to homepage" duration="1"/>
+  <file path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/example.spec.js">
+    <testCase name="displays message should renders" duration="379"/>
   </file>
-  <file path="C:\Users\Milo\Documents\University\CS\Term 6\PPL\Badaso LMS Demo\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\example.spec.js">
-    <testCase name="displays message should renders" duration="253"/>
+  <file path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/CourseCard.spec.js">
+    <testCase name="CourseCard Component when loaded should renders" duration="520"/>
+    <testCase name="CourseCard Component when course card clicked should redirect to course page" duration="156"/>
   </file>
-  <file path="C:\Users\Milo\Documents\University\CS\Term 6\PPL\Badaso LMS Demo\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\CourseCard.spec.js">
-    <testCase name="CourseCard Component when loaded should renders" duration="180"/>
-    <testCase name="CourseCard Component when course card clicked should redirect to course page" duration="63"/>
+  <file path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/Sidebar.spec.js">
+    <testCase name="App Layout.vue should contains navigation drawer" duration="401"/>
+    <testCase name="App Layout.vue should contains user&apos;s name" duration="179"/>
+    <testCase name="App Layout.vue should fetch courses data" duration="118"/>
+    <testCase name="App Layout.vue should contains logout button" duration="111"/>
   </file>
-  <file path="C:\Users\Milo\Documents\University\CS\Term 6\PPL\Badaso LMS Demo\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\AddCourseCard.spec.js">
-    <testCase name="AddCourseCard Component when loaded should renders" duration="199"/>
-    <testCase name="AddCourseCard Component when create button clicked should redirect to create course page" duration="58"/>
-    <testCase name="AddCourseCard Component when join button clicked should redirect to join course page" duration="44"/>
+  <file path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/PeopleInCourse.spec.js">
+    <testCase name="PeopleInCourse when loaded should renders" duration="223"/>
   </file>
-  <file path="C:\Users\Milo\Documents\University\CS\Term 6\PPL\Badaso LMS Demo\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\register.spec.js">
-    <testCase name="Register when loaded has all of the required elements" duration="359"/>
-    <testCase name="Register when sending request should show loading on button" duration="192"/>
+  <file path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/JoinClass.spec.js">
+    <testCase name="JoinCoursePage when loaded should renders" duration="591"/>
   </file>
-  <file path="C:\Users\Milo\Documents\University\CS\Term 6\PPL\Badaso LMS Demo\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\login.spec.js">
-    <testCase name="Login when loaded has all of the required elements" duration="346"/>
-    <testCase name="Login when loaded test data input for login component" duration="192"/>
+  <file path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/announcement/CreateAnnouncement.spec.js">
+    <testCase name="CreateAnnouncement when loaded should renders" duration="431"/>
+    <testCase name="CreateAnnouncement when initial form is clicked should hide and load components" duration="344"/>
   </file>
-  <file path="C:\Users\Milo\Documents\University\CS\Term 6\PPL\Badaso LMS Demo\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\JoinClass.spec.js">
-    <testCase name="JoinCoursePage when loaded should renders" duration="278"/>
+  <file path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/copyClassCode.spec.js">
+    <testCase name="Class Code Widget when loaded should renders" duration="288"/>
+    <testCase name="Class Code Widget When click should call function" duration="373"/>
   </file>
-  <file path="C:\Users\Milo\Documents\University\CS\Term 6\PPL\Badaso LMS Demo\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\AppLayout.spec.js">
-    <testCase name="AppLayout.vue should contains sidebar" duration="114"/>
-    <testCase name="AppLayout.vue should contains snackbar" duration="52"/>
+  <file path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/ViewCourse.spec.js">
+    <testCase name="ViewCourse Component when loaded should renders" duration="557"/>
+    <testCase name="ViewCourse Component when user is not authenticated should redirect to login page" duration="181"/>
+    <testCase name="ViewCourse Component when user is authenticated should not redirect anywhere" duration="170"/>
   </file>
-  <file path="C:\Users\Milo\Documents\University\CS\Term 6\PPL\Badaso LMS Demo\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\PeopleInCourse.spec.js">
-    <testCase name="PeopleInCourse when loaded should renders" duration="149"/>
+  <file path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/AddCourseCard.spec.js">
+    <testCase name="AddCourseCard Component when loaded should renders" duration="239"/>
+    <testCase name="AddCourseCard Component when create button clicked should redirect to create course page" duration="150"/>
+    <testCase name="AddCourseCard Component when join button clicked should redirect to join course page" duration="93"/>
   </file>
-  <file path="C:\Users\Milo\Documents\University\CS\Term 6\PPL\Badaso LMS Demo\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\Snackbar.spec.js">
-    <testCase name="App Layout.vue should contains snackbar component" duration="109"/>
-    <testCase name="App Layout.vue should contains snackbar content" duration="40"/>
+  <file path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/AppLayout.spec.js">
+    <testCase name="AppLayout.vue should contains sidebar" duration="134"/>
+    <testCase name="AppLayout.vue should contains snackbar" duration="64"/>
   </file>
-  <file path="C:\Users\Milo\Documents\University\CS\Term 6\PPL\Badaso LMS Demo\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\Sidebar.spec.js">
-    <testCase name="App Layout.vue should contains navigation drawer" duration="225"/>
-    <testCase name="App Layout.vue should contains user&apos;s name" duration="86"/>
-    <testCase name="App Layout.vue should fetch courses data" duration="54"/>
-    <testCase name="App Layout.vue should contains logout button" duration="52"/>
+  <file path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/announcement/AnnouncementContainer.spec.js">
+    <testCase name="AnnouncementContainer when loaded should renders" duration="496"/>
   </file>
-  <file path="C:\Users\Milo\Documents\University\CS\Term 6\PPL\Badaso LMS Demo\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\announcement\CreateAnnouncement.spec.js">
-    <testCase name="CreateAnnouncement when loaded should renders" duration="252"/>
-    <testCase name="CreateAnnouncement when initial form is clicked should hide and load components" duration="138"/>
+  <file path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/announcement/AnnouncementCard.spec.js">
+    <testCase name="AnnouncementCard when loaded and when no comment exist should renders" duration="276"/>
+    <testCase name="AnnouncementCard when loaded and when comment exist comments should be rendered" duration="134"/>
   </file>
-  <file path="C:\Users\Milo\Documents\University\CS\Term 6\PPL\Badaso LMS Demo\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\announcement\AnnouncementCard.spec.js">
-    <testCase name="AnnouncementCard when loaded and when no comment exist should renders" duration="214"/>
-    <testCase name="AnnouncementCard when loaded and when comment exist comments should be rendered" duration="95"/>
+  <file path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/announcement/AnnouncementPage.spec.js">
+    <testCase name="Announcement when loaded should renders" duration="459"/>
   </file>
-  <file path="C:\Users\Milo\Documents\University\CS\Term 6\PPL\Badaso LMS Demo\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\copyClassCode.spec.js">
-    <testCase name="Class Code Widget when loaded should renders" duration="139"/>
-    <testCase name="Class Code Widget When click should call function" duration="160"/>
+  <file path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/login.spec.js">
+    <testCase name="Login when loaded has all of the required elements" duration="709"/>
+    <testCase name="Login when loaded test data input for login component" duration="453"/>
   </file>
-  <file path="C:\Users\Milo\Documents\University\CS\Term 6\PPL\Badaso LMS Demo\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\ViewCourse.spec.js">
-    <testCase name="ViewCourse Component when loaded should renders" duration="264"/>
-    <testCase name="ViewCourse Component when user is not authenticated should redirect to login page" duration="61"/>
-    <testCase name="ViewCourse Component when user is authenticated should not redirect anywhere" duration="55"/>
+  <file path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/Snackbar.spec.js">
+    <testCase name="App Layout.vue should contains snackbar component" duration="161"/>
+    <testCase name="App Layout.vue should contains snackbar content" duration="64"/>
   </file>
-  <file path="C:\Users\Milo\Documents\University\CS\Term 6\PPL\Badaso LMS Demo\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\announcement\AnnouncementContent.spec.js">
-    <testCase name="AnnouncementContent when loaded and when not editing should renders" duration="220"/>
-    <testCase name="AnnouncementContent when loaded and when editing announcement should renders" duration="480"/>
+  <file path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/register.spec.js">
+    <testCase name="Register when loaded has all of the required elements" duration="741"/>
+    <testCase name="Register when sending request should show loading on button" duration="437"/>
   </file>
-  <file path="C:\Users\Milo\Documents\University\CS\Term 6\PPL\Badaso LMS Demo\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\announcement\AnnouncementContainer.spec.js">
-    <testCase name="AnnouncementContainer when loaded should renders" duration="169"/>
+  <file path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/notAuthenticated.spec.js">
+    <testCase name="Not Authenticated Guard when not authenticated should pass" duration="0"/>
+    <testCase name="Not Authenticated Guard when authenticated should redirect to homepage" duration="0"/>
   </file>
-  <file path="C:\Users\Milo\Documents\University\CS\Term 6\PPL\Badaso LMS Demo\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\announcement\AnnouncementPage.spec.js">
-    <testCase name="Announcement when loaded should renders" duration="141"/>
+  <file path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/course/create.spec.js">
+    <testCase name="CreateCourse.vue should render correct forms" duration="639"/>
+    <testCase name="CreateCourse.vue when user is not authenticated should redirect to login page" duration="324"/>
+    <testCase name="CreateCourse.vue when user is authenticated should not redirect anywhere" duration="285"/>
+    <testCase name="CreateCourse.vue when all fields are filled form should be valid" duration="233"/>
+    <testCase name="CreateCourse.vue when submitted successfully should redirect to course page" duration="98"/>
+    <testCase name="CreateCourse.vue when submission is failed should display snackbar with error message" duration="80"/>
+    <testCase name="CreateCourse.vue when cancel button is clicked should redirect to home page" duration="66"/>
   </file>
-  <file path="C:\Users\Milo\Documents\University\CS\Term 6\PPL\Badaso LMS Demo\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\course\create.spec.js">
-    <testCase name="CreateCourse.vue should render correct forms" duration="283"/>
-    <testCase name="CreateCourse.vue when user is not authenticated should redirect to login page" duration="108"/>
-    <testCase name="CreateCourse.vue when user is authenticated should not redirect anywhere" duration="60"/>
-    <testCase name="CreateCourse.vue when all fields are filled form should be valid" duration="76"/>
-    <testCase name="CreateCourse.vue when submitted successfully should redirect to course page" duration="63"/>
-    <testCase name="CreateCourse.vue when submission is failed should display snackbar with error message" duration="52"/>
-    <testCase name="CreateCourse.vue when cancel button is clicked should redirect to home page" duration="44"/>
+  <file path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/announcement/AnnouncementContent.spec.js">
+    <testCase name="AnnouncementContent when loaded and when not editing and when announcement belong to current user should renders" duration="301"/>
+    <testCase name="AnnouncementContent when loaded and when not editing and when announcement is not belong to current user should renders" duration="114"/>
+    <testCase name="AnnouncementContent when loaded and when editing announcement should renders" duration="620"/>
   </file>
 </testExecutions>
