@@ -10,6 +10,11 @@ import AppLayout from "../../components/Layout/AppLayout";
 
 export default {
   layout: [AppLayout, CourseStream],
-  components: {AnnouncementContainer}
+  components: {AnnouncementContainer},
+  beforeCreate() {
+    if (!this.$store.state.isAuthenticated) {
+      window.location.assign("/login");
+    }
+  }
 }
 </script>
