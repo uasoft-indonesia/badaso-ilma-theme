@@ -8,7 +8,7 @@
       <AnnouncementContent
         :name=this.$props.author
         :date="this.$props.date"
-        :content=this.$props.content
+        :content="this.$props.content"
         :id="this.$props.id"
         :author-id="this.$props.authorId"
       />
