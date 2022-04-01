@@ -4,11 +4,11 @@ let apiPrefix = "/badaso-api";
 
 export default {
   async joinCourse(payload) {
-    const ep = apiPrefix + "/module/lms/v1/course/join";
+    const apiUrl = apiPrefix + "/module/lms/v1/course/join";
 
     let [data, error, errorMessage] = [null, null, null];
     try {
-      const response = await api.post(ep, payload);
+      const response = await api.post(apiUrl, payload);
 
       if (!!response.errors) {
         throw response.errors;
