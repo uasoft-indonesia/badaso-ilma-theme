@@ -110,8 +110,8 @@
 </template>
 
 <script>
-import {EditAnnouncement} from "../../api/announcement/EditAnnouncement";
-import {DeleteAnnouncement} from "../../api/announcement/DeleteAnnouncements";
+import {editAnnouncementAPI} from "../../api/announcement";
+import {deleteAnnouncementAPI} from "../../api/announcement";
 
 export default {
   name: "AnnouncementContent",
@@ -139,7 +139,7 @@ export default {
     },
     async editAnnouncement(){
       if (this.isFormValid) {
-        const {data, error, errorMessage} = await EditAnnouncement({
+        const {data, error, errorMessage} = await editAnnouncementAPI({
           content: this.announcement,
         }, this.$props.id);
 
@@ -153,7 +153,7 @@ export default {
     },
 
     async deleteAnnouncement(){
-      const {data, error, errorMessage} = await DeleteAnnouncement(this.$props.id);
+      const {data, error, errorMessage} = await deleteAnnouncementAPI(this.$props.id);
       if (error) {
         this.showSnackbar(errorMessage);
       } else {

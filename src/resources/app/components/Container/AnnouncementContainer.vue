@@ -3,7 +3,7 @@
     <CreateAnnouncement
       :getAnnouncement="this.getAnnouncements"
       :courseId = "this.$props.courseId"
-      
+
     />
     <div v-for="announcement in announcements" v-bind:key="announcement.id">
       <AnnouncementCard
@@ -21,7 +21,7 @@
 <script>
 import CreateAnnouncement from "../CreateAnnouncement";
 import AnnouncementCard from "../AnnouncementCard";
-import api from "../../../api/announcement/GetAnnouncements";
+import {getAnnouncementsAPI} from "../../../api/announcement";
 
 export default {
   name: "AnnouncementContainer",
@@ -36,7 +36,7 @@ export default {
   methods: {
     async getAnnouncements(courseId) {
       try {
-        const response = await api.GetAnnouncements(courseId);
+        const response = await getAnnouncementsAPI(courseId);
         this.announcements = response.data;
       } catch (error) {
       }
