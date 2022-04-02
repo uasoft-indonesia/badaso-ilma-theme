@@ -12,8 +12,8 @@ import AppLayout from "../../components/Layout/AppLayout";
 export default {
   layout: [AppLayout, CourseStream],
   components: {AnnouncementContainer},
-  props:{
-    id:{},
+  props: {
+    id: Number,
   },
   beforeCreate() {
     if (!this.$store.state.isAuthenticated) {

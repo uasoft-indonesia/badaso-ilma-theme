@@ -59,7 +59,6 @@ export default {
       } catch (e) {}
     },
   },
-  
   mounted() {
     this.getData();
   },

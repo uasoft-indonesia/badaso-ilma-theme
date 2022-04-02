@@ -30,8 +30,8 @@ export default {
       announcements: []
     }
   },
-  props:[
-  "courseId",
+  props: [
+    "courseId",
   ],
   methods: {
     async getAnnouncements(courseId) {

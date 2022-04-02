@@ -2,7 +2,7 @@ import api from "../../config";
 
 let apiPrefix = "/badaso-api";
 
-export const CreateComment = async (payload) => {
+export const createComment = async (payload) => {
   const apiUrl = `${apiPrefix}/module/lms/v1/comment/`;
 
   let [data, error, errorMessage] = [null, null, null];

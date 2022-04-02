@@ -80,10 +80,8 @@
 
 <script>
 import AnnouncementContent from "./AnnouncementContent";
-import {CreateComment} from "../../api/announcement/comment/CreateComment";
+import {createComment} from "../../api/announcement/comment/createComment";
 import api from "../../api/announcement/GetAnnouncements";
-
-const course = window.location.href.split("/")[4];
 
 export default {
   name: "AnnouncementCard",
@@ -116,7 +114,7 @@ export default {
     async postComment() {
       this.validate();
       if (this.isFormValid) {
-        const {data, error, errorMessage} = await CreateComment({
+        const {data, error, errorMessage} = await createComment({
           announcementId: parseInt(this.$props.id),
           content: this.fieldContent,
         });
