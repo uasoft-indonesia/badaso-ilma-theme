@@ -10,7 +10,7 @@ export const getAnnouncementsAPI = async (courseId) => {
 export const createAnnouncementAPI = async (payload) => {
   const apiUrl = `${apiPrefix}/module/lms/v1/announcement/`;
 
-  let [error, errorMessage] = [null, null, null];
+  let [data, error, errorMessage] = [null, null, null];
   try {
     const response = await api.post(apiUrl, payload);
 
@@ -18,6 +18,7 @@ export const createAnnouncementAPI = async (payload) => {
       throw response.errors;
     }
 
+    data = response.data;
   } catch (e) {
     error = e;
     errorMessage = "Something went wrong, please try again later";
