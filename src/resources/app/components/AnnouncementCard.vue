@@ -13,7 +13,7 @@
           :date="this.$props.date"
           :content="this.$props.content"
           :id="this.$props.id"
-          :author-id="this.$props.authorId"
+          :authorId="this.$props.authorId"
           :removeCard="this.removeCard"
         />
       </div>
