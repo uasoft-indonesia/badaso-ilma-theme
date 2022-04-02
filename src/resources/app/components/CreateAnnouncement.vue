@@ -113,7 +113,7 @@ export default {
     async postAnnouncement() {
       this.validate();
       if (this.isFormValid) {
-        const {data, error, errorMessage} = await createAnnouncementAPI({
+        const {error, errorMessage} = await createAnnouncementAPI({
           courseId: parseInt(this.$props.courseId),
           content: this.announcement,
         });
