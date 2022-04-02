@@ -5,7 +5,7 @@
       <div class="m-0" />
       <div v-for="post in posts" v-bind:key="post.id">
         <CourseCard
-          :course-id="post.id"
+          :course-id="post.courseId"
           :course-name="post.name"
           :room-num="post.room"
           :teacher-name="post.createdBy"
@@ -59,7 +59,7 @@ export default {
       } catch (e) {}
     },
   },
-
+  
   mounted() {
     this.getData();
   },

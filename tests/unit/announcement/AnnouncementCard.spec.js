@@ -41,6 +41,7 @@ describe("AnnouncementCard", () => {
         const wrapper = mount(AnnouncementCard, {
           localVue,
           vuetify,
+          store,
           data() {
             return {
               dataComments: {

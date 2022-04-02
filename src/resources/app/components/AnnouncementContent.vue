@@ -104,7 +104,6 @@
 import {EditAnnouncement} from "../../api/announcement/EditAnnouncement";
 
 export default {
-//tambahin props baru buat comment, tambahin type biar bisa bedain
   name: "AnnouncementContent",
   props: [
     "id",
@@ -136,11 +135,8 @@ export default {
     validate() {
       this.$refs.form.validate();
     },
-//kalau lu tau dia annoucument, manggil const 140
-//kalau lu tau dia comment, nembak ke API comment
     async editAnnouncement(){
       if (this.isFormValid) {
-        //tambahin if
         const {data, error, errorMessage} = await EditAnnouncement({
           content: this.announcement,
         }, this.$props.id);

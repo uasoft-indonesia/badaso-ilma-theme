@@ -86,8 +86,6 @@
 <script>
 import {CreateAnnouncement} from "../../api/announcement/CreateAnnouncement";
 
-const course = window.location.href.split("/")[4];
-
 export default {
   name: "CreateAnnouncement",
   props: [

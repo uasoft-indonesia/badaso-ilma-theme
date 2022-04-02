@@ -23,8 +23,6 @@ import CreateAnnouncement from "../CreateAnnouncement";
 import AnnouncementCard from "../AnnouncementCard";
 import api from "../../../api/announcement/GetAnnouncements";
 
-const course = window.location.href.split("/")[4];
-
 export default {
   name: "AnnouncementContainer",
   data() {

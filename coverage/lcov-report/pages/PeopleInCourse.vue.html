@@ -130,27 +130,7 @@
 <a name='L65'></a><a href='#L65'>65</a>
 <a name='L66'></a><a href='#L66'>66</a>
 <a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a>
-<a name='L72'></a><a href='#L72'>72</a>
-<a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a>
-<a name='L75'></a><a href='#L75'>75</a>
-<a name='L76'></a><a href='#L76'>76</a>
-<a name='L77'></a><a href='#L77'>77</a>
-<a name='L78'></a><a href='#L78'>78</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">30x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -218,74 +198,65 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;v-app&gt;
-    &lt;v-container&gt;
-      &lt;div class="my-10 mx-10"&gt;
-        &lt;v-col cols="6"&gt;
-          &lt;v-row class="text-primary text-lg" id="teacher-title"&gt; Teachers &lt;/v-row&gt;
-          &lt;v-row&gt;
-            &lt;v-divider class="bg-primary my-1"&gt;&lt;/v-divider&gt;
-          &lt;/v-row&gt;
-          &lt;v-row
-            v-for="teacher in peoples"
-            v-bind:key="teacher.name"
-            v-if="teacher.role == 'teacher'"
-          &gt;
-            &lt;v-avatar class="bg-primary my-3" id="teacher-avatar" size="36"&gt;&lt;/v-avatar&gt;
-            &lt;div class="ml-3 my-4" id="teacher-name"&gt;{{ teacher.name }}&lt;/div&gt;
-          &lt;/v-row&gt;
-          &lt;v-row class="text-primary text-lg" id="classmate-title"&gt; Classmates &lt;/v-row&gt;
-          &lt;v-row&gt;
-            &lt;v-divider class="bg-primary my-1"&gt;&lt;/v-divider&gt;
-          &lt;/v-row&gt;
-          &lt;v-row
-            v-for="student in peoples"
-            v-bind:key="student.name"
-            v-if="student.role == 'student'"
-          &gt;
-            &lt;v-avatar class="bg-primary my-3" id="student-avatar" size="36"&gt;&lt;/v-avatar&gt;
-            &lt;div class="ml-3 my-4" id="student-name"&gt;{{ student.name }}&lt;/div&gt;
-          &lt;/v-row&gt;
-        &lt;/v-col&gt;
-      &lt;/div&gt;
-    &lt;/v-container&gt;
-  &lt;/v-app&gt;
+  &lt;v-container&gt;
+    &lt;div class="my-10 mx-10"&gt;
+      &lt;v-col cols="6"&gt;
+        &lt;v-row class="text-primary text-lg" id="title"&gt; Teachers &lt;/v-row&gt;
+        &lt;v-row&gt;
+          &lt;v-divider class="bg-primary my-1"&gt;&lt;/v-divider&gt;
+        &lt;/v-row&gt;
+        &lt;v-row
+          v-for="teacher in peoples"
+          v-bind:key="teacher.name"
+          v-if="teacher.role == 'teacher'"
+        &gt;
+          &lt;v-avatar class="bg-primary my-3" id="avatar" size="36"&gt;&lt;/v-avatar&gt;
+          &lt;div class="ml-3 my-4" id="name"&gt;{{ teacher.name }}&lt;/div&gt;
+        &lt;/v-row&gt;
+        &lt;v-row class="text-primary text-lg" id="title"&gt; Classmates &lt;/v-row&gt;
+        &lt;v-row&gt;
+          &lt;v-divider class="bg-primary my-1"&gt;&lt;/v-divider&gt;
+        &lt;/v-row&gt;
+        &lt;v-row
+          v-for="student in peoples"
+          v-bind:key="student.name"
+          v-if="student.role == 'student'"
+        &gt;
+          &lt;v-avatar class="bg-primary my-3" id="avatar" size="36"&gt;&lt;/v-avatar&gt;
+          &lt;div class="ml-3 my-4" id="name"&gt;{{ student.name }}&lt;/div&gt;
+        &lt;/v-row&gt;
+      &lt;/v-col&gt;
+    &lt;/div&gt;
+  &lt;/v-container&gt;
 &lt;/template&gt;
 &lt;script&gt;
 import api from "../../api/people";
 import CourseStream from "./courseStream.vue";
 import AppLayout from "../components/Layout/AppLayout.vue";
-&nbsp;
 export default {
-  beforeCreate() {
-    if (!this.$store.state.isAuthenticated) {
-      this.$inertia.visit("/login");
-    }
-  },
-&nbsp;
   layout: [AppLayout, CourseStream],
   props: {
     id: {
+      default: 1,
     },
   },
-&nbsp;
   data() {
     return {
       peoples: [
         {
-          name: "",
-          role: "",
+          name: "Placeholder",
+          role: "teacher",
         },
       ],
     };
   },
-&nbsp;
   methods: {
     async getData(id) {
       try {
         const res = await api.people(id);
         this.peoples = res.data;
       } catch (e) {
+        console.log(e);
       }
     },
   },
@@ -293,19 +264,14 @@ export default {
     this.getData(this.id);
   },
 };
-&lt;/script&gt;
-&nbsp;</pre></td></tr></table></pre>
+&lt;/script&gt;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-<<<<<<< HEAD
-                at Sat Apr 02 2022 08:28:30 GMT+0700 (Indochina Time)
-=======
-                at Fri Apr 01 2022 16:49:53 GMT+0700 (Western Indonesia Time)
->>>>>>> 207e2e27e45201e57afdc4b4d717bdebb6fbf1ec
+                at Sat Apr 02 2022 12:48:48 GMT+0700 (Indochina Time)
             </div>
         <script src="../prettify.js"></script>
         <script>

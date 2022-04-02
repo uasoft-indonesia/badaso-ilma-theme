@@ -6,7 +6,7 @@
   >
     <div id="announcement">
       <AnnouncementContent
-        :name=this.$props.author
+        :name="this.$props.author"
         :date="this.$props.date"
         :content="this.$props.content"
         :id="this.$props.id"
@@ -31,7 +31,7 @@
     </div>
     <div>
       <v-divider></v-divider>
-      <!--@here-->
+      <!--comments form-->
       <div>
         <v-row no-gutters>
           <v-col
@@ -81,6 +81,7 @@
 <script>
 import AnnouncementContent from "./AnnouncementContent";
 import {CreateComment} from "../../api/announcement/comment/CreateComment";
+import api from "../../api/announcement/GetAnnouncements";
 
 const course = window.location.href.split("/")[4];
 
@@ -93,8 +94,6 @@ export default {
     "content",
     "date",
     "comments",
-    "getAnnouncement",
-    "courseId",
   ],
   components: {AnnouncementContent},
   data() {
@@ -114,7 +113,6 @@ export default {
     validate() {
       this.$refs.form.validate();
     },
-
     async postComment() {
       this.validate();
       if (this.isFormValid) {
@@ -127,7 +125,7 @@ export default {
           this.showSnackbar(errorMessage);
         } else {
           this.$refs.form.reset();
-          this.$props.getAnnouncement(this.$props.courseId);
+          location.reload();
         }
       }
     },
@@ -136,8 +134,5 @@ export default {
       this.snackbar.isVisible = true;
     },
   }
-//bikin function buat POST, didalem function POST jalanin function GET, biar langsung fetch ulang
-//bikin function buat GET, data response gantiin si comment
 }
-
 </script>

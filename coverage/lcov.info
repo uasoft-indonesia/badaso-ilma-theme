@@ -23,7 +23,7 @@ FNF:1
 FNH:1
 FNDA:24,(anonymous_0)
 DA:1,45
-DA:84,3
+DA:86,3
 LF:2
 LH:2
 BRDA:1,0,0,12
@@ -36,21 +36,12 @@ SF:src\resources\app\components\AnnouncementContent.vue
 FN:1,(anonymous_0)
 FNF:1
 FNH:1
-<<<<<<< HEAD
-FNDA:41,(anonymous_0)
-DA:1,91
+FNDA:17,(anonymous_0)
+DA:1,55
 LF:1
 LH:1
-BRDA:1,0,0,10
-BRDA:1,0,1,10
-=======
-FNDA:14,(anonymous_0)
-DA:1,46
-LF:1
-LH:1
-BRDA:1,0,0,10
-BRDA:1,0,1,17
->>>>>>> 207e2e27e45201e57afdc4b4d717bdebb6fbf1ec
+BRDA:1,0,0,13
+BRDA:1,0,1,23
 BRF:2
 BRH:2
 end_of_record
@@ -123,11 +114,7 @@ FNF:1
 FNH:1
 FNDA:2,(anonymous_0)
 DA:1,12
-<<<<<<< HEAD
-DA:24,2
-=======
-DA:23,2
->>>>>>> 207e2e27e45201e57afdc4b4d717bdebb6fbf1ec
+DA:26,2
 LF:2
 LH:2
 BRF:0
@@ -179,12 +166,12 @@ SF:src\resources\app\pages\PeopleInCourse.vue
 FN:1,(anonymous_0)
 FNF:1
 FNH:1
-FNDA:17,(anonymous_0)
-DA:1,30
+FNDA:3,(anonymous_0)
+DA:1,8
 LF:1
 LH:1
-BRDA:1,0,0,3
-BRDA:1,0,1,9
+BRDA:1,0,0,1
+BRDA:1,0,1,1
 BRF:2
 BRH:2
 end_of_record
