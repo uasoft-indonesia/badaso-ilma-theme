@@ -35,8 +35,8 @@ SF:src/resources/app/components/AnnouncementContent.vue
 FN:1,(anonymous_0)
 FNF:1
 FNH:1
-FNDA:14,(anonymous_0)
-DA:1,46
+FNDA:12,(anonymous_0)
+DA:1,44
 LF:1
 LH:1
 BRDA:1,0,0,10
@@ -113,7 +113,7 @@ FNF:1
 FNH:1
 FNDA:2,(anonymous_0)
 DA:1,12
-DA:23,2
+DA:24,2
 LF:2
 LH:2
 BRF:0
