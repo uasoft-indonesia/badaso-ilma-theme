@@ -86,7 +86,6 @@
 <script>
 import AnnouncementContent from "./AnnouncementContent";
 import {createComment} from "../../api/announcement/comment/createComment";
-import api from "../../api/announcement/GetAnnouncements";
 
 export default {
   name: "AnnouncementCard",
