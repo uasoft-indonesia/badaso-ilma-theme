@@ -121,7 +121,7 @@ export default {
     "date",
     "content",
     "authorId",
-    "getAnnouncement"
+    "removeCard"
   ],
   data() {
     return {
@@ -158,7 +158,7 @@ export default {
       if (error) {
         this.showSnackbar(errorMessage);
       } else {
-        this.$props.getAnnouncement();
+        this.$props.removeCard();
       }
     },
 

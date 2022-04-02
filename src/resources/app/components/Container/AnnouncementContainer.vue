@@ -10,7 +10,6 @@
         :date="announcement.createdAt"
         :id="announcement.id"
         :author-id="announcement.createdBy"
-        :get-announcement="announcement.getAnnouncement"
       />
     </div>
   </div>
@@ -35,9 +34,6 @@ export default {
       try {
         const response = await api.GetAnnouncements(courseId);
         this.announcements = response.data;
-        for(let i = 0; i < this.announcements.length; i++){
-          this.announcements[i].push({getAnnouncement : this.getAnnouncements()})
-        }
       } catch (error) {
       }
     },
