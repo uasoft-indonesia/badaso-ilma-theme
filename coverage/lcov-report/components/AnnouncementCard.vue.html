@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
@@ -188,7 +188,38 @@
 <a name='L123'></a><a href='#L123'>123</a>
 <a name='L124'></a><a href='#L124'>124</a>
 <a name='L125'></a><a href='#L125'>125</a>
-<a name='L126'></a><a href='#L126'>126</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">25x</span>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">45x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -313,7 +344,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="branch-1 cbranch-no" title="branch not covered" >&lt;template&gt;</span>
   &lt;v-card
     class="mx-auto my-3"
     width="650"
@@ -321,9 +353,9 @@
   &gt;
     &lt;div id="announcement"&gt;
       &lt;AnnouncementContent
-        :name=this.$props.createdBy
+        :name="this.$props.createdBy"
         :date="this.$props.date"
-        :content=this.$props.content
+        :content="this.$props.content"
         :id="this.$props.id"
       /&gt;
     &lt;/div&gt;
@@ -331,8 +363,8 @@
     &lt;!--announcement comments--&gt;
     &lt;div
       id="comments"
-      v-if="comments.length !== 0"
-      v-for="comment in comments"
+      v-if="dataComments !== 0"
+      v-for="comment in dataComments"
       v-bind:key="comment.id"
     &gt;
       &lt;v-divider&gt;&lt;/v-divider&gt;
@@ -347,41 +379,56 @@
       &lt;v-divider&gt;&lt;/v-divider&gt;
       &lt;!--@here--&gt;
       &lt;div&gt;
-        &lt;v-form
-          v-model="isFormValid"
-          ref="form"
-          class="mx-6 my-4"
-        &gt;
-          &lt;div&gt;
-            &lt;v-textarea
-              outlined
-              v-model="content"
-              :rules="commentRules.concat(lengthRules)"
-              :counter="65535"
-              placeholder="Comment here..."
-            &gt;&lt;/v-textarea&gt;
-          &lt;/div&gt;          
-        &lt;/v-form&gt;
-        &lt;v-btn
-          id="post-button"
-          depressed
-          color=primary
-          @click="postComment"
-          :disabled="!isFormValid"
-        &gt;
-          Post
-        &lt;/v-btn&gt;
+        &lt;v-row no-gutters&gt;
+          &lt;v-col
+            cols="19"
+          &gt;
+            &lt;v-form
+              v-model="isFormValid"
+              ref="form"
+              class="mx-6 my-4"
+            &gt;
+              &lt;div&gt;
+                &lt;v-textarea
+                  rows="1"
+                  outlined
+                  v-model="fieldContent"
+                  :rules="commentRules.concat(lengthRules)"
+                  :counter="65535"
+                  placeholder="Comment here..."
+                &gt;&lt;/v-textarea&gt;
+              &lt;/div&gt;          
+            &lt;/v-form&gt;
+          &lt;/v-col&gt;
+          &lt;v-col
+            cols="1"
+          &gt;
+            &lt;div class="my-6"&gt;
+              &lt;v-btn
+                icon
+                id="post-button"
+                depressed
+                color=primary
+                @click="postComment"
+                :disabled="!isFormValid"
+              &gt;
+                &lt;v-icon&gt;
+                  mdi-send
+                &lt;/v-icon&gt;
+              &lt;/v-btn&gt;
+            &lt;/div&gt;
+          &lt;/v-col&gt;
+        &lt;/v-row&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/v-card&gt;
-&nbsp;
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
 import AnnouncementContent from "./AnnouncementContent";
 import {CreateComment} from "../../api/announcement/comment/CreateComment";
 &nbsp;
-const courseId = window.location.href.split("/")[4];
+const course = window.location.href.split("/")[4];
 &nbsp;
 export default {
   name: "AnnouncementCard",
@@ -392,13 +439,14 @@ export default {
     "date",
     "comments",
     "getAnnouncement",
+    "courseId",
   ],
   components: {AnnouncementContent},
   data() {
     return {
       isFormValid: false,
-      data: '',
-      comments: this.$props.comments,
+      fieldContent: '',
+      dataComments: this.$props.comments,
       commentRules: [(v) =&gt; (!!v || "Comment cannot be empty")],
       lengthRules: [(v) =&gt; (v.length &lt;= 65535 || "Characters are off limit")],
       snackbar: {
@@ -416,15 +464,15 @@ export default {
       this.validate();
       if (this.isFormValid) {
         const {data, error, errorMessage} = await CreateComment({
-          courseId: parseInt(courseId),
-          content: this.content,
+          announcementId: parseInt(this.$props.id),
+          content: this.fieldContent,
         });
 &nbsp;
         if (error) {
           this.showSnackbar(errorMessage);
         } else {
           this.$refs.form.reset();
-          this.$props.getAnnouncement();
+          this.$props.getAnnouncement(this.$props.courseId);
         }
       }
     },
@@ -445,7 +493,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Mar 30 2022 00:16:45 GMT+0700 (Indochina Time)
+                at Sat Apr 02 2022 08:28:30 GMT+0700 (Indochina Time)
             </div>
         <script src="../prettify.js"></script>
         <script>

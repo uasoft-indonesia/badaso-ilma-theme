@@ -1,6 +1,7 @@
 <template>
   <div id="announcement-container">
-    <AnnouncementContainer/>
+    <AnnouncementContainer
+      :courseId="this.id"/>
   </div>
 </template>
 <script>
@@ -10,6 +11,9 @@ import AppLayout from "../../components/Layout/AppLayout";
 
 export default {
   layout: [AppLayout, CourseStream],
-  components: {AnnouncementContainer}
+  components: {AnnouncementContainer},
+  props:{
+    id:{},
+  },
 }
 </script>

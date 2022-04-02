@@ -13,7 +13,7 @@ describe("AnnouncementCard", () => {
 
   describe("when loaded", () => {
     describe("and when no comment exist", () => {
-      it("should renders",  () => {
+      it("should renders", () => {
         const wrapper = mount(AnnouncementCard, {
           localVue,
           vuetify,
@@ -28,20 +28,21 @@ describe("AnnouncementCard", () => {
     });
 
     describe("and when comment exist", () => {
-      it("comments should be rendered", async() => {
+      it("comments should be rendered", async () => {
         const wrapper = mount(AnnouncementCard, {
           localVue,
           vuetify,
+          data() {
+            return {
+              dataComments: {
+                name: "Author",
+                date: "19 January 2021",
+                content: "Test Content",
+                id: 1,
+              }
+            }
+          }
         });
-
-        const comment = {
-          name: "Author",
-          date: "19 January 2021",
-          content: "Test content",
-          id: 1,
-        }
-
-        await wrapper.setData({comments: [comment]})
 
         const findComment = await wrapper.find("#comments");
         await expect(findComment.exists()).toBe(true);

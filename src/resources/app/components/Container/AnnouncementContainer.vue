@@ -1,7 +1,8 @@
 <template>
   <div id="container">
     <CreateAnnouncement
-      :getAnnouncement="this.getAnnouncements()"
+      :getAnnouncement="this.getAnnouncements(this.$props.courseId)"
+      :courseId = "this.$props.courseId"
     />
     <div v-for="announcement in announcements" v-bind:key="announcement.id">
       <AnnouncementCard
@@ -20,7 +21,7 @@ import CreateAnnouncement from "../CreateAnnouncement";
 import AnnouncementCard from "../AnnouncementCard";
 import api from "../../../api/announcement/GetAnnouncements";
 
-const courseId = window.location.href.split("/")[4];
+const course = window.location.href.split("/")[4];
 
 export default {
   name: "AnnouncementContainer",
@@ -29,8 +30,11 @@ export default {
       announcements: []
     }
   },
+  props:[
+  "courseId",
+  ],
   methods: {
-    async getAnnouncements() {
+    async getAnnouncements(courseId) {
       try {
         const response = await api.GetAnnouncements(courseId);
         this.announcements = response.data;
@@ -39,7 +43,7 @@ export default {
     },
   },
   created() {
-    this.getAnnouncements();
+    this.getAnnouncements(this.$props.courseId);
   },
   components: {AnnouncementCard, CreateAnnouncement}
 }

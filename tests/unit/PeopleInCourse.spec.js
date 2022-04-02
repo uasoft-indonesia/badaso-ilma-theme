@@ -99,7 +99,7 @@ describe("PeopleInCourse", () => {
                         }
                     });
 
-                    // Only teache exists
+                    // Only teacher exists
                     expect(wrapper.find('#teacher-avatar').exists()).toBe(true);
                     expect(wrapper.find('#teacher-name').exists()).toBe(true);
                     expect(wrapper.find('#student-avatar').exists()).toBe(false);
