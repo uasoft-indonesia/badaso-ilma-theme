@@ -1,6 +1,7 @@
 <template>
   <div id="announcement-container">
-    <AnnouncementContainer/>
+    <AnnouncementContainer
+      :courseId="this.id"/>
   </div>
 </template>
 <script>
@@ -11,6 +12,9 @@ import AppLayout from "../../components/Layout/AppLayout";
 export default {
   layout: [AppLayout, CourseStream],
   components: {AnnouncementContainer},
+  props: {
+    id: Number,
+  },
   beforeCreate() {
     if (!this.$store.state.isAuthenticated) {
       window.location.assign("/login");

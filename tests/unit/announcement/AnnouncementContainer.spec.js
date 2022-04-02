@@ -1,5 +1,5 @@
 import Vuetify from "vuetify";
-import { mount , createLocalVue} from "@vue/test-utils";
+import { mount, createLocalVue } from "@vue/test-utils";
 import AnnouncementContainer from "../../../src/resources/app/components/Container/AnnouncementContainer";
 
 const localVue = createLocalVue();
