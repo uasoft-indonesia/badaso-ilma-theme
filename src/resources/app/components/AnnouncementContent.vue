@@ -33,13 +33,22 @@
         <v-list>
           <v-list-item
             link
-            v-for="(item, i) in items"
-            :key="i"
+            @click="isEditing=true"
           >
             <v-list-item-title
-              :class="item.class"
-              @click="isEditing=true"
-            >{{ item.title }}
+              class="w-28 text-sm"
+            >
+              Edit
+            </v-list-item-title>
+          </v-list-item>
+          <v-list-item
+            link
+            @click="deleteAnnouncement"
+          >
+            <v-list-item-title
+              class="w-28 text-sm text-error"
+            >
+              Delete
             </v-list-item-title>
           </v-list-item>
         </v-list>
@@ -102,6 +111,7 @@
 
 <script>
 import {EditAnnouncement} from "../../api/announcement/EditAnnouncement";
+import {DeleteAnnouncement} from "../../api/announcement/DeleteAnnouncements";
 
 export default {
   name: "AnnouncementContent",
@@ -110,7 +120,8 @@ export default {
     "name",
     "date",
     "content",
-    "authorId"
+    "authorId",
+    "getAnnouncement"
   ],
   data() {
     return {
@@ -120,15 +131,6 @@ export default {
       isFormValid: false,
       announceRules: [(v) => (!!v || "Announcement cannot be empty")],
       lengthRules: [(v) => (v.length <= 65535 || "Characters are off limit")],
-      items: [{
-        title: 'Edit',
-        action: "isEditing=True",
-        class: 'w-28 text-sm',
-      }, {
-        title: 'Delete',
-        action: '',
-        class: 'w-28 text-sm text-error',
-      }]
     }
   },
   methods: {
@@ -148,6 +150,15 @@ export default {
           this.isEditing = false;
           this.$props.content = this.announcement;
         }
+      }
+    },
+
+    async deleteAnnouncement(){
+      const {data, error, errorMessage} = await DeleteAnnouncement(this.$props.id);
+      if (error) {
+        this.showSnackbar(errorMessage);
+      } else {
+        this.$props.getAnnouncement();
       }
     },
 

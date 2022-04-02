@@ -11,6 +11,7 @@
         :content="this.$props.content"
         :id="this.$props.id"
         :author-id="this.$props.authorId"
+        :getAnnouncement="this.$props.getAnnouncement"
       />
     </div>
 
@@ -44,6 +45,7 @@ export default {
     "authorId",
     "content",
     "date",
+    "getAnnouncement"
   ],
   components: {AnnouncementContent},
   data() {
