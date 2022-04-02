@@ -1,16 +1,18 @@
 <template>
   <div id="container">
     <CreateAnnouncement
-      :getAnnouncement="this.getAnnouncements(this.$props.courseId)"
+      :getAnnouncement="this.getAnnouncements"
       :courseId = "this.$props.courseId"
+      
     />
     <div v-for="announcement in announcements" v-bind:key="announcement.id">
       <AnnouncementCard
         :content="announcement.content"
-        :created-by="announcement.author"
+        :author="announcement.author"
         :date="announcement.createdAt"
         :id="announcement.id"
         :comments="announcement.comments"
+        :authorId="announcement.createdBy"
       />
     </div>
   </div>

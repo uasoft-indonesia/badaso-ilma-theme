@@ -1,14 +1,22 @@
 import Vuetify from "vuetify";
 import { mount, createLocalVue } from "@vue/test-utils";
 import AnnouncementCard from "../../../src/resources/app/components/AnnouncementCard";
+import Vuex from "vuex";
 
 const localVue = createLocalVue();
+localVue.use(Vuex);
 
 describe("AnnouncementCard", () => {
   let vuetify;
+  let store;
 
   beforeEach(() => {
     vuetify = new Vuetify();
+    store = new Vuex.Store({
+      state: {
+        user: { id: 1 }
+      },
+    });
   });
 
   describe("when loaded", () => {
@@ -17,6 +25,7 @@ describe("AnnouncementCard", () => {
         const wrapper = mount(AnnouncementCard, {
           localVue,
           vuetify,
+          store,
         });
 
         const findAnnouncement = wrapper.find("#announcement");

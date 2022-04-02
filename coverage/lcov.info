@@ -36,12 +36,21 @@ SF:src\resources\app\components\AnnouncementContent.vue
 FN:1,(anonymous_0)
 FNF:1
 FNH:1
+<<<<<<< HEAD
 FNDA:41,(anonymous_0)
 DA:1,91
 LF:1
 LH:1
 BRDA:1,0,0,10
 BRDA:1,0,1,10
+=======
+FNDA:14,(anonymous_0)
+DA:1,46
+LF:1
+LH:1
+BRDA:1,0,0,10
+BRDA:1,0,1,17
+>>>>>>> 207e2e27e45201e57afdc4b4d717bdebb6fbf1ec
 BRF:2
 BRH:2
 end_of_record
@@ -114,7 +123,11 @@ FNF:1
 FNH:1
 FNDA:2,(anonymous_0)
 DA:1,12
+<<<<<<< HEAD
 DA:24,2
+=======
+DA:23,2
+>>>>>>> 207e2e27e45201e57afdc4b4d717bdebb6fbf1ec
 LF:2
 LH:2
 BRF:0

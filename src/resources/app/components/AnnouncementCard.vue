@@ -6,10 +6,11 @@
   >
     <div id="announcement">
       <AnnouncementContent
-        :name="this.$props.createdBy"
+        :name=this.$props.author
         :date="this.$props.date"
         :content="this.$props.content"
         :id="this.$props.id"
+        :author-id="this.$props.authorId"
       />
     </div>
 
@@ -87,7 +88,8 @@ export default {
   name: "AnnouncementCard",
   props: [
     "id",
-    "createdBy",
+    "author",
+    "authorId",
     "content",
     "date",
     "comments",

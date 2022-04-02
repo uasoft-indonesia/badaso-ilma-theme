@@ -16,6 +16,7 @@
       </div>
       <v-menu
         id="menu"
+        v-if="getUserId === this.$props.authorId"
         bottom
         right
       >
@@ -110,6 +111,7 @@ export default {
     "name",
     "date",
     "content",
+    "authorId"
   ],
   data() {
     return {
@@ -156,6 +158,11 @@ export default {
       let date = new Date(this.$props.date);
       date = date.toString().split(" ");
       return date[0] + ", " + date[2] + " " + date[1] + " " + date[3] + " " + date[4]
+    }
+  },
+  computed: {
+    getUserId() {
+      return this.$store.state.user.id;
     }
   }
 }

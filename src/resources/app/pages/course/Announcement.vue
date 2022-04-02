@@ -15,5 +15,10 @@ export default {
   props:{
     id:{},
   },
+  beforeCreate() {
+    if (!this.$store.state.isAuthenticated) {
+      window.location.assign("/login");
+    }
+  }
 }
 </script>
