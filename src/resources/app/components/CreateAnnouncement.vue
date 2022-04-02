@@ -86,12 +86,11 @@
 <script>
 import {CreateAnnouncement} from "../../api/announcement/CreateAnnouncement";
 
-const courseId = window.location.href.split("/")[4];
-
 export default {
   name: "CreateAnnouncement",
   props: [
-    "getAnnouncement"
+    "getAnnouncement",
+    "courseId",
   ],
   data() {
     return {
@@ -115,7 +114,7 @@ export default {
       this.validate();
       if (this.isFormValid) {
         const {data, error, errorMessage} = await CreateAnnouncement({
-          courseId: parseInt(courseId),
+          courseId: parseInt(this.$props.courseId),
           content: this.announcement,
         });
 
@@ -124,7 +123,7 @@ export default {
         } else {
           this.$refs.form.reset();
           this.startWriting = false;
-          this.$props.getAnnouncement();
+          this.$props.getAnnouncement(this.$props.courseId);
         }
       }
     },

@@ -135,7 +135,6 @@ export default {
     validate() {
       this.$refs.form.validate();
     },
-
     async editAnnouncement(){
       if (this.isFormValid) {
         const {data, error, errorMessage} = await EditAnnouncement({
