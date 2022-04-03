@@ -19,9 +19,9 @@
 </template>
 
 <script>
-import CreateAnnouncement from "../CreateAnnouncement";
 import AnnouncementCard from "../AnnouncementCard";
-import {getAnnouncementsAPI} from "../../../api/announcement";
+import CreateAnnouncement from "../CreateAnnouncement";
+import { getAnnouncementsAPI } from "../../../api/announcement";
 
 export default {
   name: "AnnouncementContainer",
