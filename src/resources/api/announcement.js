@@ -47,8 +47,8 @@ export const editAnnouncementAPI = async (payload, announcementId) => {
   return { data, error, errorMessage };
 };
 
-export const deleteAnnouncementAPI = async (id) => {
-  const apiUrl = `${apiPrefix}/module/lms/v1/announcement/${id}`;
+export const deleteAnnouncementAPI = async (announcementId) => {
+  const apiUrl = `${apiPrefix}/module/lms/v1/announcement/${announcementId}`;
 
   let [data, error, errorMessage] = [null, null, null];
   try {
