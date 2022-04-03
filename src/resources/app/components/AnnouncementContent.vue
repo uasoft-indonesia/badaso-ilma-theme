@@ -110,8 +110,7 @@
 </template>
 
 <script>
-import {editAnnouncementAPI} from "../../api/announcement";
-import {deleteAnnouncementAPI} from "../../api/announcement";
+import {deleteAnnouncementAPI, editAnnouncementAPI} from "../../api/announcement";
 
 export default {
   name: "AnnouncementContent",
