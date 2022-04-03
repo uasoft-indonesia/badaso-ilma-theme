@@ -84,7 +84,7 @@
 </template>
 
 <script>
-import {CreateAnnouncement} from "../../api/announcement/CreateAnnouncement";
+import { createAnnouncementAPI } from "../../api/announcement";
 
 export default {
   name: "CreateAnnouncement",
@@ -113,7 +113,7 @@ export default {
     async postAnnouncement() {
       this.validate();
       if (this.isFormValid) {
-        const {data, error, errorMessage} = await CreateAnnouncement({
+        const {data, error, errorMessage} = await createAnnouncementAPI({
           courseId: parseInt(this.$props.courseId),
           content: this.announcement,
         });
