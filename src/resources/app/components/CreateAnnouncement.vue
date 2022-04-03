@@ -84,7 +84,7 @@
 </template>
 
 <script>
-import {createAnnouncementAPI} from "../../api/announcement";
+import { createAnnouncementAPI } from "../../api/announcement";
 
 export default {
   name: "CreateAnnouncement",
