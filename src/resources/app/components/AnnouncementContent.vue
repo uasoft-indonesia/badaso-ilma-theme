@@ -117,6 +117,16 @@
           >
             Post
           </v-btn>
+          <v-btn
+            v-if="this.$props.isComment"
+            id="post-comment-button"
+            depressed
+            color=primary
+            @click="editComment"
+            :disabled="!isFormValid"
+          >
+            Post
+          </v-btn>
         </div>
       </v-form>
     </div>
