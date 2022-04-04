@@ -37,7 +37,7 @@
           depressed
         >
           <v-icon left> mdi-plus </v-icon>
-          Add Class
+          Add Course
         </v-btn>
       </div>
     </v-list>
@@ -120,7 +120,7 @@ export default {
         {
           action: "mdi-google-classroom",
           active: false,
-          title: "Class",
+          title: "Course",
         },
       ],
       courses: [],
