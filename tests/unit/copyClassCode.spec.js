@@ -15,12 +15,25 @@ describe("Class Code Widget", () => {
     store = new Vuex.Store({
       state: {
         isAuthenticated: true,
+        user: {
+          id: 1,
+        },
       },
     });
   });
   describe("when loaded", () => {
     it("should renders", () => {
-      const wrapper = mount(courseStream, {});
+      const wrapper = mount(courseStream, {
+        localVue,
+        vuetify,
+        store,
+        mocks: {
+          window: {
+            alert: () => jest.fn(),
+          },
+          id: 1,
+        },
+      });
 
       const findTitle = () => wrapper.find("#code-title");
       expect(findTitle().exists()).toBe(true);
@@ -41,6 +54,7 @@ describe("Class Code Widget", () => {
           window: {
             alert: () => jest.fn(),
           },
+          id: 1,
         },
       });
       global.navigator.clipboard = {

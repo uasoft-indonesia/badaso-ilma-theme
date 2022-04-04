@@ -18,6 +18,20 @@ describe("AppLayout.vue", () => {
       state: {
         isAuthenticated: true,
       },
+      mutations: {
+        SET_IS_AUTHENTICATED(state, payload) {
+          state.isAuthenticated = payload;
+        },
+        SET_USER(state, user) {
+          state.user = user;
+        },
+      },
+      action: {
+        LOGOUT({ commit }) {
+          commit("SET_IS_AUTHENTICATED", false);
+          commit("SET_USER", {});
+        },
+      },
     });
   });
 
@@ -26,6 +40,12 @@ describe("AppLayout.vue", () => {
       localVue,
       vuetify,
       store,
+      mocks: {
+        $inertia: {
+          visit: jest.fn(),
+        },
+        validate: jest.fn(),
+      },
     });
 
     expect(wrapper.findComponent(Sidebar).exists()).toBe(true);
@@ -36,6 +56,15 @@ describe("AppLayout.vue", () => {
       localVue,
       vuetify,
       store,
+      props: {
+        id: 1,
+      },
+      mocks: {
+        $inertia: {
+          visit: jest.fn(),
+        },
+        validate: jest.fn(),
+      },
     });
 
     expect(wrapper.findComponent(Snackbar).exists()).toBe(true);
