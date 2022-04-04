@@ -1,9 +1,8 @@
 <template>
-  <v-card
-    class="mx-auto my-3"
-    width="650"
-    outlined
+  <div
+    v-if="!isDeleted"
   >
+<<<<<<< HEAD
     <div id="announcement">
       <AnnouncementContent
         :name="this.$props.author"
@@ -76,12 +75,96 @@
       </div>
     </div>
   </v-card>
+=======
+    <v-card
+      class="mx-auto my-3"
+      width="650"
+      outlined
+    >
+      <div id="announcement">
+        <AnnouncementContent
+          :name="this.$props.author"
+          :date="this.$props.date"
+          :content="this.$props.content"
+          :id="this.$props.id"
+          :authorId="this.$props.authorId"
+          :removeCard="this.removeCard"
+        />
+      </div>
+
+      <!--announcement comments-->
+      <div
+        id="comments"
+        v-if="dataComments !== 0"
+        v-for="comment in dataComments"
+        v-bind:key="comment.id"
+      >
+        <v-divider></v-divider>
+        <AnnouncementContent
+          :name="comment.name"
+          :date="comment.date"
+          :content="comment.content"
+          :id="comment.id"
+        />
+      </div>
+      <div>
+        <v-divider></v-divider>
+        <!--comments form-->
+        <div>
+          <v-row no-gutters>
+            <v-col
+              cols="19"
+            >
+              <v-form
+                v-model="isFormValid"
+                ref="form"
+                class="mx-6 my-4"
+              >
+                <div>
+                  <v-textarea
+                    rows="1"
+                    outlined
+                    v-model="fieldContent"
+                    :rules="commentRules.concat(lengthRules)"
+                    :counter="65535"
+                    placeholder="Comment here..."
+                  ></v-textarea>
+                </div>
+              </v-form>
+            </v-col>
+            <v-col
+              cols="1"
+            >
+              <div class="my-6">
+                <v-btn
+                  icon
+                  id="post-button"
+                  depressed
+                  color=primary
+                  @click="postComment"
+                  :disabled="!isFormValid"
+                >
+                  <v-icon>
+                    mdi-send
+                  </v-icon>
+                </v-btn>
+              </div>
+            </v-col>
+          </v-row>
+        </div>
+      </div>
+    </v-card>
+  </div>
+>>>>>>> 833e7e5bd0dd7f24bf3c0c67091b2dc681e85fe0
 </template>
 
 <script>
 import AnnouncementContent from "./AnnouncementContent";
 import {createComment} from "../../api/announcement/comment/createComment";
+<<<<<<< HEAD
 import api from "../../api/announcement/GetAnnouncements";
+=======
+>>>>>>> 833e7e5bd0dd7f24bf3c0c67091b2dc681e85fe0
 
 export default {
   name: "AnnouncementCard",
@@ -96,6 +179,11 @@ export default {
   components: {AnnouncementContent},
   data() {
     return {
+<<<<<<< HEAD
+=======
+      comments: [],
+      isDeleted: false,
+>>>>>>> 833e7e5bd0dd7f24bf3c0c67091b2dc681e85fe0
       isFormValid: false,
       fieldContent: '',
       dataComments: this.$props.comments,
@@ -111,6 +199,12 @@ export default {
     validate() {
       this.$refs.form.validate();
     },
+<<<<<<< HEAD
+=======
+    removeCard() {
+      this.isDeleted = true
+    },
+>>>>>>> 833e7e5bd0dd7f24bf3c0c67091b2dc681e85fe0
     async postComment() {
       this.validate();
       if (this.isFormValid) {

@@ -84,7 +84,11 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import {CreateAnnouncement} from "../../api/announcement/CreateAnnouncement";
+=======
+import { createAnnouncementAPI } from "../../api/announcement";
+>>>>>>> 833e7e5bd0dd7f24bf3c0c67091b2dc681e85fe0
 
 export default {
   name: "CreateAnnouncement",
@@ -113,7 +117,11 @@ export default {
     async postAnnouncement() {
       this.validate();
       if (this.isFormValid) {
+<<<<<<< HEAD
         const {data, error, errorMessage} = await CreateAnnouncement({
+=======
+        const {data, error, errorMessage} = await createAnnouncementAPI({
+>>>>>>> 833e7e5bd0dd7f24bf3c0c67091b2dc681e85fe0
           courseId: parseInt(this.$props.courseId),
           content: this.announcement,
         });
