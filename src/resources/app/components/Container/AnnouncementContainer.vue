@@ -3,11 +3,6 @@
     <CreateAnnouncement
       :getAnnouncement="this.getAnnouncements"
       :courseId = "this.$props.courseId"
-<<<<<<< HEAD
-      
-=======
-
->>>>>>> 833e7e5bd0dd7f24bf3c0c67091b2dc681e85fe0
     />
     <div v-for="announcement in announcements" v-bind:key="announcement.id">
       <AnnouncementCard
@@ -24,12 +19,8 @@
 
 <script>
 import AnnouncementCard from "../AnnouncementCard";
-<<<<<<< HEAD
-import api from "../../../api/announcement/GetAnnouncements";
-=======
 import CreateAnnouncement from "../CreateAnnouncement";
 import { getAnnouncementsAPI } from "../../../api/announcement";
->>>>>>> 833e7e5bd0dd7f24bf3c0c67091b2dc681e85fe0
 
 export default {
   name: "AnnouncementContainer",
@@ -56,7 +47,3 @@ export default {
   components: {AnnouncementCard, CreateAnnouncement}
 }
 </script>
-
-<style scoped>
-
-</style>
