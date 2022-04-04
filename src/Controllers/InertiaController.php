@@ -12,6 +12,21 @@ class InertiaController extends Controller
         return Inertia::render('JoinCourse', [], 'lms-theme::app');
     }
 
+    public function classwork($id)
+    {
+        return Inertia::render('Classwork', ['id' => $id], 'lms-theme::app');
+    }
+
+    public function createTopic($id)
+    {
+        return Inertia::render('CreateTopic', ['id' => $id], 'lms-theme::app');
+    }
+
+    public function updateTopic($id, $topicId)
+    {
+        return Inertia::render('UpdateTopic', ['id' => $id, 'topicId' => $topicId], 'lms-theme::app');
+    }
+
     public function people($id)
     {
         return Inertia::render('PeopleInCourse', ['id' => $id], 'lms-theme::app');
