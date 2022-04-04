@@ -85,5 +85,27 @@ describe("AnnouncementContent", () => {
         await expect(findContent.exists()).toBe(false);
       })
     })
+
+    describe('and when editing comment', () => {
+      it("should renders", async () => {
+        const wrapper = await mount(AnnouncementContent, {
+          localVue,
+          vuetify,
+          store,
+        });
+
+        await wrapper.setData({ isEditing: true, isComment: true })
+
+        const findEditForm = wrapper.find("#edit-form");
+        await expect(findEditForm.exists()).toBe(true);
+
+        const findContent = wrapper.find("#content");
+        await expect(findContent.exists()).toBe(false);
+
+        const findButton = wrapper.find("#post-comment-button");
+        await expect(findButton.exists()).toBe(true);
+
+      })
+    })
   });
 });
