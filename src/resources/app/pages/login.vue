@@ -623,7 +623,7 @@ export default {
           if (res.errors === null) {
             this.$store.dispatch("SET_IS_AUTHENTICATED", true);
             this.$store.dispatch("SET_USER", res.data.user);
-            localStorage.setItem("token", res.data.accessToken);
+            this.setWithExpiry("token", res.data.accessToken, 1000 * 60 * 60);
             this.$inertia.visit("/");
           }
         } catch (e) {
@@ -638,6 +638,14 @@ export default {
     showSnackbar(text) {
       this.snackbar.text = text;
       this.snackbar.isVisible = true;
+    },
+    setWithExpiry(key, value, ttl) {
+      const now = new Date();
+      const item = {
+        value: value,
+        expiry: now.getTime() + ttl,
+      };
+      localStorage.setItem(key, JSON.stringify(item));
     },
   },
 };

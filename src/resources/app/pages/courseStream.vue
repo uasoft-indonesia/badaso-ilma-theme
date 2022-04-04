@@ -1,62 +1,92 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col md="12" class="mb-4">
-        <v-card class="rounded-lg" elevation="0" color="primary">
-          <v-card-text id="course-title"> Computer Networks </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-spacer></v-spacer>
-      <v-col
-        v-for="tab in tabs"
-        sm="2"
-        :key="tab.name"
-        class="flex justify-center"
-      >
-        <v-btn
-          class="mt-1"
-          depressed
-          :color="activeTab == tab.name ? 'light' : 'white'"
-          @click="redirectTab(tab.href)"
+  <v-app>
+    <div v-if="loading" class="d-flex justify-center align-center h-screen">
+      <v-progress-circular indeterminate color="primary"></v-progress-circular>
+    </div>
+    <v-container v-show="!loading">
+      <v-row>
+        <v-col md="12" class="mb-4">
+          <v-card class="rounded-lg" elevation="0" color="primary">
+            <v-card-text id="course-title">
+              {{ this.course.name }}
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-spacer></v-spacer>
+        <v-col
+          v-for="tab in tabs"
+          cols="2"
+          :key="tab.name"
+          class="flex justify-center"
         >
-          {{ tab.name }}
-        </v-btn>
-      </v-col>
-      <v-spacer></v-spacer>
-    </v-row>
-    <v-row>
-      <v-col v-if="activeTab == 'Main Page'" md="2" class="mt-4">
-        <v-card outlined class="rounded-lg">
-          <v-card-text>
-            <h2 id="code-title">Class code</h2>
-            <div class="font-bold text-lg" id="class-code">R00M00</div>
-            <v-btn
-              @click="copyCode('R00M00')"
-              id="copy-btn"
-              class="mt-1"
-              elevation="0"
-              outlined
-            >
-              Copy
-            </v-btn>
-          </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col md="10">
-        <slot />
-      </v-col>
-    </v-row>
-  </v-container>
+          <v-btn
+            class="mt-1"
+            depressed
+            :color="activeTab == tab.name ? 'light' : 'white'"
+            @click="redirectTab(tab.href)"
+          >
+            {{ tab.name }}
+          </v-btn>
+        </v-col>
+        <v-col
+          v-show="this.$store.state.user.id == this.course.createdBy"
+          cols="2"
+          class="flex justify-center"
+        >
+          <v-btn
+            class="mt-1"
+            depressed
+            :color="activeTab == 'grades' ? 'light' : 'white'"
+            @click="redirectTab('/grades')"
+          >
+            Grades
+          </v-btn>
+        </v-col>
+        <v-spacer></v-spacer>
+      </v-row>
+      <v-row>
+        <v-col md="2" class="mt-4">
+          <v-card outlined class="rounded-lg">
+            <v-card-text>
+              <h2 id="code-title">Class code</h2>
+              <div class="font-bold text-lg" id="class-code">
+                {{ this.course.joinCode }}
+              </div>
+              <v-btn
+                @click="copyCode(course.joinCode)"
+                id="copy-btn"
+                class="mt-1"
+                elevation="0"
+                outlined
+              >
+                Copy
+              </v-btn>
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col md="10">
+          <slot />
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-app>
 </template>
 
 <script>
 import AppLayout from "../components/Layout/AppLayout.vue";
+import { Inertia } from "@inertiajs/inertia";
+import { courseDetail } from "../../api/course/detail";
+
 export default {
   layout: [AppLayout],
+  props: {
+    id: String,
+  },
   data() {
     return {
+      loading: false,
       tabs: [
         {
           name: "Main Page",
@@ -72,6 +102,15 @@ export default {
         },
       ],
       activeTab: "Main Page",
+      removeListener: "",
+      course: {
+        name: "Placeholder",
+        joinCode: "AAA",
+        createdBy: 0,
+        room: "Placeholder",
+        subject: "Placeholder",
+        id: 0,
+      },
     };
   },
   methods: {
@@ -84,7 +123,7 @@ export default {
       }
     },
     redirectTab(href) {
-      this.$inertia.visit("/course/1" + href);
+      this.$inertia.visit("/course/" + this.id + href);
     },
     getActiveTab() {
       const pathname = window.location.pathname.split("/");
@@ -96,9 +135,25 @@ export default {
         this.activeTab = "Classwork";
       }
     },
+    async getCourseDetail() {
+      this.loading = true;
+      try {
+        const res = await courseDetail(this.id);
+        this.course = res.data;
+      } catch ($e) {
+        this.$store.dispatch("OPEN_SNACKBAR", "Error getting course detail");
+      }
+      this.loading = false;
+    },
   },
-  mounted() {
-    this.getActiveTab();
+  beforeMount() {
+    this.getCourseDetail();
+    this.removeListener = Inertia.on("navigate", (event) => {
+      this.getActiveTab(event?.detail?.page?.url);
+    });
+  },
+  beforeDestroy() {
+    this.removeListener();
   },
 };
 </script>

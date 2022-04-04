@@ -80,7 +80,7 @@
           v-for="child in courses"
           :key="child.id"
           link
-          @click="redirectToCoursePage(child.id)"
+          @click="redirectToCoursePage(child.courseId)"
         >
           <v-list-item-content>
             <v-list-item-title v-text="child.name"></v-list-item-title>
@@ -155,7 +155,6 @@ export default {
       try {
         const res = await api.view();
         this.courses = res.data;
-        console.log(this.courses);
       } catch (e) {
         this.$store.dispatch("OPEN_SNACKBAR", "Failed getting courses data");
       }
