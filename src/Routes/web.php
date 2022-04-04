@@ -19,6 +19,9 @@ Route::prefix($lms_route_prefix)
             Route::get('/create', [InertiaController::class, 'createCourse']);
             Route::get('/join', [InertiaController::class, 'joinCourse']);
             Route::get('/{id}', [InertiaController::class, 'courseStream']);
+            Route::get('/{id}/classwork', [InertiaController::class, 'classwork']);
+            Route::get('/{id}/classwork/create', [InertiaController::class, 'createTopic']);
+            Route::get('/{id}/classwork/update/{topicId}', [InertiaController::class, 'updateTopic']);
             Route::get('/{id}/people', [InertiaController::class, 'people']);
         });
     });
