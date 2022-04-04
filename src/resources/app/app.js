@@ -26,7 +26,6 @@ createInertiaApp({
 });
 
 Inertia.on("navigate", (event) => {
-  console.log(event?.detail?.page?.url);
   if (!["/login", "/register"].includes(event?.detail?.page?.url)) {
     const itemStr = localStorage.getItem("token");
     const item = JSON.parse(itemStr);
