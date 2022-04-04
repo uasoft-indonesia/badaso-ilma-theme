@@ -16,7 +16,7 @@
       </div>
       <v-menu
         id="menu"
-        v-if="getUserId === this.$props.authorId"
+        v-if="getUserId === this.$props.authorId || getUserName === this.$props.name"
         bottom
         right
       >
@@ -32,6 +32,8 @@
 
         <v-list>
           <v-list-item
+            id = "editAnnouncement"
+            v-if="this.$props.isComment !== true"
             link
             @click="isEditing=true"
           >
@@ -42,8 +44,22 @@
             </v-list-item-title>
           </v-list-item>
           <v-list-item
+            id = "deleteAnnouncement"
+            v-if="this.$props.isComment !== true"
             link
             @click="deleteAnnouncement"
+          >
+            <v-list-item-title
+              class="w-28 text-sm text-error"
+            >
+              Delete
+            </v-list-item-title>
+          </v-list-item>
+          <v-list-item
+            id = "deleteComment"
+            v-if="this.$props.isComment"
+            link
+            @click="deleteComment"
           >
             <v-list-item-title
               class="w-28 text-sm text-error"
@@ -76,8 +92,6 @@
             v-model="announcement"
             :rules="announceRules.concat(lengthRules)"
             :counter="65535"
-            label="Announcement"
-            placeholder="Announcement for everyone..."
           ></v-textarea>
         </div>
         <div class="text-right">
@@ -95,10 +109,21 @@
             </div>
           </v-btn>
           <v-btn
-            id="post-button"
+            v-if="this.$props.isComment !== true"
+            id="post-announcement-button"
             depressed
             color=primary
             @click="editAnnouncement"
+            :disabled="!isFormValid"
+          >
+            Post
+          </v-btn>
+          <v-btn
+            v-if="this.$props.isComment"
+            id="post-comment-button"
+            depressed
+            color=primary
+            @click="editComment"
             :disabled="!isFormValid"
           >
             Post
@@ -111,6 +136,7 @@
 
 <script>
 import { deleteAnnouncementAPI, editAnnouncementAPI } from "../../api/announcement";
+import { deleteComment } from "../../api/comment";
 
 export default {
   name: "AnnouncementContent",
@@ -120,7 +146,8 @@ export default {
     "date",
     "content",
     "authorId",
-    "removeCard"
+    "removeCard",
+    "isComment",
   ],
   data() {
     return {
@@ -160,6 +187,15 @@ export default {
       }
     },
 
+    async deleteComment(){
+      const {data, error, errorMessage} = await deleteComment(this.$props.id);
+      if (error) {
+        this.showSnackbar(errorMessage);
+      } else {
+        location.reload();
+      }
+    },
+
     dateSlicing() {
       let date = new Date(this.$props.date);
       date = date.toString().split(" ");
@@ -169,6 +205,9 @@ export default {
   computed: {
     getUserId() {
       return this.$store.state.user.id;
+    },
+    getUserName() {
+      return this.$store.state.user.name;
     }
   }
 }
