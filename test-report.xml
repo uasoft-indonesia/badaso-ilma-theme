@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\register.spec.js">
-    <testCase name="Register when loaded has all of the required elements" duration="316"/>
-    <testCase name="Register when sending request should show loading on button" duration="148"/>
+  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\announcement\AnnouncementPage.spec.js">
+    <testCase name="Announcement when loaded should renders" duration="459"/>
+  </file>
+  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\copyClassCode.spec.js">
+    <testCase name="Class Code Widget when loaded should renders" duration="593"/>
+    <testCase name="Class Code Widget When click should call function" duration="134"/>
+  </file>
+  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\PeopleInCourse.spec.js">
+    <testCase name="PeopleInCourse when loaded should renders" duration="112"/>
   </file>
 </testExecutions>

@@ -14,7 +14,6 @@ export const courseDetail = async (id) => {
     data = response.data;
   } catch (e) {
     error = e;
-    console.log(e);
     errorMessage = "Something went wrong, please try again later";
   }
 
