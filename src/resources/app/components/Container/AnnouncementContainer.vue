@@ -3,7 +3,6 @@
     <CreateAnnouncement
       :getAnnouncement="this.getAnnouncements"
       :courseId = "this.$props.courseId"
-
     />
     <div v-for="announcement in announcements" v-bind:key="announcement.id">
       <AnnouncementCard
@@ -48,7 +47,3 @@ export default {
   components: {AnnouncementCard, CreateAnnouncement}
 }
 </script>
-
-<style scoped>
-
-</style>

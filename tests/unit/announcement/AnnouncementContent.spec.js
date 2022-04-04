@@ -1,5 +1,5 @@
 import Vuetify from "vuetify";
-import {mount, createLocalVue} from "@vue/test-utils";
+import { mount, createLocalVue } from "@vue/test-utils";
 import AnnouncementContent from "../../../src/resources/app/components/AnnouncementContent";
 import Vuex from "vuex";
 
@@ -14,7 +14,7 @@ describe("AnnouncementContent", () => {
     vuetify = new Vuetify();
     store = new Vuex.Store({
       state: {
-        user: {id: 1}
+        user: { id: 1, name: 'Test' }
       },
     });
   });
@@ -76,7 +76,7 @@ describe("AnnouncementContent", () => {
           store,
         });
 
-        await wrapper.setData({isEditing: true})
+        await wrapper.setData({ isEditing: true })
 
         const findEditForm = wrapper.find("#edit-form");
         await expect(findEditForm.exists()).toBe(true);

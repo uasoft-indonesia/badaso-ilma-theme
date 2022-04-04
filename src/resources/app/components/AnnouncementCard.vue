@@ -27,10 +27,11 @@
       >
         <v-divider></v-divider>
         <AnnouncementContent
-          :name="comment.name"
-          :date="comment.date"
+          :name="comment.author"
+          :date="comment.datetime"
           :content="comment.content"
           :id="comment.id"
+          :isComment= "true"
         />
       </div>
       <div>
@@ -85,7 +86,7 @@
 
 <script>
 import AnnouncementContent from "./AnnouncementContent";
-import {createComment} from "../../api/announcement/comment/createComment";
+import {createComment} from "../../api/comment";
 
 export default {
   name: "AnnouncementCard",
@@ -100,7 +101,6 @@ export default {
   components: {AnnouncementContent},
   data() {
     return {
-      comments: [],
       isDeleted: false,
       isFormValid: false,
       fieldContent: '',
