@@ -27,11 +27,6 @@ class InertiaController extends Controller
         return Inertia::render('ViewCourse', [], 'lms-theme::app');
     }
 
-    public function courseStream()
-    {
-        return Inertia::render('courseStream', [], 'lms-theme::app');
-    }
-
     public function login()
     {
         return Inertia::render('login', [], 'lms-theme:app');
@@ -40,5 +35,10 @@ class InertiaController extends Controller
     public function createCourse()
     {
         return Inertia::render('course/CreateCourse', [], 'lms-theme::app');
+    }
+
+    public function announcement($id)
+    {
+        return Inertia::render('course/Announcement', ['id' => $id], 'lms-theme::app');
     }
 }
