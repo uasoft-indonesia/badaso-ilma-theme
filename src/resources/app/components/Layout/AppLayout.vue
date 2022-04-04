@@ -19,10 +19,31 @@ export default {
     Sidebar,
     Snackbar,
   },
-  beforeCreate() {
-    if (!this.$store.state.isAuthenticated) {
+  methods: {
+    validate() {
+      const itemStr = localStorage.getItem("token");
+      const item = JSON.parse(itemStr);
+      const now = new Date();
+      let token = "";
+      if (!itemStr || now.getTime() > item.expiry) {
+        localStorage.removeItem("token");
+        this.$store.dispatch("LOGOUT");
+        this.$inertia.visit("/login");
+      } else {
+        token = item.value;
+      }
+      if (!token) {
+        this.$store.dispatch("LOGOUT");
+        this.$inertia.visit("/login");
+      }
+    },
+  },
+  mounted() {
+    this.validate();
+    setTimeout(() => {
+      this.$store.dispatch("LOGOUT");
       this.$inertia.visit("/login");
-    }
+    }, 1000 * 60 * 50);
   },
 };
 </script>
