@@ -666,7 +666,6 @@ export default {
             this.redirect();
           }
         } catch (e) {
-          console.log(e);
           this.showSnackbar("Error while registering account");
         }
         this.loading = false;

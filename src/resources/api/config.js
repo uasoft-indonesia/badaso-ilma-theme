@@ -12,7 +12,15 @@ function createResource() {
 
   instance.interceptors.request.use(
     (config) => {
-      const token = localStorage.getItem("token");
+      const itemStr = localStorage.getItem("token");
+      const item = JSON.parse(itemStr);
+      const now = new Date();
+      let token = "";
+      if (!itemStr || now.getTime() > item.expiry) {
+        localStorage.removeItem("token");
+      } else {
+        token = item.value;
+      }
       if (token) config.headers.Authorization = "Bearer " + token;
       beforeRequest(config);
 

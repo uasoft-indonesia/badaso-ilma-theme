@@ -56,9 +56,7 @@ export default {
       try {
         const res = await api.people(id);
         this.peoples = res.data;
-      } catch (e) {
-        console.log(e);
-      }
+      } catch (e) {}
     },
   },
   mounted() {

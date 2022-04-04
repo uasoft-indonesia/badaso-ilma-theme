@@ -3,35 +3,24 @@
     <v-snackbar v-model="snackbar.isVisible" :timeout="3000" top>
       {{ snackbar.text }}
       <template v-slot:action="{ attrs }">
-        <v-btn color="blue" text v-bind="attrs" @click="snackbar.isVisible = false">
+        <v-btn
+          color="blue"
+          text
+          v-bind="attrs"
+          @click="snackbar.isVisible = false"
+        >
           Close
         </v-btn>
       </template>
     </v-snackbar>
 
     <div class="flex justify-center items-center">
-      <v-card
-        id="join-card"
-        elevation="2"
-        width="400px"
-        class="p-6"
-      >
-        <div
-          id="title"
-          class="text-base mb-2"
-        >
-          Enter Code
-        </div>
-        <div
-          id="sub-title"
-          class="text-s text-textGray mb-5"
-        >
+      <v-card id="join-card" elevation="2" width="400px" class="p-6">
+        <div id="title" class="text-base mb-2">Enter Code</div>
+        <div id="sub-title" class="text-s text-textGray mb-5">
           Class code provided by your teacher
         </div>
-        <v-form
-          v-model="isFormValid"
-          ref="form"
-        >
+        <v-form v-model="isFormValid" ref="form">
           <div>
             <v-text-field
               id="code-form"
@@ -46,7 +35,7 @@
             <v-btn
               id="join-btn"
               depressed
-              color=primary
+              color="primary"
               @click="submit"
               :disabled="!isFormValid"
             >
@@ -61,9 +50,10 @@
 
 <script>
 import api from "../../api/joinCourse";
+import AppLayout from "../components/Layout/AppLayout.vue";
 
 export default {
-  components: {},
+  layout: [AppLayout],
   beforeCreate() {
     if (!this.$store.state.isAuthenticated) {
       window.location.assign("/login");
@@ -74,9 +64,9 @@ export default {
       isVisible: false,
       text: "",
     },
-    code: '',
+    code: "",
     isFormValid: false,
-    joinCodeRules: [(v) => !!v || "Class code is required"]
+    joinCodeRules: [(v) => !!v || "Class code is required"],
   }),
   methods: {
     validate() {
@@ -87,10 +77,10 @@ export default {
       this.validate();
       if (this.isFormValid) {
         const { data, error, errorMessage } = await api.joinCourse({
-          code: this.code
+          code: this.code,
         });
 
-        if  (error) {
+        if (error) {
           this.showSnackbar(errorMessage);
         } else {
           window.location.assign("/course/" + data.courseId);
@@ -106,7 +96,6 @@ export default {
     actionBackToHomepage() {
       window.location.assign("/");
     },
-  }
+  },
 };
-
 </script>

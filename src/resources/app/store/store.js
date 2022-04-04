@@ -35,6 +35,9 @@ export default new Vuex.Store({
     },
     OPEN_SNACKBAR({ commit }, content) {
       commit("SET_SNACKBAR", { content, isVisible: true });
+      setTimeout(() => {
+        commit("SET_SNACKBAR", { content, isVisible: false });
+      }, 1000);
     },
     CLOSE_SNACKBAR({ commit }) {
       commit("SET_SNACKBAR", { isVisible: false });
