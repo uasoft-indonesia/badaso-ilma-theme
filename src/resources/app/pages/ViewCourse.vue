@@ -56,9 +56,7 @@ export default {
       try {
         const res = await api.view();
         this.posts = res.data;
-      } catch (e) {
-        this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
-      }
+      } catch (e) {}
     },
   },
   mounted() {
