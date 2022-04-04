@@ -123,7 +123,7 @@ export default {
     async postComment() {
       this.validate();
       if (this.isFormValid) {
-        const {data, error, errorMessage} = await createComment({
+        const {error, errorMessage} = await createComment({
           announcementId: parseInt(this.$props.id),
           content: this.fieldContent,
         });
