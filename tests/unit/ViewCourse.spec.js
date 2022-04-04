@@ -22,7 +22,6 @@ describe("ViewCourse Component", () => {
             state: {
               isAuthenticated: true,
             },
-            dispatch: () => jest.fn(),
           },
         },
       });
@@ -46,7 +45,6 @@ describe("ViewCourse Component", () => {
             state: {
               isAuthenticated: false,
             },
-            dispatch: () => jest.fn(),
           },
           $inertia: {
             visit: mockInertiaVisit,
