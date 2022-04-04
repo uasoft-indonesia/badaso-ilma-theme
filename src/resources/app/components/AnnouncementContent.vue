@@ -164,7 +164,7 @@ export default {
     },
     async editAnnouncement(){
       if (this.isFormValid) {
-        const {data, error, errorMessage} = await editAnnouncementAPI({
+        const {error, errorMessage} = await editAnnouncementAPI({
           content: this.announcement,
         }, this.$props.id);
 
@@ -193,7 +193,7 @@ export default {
     },
 
     async deleteAnnouncement(){
-      const {data, error, errorMessage} = await deleteAnnouncementAPI(this.$props.id);
+      const {error, errorMessage} = await deleteAnnouncementAPI(this.$props.id);
       if (error) {
         this.showSnackbar(errorMessage);
       } else {
