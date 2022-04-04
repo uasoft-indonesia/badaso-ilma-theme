@@ -32,6 +32,9 @@ describe("Class Code Widget", () => {
             alert: () => jest.fn(),
           },
           id: 1,
+          $store: {
+            dispatch: () => jest.fn(),
+          },
         },
       });
 
@@ -55,6 +58,9 @@ describe("Class Code Widget", () => {
             alert: () => jest.fn(),
           },
           id: 1,
+          $store: {
+            dispatch: () => jest.fn(),
+          },
         },
       });
       global.navigator.clipboard = {
