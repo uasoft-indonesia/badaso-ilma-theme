@@ -32,8 +32,7 @@
 
         <v-list>
           <v-list-item
-            id = "editAnnouncement"
-            v-if="this.$props.isComment !== true"
+            id = "editForm"
             link
             @click="isEditing=true"
           >
@@ -118,16 +117,6 @@
           >
             Post
           </v-btn>
-          <v-btn
-            v-if="this.$props.isComment"
-            id="post-comment-button"
-            depressed
-            color=primary
-            @click="editComment"
-            :disabled="!isFormValid"
-          >
-            Post
-          </v-btn>
         </div>
       </v-form>
     </div>
@@ -136,7 +125,7 @@
 
 <script>
 import { deleteAnnouncementAPI, editAnnouncementAPI } from "../../api/announcement";
-import { deleteComment } from "../../api/comment";
+import { deleteComment, editComment } from "../../api/comment";
 
 export default {
   name: "AnnouncementContent",
@@ -166,6 +155,21 @@ export default {
     async editAnnouncement(){
       if (this.isFormValid) {
         const {data, error, errorMessage} = await editAnnouncementAPI({
+          content: this.announcement,
+        }, this.$props.id);
+
+        if (error) {
+          this.showSnackbar(errorMessage);
+        } else {
+          this.isEditing = false;
+          this.$props.content = this.announcement;
+        }
+      }
+    },
+
+    async editComment(){
+      if (this.isFormValid) {
+        const {data, error, errorMessage} = await editComment({
           content: this.announcement,
         }, this.$props.id);
 
