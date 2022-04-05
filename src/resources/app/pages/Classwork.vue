@@ -78,18 +78,6 @@ export default {
   data() {
     return {
       topics: [
-        // {
-        //   name: "Software Architecture",
-        // },
-        // {
-        //   name: "Operating System",
-        // },
-        // {
-        //   name: "Artificial Intelligence",
-        // },
-        // {
-        //   name: "Computer Networks",
-        // },
       ],
     };
   },

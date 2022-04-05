@@ -4,7 +4,7 @@
     <div id="title">
       <v-row class="text-primary text-lg my-4"> Create Topic </v-row>
       <v-row>
-        <v-divider color="#06BBD3"></v-divider>
+        <v-divider color="bg-primary"></v-divider>
       </v-row>
     </div>
     <v-form v-model="isFormValid" ref="form">
@@ -17,13 +17,6 @@
           :rules="topicRules.concat(lengthRules)"
         ></v-text-field>
       </v-row>
-      <!-- <v-row>
-        <v-textarea
-          label="Description"
-          outlined
-          v-model="topicDesc"
-        ></v-textarea>
-      </v-row> -->
       <div class="text-right">
         <v-btn
           color="error"
@@ -53,8 +46,7 @@ export default {
       isFormValid: false,
       topicTitle: "",
       topicRules: [(v) => (!!v || "Topic cannot be empty")],
-      lengthRules: [(v) => (v.length <= 65535 || "Characters are off limit")],
-      // topicDesc: "",
+      lengthRules: [(v) => (v.length <= 255 || "Characters are off limit")],
     };
   },
   methods: {
@@ -74,13 +66,6 @@ export default {
           title: this.topicTitle,
         });
         this.$inertia.visit(`/course/${this.$props.id}/classwork`);
-        // if (error) {
-        //   this.showSnackbar(errorMessage);
-        // } else {
-        //   this.$refs.form.reset();
-        //   this.startWriting = false;
-        //   this.$props.getTopic(this.$props.courseId);
-        // }
       }
     },
   },
