@@ -12,14 +12,7 @@
           </div>
         </div>
       </div>
-      <v-menu
-        id="menu"
-        v-if="
-          getUserId === this.$props.authorId || getUserName === this.$props.name
-        "
-        bottom
-        right
-      >
+      <v-menu id="menu" v-if="isCurrentUserTheAuthor" bottom right>
         <template v-slot:activator="{ on, attrs }">
           <v-btn icon v-bind="attrs" v-on="on">
             <v-icon>mdi-dots-vertical</v-icon>
@@ -135,6 +128,11 @@ export default {
   methods: {
     validate() {
       this.$refs.form.validate();
+    },
+    isCurrentUserTheAuthor() {
+      return (
+        getUserId === this.$props.authorId || getUserName === this.$props.name
+      );
     },
     async editAnnouncement() {
       if (this.isFormValid) {
