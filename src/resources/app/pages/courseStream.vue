@@ -19,7 +19,7 @@
           v-for="tab in tabs"
           cols="2"
           :key="tab.name"
-          class="flex justify-center"
+          class="d-flex justify-center"
         >
           <v-btn
             class="mt-1"
@@ -33,7 +33,7 @@
         <v-col
           v-show="this.$store.state.user.id == this.course.createdBy"
           cols="2"
-          class="flex justify-center"
+          class="d-flex justify-center"
         >
           <v-btn
             class="mt-1"

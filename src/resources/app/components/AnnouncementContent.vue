@@ -7,84 +7,50 @@
           <div id="author">
             {{ name }}
           </div>
-          <div
-            id="date"
-            class="text-sm text-textGray">
+          <div id="date" class="text-sm text-textGray">
             {{ announcementDate }}
           </div>
         </div>
       </div>
-      <v-menu
-        id="menu"
-        v-if="getUserId === this.$props.authorId || getUserName === this.$props.name"
-        bottom
-        right
-      >
+      <v-menu id="menu" v-if="isCurrentUserTheAuthor" bottom right>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            icon
-            v-bind="attrs"
-            v-on="on"
-          >
+          <v-btn icon v-bind="attrs" v-on="on">
             <v-icon>mdi-dots-vertical</v-icon>
           </v-btn>
         </template>
 
         <v-list>
-          <v-list-item
-            id = "editForm"
-            link
-            @click="isEditing=true"
-          >
-            <v-list-item-title
-              class="w-28 text-sm"
-            >
-              Edit
-            </v-list-item-title>
+          <v-list-item id="editForm" link @click="isEditing = true">
+            <v-list-item-title class="w-28 text-sm"> Edit </v-list-item-title>
           </v-list-item>
           <v-list-item
-            id = "deleteAnnouncement"
+            id="deleteAnnouncement"
             v-if="this.$props.isComment !== true"
             link
             @click="deleteAnnouncement"
           >
-            <v-list-item-title
-              class="w-28 text-sm text-error"
-            >
+            <v-list-item-title class="w-28 text-sm text-error">
               Delete
             </v-list-item-title>
           </v-list-item>
           <v-list-item
-            id = "deleteComment"
+            id="deleteComment"
             v-if="this.$props.isComment"
             link
             @click="deleteComment"
           >
-            <v-list-item-title
-              class="w-28 text-sm text-error"
-            >
+            <v-list-item-title class="w-28 text-sm text-error">
               Delete
             </v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
     </div>
-    <div
-      id="content"
-      class="mt-4"
-      v-if="!isEditing"
-    >
+    <div id="content" class="mt-4" v-if="!isEditing">
       {{ content }}
     </div>
-    <div
-      id="edit-form"
-      v-if="isEditing"
-    >
-      <v-form
-        v-model="isFormValid"
-        ref="form"
-        class="mx-6 my-4"
-      >
+    <div id="edit-form" v-if="isEditing">
+      <v-form v-model="isFormValid" ref="form" class="mx-6 my-4">
         <div>
           <v-textarea
             outlined
@@ -96,22 +62,20 @@
         <div class="text-right">
           <v-btn
             depressed
-            color=light
-            @click="isEditing = false; announcement = content"
+            color="light"
+            @click="
+              isEditing = false;
+              announcement = content;
+            "
             class="mr-4"
           >
-            <div
-              id="cancel-button"
-              class="text-primary"
-            >
-              Cancel
-            </div>
+            <div id="cancel-button" class="text-primary">Cancel</div>
           </v-btn>
           <v-btn
             v-if="this.$props.isComment !== true"
             id="post-announcement-button"
             depressed
-            color=primary
+            color="primary"
             @click="editAnnouncement"
             :disabled="!isFormValid"
           >
@@ -121,7 +85,7 @@
             v-if="this.$props.isComment"
             id="post-comment-button"
             depressed
-            color=primary
+            color="primary"
             @click="editComment"
             :disabled="!isFormValid"
           >
@@ -134,7 +98,10 @@
 </template>
 
 <script>
-import { deleteAnnouncementAPI, editAnnouncementAPI } from "../../api/announcement";
+import {
+  deleteAnnouncementAPI,
+  editAnnouncementAPI,
+} from "../../api/announcement";
 import { deleteComment, editComment } from "../../api/comment";
 
 export default {
@@ -154,19 +121,27 @@ export default {
       announcement: this.$props.content,
       isEditing: false,
       isFormValid: false,
-      announceRules: [(v) => (!!v || "Announcement cannot be empty")],
-      lengthRules: [(v) => (v.length <= 65535 || "Characters are off limit")],
-    }
+      announceRules: [(v) => !!v || "Form cannot be empty"],
+      lengthRules: [(v) => v.length <= 65535 || "Characters are off limit"],
+    };
   },
   methods: {
     validate() {
       this.$refs.form.validate();
     },
-    async editAnnouncement(){
+    isCurrentUserTheAuthor() {
+      return (
+        getUserId === this.$props.authorId || getUserName === this.$props.name
+      );
+    },
+    async editAnnouncement() {
       if (this.isFormValid) {
-        const {error, errorMessage} = await editAnnouncementAPI({
-          content: this.announcement,
-        }, this.$props.id);
+        const { error, errorMessage } = await editAnnouncementAPI(
+          {
+            content: this.announcement,
+          },
+          this.$props.id
+        );
 
         if (error) {
           this.showSnackbar(errorMessage);
@@ -177,11 +152,14 @@ export default {
       }
     },
 
-    async editComment(){
+    async editComment() {
       if (this.isFormValid) {
-        const {data, error, errorMessage} = await editComment({
-          content: this.announcement,
-        }, this.$props.id);
+        const { data, error, errorMessage } = await editComment(
+          {
+            content: this.announcement,
+          },
+          this.$props.id
+        );
 
         if (error) {
           this.showSnackbar(errorMessage);
@@ -192,8 +170,10 @@ export default {
       }
     },
 
-    async deleteAnnouncement(){
-      const {error, errorMessage} = await deleteAnnouncementAPI(this.$props.id);
+    async deleteAnnouncement() {
+      const { error, errorMessage } = await deleteAnnouncementAPI(
+        this.$props.id
+      );
       if (error) {
         this.showSnackbar(errorMessage);
       } else {
@@ -201,8 +181,8 @@ export default {
       }
     },
 
-    async deleteComment(){
-      const {data, error, errorMessage} = await deleteComment(this.$props.id);
+    async deleteComment() {
+      const { data, error, errorMessage } = await deleteComment(this.$props.id);
       if (error) {
         this.showSnackbar(errorMessage);
       } else {
@@ -211,10 +191,16 @@ export default {
     },
 
     dateSlicing() {
-      let date = new Date(this.$props.date);
+      const datestring =
+        this.$props.date.slice(-1) == "Z"
+          ? this.$props.date
+          : `${this.$props.date}Z`;
+      let date = new Date(datestring);
       date = date.toString().split(" ");
-      return date[0] + ", " + date[2] + " " + date[1] + " " + date[3] + " " + date[4]
-    }
+      return (
+        date[0] + ", " + date[2] + " " + date[1] + " " + date[3] + " " + date[4]
+      );
+    },
   },
   computed: {
     getUserId() {
@@ -222,7 +208,7 @@ export default {
     },
     getUserName() {
       return this.$store.state.user.name;
-    }
-  }
-}
+    },
+  },
+};
 </script>
