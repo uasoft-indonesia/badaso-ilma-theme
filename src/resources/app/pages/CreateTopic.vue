@@ -4,7 +4,7 @@
     <div id="title">
       <v-row class="text-primary text-lg my-4"> Create Topic </v-row>
       <v-row>
-        <v-divider color="bg-primary"></v-divider>
+        <v-divider color="#06BBD3"></v-divider>
       </v-row>
     </div>
     <v-form v-model="isFormValid" ref="form">
