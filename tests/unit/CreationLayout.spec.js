@@ -40,6 +40,8 @@ describe("CreationLayout", () => {
       const title = () => wrapper.find("#title");
       expect(title().exists()).toBe(true);
       expect(title().text()).toBe("Create Material");
+
+      expect(wrapper.find("#divider").exists()).toBe(true);
     })
   })
 })
