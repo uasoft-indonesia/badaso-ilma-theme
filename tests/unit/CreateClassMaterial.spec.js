@@ -28,6 +28,9 @@ describe("CreateCourseMaterial", () => {
         vuetify,
         store,
       });
+
+      const dropDown = () => wrapper.find("#drop-down");
+      expect(dropDown().exists()).toBe(true);
     })
   })
 })
