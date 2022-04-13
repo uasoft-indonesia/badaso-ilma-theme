@@ -31,6 +31,8 @@ describe("CreateCourseMaterial", () => {
 
       const dropDown = () => wrapper.find("#drop-down");
       expect(dropDown().exists()).toBe(true);
+
+      expect(wrapper.find("#title-form").exists()).toBe(true);
     })
   })
 })
