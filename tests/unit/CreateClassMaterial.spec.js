@@ -39,7 +39,9 @@ describe("CreateCourseMaterial", () => {
       expect(cancelButton().exists()).toBe(true);
       expect(cancelButton().text()).toBe("Cancel");
 
-
+      const createButton = () => wrapper.find("#create-button");
+      expect(createButton().exists()).toBe(true);
+      expect(createButton().text()).toBe("Create");
     })
   })
 })
