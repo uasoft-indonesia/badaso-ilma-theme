@@ -28,10 +28,6 @@ describe("CreateCourseMaterial", () => {
         vuetify,
         store,
       });
-
-      const findTitle = () => wrapper.find("#title");
-      expect(findTitle().exists()).toBe(true);
-      expect(findTitle().text()).toBe("Create Material")
     })
   })
 })
