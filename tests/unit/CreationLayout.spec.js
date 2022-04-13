@@ -36,6 +36,10 @@ describe("CreationLayout", () => {
       const backButton = () => wrapper.find("#back");
       expect(backButton().exists()).toBe(true);
       expect(backButton().text()).toBe("Back");
+
+      const title = () => wrapper.find("#title");
+      expect(title().exists()).toBe(true);
+      expect(title().text()).toBe("Create Material");
     })
   })
 })
