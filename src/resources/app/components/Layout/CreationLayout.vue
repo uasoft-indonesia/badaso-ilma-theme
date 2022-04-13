@@ -3,6 +3,7 @@
     <v-container>
       <div class="mt-16">
         <v-btn
+          id="back"
           color="white"
           elevation="0"
           style="padding-left: 0; padding-right: 8px"
@@ -13,11 +14,12 @@
           Back
         </v-btn>
         <div
+          id="title"
           class="text-primary text-lg font-medium mb-4 mt-1"
         >
           {{pageTitle}}
         </div>
-        <v-divider color="#06BBD3" class="mb-6"></v-divider>
+        <v-divider id="divider" color="#06BBD3" class="mb-6"></v-divider>
         <slot/>
       </div>
     </v-container>
