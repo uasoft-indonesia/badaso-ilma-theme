@@ -34,6 +34,12 @@ describe("CreateCourseMaterial", () => {
 
       expect(wrapper.find("#title-form").exists()).toBe(true);
       expect(wrapper.find("#description").exists()).toBe(true);
+
+      const cancelButton = () => wrapper.find("#cancel-button");
+      expect(cancelButton().exists()).toBe(true);
+      expect(cancelButton().text()).toBe("Cancel");
+
+
     })
   })
 })
