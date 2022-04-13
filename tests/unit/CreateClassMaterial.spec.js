@@ -33,6 +33,7 @@ describe("CreateCourseMaterial", () => {
       expect(dropDown().exists()).toBe(true);
 
       expect(wrapper.find("#title-form").exists()).toBe(true);
+      expect(wrapper.find("#description").exists()).toBe(true);
     })
   })
 })
