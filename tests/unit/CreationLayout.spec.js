@@ -43,8 +43,8 @@ describe("CreationLayout", () => {
         expect(title().text()).toBe("Create Material");
 
         expect(wrapper.find("#divider").exists()).toBe(true);
-
         expect(wrapper.find("#topic-title").exists()).toBe(false);
+        expect(wrapper.find("#menu").exists()).toBe(false);
       });
     });
 
