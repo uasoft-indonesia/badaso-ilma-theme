@@ -14,11 +14,20 @@
           </v-icon>
           Back
         </v-btn>
-        <div
-          id="title"
-          class="text-primary text-lg font-medium mb-4 mt-1"
-        >
-          {{pageTitle}}
+        <div class="my-4">
+          <div
+            id="topic-title"
+            v-if="this.$props.topicTitle"
+            class="text-textGray text-md"
+          >
+            {{ topicTitle }}
+          </div>
+          <div
+            id="title"
+            class="text-primary text-lg font-medium"
+          >
+            {{ pageTitle }}
+          </div>
         </div>
         <v-divider id="divider" color="#06BBD3" class="mb-6"></v-divider>
         <slot/>
@@ -35,6 +44,7 @@ export default {
   props: {
     courseId: String,
     pageTitle: String,
+    topicTitle: String,
   },
   name: "CreationLayout",
   methods: {
