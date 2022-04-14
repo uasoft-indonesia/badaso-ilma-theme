@@ -7,7 +7,8 @@
           color="white"
           elevation="0"
           style="padding-left: 0; padding-right: 8px"
-          @click="redirectBackToClasswork()">
+          @click="redirectBackToClasswork()"
+        >
           <v-icon>
             mdi-chevron-left
           </v-icon>
@@ -24,7 +25,6 @@
       </div>
     </v-container>
   </v-app>
-
 </template>
 
 <script>
