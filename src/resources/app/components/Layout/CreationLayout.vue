@@ -44,9 +44,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.no-padding{
-  min-width: 0
-}
-</style>
