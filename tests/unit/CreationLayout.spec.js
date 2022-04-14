@@ -57,13 +57,15 @@ describe("CreationLayout", () => {
           propsData: {
             courseId: 1,
             pageTitle: "Network Address Translation",
-            topicTitle: "Software Engineering"
+            topicTitle: "Software Engineering",
+            contentType: "material",
           },
         });
 
         const topicTitle = () => wrapper.find("#topic-title");
         expect(topicTitle().exists()).toBe(true);
         expect(topicTitle().text()).toBe("Software Engineering");
+        expect(wrapper.find("#menu").exists()).toBe(true);
       })
     })
   })
