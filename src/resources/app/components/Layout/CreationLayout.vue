@@ -14,6 +14,7 @@
           </v-icon>
           Back
         </v-btn>
+<<<<<<< HEAD
         <div class="my-4 d-flex justify-between items-center">
           <div>
             <div
@@ -58,6 +59,13 @@
               </v-list-item>
             </v-list>
           </v-menu>
+=======
+        <div
+          id="title"
+          class="text-primary text-lg font-medium mb-4 mt-1"
+        >
+          {{pageTitle}}
+>>>>>>> 19d145d0037a9501652d5adff5b3447ee2e8e9ae
         </div>
         <v-divider id="divider" color="#06BBD3" class="mb-6"></v-divider>
         <slot/>
@@ -74,9 +82,12 @@ export default {
   props: {
     courseId: String,
     pageTitle: String,
+<<<<<<< HEAD
     topicTitle: String,
     contentType: String,
     contentId: String,
+=======
+>>>>>>> 19d145d0037a9501652d5adff5b3447ee2e8e9ae
   },
   name: "CreationLayout",
   methods: {

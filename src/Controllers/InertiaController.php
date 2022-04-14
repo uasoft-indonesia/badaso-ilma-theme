@@ -61,6 +61,7 @@ class InertiaController extends Controller
     {
         return Inertia::render('course/CreateCourseMaterial', ['id' => $id], 'lms-theme::app');
     }
+<<<<<<< HEAD
 
     public function lessonMaterial($id, $materialId)
     {
@@ -69,4 +70,6 @@ class InertiaController extends Controller
         'materialId' => $materialId,
         ], 'lms-theme::app');
     }
+=======
+>>>>>>> 19d145d0037a9501652d5adff5b3447ee2e8e9ae
 }
