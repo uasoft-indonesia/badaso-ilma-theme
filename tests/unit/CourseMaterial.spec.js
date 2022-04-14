@@ -31,7 +31,28 @@ describe("CourseMaterial", () => {
         });
 
         expect(wrapper.find("#description").exists()).toBe(false);
-      })
-    })
+      });
+    });
+
+    describe("and description is given", () => {
+      it("should renders", async () => {
+        const wrapper = await mount(CourseMaterial, {
+          localVue,
+          vuetify,
+          store,
+          data() {
+            return {
+              material: {
+                description: "test description",
+              }
+            }
+          }
+        });
+
+        const description = await wrapper.find("#description");
+        await expect(description.exists()).toBe(true);
+        await expect(description.text()).toBe("test description");
+      });
+    });
   })
 })
