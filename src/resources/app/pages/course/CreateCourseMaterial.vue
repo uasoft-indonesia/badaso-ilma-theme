@@ -64,22 +64,31 @@
 <script>
 import AppLayout from "../../components/Layout/AppLayout";
 import CreationLayout from "../../components/Layout/CreationLayout";
+import {getTopicAPI} from "../../../api/topic";
 
 export default {
-  components: {CreationLayout},
+  components: { CreationLayout },
   layout: [AppLayout],
+  props: {
+    id: String,
+  },
   name: "CreateCourseMaterial",
   data() {
     return {
-      items: [
-        {
-          title: "Polynomial Arithmetic",
-        },
-        {
-          title: "Cyclic Curves"
-        }
-      ]
+      items: []
     }
+  },
+  methods: {
+    async getTopic() {
+      try {
+        const response = await getTopicAPI(this.$props.id);
+        this.items = response.data;
+      } catch (error) {
+      }
+    }
+  },
+  mounted() {
+    this.getTopic();
   }
 }
 </script>
