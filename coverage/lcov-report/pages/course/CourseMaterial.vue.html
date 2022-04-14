@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for pages/PeopleInCourse.vue</title>
+    <title>Code coverage report for pages/course/CourseMaterial.vue</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../prettify.css" />
-    <link rel="stylesheet" href="../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../sort-arrow-sprite.png);
+            background-image: url(../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">pages</a> PeopleInCourse.vue</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">pages/course</a> CourseMaterial.vue</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -109,47 +109,7 @@
 <a name='L44'></a><a href='#L44'>44</a>
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L47'></a><a href='#L47'>47</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -196,70 +156,50 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;v-container&gt;
-    &lt;div class="my-10 mx-10"&gt;
-      &lt;v-col cols="6"&gt;
-        &lt;v-row class="text-primary text-lg" id="title"&gt; Teachers &lt;/v-row&gt;
-        &lt;v-row&gt;
-          &lt;v-divider class="bg-primary my-1"&gt;&lt;/v-divider&gt;
-        &lt;/v-row&gt;
-        &lt;v-row
-          v-for="teacher in peoples"
-          v-bind:key="teacher.name"
-          v-if="teacher.role == 'teacher'"
-        &gt;
-          &lt;v-avatar class="bg-primary my-3" id="avatar" size="36"&gt;&lt;/v-avatar&gt;
-          &lt;div class="ml-3 my-4" id="name"&gt;{{ teacher.name }}&lt;/div&gt;
-        &lt;/v-row&gt;
-        &lt;v-row class="text-primary text-lg" id="title"&gt; Classmates &lt;/v-row&gt;
-        &lt;v-row&gt;
-          &lt;v-divider class="bg-primary my-1"&gt;&lt;/v-divider&gt;
-        &lt;/v-row&gt;
-        &lt;v-row
-          v-for="student in peoples"
-          v-bind:key="student.name"
-          v-if="student.role == 'student'"
-        &gt;
-          &lt;v-avatar class="bg-primary my-3" id="avatar" size="36"&gt;&lt;/v-avatar&gt;
-          &lt;div class="ml-3 my-4" id="name"&gt;{{ student.name }}&lt;/div&gt;
-        &lt;/v-row&gt;
-      &lt;/v-col&gt;
+  &lt;CreationLayout
+    :courseId="this.$props.courseId"
+    :pageTitle="this.material.title"
+    :topicTitle="this.material.topic"
+    :contentId="this.material.id"
+    contentType="material"
+  &gt;
+    &lt;div
+      id="description"
+      v-if="this.material.description"
+      class="text-base mb-9"
+    &gt;
+      {{ this.material.description }}
     &lt;/div&gt;
-  &lt;/v-container&gt;
+  &lt;/CreationLayout&gt;
 &lt;/template&gt;
+&nbsp;
 &lt;script&gt;
-import api from "../../api/people";
-import CourseStream from "./courseStream.vue";
-import AppLayout from "../components/Layout/AppLayout.vue";
+import AppLayout from "../../components/Layout/AppLayout";
+import CreationLayout from "../../components/Layout/CreationLayout";
+&nbsp;
 export default {
-  layout: [AppLayout, CourseStream],
+  name: "CourseMaterial",
+  components: {CreationLayout},
+  layout: [AppLayout],
   props: {
-    id: {
-      default: 1,
-    },
+    courseId: String,
+    materialId: String,
   },
   data() {
     return {
-      peoples: [
-        {
-          name: "Placeholder",
-          role: "teacher",
-        },
-      ],
-    };
-  },
-  methods: {
-    async getData(id) {
-      try {
-        const res = await api.people(id);
-        this.peoples = res.data;
-      } catch (e) {}
-    },
-  },
-  mounted() {
-    this.getData(this.id);
-  },
-};
+      material: {
+        id: "1",
+        title: "Prime Numbers",
+        topic: "Polynomial Arithmetic",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+          "Morbi eu lorem ac risus maximus blandit nec in velit. " +
+          "Pellentesque eget metus vel massa molestie condimentum sit amet ac massa. " +
+          "Vivamus tincidunt tortor non ultricies pulvinar. Nunc eget posuere risus, vitae finibus diam. " +
+          "Proin varius, tortor nec aliquam commodo, massa nibh vestibulum turpis, in pulvinar magna turpis vel tortor."
+      }
+    }
+  }
+}
 &lt;/script&gt;
 &nbsp;</pre></td></tr></table></pre>
 
@@ -270,14 +210,14 @@ export default {
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
                 at Thu Apr 14 2022 10:21:18 GMT+0700 (Western Indonesia Time)
             </div>
-        <script src="../prettify.js"></script>
+        <script src="../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../sorter.js"></script>
-        <script src="../block-navigation.js"></script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
     </body>
 </html>
     

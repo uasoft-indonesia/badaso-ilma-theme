@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for pages/PeopleInCourse.vue</title>
+    <title>Code coverage report for components/Layout/CreationLayout.vue</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../prettify.css" />
-    <link rel="stylesheet" href="../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../sort-arrow-sprite.png);
+            background-image: url(../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">pages</a> PeopleInCourse.vue</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/Layout</a> CreationLayout.vue</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -129,7 +129,51 @@
 <a name='L64'></a><a href='#L64'>64</a>
 <a name='L65'></a><a href='#L65'>65</a>
 <a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">8x</span>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">33x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -196,70 +240,92 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;v-container&gt;
-    &lt;div class="my-10 mx-10"&gt;
-      &lt;v-col cols="6"&gt;
-        &lt;v-row class="text-primary text-lg" id="title"&gt; Teachers &lt;/v-row&gt;
-        &lt;v-row&gt;
-          &lt;v-divider class="bg-primary my-1"&gt;&lt;/v-divider&gt;
-        &lt;/v-row&gt;
-        &lt;v-row
-          v-for="teacher in peoples"
-          v-bind:key="teacher.name"
-          v-if="teacher.role == 'teacher'"
+  &lt;v-app&gt;
+    &lt;v-container&gt;
+      &lt;div class="mt-16"&gt;
+        &lt;v-btn
+          id="back"
+          color="white"
+          elevation="0"
+          style="padding-left: 0; padding-right: 8px"
+          @click="redirectBackToClasswork()"
         &gt;
-          &lt;v-avatar class="bg-primary my-3" id="avatar" size="36"&gt;&lt;/v-avatar&gt;
-          &lt;div class="ml-3 my-4" id="name"&gt;{{ teacher.name }}&lt;/div&gt;
-        &lt;/v-row&gt;
-        &lt;v-row class="text-primary text-lg" id="title"&gt; Classmates &lt;/v-row&gt;
-        &lt;v-row&gt;
-          &lt;v-divider class="bg-primary my-1"&gt;&lt;/v-divider&gt;
-        &lt;/v-row&gt;
-        &lt;v-row
-          v-for="student in peoples"
-          v-bind:key="student.name"
-          v-if="student.role == 'student'"
-        &gt;
-          &lt;v-avatar class="bg-primary my-3" id="avatar" size="36"&gt;&lt;/v-avatar&gt;
-          &lt;div class="ml-3 my-4" id="name"&gt;{{ student.name }}&lt;/div&gt;
-        &lt;/v-row&gt;
-      &lt;/v-col&gt;
-    &lt;/div&gt;
-  &lt;/v-container&gt;
+          &lt;v-icon&gt;
+            mdi-chevron-left
+          &lt;/v-icon&gt;
+          Back
+        &lt;/v-btn&gt;
+        &lt;div class="my-4 d-flex justify-between items-center"&gt;
+          &lt;div&gt;
+            &lt;div
+              id="topic-title"
+              v-if="this.$props.topicTitle"
+              class="text-textGray text-md"
+            &gt;
+              {{ topicTitle }}
+            &lt;/div&gt;
+            &lt;div
+              id="title"
+              class="text-primary text-lg font-medium"
+            &gt;
+              {{ pageTitle }}
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;v-menu
+            id="menu"
+            v-if="contentType"
+            bottom
+            rights
+          &gt;
+            &lt;template v-slot:activator="{ on, attrs }"&gt;
+              &lt;v-btn
+                icon
+                v-bind="attrs"
+                v-on="on"
+              &gt;
+                &lt;v-icon&gt;mdi-dots-vertical&lt;/v-icon&gt;
+              &lt;/v-btn&gt;
+            &lt;/template&gt;
+            &lt;v-list&gt;
+              &lt;v-list-item link&gt;
+                &lt;v-list-item-title class="w-28 text-sm"&gt;
+                  Edit
+                &lt;/v-list-item-title&gt;
+              &lt;/v-list-item&gt;
+              &lt;v-list-item link&gt;
+                &lt;v-list-item-title class="w-28 text-sm text-error"&gt;
+                  Delete
+                &lt;/v-list-item-title&gt;
+              &lt;/v-list-item&gt;
+            &lt;/v-list&gt;
+          &lt;/v-menu&gt;
+        &lt;/div&gt;
+        &lt;v-divider id="divider" color="#06BBD3" class="mb-6"&gt;&lt;/v-divider&gt;
+        &lt;slot/&gt;
+      &lt;/div&gt;
+    &lt;/v-container&gt;
+  &lt;/v-app&gt;
 &lt;/template&gt;
+&nbsp;
 &lt;script&gt;
-import api from "../../api/people";
-import CourseStream from "./courseStream.vue";
-import AppLayout from "../components/Layout/AppLayout.vue";
+import AppLayout from "./AppLayout";
+&nbsp;
 export default {
-  layout: [AppLayout, CourseStream],
+  layout: [AppLayout],
   props: {
-    id: {
-      default: 1,
-    },
+    courseId: String,
+    pageTitle: String,
+    topicTitle: String,
+    contentType: String,
+    contentId: String,
   },
-  data() {
-    return {
-      peoples: [
-        {
-          name: "Placeholder",
-          role: "teacher",
-        },
-      ],
-    };
-  },
+  name: "CreationLayout",
   methods: {
-    async getData(id) {
-      try {
-        const res = await api.people(id);
-        this.peoples = res.data;
-      } catch (e) {}
+    redirectBackToClasswork() {
+      this.$inertia.visit(`/course/${this.$props.courseId}/classwork`);
     },
-  },
-  mounted() {
-    this.getData(this.id);
-  },
-};
+  }
+}
 &lt;/script&gt;
 &nbsp;</pre></td></tr></table></pre>
 
@@ -270,14 +336,14 @@ export default {
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
                 at Thu Apr 14 2022 10:21:18 GMT+0700 (Western Indonesia Time)
             </div>
-        <script src="../prettify.js"></script>
+        <script src="../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../sorter.js"></script>
-        <script src="../block-navigation.js"></script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
     </body>
 </html>
     
