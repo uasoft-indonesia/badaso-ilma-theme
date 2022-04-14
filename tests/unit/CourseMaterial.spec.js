@@ -23,14 +23,21 @@ describe("CourseMaterial", () => {
 
   describe("when loaded", () => {
     describe("and description is NOT given", () => {
-      it("should renders", () => {
-        const wrapper = mount(CourseMaterial, {
+      it("should renders", async () => {
+        const wrapper = await mount(CourseMaterial, {
           localVue,
           vuetify,
           store,
+          data() {
+            return {
+              material: {
+                description: null,
+              }
+            }
+          }
         });
 
-        expect(wrapper.find("#description").exists()).toBe(false);
+        await expect(wrapper.find("#description").exists()).toBe(false);
       });
     });
 
