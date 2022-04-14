@@ -22,7 +22,7 @@ describe("CreationLayout", () => {
   });
 
   describe("when loaded", () => {
-    describe("and topic title is NOT given", () => {
+    describe("and topic title and content type is NOT given", () => {
       it("should renders", () => {
         const wrapper = mount(CreationLayout, {
           localVue,
@@ -48,7 +48,7 @@ describe("CreationLayout", () => {
       });
     });
 
-    describe("and topic title is given", () => {
+    describe("and topic title and content type is given", () => {
       it("should renders", () => {
         const wrapper = mount(CreationLayout, {
           localVue,
