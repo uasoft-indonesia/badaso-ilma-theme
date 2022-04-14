@@ -1,85 +1,207 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\PeopleInCourse.spec.js">
-    <testCase name="PeopleInCourse when loaded should renders" duration="623"/>
-  </file>
-  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\announcement\AnnouncementCard.spec.js">
-    <testCase name="AnnouncementCard when loaded and when no comment exist should renders" duration="1612"/>
-    <testCase name="AnnouncementCard when loaded and when comment exist comments should be rendered" duration="1224"/>
-  </file>
-  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\register.spec.js">
-    <testCase name="Register when loaded has all of the required elements" duration="1825"/>
-    <testCase name="Register when sending request should show loading on button" duration="1239"/>
-  </file>
-  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\ViewCourse.spec.js">
-    <testCase name="ViewCourse Component when loaded should renders" duration="1318"/>
-    <testCase name="ViewCourse Component when user is not authenticated should redirect to login page" duration="571"/>
-    <testCase name="ViewCourse Component when user is authenticated should not redirect anywhere" duration="588"/>
-  </file>
-  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\login.spec.js">
-    <testCase name="Login when loaded has all of the required elements" duration="1907"/>
-    <testCase name="Login when loaded test data input for login component" duration="972"/>
-  </file>
-  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\course\create.spec.js">
-    <testCase name="CreateCourse.vue should render correct forms" duration="1614"/>
-    <testCase name="CreateCourse.vue when user is not authenticated should redirect to login page" duration="767"/>
-    <testCase name="CreateCourse.vue when user is authenticated should not redirect anywhere" duration="673"/>
-    <testCase name="CreateCourse.vue when all fields are filled form should be valid" duration="904"/>
-    <testCase name="CreateCourse.vue when submitted successfully should redirect to course page" duration="540"/>
-    <testCase name="CreateCourse.vue when submission is failed should display snackbar with error message" duration="726"/>
-    <testCase name="CreateCourse.vue when cancel button is clicked should redirect to home page" duration="479"/>
-  </file>
-  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\announcement\AnnouncementContent.spec.js">
-    <testCase name="AnnouncementContent when loaded and when not editing and when announcement belong to current user should renders" duration="1207"/>
-    <testCase name="AnnouncementContent when loaded and when not editing and when announcement is not belong to current user should renders" duration="245"/>
-    <testCase name="AnnouncementContent when loaded and when editing announcement should renders" duration="3014"/>
-    <testCase name="AnnouncementContent when loaded and when editing comment should renders" duration="781"/>
-  </file>
-  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\announcement\AnnouncementContainer.spec.js">
-    <testCase name="AnnouncementContainer when loaded should renders" duration="1299"/>
-  </file>
-  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\JoinClass.spec.js">
-    <testCase name="JoinCoursePage when loaded should renders" duration="1048"/>
-  </file>
-  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\announcement\CreateAnnouncement.spec.js">
-    <testCase name="CreateAnnouncement when loaded should renders" duration="864"/>
-    <testCase name="CreateAnnouncement when initial form is clicked should hide and load components" duration="730"/>
-  </file>
-  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\Sidebar.spec.js">
-    <testCase name="App Layout.vue should contains navigation drawer" duration="731"/>
-    <testCase name="App Layout.vue should contains user&apos;s name" duration="277"/>
-    <testCase name="App Layout.vue should fetch courses data" duration="260"/>
-    <testCase name="App Layout.vue should contains logout button" duration="394"/>
-  </file>
-  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\CourseCard.spec.js">
-    <testCase name="CourseCard Component when loaded should renders" duration="638"/>
-    <testCase name="CourseCard Component when course card clicked should redirect to course page" duration="189"/>
-  </file>
-  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\copyClassCode.spec.js">
-    <testCase name="Class Code Widget when loaded should renders" duration="1733"/>
-    <testCase name="Class Code Widget When click should call function" duration="586"/>
-  </file>
-  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\AddCourseCard.spec.js">
-    <testCase name="AddCourseCard Component when loaded should renders" duration="613"/>
-    <testCase name="AddCourseCard Component when create button clicked should redirect to create course page" duration="355"/>
-    <testCase name="AddCourseCard Component when join button clicked should redirect to join course page" duration="335"/>
-  </file>
-  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\announcement\AnnouncementPage.spec.js">
-    <testCase name="Announcement when loaded should renders" duration="1036"/>
-  </file>
-  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\Snackbar.spec.js">
-    <testCase name="App Layout.vue should contains snackbar component" duration="246"/>
-    <testCase name="App Layout.vue should contains snackbar content" duration="123"/>
-  </file>
-  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\AppLayout.spec.js">
-    <testCase name="AppLayout.vue should contains sidebar" duration="299"/>
-    <testCase name="AppLayout.vue should contains snackbar" duration="166"/>
-  </file>
-  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\example.spec.js">
-    <testCase name="displays message should renders" duration="532"/>
-  </file>
-  <file path="C:\Users\acer\Downloads\Code\PPL\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\notAuthenticated.spec.js">
-    <testCase name="Not Authenticated Guard when not authenticated should pass" duration="10"/>
-    <testCase name="Not Authenticated Guard when authenticated should redirect to homepage" duration="1"/>
+  <file path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/announcement/AnnouncementContent.spec.js">
+    <testCase name="AnnouncementContent when loaded and when not editing and when announcement belong to current user should renders" duration="254">
+      <failure message="TypeError: Cannot read property &apos;slice&apos; of undefined"><![CDATA[TypeError: Cannot read property 'slice' of undefined
+    at VueComponent.dateSlicing (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/components/AnnouncementContent.vue:345:41)
+    at VueComponent.data (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/components/AnnouncementContent.vue:130:30)
+    at getData (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4745:17)
+    at initData (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4702:7)
+    at initState (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4641:5)
+    at VueComponent.Vue._init (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:5001:5)
+    at new VueComponent (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:5148:12)
+    at createComponentInstanceForVnode (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:3298:10)
+    at init (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:3127:45)
+    at createComponent (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:6002:9)
+    at createElm (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:5949:9)
+    at VueComponent.patch [as __patch__] (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:6499:7)
+    at VueComponent.Vue._update (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:3948:19)
+    at VueComponent.updateComponent (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4069:10)
+    at Watcher.get (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4481:25)
+    at new Watcher (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4470:12)
+    at mountComponent (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4076:3)
+    at VueComponent.Object.<anonymous>.Vue.$mount (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:8436:10)
+    at mount (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/@vue/test-utils/dist/vue-test-utils.js:14057:21)
+    at _callee$ (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/announcement/AnnouncementContent.spec.js:26:27)
+    at tryCatch (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/regenerator-runtime/runtime.js:63:40)
+    at Generator.invoke [as _invoke] (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/regenerator-runtime/runtime.js:294:22)
+    at Generator.next (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/regenerator-runtime/runtime.js:119:21)
+    at asyncGeneratorStep (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:24)
+    at _next (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/@babel/runtime/helpers/asyncToGenerator.js:25:9)
+    at /Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/@babel/runtime/helpers/asyncToGenerator.js:32:7
+    at new Promise (<anonymous>)
+    at Object.<anonymous> (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/@babel/runtime/helpers/asyncToGenerator.js:21:12)
+    at Promise.then.completed (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at _runTest (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:66:9)
+    at _runTestsForDescribeBlock (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:60:9)
+    at _runTestsForDescribeBlock (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:60:9)
+    at _runTestsForDescribeBlock (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:60:9)
+    at _runTestsForDescribeBlock (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:60:9)
+    at run (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-runner/build/runTest.js:475:34)
+    at TestRunner.runTests (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-runner/build/index.js:101:12)
+    at TestScheduler.scheduleTests (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/@jest/core/build/TestScheduler.js:333:13)
+    at runJest (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/@jest/core/build/runJest.js:404:19)
+    at _run10000 (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/@jest/core/build/cli/index.js:320:7)
+    at runCLI (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/@jest/core/build/cli/index.js:173:3)
+    at Object.run (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-cli/build/cli/index.js:155:37)]]></failure>
+    </testCase>
+    <testCase name="AnnouncementContent when loaded and when not editing and when announcement is not belong to current user should renders" duration="105">
+      <failure message="TypeError: Cannot read property &apos;slice&apos; of undefined"><![CDATA[TypeError: Cannot read property 'slice' of undefined
+    at VueComponent.dateSlicing (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/components/AnnouncementContent.vue:345:41)
+    at VueComponent.data (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/components/AnnouncementContent.vue:130:30)
+    at getData (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4745:17)
+    at initData (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4702:7)
+    at initState (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4641:5)
+    at VueComponent.Vue._init (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:5001:5)
+    at new VueComponent (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:5148:12)
+    at createComponentInstanceForVnode (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:3298:10)
+    at init (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:3127:45)
+    at createComponent (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:6002:9)
+    at createElm (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:5949:9)
+    at VueComponent.patch [as __patch__] (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:6499:7)
+    at VueComponent.Vue._update (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:3948:19)
+    at VueComponent.updateComponent (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4069:10)
+    at Watcher.get (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4481:25)
+    at new Watcher (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4470:12)
+    at mountComponent (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4076:3)
+    at VueComponent.Object.<anonymous>.Vue.$mount (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:8436:10)
+    at mount (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/@vue/test-utils/dist/vue-test-utils.js:14057:21)
+    at Object.<anonymous> (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/announcement/AnnouncementContent.spec.js:59:27)
+    at Promise.then.completed (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at _runTest (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:66:9)
+    at _runTestsForDescribeBlock (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:60:9)
+    at _runTestsForDescribeBlock (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:60:9)
+    at _runTestsForDescribeBlock (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:60:9)
+    at _runTestsForDescribeBlock (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:60:9)
+    at run (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-runner/build/runTest.js:475:34)
+    at TestRunner.runTests (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-runner/build/index.js:101:12)
+    at TestScheduler.scheduleTests (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/@jest/core/build/TestScheduler.js:333:13)
+    at runJest (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/@jest/core/build/runJest.js:404:19)
+    at _run10000 (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/@jest/core/build/cli/index.js:320:7)
+    at runCLI (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/@jest/core/build/cli/index.js:173:3)
+    at Object.run (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-cli/build/cli/index.js:155:37)]]></failure>
+    </testCase>
+    <testCase name="AnnouncementContent when loaded and when editing announcement should renders" duration="108">
+      <failure message="TypeError: Cannot read property &apos;slice&apos; of undefined"><![CDATA[TypeError: Cannot read property 'slice' of undefined
+    at VueComponent.dateSlicing (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/components/AnnouncementContent.vue:345:41)
+    at VueComponent.data (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/components/AnnouncementContent.vue:130:30)
+    at getData (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4745:17)
+    at initData (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4702:7)
+    at initState (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4641:5)
+    at VueComponent.Vue._init (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:5001:5)
+    at new VueComponent (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:5148:12)
+    at createComponentInstanceForVnode (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:3298:10)
+    at init (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:3127:45)
+    at createComponent (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:6002:9)
+    at createElm (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:5949:9)
+    at VueComponent.patch [as __patch__] (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:6499:7)
+    at VueComponent.Vue._update (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:3948:19)
+    at VueComponent.updateComponent (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4069:10)
+    at Watcher.get (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4481:25)
+    at new Watcher (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4470:12)
+    at mountComponent (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4076:3)
+    at VueComponent.Object.<anonymous>.Vue.$mount (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:8436:10)
+    at mount (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/@vue/test-utils/dist/vue-test-utils.js:14057:21)
+    at _callee2$ (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/announcement/AnnouncementContent.spec.js:73:31)
+    at tryCatch (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/regenerator-runtime/runtime.js:63:40)
+    at Generator.invoke [as _invoke] (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/regenerator-runtime/runtime.js:294:22)
+    at Generator.next (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/regenerator-runtime/runtime.js:119:21)
+    at asyncGeneratorStep (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:24)
+    at _next (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/@babel/runtime/helpers/asyncToGenerator.js:25:9)
+    at /Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/@babel/runtime/helpers/asyncToGenerator.js:32:7
+    at new Promise (<anonymous>)
+    at Object.<anonymous> (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/@babel/runtime/helpers/asyncToGenerator.js:21:12)
+    at Promise.then.completed (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at _runTest (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:66:9)
+    at _runTestsForDescribeBlock (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:60:9)
+    at _runTestsForDescribeBlock (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:60:9)
+    at _runTestsForDescribeBlock (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:60:9)
+    at run (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-runner/build/runTest.js:475:34)
+    at TestRunner.runTests (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-runner/build/index.js:101:12)
+    at TestScheduler.scheduleTests (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/@jest/core/build/TestScheduler.js:333:13)
+    at runJest (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/@jest/core/build/runJest.js:404:19)
+    at _run10000 (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/@jest/core/build/cli/index.js:320:7)
+    at runCLI (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/@jest/core/build/cli/index.js:173:3)
+    at Object.run (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-cli/build/cli/index.js:155:37)]]></failure>
+    </testCase>
+    <testCase name="AnnouncementContent when loaded and when editing comment should renders" duration="106">
+      <failure message="TypeError: Cannot read property &apos;slice&apos; of undefined"><![CDATA[TypeError: Cannot read property 'slice' of undefined
+    at VueComponent.dateSlicing (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/components/AnnouncementContent.vue:345:41)
+    at VueComponent.data (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/components/AnnouncementContent.vue:130:30)
+    at getData (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4745:17)
+    at initData (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4702:7)
+    at initState (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4641:5)
+    at VueComponent.Vue._init (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:5001:5)
+    at new VueComponent (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:5148:12)
+    at createComponentInstanceForVnode (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:3298:10)
+    at init (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:3127:45)
+    at createComponent (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:6002:9)
+    at createElm (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:5949:9)
+    at VueComponent.patch [as __patch__] (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:6499:7)
+    at VueComponent.Vue._update (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:3948:19)
+    at VueComponent.updateComponent (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4069:10)
+    at Watcher.get (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4481:25)
+    at new Watcher (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4470:12)
+    at mountComponent (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:4076:3)
+    at VueComponent.Object.<anonymous>.Vue.$mount (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/vue/dist/vue.runtime.common.dev.js:8436:10)
+    at mount (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/@vue/test-utils/dist/vue-test-utils.js:14057:21)
+    at _callee3$ (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/announcement/AnnouncementContent.spec.js:91:31)
+    at tryCatch (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/regenerator-runtime/runtime.js:63:40)
+    at Generator.invoke [as _invoke] (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/regenerator-runtime/runtime.js:294:22)
+    at Generator.next (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/regenerator-runtime/runtime.js:119:21)
+    at asyncGeneratorStep (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/@babel/runtime/helpers/asyncToGenerator.js:3:24)
+    at _next (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/@babel/runtime/helpers/asyncToGenerator.js:25:9)
+    at /Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/@babel/runtime/helpers/asyncToGenerator.js:32:7
+    at new Promise (<anonymous>)
+    at Object.<anonymous> (/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/node_modules/@babel/runtime/helpers/asyncToGenerator.js:21:12)
+    at Promise.then.completed (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/utils.js:391:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/utils.js:316:10)
+    at _callCircusTest (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at _runTest (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:66:9)
+    at _runTestsForDescribeBlock (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:60:9)
+    at _runTestsForDescribeBlock (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:60:9)
+    at _runTestsForDescribeBlock (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:60:9)
+    at run (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/run.js:25:3)
+    at runAndTransformResultsToJestFormat (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+    at jestAdapter (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+    at runTestInternal (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-runner/build/runTest.js:389:16)
+    at runTest (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-runner/build/runTest.js:475:34)
+    at TestRunner.runTests (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-runner/build/index.js:101:12)
+    at TestScheduler.scheduleTests (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/@jest/core/build/TestScheduler.js:333:13)
+    at runJest (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/@jest/core/build/runJest.js:404:19)
+    at _run10000 (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/@jest/core/build/cli/index.js:320:7)
+    at runCLI (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/@jest/core/build/cli/index.js:173:3)
+    at Object.run (/Users/WorkPlace/.npm/_npx/16018/lib/node_modules/jest/node_modules/jest-cli/build/cli/index.js:155:37)]]></failure>
+    </testCase>
   </file>
 </testExecutions>

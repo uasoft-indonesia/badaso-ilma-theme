@@ -22,7 +22,6 @@ describe("CreationLayout", () => {
   });
 
   describe("when loaded", () => {
-<<<<<<< HEAD
     describe("and topic title and content type is NOT given", () => {
       it("should renders", () => {
         const wrapper = mount(CreationLayout, {
@@ -68,28 +67,6 @@ describe("CreationLayout", () => {
         expect(topicTitle().text()).toBe("Software Engineering");
         expect(wrapper.find("#menu").exists()).toBe(true);
       })
-=======
-    it("should renders", () => {
-      const wrapper = mount(CreationLayout, {
-        localVue,
-        vuetify,
-        store,
-        propsData: {
-          courseId: 1,
-          pageTitle: "Create Material",
-        },
-      });
-
-      const backButton = () => wrapper.find("#back");
-      expect(backButton().exists()).toBe(true);
-      expect(backButton().text()).toBe("Back");
-
-      const title = () => wrapper.find("#title");
-      expect(title().exists()).toBe(true);
-      expect(title().text()).toBe("Create Material");
-
-      expect(wrapper.find("#divider").exists()).toBe(true);
->>>>>>> 19d145d0037a9501652d5adff5b3447ee2e8e9ae
     })
   })
 })
