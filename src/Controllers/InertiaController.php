@@ -64,9 +64,9 @@ class InertiaController extends Controller
 
     public function lessonMaterial($id, $materialId)
     {
-      return Inertia::render('course/CourseMaterial', [
-        'courseId' => $id,
-        'materialId' => $materialId,
+        return Inertia::render('course/CourseMaterial', [
+            'courseId' => $id,
+            'materialId' => $materialId,
         ], 'lms-theme::app');
     }
 }
