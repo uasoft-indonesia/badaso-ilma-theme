@@ -1,6 +1,6 @@
 <template>
   <CreationLayout
-    courseId="2"
+    :courseId="this.$props.id"
     pageTitle="Create Material"
   >
     <v-menu offset-y>
@@ -46,6 +46,7 @@
         id="cancel-button"
         color="error"
         elevation="0"
+        @click="redirectBackToClasswork()"
       >
         Cancel
       </v-btn>
@@ -85,7 +86,10 @@ export default {
         this.items = response.data;
       } catch (error) {
       }
-    }
+    },
+    redirectBackToClasswork() {
+      this.$inertia.visit(`/course/${this.$props.id}/classwork`);
+    },
   },
   mounted() {
     this.getTopic();
