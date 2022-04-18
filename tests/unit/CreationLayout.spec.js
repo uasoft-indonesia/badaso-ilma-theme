@@ -22,26 +22,51 @@ describe("CreationLayout", () => {
   });
 
   describe("when loaded", () => {
-    it("should renders", () => {
-      const wrapper = mount(CreationLayout, {
-        localVue,
-        vuetify,
-        store,
-        propsData: {
-          courseId: 1,
-          pageTitle: "Create Material",
-        },
+    describe("and topic title and content type is NOT given", () => {
+      it("should renders", () => {
+        const wrapper = mount(CreationLayout, {
+          localVue,
+          vuetify,
+          store,
+          propsData: {
+            courseId: 1,
+            pageTitle: "Create Material",
+          },
+        });
+
+        const backButton = () => wrapper.find("#back");
+        expect(backButton().exists()).toBe(true);
+        expect(backButton().text()).toBe("Back");
+
+        const title = () => wrapper.find("#title");
+        expect(title().exists()).toBe(true);
+        expect(title().text()).toBe("Create Material");
+
+        expect(wrapper.find("#divider").exists()).toBe(true);
+        expect(wrapper.find("#topic-title").exists()).toBe(false);
+        expect(wrapper.find("#menu").exists()).toBe(false);
       });
+    });
 
-      const backButton = () => wrapper.find("#back");
-      expect(backButton().exists()).toBe(true);
-      expect(backButton().text()).toBe("Back");
+    describe("and topic title and content type is given", () => {
+      it("should renders", () => {
+        const wrapper = mount(CreationLayout, {
+          localVue,
+          vuetify,
+          store,
+          propsData: {
+            courseId: 1,
+            pageTitle: "Network Address Translation",
+            topicTitle: "Software Engineering",
+            contentType: "material",
+          },
+        });
 
-      const title = () => wrapper.find("#title");
-      expect(title().exists()).toBe(true);
-      expect(title().text()).toBe("Create Material");
-
-      expect(wrapper.find("#divider").exists()).toBe(true);
+        const topicTitle = () => wrapper.find("#topic-title");
+        expect(topicTitle().exists()).toBe(true);
+        expect(topicTitle().text()).toBe("Software Engineering");
+        expect(wrapper.find("#menu").exists()).toBe(true);
+      })
     })
   })
 })
