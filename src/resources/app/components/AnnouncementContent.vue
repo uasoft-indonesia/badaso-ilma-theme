@@ -12,7 +12,7 @@
           </div>
         </div>
       </div>
-      <v-menu id="menu" v-if="isCurrentUserTheAuthor" bottom right>
+      <v-menu id="menu" v-if="this.isCurrentUserTheAuthor()" bottom right>
         <template v-slot:activator="{ on, attrs }">
           <v-btn icon v-bind="attrs" v-on="on">
             <v-icon>mdi-dots-vertical</v-icon>
@@ -130,9 +130,9 @@ export default {
       this.$refs.form.validate();
     },
     isCurrentUserTheAuthor() {
-      return (
-        getUserId === this.$props.authorId || getUserName === this.$props.name
-      );
+      const userId = (this.$store.state.user.id === this.$props.authorId);
+      const author = (this.$store.state.user.name === this.$props.name);
+      return (userId || author);
     },
     async editAnnouncement() {
       if (this.isFormValid) {
@@ -191,23 +191,17 @@ export default {
     },
 
     dateSlicing() {
-      const datestring =
-        this.$props.date.slice(-1) == "Z"
+      let datestring;
+      if (this.$props.date){
+        datestring = this.$props.date.slice(-1) == "Z"
           ? this.$props.date
           : `${this.$props.date}Z`;
+      }
       let date = new Date(datestring);
       date = date.toString().split(" ");
       return (
         date[0] + ", " + date[2] + " " + date[1] + " " + date[3] + " " + date[4]
       );
-    },
-  },
-  computed: {
-    getUserId() {
-      return this.$store.state.user.id;
-    },
-    getUserName() {
-      return this.$store.state.user.name;
     },
   },
 };

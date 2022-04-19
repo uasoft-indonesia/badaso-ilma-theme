@@ -3,7 +3,7 @@
     <div class="my-10 mx-10">
       <v-menu>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn color="primary" dark v-bind="attrs" v-on="on">
+          <v-btn color="primary" dark v-bind="attrs" v-on="on" id="create-button">
             + Create
           </v-btn>
         </template>
@@ -19,14 +19,7 @@
             </v-btn>
           </v-list-item>
           <v-list-item>
-            <v-btn
-              block
-              class="mt-1"
-              elevation="0"
-              @click="redirectToCreateMaterial(id)"
-            >
-              Material
-            </v-btn>
+            <v-btn block class="mt-1" elevation="0"> Material </v-btn>
           </v-list-item>
           <v-list-item>
             <v-btn block class="mt-1" elevation="0"> Assignment </v-btn>
@@ -97,10 +90,6 @@ export default {
       this.$inertia.visit(`/course/${courseId}/classwork/update/${topicId}`);
     },
 
-    redirectToCreateMaterial(id) {
-      this.$inertia.visit(`/course/${id}/classwork/create/material`);
-    },
-
     async deleteTopic(topicId) {
       try {
         const response = await deleteTopicAPI(topicId);
@@ -120,9 +109,6 @@ export default {
       }
     }
 
-  },
-  mounted() {
-    this.getData(this.$props.id);
   },
   created() {
     this.getTopic(parseInt(this.$props.id));

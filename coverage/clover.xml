@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1649905433626" clover="3.2.0">
-  <project timestamp="1649905433627" name="All files">
-    <metrics statements="56" coveredstatements="26" conditionals="32" coveredconditionals="16" methods="50" coveredmethods="25" elements="138" coveredelements="67" complexity="0" loc="56" ncloc="56" packages="5" files="22" classes="22"/>
+<coverage generated="1650334024540" clover="3.2.0">
+  <project timestamp="1650334024540" name="All files">
+    <metrics statements="45" coveredstatements="32" conditionals="26" coveredconditionals="20" methods="41" coveredmethods="31" elements="112" coveredelements="83" complexity="0" loc="45" ncloc="45" packages="5" files="26" classes="26"/>
     <package name="components">
       <metrics statements="13" coveredstatements="12" conditionals="8" coveredconditionals="7" methods="13" coveredmethods="12"/>
       <file name="AddCourseCard.vue" path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/components/AddCourseCard.vue">
@@ -16,7 +16,7 @@
       </file>
       <file name="AnnouncementContent.vue" path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/components/AnnouncementContent.vue">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="72" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="82" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="CourseCard.vue" path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/components/CourseCard.vue">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -29,11 +29,11 @@
       </file>
       <file name="Sidebar.vue" path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/components/Sidebar.vue">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="44" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="56" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="Snackbar.vue" path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/components/Snackbar.vue">
         <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
-        <line num="1" count="30" type="stmt"/>
+        <line num="1" count="42" type="stmt"/>
         <line num="23" count="2" type="stmt"/>
         <line num="26" count="2" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
@@ -47,10 +47,14 @@
       </file>
     </package>
     <package name="components.Layout">
-      <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="3" coveredmethods="3"/>
+      <metrics statements="5" coveredstatements="5" conditionals="3" coveredconditionals="3" methods="4" coveredmethods="4"/>
       <file name="AppLayout.vue" path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/components/Layout/AppLayout.vue">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="27" type="stmt"/>
+        <line num="1" count="39" type="stmt"/>
+      </file>
+      <file name="CreationLayout.vue" path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/components/Layout/CreationLayout.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="36" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="NotAuthenticated.vue" path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/components/Layout/NotAuthenticated.vue">
         <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
@@ -60,32 +64,29 @@
       </file>
     </package>
     <package name="pages">
-      <metrics statements="36" coveredstatements="7" conditionals="23" coveredconditionals="8" methods="31" coveredmethods="7"/>
+      <metrics statements="22" coveredstatements="10" conditionals="13" coveredconditionals="8" methods="19" coveredmethods="10"/>
       <file name="Classwork.vue" path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/pages/Classwork.vue">
-        <metrics statements="11" coveredstatements="0" conditionals="5" coveredconditionals="0" methods="8" coveredmethods="0"/>
+        <metrics statements="12" coveredstatements="0" conditionals="5" coveredconditionals="0" methods="9" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
-        <line num="79" count="0" type="stmt"/>
         <line num="86" count="0" type="stmt"/>
-        <line num="90" count="0" type="stmt"/>
-        <line num="101" count="0" type="cond" truecount="0" falsecount="5"/>
-        <line num="103" count="0" type="stmt"/>
-        <line num="104" count="0" type="stmt"/>
-        <line num="105" count="0" type="stmt"/>
-        <line num="106" count="0" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
+        <line num="101" count="0" type="stmt"/>
+        <line num="112" count="0" type="cond" truecount="0" falsecount="5"/>
         <line num="114" count="0" type="stmt"/>
+        <line num="115" count="0" type="stmt"/>
+        <line num="116" count="0" type="stmt"/>
         <line num="117" count="0" type="stmt"/>
+        <line num="125" count="0" type="stmt"/>
+        <line num="128" count="0" type="stmt"/>
+      </file>
+      <file name="ClassworkPage.vue" path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/pages/ClassworkPage.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="9" type="stmt"/>
       </file>
       <file name="CreateTopic.vue" path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/pages/CreateTopic.vue">
-        <metrics statements="9" coveredstatements="0" conditionals="5" coveredconditionals="0" methods="8" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="61" count="0" type="cond" truecount="0" falsecount="5"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="64" count="0" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="73" count="0" type="stmt"/>
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="15" type="stmt"/>
       </file>
       <file name="JoinCourse.vue" path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/pages/JoinCourse.vue">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -96,16 +97,8 @@
         <line num="1" count="8" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="UpdateTopic.vue" path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/pages/UpdateTopic.vue">
-        <metrics statements="9" coveredstatements="0" conditionals="5" coveredconditionals="0" methods="8" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="62" count="0" type="cond" truecount="0" falsecount="5"/>
-        <line num="63" count="0" type="stmt"/>
-        <line num="65" count="0" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="73" count="0" type="stmt"/>
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="15" type="stmt"/>
       </file>
       <file name="ViewCourse.vue" path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/pages/ViewCourse.vue">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -113,7 +106,7 @@
       </file>
       <file name="courseStream.vue" path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/pages/courseStream.vue">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="1" count="23" type="cond" truecount="2" falsecount="0"/>
+        <line num="1" count="26" type="cond" truecount="2" falsecount="0"/>
       </file>
       <file name="index.vue" path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/pages/index.vue">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -129,14 +122,22 @@
       </file>
     </package>
     <package name="pages.course">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
       <file name="Announcement.vue" path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/pages/course/Announcement.vue">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="6" type="stmt"/>
       </file>
+      <file name="CourseMaterial.vue" path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/pages/course/CourseMaterial.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="9" type="cond" truecount="2" falsecount="0"/>
+      </file>
       <file name="CreateCourse.vue" path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/pages/course/CreateCourse.vue">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="172" type="stmt"/>
+      </file>
+      <file name="CreateCourseMaterial.vue" path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/src/resources/app/pages/course/CreateCourseMaterial.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="11" type="stmt"/>
       </file>
     </package>
   </project>

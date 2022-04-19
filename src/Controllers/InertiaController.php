@@ -14,7 +14,7 @@ class InertiaController extends Controller
 
     public function classwork($id)
     {
-        return Inertia::render('Classwork', ['id' => $id], 'lms-theme::app');
+        return Inertia::render('ClassworkPage', ['id' => $id], 'lms-theme::app');
     }
 
     public function createTopic($id)
@@ -55,5 +55,18 @@ class InertiaController extends Controller
     public function announcement($id)
     {
         return Inertia::render('course/Announcement', ['id' => $id], 'lms-theme::app');
+    }
+
+    public function createMaterial($id)
+    {
+        return Inertia::render('course/CreateCourseMaterial', ['id' => $id], 'lms-theme::app');
+    }
+
+    public function lessonMaterial($id, $materialId)
+    {
+        return Inertia::render('course/CourseMaterial', [
+            'courseId' => $id,
+            'materialId' => $materialId,
+        ], 'lms-theme::app');
     }
 }

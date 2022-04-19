@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -138,8 +138,7 @@
 <a name='L73'></a><a href='#L73'>73</a>
 <a name='L74'></a><a href='#L74'>74</a>
 <a name='L75'></a><a href='#L75'>75</a>
-<a name='L76'></a><a href='#L76'>76</a>
-<a name='L77'></a><a href='#L77'>77</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L76'></a><a href='#L76'>76</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -184,7 +183,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -193,33 +191,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >&lt;template&gt;</span></span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
   &lt;v-container&gt;
-    &lt;v-btn @click="redirectBackToClasswork(id)"&gt; &amp;lt; Back &lt;/v-btn&gt;
+    &lt;v-btn @click="redirectBackToClasswork(id)" id="back-btn"&gt; &amp;lt; Back &lt;/v-btn&gt;
     &lt;div id="title"&gt;
-      &lt;v-row class="text-primary text-lg my-4"&gt; Update Topic &lt;/v-row&gt;
+      &lt;v-row class="text-primary text-lg my-4" id="update-topic-text"&gt; Update Topic &lt;/v-row&gt;
       &lt;v-row&gt;
         &lt;v-divider color="#06BBD3"&gt;&lt;/v-divider&gt;
       &lt;/v-row&gt;
@@ -232,6 +230,7 @@
           outlined
           v-model="topicTitle"
           :rules="topicRules.concat(lengthRules)"
+          id="title-field"
         &gt;&lt;/v-text-field&gt;
       &lt;/v-row&gt;
       &lt;div class="text-right"&gt;
@@ -240,10 +239,11 @@
           elevation="0"
           class="mr-3"
           @click="redirectBackToClasswork(id)"
+          id="cancel-btn"
         &gt;
           Cancel
         &lt;/v-btn&gt;
-        &lt;v-btn elevation="0" @click="updateTopic()"&gt; Update &lt;/v-btn&gt;
+        &lt;v-btn elevation="0" @click="updateTopic()" id="update-btn"&gt; Update &lt;/v-btn&gt;
       &lt;/div&gt;
     &lt;/v-form&gt;
   &lt;/v-container&gt;
@@ -259,35 +259,32 @@ export default {
     id: String,
     topicId: String,
   },
-<span class="fstat-no" title="function not covered" >  data() {</span>
-<span class="cstat-no" title="statement not covered" >    return {</span>
+  data() {
+    return {
       isFormValid: false,
       topicTitle: "",
-<span class="fstat-no" title="function not covered" >      topicRules: [(v) =&gt; (!!v || "Topic cannot be empty")],</span>
-<span class="fstat-no" title="function not covered" >      lengthRules: [(v) =&gt; (v.length &lt;= 255 || "Characters are off limit")],</span>
+      topicRules: [(v) =&gt; (!!v || "Topic cannot be empty")],
+      lengthRules: [(v) =&gt; (v.length &lt;= 255 || "Characters are off limit")],
     };
   },
   methods: {
-<span class="fstat-no" title="function not covered" >    redirectBackToClasswork(id) {</span>
-<span class="cstat-no" title="statement not covered" >      this.$inertia.visit(`/course/${id}/classwork`);</span>
+    redirectBackToClasswork(id) {
+      this.$inertia.visit(`/course/${id}/classwork`);
     },
 &nbsp;
-<span class="fstat-no" title="function not covered" >    validate() {</span>
-<span class="cstat-no" title="statement not covered" >      this.$refs.form.validate();</span>
+    validate() {
+      this.$refs.form.validate();
     },
 &nbsp;
-<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="missing-if-branch" title="if path not taken" >I</span>    async updateTopic() {</span></span></span>
-<span class="cstat-no" title="statement not covered" >      this.validate();</span>
+    async updateTopic() {
+      this.validate();
       if (this.isFormValid) {
-<span class="cstat-no" title="statement not covered" >        const { data, error, errorMessage } = await editTopicAPI({</span>
+        const { data, error, errorMessage } = await editTopicAPI({
           title: this.topicTitle,
         }, this.$props.topicId);
-<span class="cstat-no" title="statement not covered" >        this.$inertia.visit(`/course/${this.$props.id}/classwork`);</span>
+        this.$inertia.visit(`/course/${this.$props.id}/classwork`);
       }
     },
-  },
-<span class="fstat-no" title="function not covered" >  mounted() {</span>
-<span class="cstat-no" title="statement not covered" >    this.getData(this.$props.id);</span>
   },
 };
 &lt;/script&gt;
@@ -298,7 +295,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu Apr 14 2022 10:03:53 GMT+0700 (Western Indonesia Time)
+                at Tue Apr 19 2022 09:07:04 GMT+0700 (Western Indonesia Time)
             </div>
         <script src="../prettify.js"></script>
         <script>
