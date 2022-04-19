@@ -14,7 +14,7 @@ class InertiaController extends Controller
 
     public function classwork($id)
     {
-        return Inertia::render('Classwork', ['id' => $id], 'lms-theme::app');
+        return Inertia::render('ClassworkPage', ['id' => $id], 'lms-theme::app');
     }
 
     public function createTopic($id)
