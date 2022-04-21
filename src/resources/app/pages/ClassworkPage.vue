@@ -19,8 +19,14 @@
             </v-btn>
           </v-list-item>
           <v-list-item>
-            <v-btn block class="mt-1" elevation="0"> Material </v-btn>
-          </v-list-item>
+            <v-btn
+              block
+              class="mt-1"
+              elevation="0"
+              @click="redirectToCreateMaterial(id)"
+            >
+              Material
+            </v-btn>          </v-list-item>
           <v-list-item>
             <v-btn block class="mt-1" elevation="0"> Assignment </v-btn>
           </v-list-item>
@@ -88,6 +94,10 @@ export default {
 
     redirectToUpdateTopic(courseId, topicId) {
       this.$inertia.visit(`/course/${courseId}/classwork/update/${topicId}`);
+    },
+
+    redirectToCreateMaterial(id) {
+      this.$inertia.visit(`/course/${id}/classwork/create/material`);
     },
 
     async deleteTopic(topicId) {
