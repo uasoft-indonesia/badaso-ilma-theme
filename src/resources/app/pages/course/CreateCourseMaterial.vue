@@ -5,6 +5,7 @@
   >
     <v-form ref="form" v-model="isValid">
       <v-autocomplete
+        id="drop-down"
         v-model="form.topic_id"
         :items="items"
         label="Topic"
@@ -106,11 +107,11 @@ export default {
       isSubmitting: false,
       file: null,
       form: {
-        topic_id: null,
-        title: null,
-        content: null,
-        file_url: null,
-        link_url: null,
+        topic_id: '',
+        title: '',
+        content: '',
+        file_url: '',
+        link_url: '',
         course_id: this.$props.id,
       },
     };
