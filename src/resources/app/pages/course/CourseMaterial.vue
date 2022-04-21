@@ -2,7 +2,7 @@
   <CreationLayout
     :courseId="this.$props.courseId"
     :pageTitle="this.material.title"
-    :topicTitle="this.material.topic"
+    :topicTitle="this.material.topic.title"
     :contentId="this.material.id"
     contentType="material"
   >
