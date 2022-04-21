@@ -50,7 +50,7 @@ describe("CourseMaterial", () => {
           data() {
             return {
               material: {
-                description: "test description",
+                content: "test description",
               }
             }
           }
