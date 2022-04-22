@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/classwork.spec.js">
-    <testCase name="ClassworkPage when loaded and current user is course creator should renders" duration="170"/>
-    <testCase name="ClassworkPage when loaded and current user is not course creator should renders" duration="37"/>
-    <testCase name="ClassworkPage when loaded and lesson material exists should renders" duration="55"/>
-    <testCase name="ClassworkPage when loaded and lesson material does not exist should renders" duration="31"/>
-    <testCase name="CreateTopic when loaded should renders" duration="62"/>
-    <testCase name="CreateTopic UpdateTopic when loaded should renders" duration="58"/>
+  <file path="/Users/WorkPlace/Desktop/Semester 6/Software Project/badaso-lms-demo/package/badaso/badaso-lms-theme/tests/unit/404.spec.js">
+    <testCase name="JoinCoursePage when loaded should renders" duration="91"/>
   </file>
 </testExecutions>
