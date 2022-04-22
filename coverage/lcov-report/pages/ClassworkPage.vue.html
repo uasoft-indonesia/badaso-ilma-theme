@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -243,7 +243,25 @@
 <a name='L178'></a><a href='#L178'>178</a>
 <a name='L179'></a><a href='#L179'>179</a>
 <a name='L180'></a><a href='#L180'>180</a>
-<a name='L181'></a><a href='#L181'>181</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">34x</span>
+<a name='L181'></a><a href='#L181'>181</a>
+<a name='L182'></a><a href='#L182'>182</a>
+<a name='L183'></a><a href='#L183'>183</a>
+<a name='L184'></a><a href='#L184'>184</a>
+<a name='L185'></a><a href='#L185'>185</a>
+<a name='L186'></a><a href='#L186'>186</a>
+<a name='L187'></a><a href='#L187'>187</a>
+<a name='L188'></a><a href='#L188'>188</a>
+<a name='L189'></a><a href='#L189'>189</a>
+<a name='L190'></a><a href='#L190'>190</a>
+<a name='L191'></a><a href='#L191'>191</a>
+<a name='L192'></a><a href='#L192'>192</a>
+<a name='L193'></a><a href='#L193'>193</a>
+<a name='L194'></a><a href='#L194'>194</a>
+<a name='L195'></a><a href='#L195'>195</a>
+<a name='L196'></a><a href='#L196'>196</a>
+<a name='L197'></a><a href='#L197'>197</a>
+<a name='L198'></a><a href='#L198'>198</a>
+<a name='L199'></a><a href='#L199'>199</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">31x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -423,10 +441,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="branch-0 cbranch-no" title="branch not covered" >&lt;template&gt;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
   &lt;v-container&gt;
     &lt;div class="my-10 mx-10"&gt;
-      &lt;v-menu&gt;
+      &lt;v-menu v-if="this.userIsTeacher"&gt;
         &lt;template v-slot:activator="{ on, attrs }"&gt;
           &lt;v-btn
             dark
@@ -468,7 +504,7 @@
           &lt;/v-list-item&gt;
         &lt;/v-list&gt;
       &lt;/v-menu&gt;
-      &lt;div id="topic" v-for="topic in topics" v-bind:key="topic.id"&gt;
+      &lt;div id="title" v-for="topic in topics" v-bind:key="topic.id"&gt;
         &lt;div class="mb-16"&gt;
           &lt;div class="text-primary text-lg my-4"&gt;
             &lt;div class="flex justify-between px-6"&gt;
@@ -517,7 +553,7 @@
                       mdi-book-open
                     &lt;/v-icon&gt;
                   &lt;/div&gt;
-                  &lt;div class="truncate max-w-md"&gt;
+                  &lt;div class="truncate max-w-sm"&gt;
                     {{ lessonMaterial.title }}
                   &lt;/div&gt;
                 &lt;/div&gt;
@@ -538,6 +574,7 @@
 import CourseStream from "./courseStream.vue";
 import AppLayout from "../components/Layout/AppLayout.vue";
 import {getTopicAPI, deleteTopicAPI} from "../../api/topic";
+import {courseDetail} from "../../api/course/detail";
 &nbsp;
 export default {
   layout: [AppLayout, CourseStream],
@@ -547,6 +584,8 @@ export default {
   data() {
     return {
       topics: [],
+      course: {},
+      userIsTeacher: false,
     };
   },
   methods: {
@@ -578,12 +617,25 @@ export default {
       try {
         const response = await getTopicAPI(courseId);
         this.topics = response.data;
-        console.log(this.topics)
         for (let i = 0; i &lt; this.topics.length; i++) {
           this.topics[i].push({courseId: this.$props.id})
         }
       } catch (error) {
       }
+    },
+&nbsp;
+    async getCourse(id) {
+      try {
+        const response = await courseDetail(id);
+        this.course = response.data;
+        this.isCurrentUserTheTeacher(response.data.createdBy);
+      } catch (error) {
+        await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
+      }
+    },
+&nbsp;
+    isCurrentUserTheTeacher(teacher) {
+      this.userIsTeacher = this.$store.state.user.id === teacher;
     },
 &nbsp;
     dateSlicing(givenDate) {
@@ -597,9 +649,11 @@ export default {
         date[0] + ", " + date[2] + " " + date[1] + " " + date[3]
       );
     },
-  },
+  }
+  ,
   created() {
     this.getTopic(parseInt(this.$props.id));
+    this.getCourse(parseInt(this.$props.id));
   }
 };
 &lt;/script&gt;
@@ -610,7 +664,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Fri Apr 22 2022 04:56:57 GMT+0700 (Western Indonesia Time)
+                at Fri Apr 22 2022 07:01:44 GMT+0700 (Western Indonesia Time)
             </div>
         <script src="../prettify.js"></script>
         <script>
