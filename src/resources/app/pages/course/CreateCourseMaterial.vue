@@ -84,8 +84,9 @@
 <script>
 import AppLayout from "../../components/Layout/AppLayout";
 import CreationLayout from "../../components/Layout/CreationLayout";
-import {getTopicAPI} from "../../../api/topic";
-import {createCourseMaterial, uploadFile} from "../../../api/course/lessonMaterial";
+import { getTopicAPI } from "../../../api/topic";
+import { createCourseMaterial, uploadFile } from "../../../api/course/lessonMaterial";
+import { courseDetail } from "../../../api/course/detail";
 
 export default {
   components: {CreationLayout},
@@ -148,6 +149,16 @@ export default {
       }
       this.isSubmitting = false;
     },
+    async checkTeacher(courseId) {
+      try {
+        const response = await courseDetail(courseId);
+        if (response.data.createdBy !== this.$store.state.user.id){
+          window.location.assign("/404");
+        }
+      } catch (error) {
+        await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
+      }
+    },
     redirectBackToClasswork() {
       this.$inertia.visit(`/course/${this.$props.id}/classwork`);
     },
@@ -164,6 +175,7 @@ export default {
   },
   mounted() {
     this.getTopic();
+    this.checkTeacher(this.$props.id);
   },
 };
 </script>

@@ -69,4 +69,9 @@ class InertiaController extends Controller
             'materialId' => $materialId,
         ], 'lms-theme::app');
     }
+
+    public function pageNotFound()
+    {
+      return Inertia::render('404', [], 'lms-theme::app');
+    }
 }
