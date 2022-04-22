@@ -72,6 +72,6 @@ class InertiaController extends Controller
 
     public function pageNotFound()
     {
-      return Inertia::render('404', [], 'lms-theme::app');
+        return Inertia::render('404', [], 'lms-theme::app');
     }
 }
