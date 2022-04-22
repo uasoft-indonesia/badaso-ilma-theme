@@ -16,6 +16,32 @@ describe("ClassworkPage", () => {
   });
 
   describe("when loaded", () => {
+    describe("and current user is course creator", () => {
+      it("should renders", async () => {
+        const wrapper = mount(ClassworkPage, {
+          localVue,
+          vuetify,
+        });
+
+        await wrapper.setData({userIsTeacher: true});
+
+        const findCreateButton = wrapper.find("#create-button");
+        await expect(findCreateButton.exists()).toBe(true);
+        await expect(findCreateButton.text()).toBe("+ Create");
+      })
+    });
+
+    describe("and current user is not course creator", () => {
+      it("should renders", async () => {
+        const wrapper = mount(ClassworkPage, {
+          localVue,
+          vuetify,
+        });
+
+        await expect(wrapper.find("#create-button").exists()).toBe(false);
+      })
+    });
+
     describe("and lesson material exists", () => {
       it("should renders", async () => {
         const wrapper = mount(ClassworkPage, {
@@ -37,10 +63,6 @@ describe("ClassworkPage", () => {
             }
           ]
         })
-
-        const findCreateButton = wrapper.find("#create-button");
-        await expect(findCreateButton.exists()).toBe(true);
-        await expect(findCreateButton.text()).toBe("+ Create");
 
         const findLessonMaterial = wrapper.find("#lesson-material");
         await expect(findLessonMaterial.exists()).toBe(true);
