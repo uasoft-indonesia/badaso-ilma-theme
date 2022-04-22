@@ -9,7 +9,7 @@
       </div>
       <div
         id="sub-title"
-        class="text-lg"
+        class="text-lg font-weight-medium text-black"
       >
         Uh Oh! Seems like you are lost
       </div>
