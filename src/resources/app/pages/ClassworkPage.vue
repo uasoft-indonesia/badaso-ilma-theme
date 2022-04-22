@@ -46,7 +46,10 @@
       <div id="title" v-for="topic in topics" v-bind:key="topic.id">
         <div class="mb-16">
           <div class="text-primary text-lg my-4">
-            <div class="flex justify-between px-6">
+            <div
+              v-if="topic.title"
+              class="flex justify-between px-6"
+            >
               {{ topic.title }}
               <v-menu>
                 <template v-slot:activator="{ on, attrs }">
@@ -72,7 +75,7 @@
               </v-menu>
             </div>
           </div>
-          <div>
+          <div v-if="topic.title">
             <v-divider color="#06BBD3"></v-divider>
           </div>
           <div v-for="lessonMaterial in topic.lessonMaterials" v-bind:key="lessonMaterial.id">
@@ -156,6 +159,7 @@ export default {
       try {
         const response = await getTopicAPI(courseId);
         this.topics = response.data;
+        console.log(response.data);
         for (let i = 0; i < this.topics.length; i++) {
           this.topics[i].push({courseId: this.$props.id})
         }

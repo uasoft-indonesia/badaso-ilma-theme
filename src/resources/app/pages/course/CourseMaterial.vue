@@ -37,7 +37,10 @@ export default {
   methods: {
     async getCourseMaterial() {
       try {
-        const response = await getCourseMaterialById(this.$props.materialId);
+        let response = await getCourseMaterialById(this.$props.materialId);
+        if (response.data.topic === null){
+          response.data.topic = {title: ''}
+        }
         this.material = response.data;
       } catch (error) {
       }
