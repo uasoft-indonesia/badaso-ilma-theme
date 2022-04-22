@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <div class="my-10 mx-10">
-      <v-menu>
+      <v-menu v-if="this.userIsTeacher">
         <template v-slot:activator="{ on, attrs }">
           <v-btn
             dark
@@ -92,7 +92,7 @@
                       mdi-book-open
                     </v-icon>
                   </div>
-                  <div class="truncate max-w-md">
+                  <div class="truncate max-w-sm">
                     {{ lessonMaterial.title }}
                   </div>
                 </div>
@@ -113,6 +113,7 @@
 import CourseStream from "./courseStream.vue";
 import AppLayout from "../components/Layout/AppLayout.vue";
 import {getTopicAPI, deleteTopicAPI} from "../../api/topic";
+import {courseDetail} from "../../api/course/detail";
 
 export default {
   layout: [AppLayout, CourseStream],
@@ -122,6 +123,8 @@ export default {
   data() {
     return {
       topics: [],
+      course: {},
+      userIsTeacher: false,
     };
   },
   methods: {
@@ -153,12 +156,25 @@ export default {
       try {
         const response = await getTopicAPI(courseId);
         this.topics = response.data;
-        console.log(this.topics)
         for (let i = 0; i < this.topics.length; i++) {
           this.topics[i].push({courseId: this.$props.id})
         }
       } catch (error) {
       }
+    },
+
+    async getCourse(id) {
+      try {
+        const response = await courseDetail(id);
+        this.course = response.data;
+        this.isCurrentUserTheTeacher(response.data.createdBy);
+      } catch (error) {
+        await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
+      }
+    },
+
+    isCurrentUserTheTeacher(teacher) {
+      this.userIsTeacher = this.$store.state.user.id === teacher;
     },
 
     dateSlicing(givenDate) {
@@ -172,9 +188,11 @@ export default {
         date[0] + ", " + date[2] + " " + date[1] + " " + date[3]
       );
     },
-  },
+  }
+  ,
   created() {
     this.getTopic(parseInt(this.$props.id));
+    this.getCourse(parseInt(this.$props.id));
   }
 };
 </script>
