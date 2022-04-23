@@ -43,6 +43,7 @@ export default {
         }
         this.material = response.data;
       } catch (error) {
+        await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
       }
     },
   },
