@@ -16,15 +16,69 @@ describe("ClassworkPage", () => {
   });
 
   describe("when loaded", () => {
-    it("should renders", async () => {
-      const wrapper = mount(ClassworkPage, {
-        localVue,
-        vuetify,
-      });
+    describe("and current user is course creator", () => {
+      it("should renders", async () => {
+        const wrapper = mount(ClassworkPage, {
+          localVue,
+          vuetify,
+        });
 
-      const findCreateButton = wrapper.find("#create-button");
-      await expect(findCreateButton.exists()).toBe(true);
-      await expect(findCreateButton.text()).toBe("+ Create");
+        await wrapper.setData({userIsTeacher: true});
+
+        const findCreateButton = wrapper.find("#create-button");
+        await expect(findCreateButton.exists()).toBe(true);
+        await expect(findCreateButton.text()).toBe("+ Create");
+      })
+    });
+
+    describe("and current user is not course creator", () => {
+      it("should renders", async () => {
+        const wrapper = mount(ClassworkPage, {
+          localVue,
+          vuetify,
+        });
+
+        await expect(wrapper.find("#create-button").exists()).toBe(false);
+      })
+    });
+
+    describe("and lesson material exists", () => {
+      it("should renders", async () => {
+        const wrapper = mount(ClassworkPage, {
+          localVue,
+          vuetify,
+        });
+
+        await  wrapper.setData({
+          topics: [
+            {
+              lessonMaterials: [
+                {
+                  id: 1,
+                  topicId: 1,
+                  createdAt: "2022-04-21T20:20:28.000000Z",
+                  title: "Test"
+                }
+              ]
+            }
+          ]
+        })
+
+        const findLessonMaterial = wrapper.find("#lesson-material");
+        await expect(findLessonMaterial.exists()).toBe(true);
+      });
+    });
+
+    describe("and lesson material does not exist", () => {
+      it("should renders", async () => {
+        const wrapper = mount(ClassworkPage, {
+          localVue,
+          vuetify,
+        });
+
+        const findLessonMaterial = wrapper.find("#lesson-material");
+        await expect(findLessonMaterial.exists()).toBe(false);
+      });
     });
   });
 });
@@ -66,33 +120,33 @@ describe("CreateTopic", () => {
 
   describe("UpdateTopic", () => {
     let vuetify;
-  
+
     beforeEach(() => {
       vuetify = new Vuetify();
     });
-  
+
     describe("when loaded", () => {
       it("should renders", async () => {
         const wrapper = mount(UpdateTopic, {
           localVue,
           vuetify,
         });
-  
+
         const findBackBtn = wrapper.find("#back-btn");
         await expect(findBackBtn.exists()).toBe(true);
         await expect(findBackBtn.text()).toBe("< Back");
-  
+
         const findUpdateText = wrapper.find("#update-topic-text");
         await expect(findUpdateText.exists()).toBe(true);
         await expect(findUpdateText.text()).toBe("Update Topic");
-  
+
         const findTitleField = wrapper.find("#title-field");
         await expect(findTitleField.exists()).toBe(true);
-  
+
         const findCancelBtn = wrapper.find("#cancel-btn");
         await expect(findCancelBtn.exists()).toBe(true);
         await expect(findCancelBtn.text()).toBe("Cancel");
-  
+
         const findUpdateBtn = wrapper.find("#update-btn");
         await expect(findUpdateBtn.exists()).toBe(true);
         await expect(findUpdateBtn.text()).toBe("Update");

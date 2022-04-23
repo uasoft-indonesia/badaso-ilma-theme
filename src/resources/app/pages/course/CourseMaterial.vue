@@ -2,16 +2,16 @@
   <CreationLayout
     :courseId="this.$props.courseId"
     :pageTitle="this.material.title"
-    :topicTitle="this.material.topic"
+    :topicTitle="this.material.topic.title"
     :contentId="this.material.id"
     contentType="material"
   >
     <div
       id="description"
-      v-if="this.material.description"
+      v-if="this.material.content"
       class="text-base mb-9"
     >
-      {{ this.material.description }}
+      {{ this.material.content }}
     </div>
   </CreationLayout>
 </template>
@@ -19,6 +19,7 @@
 <script>
 import AppLayout from "../../components/Layout/AppLayout";
 import CreationLayout from "../../components/Layout/CreationLayout";
+import { getCourseMaterialById } from "../../../api/course/lessonMaterial";
 
 export default {
   name: "CourseMaterial",
@@ -30,17 +31,24 @@ export default {
   },
   data() {
     return {
-      material: {
-        id: "1",
-        title: "Prime Numbers",
-        topic: "Polynomial Arithmetic",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
-          "Morbi eu lorem ac risus maximus blandit nec in velit. " +
-          "Pellentesque eget metus vel massa molestie condimentum sit amet ac massa. " +
-          "Vivamus tincidunt tortor non ultricies pulvinar. Nunc eget posuere risus, vitae finibus diam. " +
-          "Proin varius, tortor nec aliquam commodo, massa nibh vestibulum turpis, in pulvinar magna turpis vel tortor."
-      }
+      material: {},
     }
+  },
+  methods: {
+    async getCourseMaterial() {
+      try {
+        let response = await getCourseMaterialById(this.$props.materialId);
+        if (response.data.topic === null){
+          response.data.topic = {title: ''}
+        }
+        this.material = response.data;
+      } catch (error) {
+        await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
+      }
+    },
+  },
+  created() {
+    this.getCourseMaterial();
   }
 }
 </script>

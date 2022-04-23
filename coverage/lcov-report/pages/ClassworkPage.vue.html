@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/Sidebar.vue</title>
+    <title>Code coverage report for pages/ClassworkPage.vue</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> Sidebar.vue</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">pages</a> ClassworkPage.vue</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -254,7 +254,15 @@
 <a name='L189'></a><a href='#L189'>189</a>
 <a name='L190'></a><a href='#L190'>190</a>
 <a name='L191'></a><a href='#L191'>191</a>
-<a name='L192'></a><a href='#L192'>192</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">59x</span>
+<a name='L192'></a><a href='#L192'>192</a>
+<a name='L193'></a><a href='#L193'>193</a>
+<a name='L194'></a><a href='#L194'>194</a>
+<a name='L195'></a><a href='#L195'>195</a>
+<a name='L196'></a><a href='#L196'>196</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -446,196 +454,200 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;v-navigation-drawer
-    app
-    permanent
-    :mini-variant.sync="mini"
-    v-model="drawer"
-    class="nav-drawer"
-  &gt;
-    &lt;v-list&gt;
-      &lt;v-list-item class="px-2" v-show="mini"&gt;
-        &lt;v-list-item-avatar&gt;
-          &lt;img :src="getAvatar" alt="User Avatar" /&gt;
-        &lt;/v-list-item-avatar&gt;
-      &lt;/v-list-item&gt;
-      &lt;v-list-item v-show="mini" link @click="redirectToCreateCoursePage"&gt;
-        &lt;v-list-item-icon&gt;
-          &lt;v-icon color="primary"&gt; mdi-plus &lt;/v-icon&gt;
-        &lt;/v-list-item-icon&gt;
-      &lt;/v-list-item&gt;
-      &lt;v-list-item v-show="!mini" @click.stop="hideSidebar"&gt;
-        &lt;v-list-item-title&gt;Hide Sidebar&lt;/v-list-item-title&gt;
-        &lt;v-btn icon&gt;
-          &lt;v-icon&gt;mdi-chevron-left&lt;/v-icon&gt;
-        &lt;/v-btn&gt;
-      &lt;/v-list-item&gt;
-      &lt;div
-        v-show="!mini"
-        class="flex justify-center items-center flex-col my-4"
-      &gt;
-        &lt;img class="avatar-expanded" :src="getAvatar" alt="User Avatar" /&gt;
-        &lt;p class="font-bold text-lg mt-4 user-name"&gt;{{ getName }}&lt;/p&gt;
-        &lt;v-btn
-          class="mb-4"
-          @click="redirectToCreateCoursePage"
-          width="80%"
-          color="primary"
-          depressed
-        &gt;
-          &lt;v-icon left&gt; mdi-plus &lt;/v-icon&gt;
-          Add Course
-        &lt;/v-btn&gt;
-      &lt;/div&gt;
-    &lt;/v-list&gt;
-&nbsp;
-    &lt;v-divider&gt;&lt;/v-divider&gt;
-&nbsp;
-    &lt;v-list nav&gt;
-      &lt;v-list-item link @click="redirectToHome"&gt;
-        &lt;v-list-item-icon&gt;
-          &lt;svg
-            width="24"
-            height="24"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+  &lt;v-container&gt;
+    &lt;div class="my-10 mx-10"&gt;
+      &lt;v-menu v-if="this.userIsTeacher"&gt;
+        &lt;template v-slot:activator="{ on, attrs }"&gt;
+          &lt;v-btn
+            dark
+            class="mb-2"
+            color="primary"
+            v-bind="attrs"
+            v-on="on"
+            id="create-button"
           &gt;
-            &lt;path
-              d="M2.5 10.8333H9.16667V2.5H2.5V10.8333ZM2.5 17.5H9.16667V12.5H2.5V17.5ZM10.8333 17.5H17.5V9.16667H10.8333V17.5ZM10.8333 2.5V7.5H17.5V2.5H10.8333Z"
-              fill="#0F0F0F"
-              fill-opacity="0.87"
-            /&gt;
-          &lt;/svg&gt;
-        &lt;/v-list-item-icon&gt;
-        &lt;v-list-item-title&gt;Dashboard&lt;/v-list-item-title&gt;
-      &lt;/v-list-item&gt;
-      &lt;v-list-group
-        v-for="item in items"
-        :key="item.title"
-        v-model="item.active"
-        :prepend-icon="item.action"
-        no-action
-      &gt;
-        &lt;template v-slot:activator&gt;
-          &lt;v-list-item-content&gt;
-            &lt;v-list-item-title v-text="item.title"&gt;&lt;/v-list-item-title&gt;
-          &lt;/v-list-item-content&gt;
+            + Create
+          &lt;/v-btn&gt;
         &lt;/template&gt;
-&nbsp;
-        &lt;v-list-item
-          v-for="child in courses"
-          :key="child.id"
-          link
-          @click="redirectToCoursePage(child.courseId)"
-        &gt;
-          &lt;v-list-item-content&gt;
-            &lt;v-list-item-title v-text="child.name"&gt;&lt;/v-list-item-title&gt;
-          &lt;/v-list-item-content&gt;
-        &lt;/v-list-item&gt;
-      &lt;/v-list-group&gt;
-      &lt;v-list-item link class="mt-auto"&gt;
-        &lt;v-list-item-icon&gt;
-          &lt;v-icon&gt;mdi-settings&lt;/v-icon&gt;
-        &lt;/v-list-item-icon&gt;
-        &lt;v-list-item-title&gt;Settings&lt;/v-list-item-title&gt;
-      &lt;/v-list-item&gt;
-      &lt;v-list-item link @click="logout" class="logout"&gt;
-        &lt;v-list-item-icon v-show="mini"&gt;
-          &lt;v-icon color="error"&gt;mdi-logout&lt;/v-icon&gt;
-        &lt;/v-list-item-icon&gt;
-        &lt;v-btn width="90%" class="mx-auto" color="error" depressed v-if="!mini"&gt;
-          &lt;v-icon left&gt; mdi-logout &lt;/v-icon&gt;
-          Logout
-        &lt;/v-btn&gt;
-      &lt;/v-list-item&gt;
-    &lt;/v-list&gt;
-  &lt;/v-navigation-drawer&gt;
+        &lt;v-list&gt;
+          &lt;v-list-item&gt;
+            &lt;v-btn
+              block
+              class="mt-1"
+              elevation="0"
+              @click="redirectToCreateTopic(id)"
+            &gt;
+              Topic
+            &lt;/v-btn&gt;
+          &lt;/v-list-item&gt;
+          &lt;v-list-item&gt;
+            &lt;v-btn
+              block
+              class="mt-1"
+              elevation="0"
+              @click="redirectToCreateMaterial(id)"
+            &gt;
+              Material
+            &lt;/v-btn&gt;
+          &lt;/v-list-item&gt;
+          &lt;v-list-item&gt;
+            &lt;v-btn block class="mt-1" elevation="0"&gt; Assignment&lt;/v-btn&gt;
+          &lt;/v-list-item&gt;
+          &lt;v-list-item&gt;
+            &lt;v-btn block class="mt-1" elevation="0"&gt; Quiz&lt;/v-btn&gt;
+          &lt;/v-list-item&gt;
+        &lt;/v-list&gt;
+      &lt;/v-menu&gt;
+      &lt;div id="title" v-for="topic in topics" v-bind:key="topic.id"&gt;
+        &lt;div class="mb-16"&gt;
+          &lt;div class="text-primary text-lg my-4"&gt;
+            &lt;div
+              v-if="topic.title"
+              class="flex justify-between px-6"
+            &gt;
+              {{ topic.title }}
+              &lt;v-menu&gt;
+                &lt;template v-slot:activator="{ on, attrs }"&gt;
+                  &lt;v-btn icon v-bind="attrs" v-on="on"&gt;
+                    &lt;v-icon&gt;mdi-dots-vertical&lt;/v-icon&gt;
+                  &lt;/v-btn&gt;
+                &lt;/template&gt;
+                &lt;v-list&gt;
+                  &lt;v-list-item&gt;
+                    &lt;v-btn
+                      block
+                      class="mt-1"
+                      elevation="0"
+                      @click="redirectToUpdateTopic(topic.courseId, topic.id)"
+                    &gt;
+                      Update
+                    &lt;/v-btn&gt;
+                  &lt;/v-list-item&gt;
+                  &lt;v-list-item&gt;
+                    &lt;v-btn block class="mt-1" elevation="0" @click="deleteTopic(topic.id)"&gt; Delete&lt;/v-btn&gt;
+                  &lt;/v-list-item&gt;
+                &lt;/v-list&gt;
+              &lt;/v-menu&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div v-if="topic.title"&gt;
+            &lt;v-divider color="#06BBD3"&gt;&lt;/v-divider&gt;
+          &lt;/div&gt;
+          &lt;div v-for="lessonMaterial in topic.lessonMaterials" v-bind:key="lessonMaterial.id"&gt;
+            &lt;v-hover v-slot="{ hover }"&gt;
+              &lt;div
+                id="lesson-material"
+                class="py-3 d-flex items-center justify-space-between px-6 cursor-pointer"
+                :class="hover? `bg-light` : `bg-white`"
+                @click="redirectToMaterialDetails(topic.courseId, lessonMaterial.id)"
+              &gt;
+                &lt;div class="d-flex items-center"&gt;
+                  &lt;div class="w-7 h-7 bg-secondary rounded-full text-base d-flex justify-center items-center mr-4"&gt;
+                    &lt;v-icon
+                      small
+                      color="white"
+                    &gt;
+                      mdi-book-open
+                    &lt;/v-icon&gt;
+                  &lt;/div&gt;
+                  &lt;div class="truncate max-w-sm"&gt;
+                    {{ lessonMaterial.title }}
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="text-sm"&gt;
+                  {{ countDate(lessonMaterial.createdAt) }}
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/v-hover&gt;
+            &lt;v-divider&gt;&lt;/v-divider&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/v-container&gt;
 &lt;/template&gt;
-&nbsp;
 &lt;script&gt;
-import api from "../../api/view";
+&nbsp;
+import CourseStream from "./courseStream.vue";
+import AppLayout from "../components/Layout/AppLayout.vue";
+import {getTopicAPI, deleteTopicAPI} from "../../api/topic";
+import {courseDetail} from "../../api/course/detail";
+import {dateSlicing} from "../../api/utils/dateSlicing";
 &nbsp;
 export default {
-  name: "Sidebar",
+  layout: [AppLayout, CourseStream],
+  props: {
+    id: String
+  },
   data() {
     return {
-      mini: true,
-      expansionValue: null,
-      drawer: true,
-      items: [
-        {
-          action: "mdi-google-classroom",
-          active: false,
-          title: "Course",
-        },
-      ],
-      courses: [],
+      topics: [],
+      course: {},
+      userIsTeacher: false,
     };
   },
-  computed: {
-    getName() {
-      return this.$store.state.user.name;
-    },
-    getAvatar() {
-      return this.$store.state.user.avatar;
-    },
-  },
   methods: {
-    hideSidebar() {
-      this.mini = true;
+    redirectToCreateTopic(id) {
+      this.$inertia.visit(`/course/${id}/classwork/create`);
     },
-    redirectToCreateCoursePage() {
-      this.$inertia.visit("/course/create");
+&nbsp;
+    redirectToUpdateTopic(courseId, topicId) {
+      this.$inertia.visit(`/course/${courseId}/classwork/update/${topicId}`);
     },
-    redirectToHome() {
-      this.$inertia.visit("/");
+&nbsp;
+    redirectToCreateMaterial(id) {
+      this.$inertia.visit(`/course/${id}/classwork/create/material`);
     },
-    redirectToCoursePage(id) {
-      this.$inertia.visit("/course/" + id);
+&nbsp;
+    redirectToMaterialDetails(id, materialId) {
+      this.$inertia.visit(`/course/${id}/classwork/material/${materialId}`);
     },
-    logout() {
-      this.$store.dispatch("LOGOUT");
-      this.$inertia.visit("/login");
-    },
-    async getData() {
+&nbsp;
+    async deleteTopic(topicId) {
       try {
-        const res = await api.view();
-        this.courses = res.data;
-      } catch (e) {
-        this.$store.dispatch("OPEN_SNACKBAR", "Failed getting courses data");
+        const response = await deleteTopicAPI(topicId);
+        location.reload();
+      } catch (error) {
       }
     },
-  },
-  mounted() {
-    this.getData();
-  },
+&nbsp;
+    async getTopic(courseId) {
+      const response = await getTopicAPI(courseId);
+      if (response.error) {
+        await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
+      } else {
+        this.topics = response.data;
+        for (let i = 0; i &lt; this.topics.length; i++) {
+          this.topics[i].push({courseId: this.$props.id})
+        }
+      }
+    },
+&nbsp;
+    async getCourse(id) {
+      try {
+        const response = await courseDetail(id);
+        this.course = response.data;
+        this.isCurrentUserTheTeacher(response.data.createdBy);
+      } catch (error) {
+        await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
+      }
+    },
+&nbsp;
+    isCurrentUserTheTeacher(teacher) {
+      this.userIsTeacher = this.$store.state.user.id === teacher;
+    },
+&nbsp;
+    countDate(givenDate) {
+      return dateSlicing(givenDate);
+    },
+  }
+  ,
+  created() {
+    this.getTopic(parseInt(this.$props.id));
+    this.getCourse(parseInt(this.$props.id));
+  }
 };
 &lt;/script&gt;
-&nbsp;
-&lt;style&gt;
-.sidebar-item {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-&nbsp;
-.sidebar-item-icon {
-  max-width: 24px;
-}
-&nbsp;
-.sidebar-item-active button {
-  min-height: 48px !important;
-}
-&nbsp;
-.avatar-expanded {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
-.nav-drawer {
-  box-shadow: 0px 4px 20px 5px rgba(0, 0, 0, 0.1);
-}
-&lt;/style&gt;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

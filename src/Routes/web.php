@@ -15,6 +15,8 @@ Route::prefix($lms_route_prefix)
         Route::get('/register', [InertiaController::class, 'register']);
         Route::get('/login', [InertiaController::class, 'login']);
 
+        Route::get('/404', [InertiaController::class, 'pageNotFound']);
+
         Route::prefix('/course')->as('course.')->group(function () {
             Route::get('/create', [InertiaController::class, 'createCourse']);
             Route::get('/join', [InertiaController::class, 'joinCourse']);

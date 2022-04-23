@@ -31,7 +31,11 @@ describe("CourseMaterial", () => {
           data() {
             return {
               material: {
+                title: "Test",
                 description: null,
+                topic: {
+                  title: "Topic"
+                }
               }
             }
           }
@@ -50,7 +54,11 @@ describe("CourseMaterial", () => {
           data() {
             return {
               material: {
-                description: "test description",
+                title: "Test",
+                content: "test description",
+                topic: {
+                  title: "Topic"
+                }
               }
             }
           }
