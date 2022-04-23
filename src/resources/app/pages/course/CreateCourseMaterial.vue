@@ -86,10 +86,7 @@ import AppLayout from "../../components/Layout/AppLayout";
 import CreationLayout from "../../components/Layout/CreationLayout";
 import { getTopicAPI } from "../../../api/topic";
 import { createCourseMaterial, uploadFile } from "../../../api/course/lessonMaterial";
-<<<<<<< HEAD
-=======
 import { courseDetail } from "../../../api/course/detail";
->>>>>>> e9956af18b4c6271de22379dc80b46342c70df93
 
 export default {
   components: {CreationLayout},
