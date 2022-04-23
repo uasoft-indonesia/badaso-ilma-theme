@@ -100,7 +100,7 @@
                   </div>
                 </div>
                 <div class="text-sm">
-                  {{ dateSlicing(lessonMaterial.createdAt) }}
+                  {{ countDate(lessonMaterial.createdAt) }}
                 </div>
               </div>
             </v-hover>
@@ -117,6 +117,7 @@ import CourseStream from "./courseStream.vue";
 import AppLayout from "../components/Layout/AppLayout.vue";
 import {getTopicAPI, deleteTopicAPI} from "../../api/topic";
 import {courseDetail} from "../../api/course/detail";
+import {dateSlicing} from "../../api/utils/dateSlicing";
 
 export default {
   layout: [AppLayout, CourseStream],
@@ -156,14 +157,14 @@ export default {
     },
 
     async getTopic(courseId) {
-      try {
-        const response = await getTopicAPI(courseId);
+      const response = await getTopicAPI(courseId);
+      if (response.error) {
+        await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
+      } else {
         this.topics = response.data;
-        console.log(response.data);
         for (let i = 0; i < this.topics.length; i++) {
           this.topics[i].push({courseId: this.$props.id})
         }
-      } catch (error) {
       }
     },
 
@@ -181,16 +182,8 @@ export default {
       this.userIsTeacher = this.$store.state.user.id === teacher;
     },
 
-    dateSlicing(givenDate) {
-      let dateString;
-      dateString = givenDate.slice(-1) === "Z"
-        ? givenDate
-        : `${givenDate}Z`;
-      let date = new Date(dateString);
-      date = date.toString().split(" ");
-      return (
-        date[0] + ", " + date[2] + " " + date[1] + " " + date[3]
-      );
+    countDate(givenDate) {
+      return dateSlicing(givenDate);
     },
   }
   ,
