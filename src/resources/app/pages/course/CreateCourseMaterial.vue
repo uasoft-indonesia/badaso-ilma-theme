@@ -153,7 +153,7 @@ export default {
       try {
         const response = await courseDetail(courseId);
         if (response.data.createdBy !== this.$store.state.user.id){
-          window.location.assign("/404");
+          this.$inertia.visit("/404");
         }
       } catch (error) {
         await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
