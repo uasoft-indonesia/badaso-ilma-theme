@@ -3,7 +3,7 @@
     :courseId="this.$props.courseId"
     :pageTitle="this.material.title"
     :topicTitle="this.material.topic.title"
-    :contentId="this.material.id"
+    :contentId="this.$props.materialId"
     contentType="material"
   >
     <div
@@ -13,16 +13,35 @@
     >
       {{ this.material.content }}
     </div>
-  </CreationLayout>
+    <div
+      id="header-comment"
+      class="text-black text-lg font-medium"
+    >
+      Comments 
+      <v-icon
+        id="icon-comment"
+        color="black"
+      >
+        mdi-forum
+      </v-icon>
+      <v-divider id="divider" color="#06BBD3" class="mb-6"></v-divider>
+    </div>
+    <CreateComment
+      :materialId="this.$props.materialId"
+    >
+    </CreateComment>
+  </CreationLayout> 
 </template>
 
 <script>
 import AppLayout from "../../components/Layout/AppLayout";
 import CreationLayout from "../../components/Layout/CreationLayout";
+import CreateComment from "../../components/CreateComment";
 import { getCourseMaterialById } from "../../../api/course/lessonMaterial";
+
 export default {
   name: "CourseMaterial",
-  components: {CreationLayout},
+  components: {CreationLayout, CreateComment},
   layout: [AppLayout],
   props: {
     courseId: String,
@@ -48,6 +67,6 @@ export default {
   },
   created() {
     this.getCourseMaterial();
-  }
+  },
 }
 </script>

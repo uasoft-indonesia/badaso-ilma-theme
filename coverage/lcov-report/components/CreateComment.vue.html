@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/Layout/CreationLayout.vue</title>
+    <title>Code coverage report for components/CreateComment.vue</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../prettify.css" />
-    <link rel="stylesheet" href="../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../sort-arrow-sprite.png);
+            background-image: url(../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/Layout</a> CreationLayout.vue</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> CreateComment.vue</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -32,7 +32,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
@@ -146,17 +146,7 @@
 <a name='L81'></a><a href='#L81'>81</a>
 <a name='L82'></a><a href='#L82'>82</a>
 <a name='L83'></a><a href='#L83'>83</a>
-<a name='L84'></a><a href='#L84'>84</a>
-<a name='L85'></a><a href='#L85'>85</a>
-<a name='L86'></a><a href='#L86'>86</a>
-<a name='L87'></a><a href='#L87'>87</a>
-<a name='L88'></a><a href='#L88'>88</a>
-<a name='L89'></a><a href='#L89'>89</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">45x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L84'></a><a href='#L84'>84</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">39x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -240,91 +230,86 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;v-app&gt;
-    &lt;v-container&gt;
-      &lt;div class="mt-16"&gt;
+  &lt;div id="comment"&gt;
+    &lt;v-row id="comment-form"&gt;
+      &lt;v-col cols="19"&gt;
+        &lt;v-form
+          ref="form"
+          v-model="isFormValid"
+          class="mx-6 my-4"
+        &gt;
+          &lt;v-textarea
+            outlined
+            rows = "1"
+            v-model="comment"
+            :rules="commentRules.concat(lengthRules)"
+            :counter="65535"
+            placeholder="Comment here..."
+          &gt;&lt;/v-textarea&gt;
+        &lt;/v-form&gt;
+      &lt;/v-col&gt;
+      &lt;v-col cols="1"&gt;
         &lt;v-btn
-          id="back"
-          color="white"
-          elevation="0"
-          style="padding-left: 0; padding-right: 8px"
-          @click="redirectBackToClasswork()"
+          icon
+          id="post-button"
+          class="my-6"
+          depressed
+          color=primary
+          @click="postComment"
+          :disabled="!isFormValid"
         &gt;
           &lt;v-icon&gt;
-            mdi-chevron-left
+            mdi-send
           &lt;/v-icon&gt;
-          Back
         &lt;/v-btn&gt;
-        &lt;div class="my-4 d-flex justify-between items-end"&gt;
-          &lt;div&gt;
-            &lt;div
-              id="topic-title"
-              v-if="this.$props.topicTitle"
-              class="text-textGray text-md"
-            &gt;
-              {{ topicTitle }}
-            &lt;/div&gt;
-            &lt;div
-              id="title"
-              class="text-primary text-lg font-medium"
-            &gt;
-              {{ pageTitle }}
-            &lt;/div&gt;
-          &lt;/div&gt;
-          &lt;v-menu
-            id="menu"
-            v-if="contentType"
-            bottom
-            rights
-          &gt;
-            &lt;template v-slot:activator="{ on, attrs }"&gt;
-              &lt;v-btn
-                icon
-                v-bind="attrs"
-                v-on="on"
-              &gt;
-                &lt;v-icon&gt;mdi-dots-vertical&lt;/v-icon&gt;
-              &lt;/v-btn&gt;
-            &lt;/template&gt;
-            &lt;v-list&gt;
-              &lt;v-list-item link&gt;
-                &lt;v-list-item-title class="w-28 text-sm"&gt;
-                  Edit
-                &lt;/v-list-item-title&gt;
-              &lt;/v-list-item&gt;
-              &lt;v-list-item link&gt;
-                &lt;v-list-item-title class="w-28 text-sm text-error"&gt;
-                  Delete
-                &lt;/v-list-item-title&gt;
-              &lt;/v-list-item&gt;
-            &lt;/v-list&gt;
-          &lt;/v-menu&gt;
-        &lt;/div&gt;
-        &lt;v-divider id="divider" color="#06BBD3" class="mb-6"&gt;&lt;/v-divider&gt;
-        &lt;slot/&gt;
-      &lt;/div&gt;
-    &lt;/v-container&gt;
-  &lt;/v-app&gt;
+      &lt;/v-col&gt;
+    &lt;/v-row&gt;
+  &lt;/div&gt;
 &lt;/template&gt;
-&nbsp;
 &lt;script&gt;
-import AppLayout from "./AppLayout";
+import { createMaterialComment } from "../../api/course/materialComment";
 &nbsp;
 export default {
-  layout: [AppLayout],
+  name: "CreateMaterialComment",
   props: {
-    courseId: String,
-    pageTitle: String,
-    topicTitle: String,
-    contentType: String,
-    contentId: String,
+    materialId: String,
   },
-  name: "CreationLayout",
+  data() {
+    return {
+      comment: "",
+      isFormValid: false,
+      commentRules: [(v) =&gt; (!!v || "Comment cannot be empty")],
+      lengthRules: [(v) =&gt; (v.length &lt;= 65535 || "Characters are off limit")],
+      snackbar: {
+        isVisible: false,
+        text: "",
+      },
+    }
+  },
   methods: {
-    redirectBackToClasswork() {
-      this.$inertia.visit(`/course/${this.$props.courseId}/classwork`);
+    validate() {
+      this.$refs.form.validate();
     },
-  }
+    showSnackbar(text) {
+      this.snackbar.text = text;
+      this.snackbar.isVisible = true;
+    },
+    async postComment() {
+      this.validate();
+        if (this.isFormValid) {
+          const {error, errorMessage} = await createMaterialComment({
+            materialId: parseInt(this.$props.materialId),
+            content: this.comment,
+          });
+&nbsp;
+          if (error) {
+            this.showSnackbar(errorMessage);
+          } else {
+            this.$refs.form.reset();
+          }
+        }
+    },
+  },
 }
 &lt;/script&gt;
 &nbsp;</pre></td></tr></table></pre>
@@ -336,14 +321,14 @@ export default {
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
                 at Sun Apr 24 2022 15:57:14 GMT+0700 (Indochina Time)
             </div>
-        <script src="../../prettify.js"></script>
+        <script src="../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../sorter.js"></script>
-        <script src="../../block-navigation.js"></script>
+        <script src="../sorter.js"></script>
+        <script src="../block-navigation.js"></script>
     </body>
 </html>
     
