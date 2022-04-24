@@ -9,7 +9,7 @@
     <v-list>
       <v-list-item class="px-2" v-show="mini">
         <v-list-item-avatar>
-          <img :src="getAvatar" />
+          <img :src="getAvatar" alt="User Avatar" />
         </v-list-item-avatar>
       </v-list-item>
       <v-list-item v-show="mini" link @click="redirectToCreateCoursePage">
@@ -27,7 +27,7 @@
         v-show="!mini"
         class="flex justify-center items-center flex-col my-4"
       >
-        <img class="avatar-expanded" :src="getAvatar" />
+        <img class="avatar-expanded" :src="getAvatar" alt="User Avatar" />
         <p class="font-bold text-lg mt-4 user-name">{{ getName }}</p>
         <v-btn
           class="mb-4"
@@ -37,7 +37,7 @@
           depressed
         >
           <v-icon left> mdi-plus </v-icon>
-          Add Class
+          Add Course
         </v-btn>
       </div>
     </v-list>
@@ -80,7 +80,7 @@
           v-for="child in courses"
           :key="child.id"
           link
-          @click="redirectToCoursePage(child.id)"
+          @click="redirectToCoursePage(child.courseId)"
         >
           <v-list-item-content>
             <v-list-item-title v-text="child.name"></v-list-item-title>
@@ -120,7 +120,7 @@ export default {
         {
           action: "mdi-google-classroom",
           active: false,
-          title: "Class",
+          title: "Course",
         },
       ],
       courses: [],
@@ -155,7 +155,6 @@ export default {
       try {
         const res = await api.view();
         this.courses = res.data;
-        console.log(this.courses);
       } catch (e) {
         this.$store.dispatch("OPEN_SNACKBAR", "Failed getting courses data");
       }
