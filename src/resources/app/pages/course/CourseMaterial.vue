@@ -24,10 +24,20 @@
       >
         mdi-forum
       </v-icon>
-      <v-divider id="divider" color="#06BBD3" class="mb-6"></v-divider>
+      <v-divider id="divider" color="#06BBD3" class="mb-4"></v-divider>
+    </div>
+    <div v-for="comment in material.comments" v-bind:key="material.id">
+    <ListComment 
+      :name="comment.createdBy.name"
+      :date="comment.createdAt"
+      :content="comment.content"
+      :id="comment.id"
+    >
+    </ListComment>
     </div>
     <CreateComment
       :materialId="this.$props.materialId"
+      :getCourseMaterial = "this.getCourseMaterial"
     >
     </CreateComment>
   </CreationLayout> 
@@ -37,11 +47,12 @@
 import AppLayout from "../../components/Layout/AppLayout";
 import CreationLayout from "../../components/Layout/CreationLayout";
 import CreateComment from "../../components/CreateComment";
+import ListComment from "../../components/ListComment";
 import { getCourseMaterialById } from "../../../api/course/lessonMaterial";
 
 export default {
   name: "CourseMaterial",
-  components: {CreationLayout, CreateComment},
+  components: {CreationLayout, CreateComment, ListComment},
   layout: [AppLayout],
   props: {
     courseId: String,

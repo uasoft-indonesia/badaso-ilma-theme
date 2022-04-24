@@ -35,6 +35,7 @@
     </v-row>
   </div>
 </template>
+
 <script>
 import { createMaterialComment } from "../../api/course/materialComment";
 
@@ -42,6 +43,7 @@ export default {
   name: "CreateMaterialComment",
   props: {
     materialId: String,
+    getCourseMaterial: {},
   },
   data() {
     return {
@@ -75,6 +77,7 @@ export default {
             this.showSnackbar(errorMessage);
           } else {
             this.$refs.form.reset();
+            this.$props.getCourseMaterial();
           }
         }
     },
