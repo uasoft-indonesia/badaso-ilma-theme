@@ -14,7 +14,7 @@
           </v-icon>
           Back
         </v-btn>
-        <div class="my-4 d-flex justify-between items-center">
+        <div class="my-4 d-flex justify-between items-end">
           <div>
             <div
               id="topic-title"

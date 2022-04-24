@@ -2,71 +2,24 @@
   <CreationLayout
     :courseId="this.$props.courseId"
     :pageTitle="this.material.title"
-    :topicTitle="this.material.topic"
+    :topicTitle="this.material.topic.title"
     :contentId="this.material.id"
     contentType="material"
   >
     <div
       id="description"
-      v-if="this.material.description"
+      v-if="this.material.content"
       class="text-base mb-9"
     >
-      {{ this.material.description }}
+      {{ this.material.content }}
     </div>
-    <div
-      id="header-comment"
-      class="text-black text-lg font-medium"
-    >
-      Comments 
-      <v-icon
-        color="black"
-      >
-        mdi-forum
-      </v-icon>
-      <v-divider id="divider" color="#06BBD3" class="mb-6"></v-divider>
-    </div>
-    <div id="comment">
-      <v-row id="comment-form">
-        <v-col cols="19">
-          <v-form
-            ref="form"
-            v-model="isFormValid"
-            class="mx-6 my-4"
-          >
-            <v-textarea
-              outlined
-              rows = "1"
-              v-model="comment"
-              :rules="commentRules.concat(lengthRules)"
-              :counter="65535"
-              placeholder="Comment here..."
-            ></v-textarea>
-          </v-form>
-        </v-col>
-        <v-col cols="1">
-          <v-btn
-            icon
-            id="post-button"
-            class="my-6"
-            depressed
-            color=primary
-            @click="postComment"
-            :disabled="!isFormValid"
-          >
-            <v-icon>
-              mdi-send
-            </v-icon>
-          </v-btn>
-        </v-col>
-      </v-row>
-    </div>
-  </CreationLayout> 
+  </CreationLayout>
 </template>
 
 <script>
 import AppLayout from "../../components/Layout/AppLayout";
 import CreationLayout from "../../components/Layout/CreationLayout";
-
+import { getCourseMaterialById } from "../../../api/course/lessonMaterial";
 export default {
   name: "CourseMaterial",
   components: {CreationLayout},
@@ -77,21 +30,24 @@ export default {
   },
   data() {
     return {
-      comment: "",
-      isFormValid: false,
-      commentRules: [(v) => (!!v || "Comment cannot be empty")],
-      lengthRules: [(v) => (v.length <= 65535 || "Characters are off limit")],
-      material: {
-        id: "1",
-        title: "Prime Numbers",
-        topic: "Polynomial Arithmetic",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
-          "Morbi eu lorem ac risus maximus blandit nec in velit. " +
-          "Pellentesque eget metus vel massa molestie condimentum sit amet ac massa. " +
-          "Vivamus tincidunt tortor non ultricies pulvinar. Nunc eget posuere risus, vitae finibus diam. " +
-          "Proin varius, tortor nec aliquam commodo, massa nibh vestibulum turpis, in pulvinar magna turpis vel tortor."
-      },
+      material: {},
     }
+  },
+  methods: {
+    async getCourseMaterial() {
+      try {
+        let response = await getCourseMaterialById(this.$props.materialId);
+        if (response.data.topic === null){
+          response.data.topic = {title: ''}
+        }
+        this.material = response.data;
+      } catch (error) {
+        await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
+      }
+    },
+  },
+  created() {
+    this.getCourseMaterial();
   }
 }
 </script>

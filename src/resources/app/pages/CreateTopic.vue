@@ -1,8 +1,8 @@
 <template>
   <v-container>
-    <v-btn @click="redirectBackToClasswork(id)"> &lt; Back </v-btn>
+    <v-btn @click="redirectBackToClasswork(id)" id="back-btn"> &lt; Back </v-btn>
     <div id="title">
-      <v-row class="text-primary text-lg my-4"> Create Topic </v-row>
+      <v-row class="text-primary text-lg my-4" id="create-topic-text"> Create Topic </v-row>
       <v-row>
         <v-divider color="#06BBD3"></v-divider>
       </v-row>
@@ -15,6 +15,7 @@
           outlined
           v-model="topicTitle"
           :rules="topicRules.concat(lengthRules)"
+          id="title-field"
         ></v-text-field>
       </v-row>
       <div class="text-right">
@@ -23,10 +24,11 @@
           elevation="0"
           class="mr-3"
           @click="redirectBackToClasswork(id)"
+          id="cancel-btn"
         >
           Cancel
         </v-btn>
-        <v-btn elevation="0" @click="createTopic()"> Create </v-btn>
+        <v-btn elevation="0" @click="createTopic()" id="create-btn"> Create </v-btn>
       </div>
     </v-form>
   </v-container>
@@ -68,9 +70,6 @@ export default {
         this.$inertia.visit(`/course/${this.$props.id}/classwork`);
       }
     },
-  },
-  mounted() {
-    this.getData(this.id);
   },
 };
 </script>

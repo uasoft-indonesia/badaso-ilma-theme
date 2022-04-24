@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/AnnouncementContent.vue</title>
+    <title>Code coverage report for pages/ClassworkPage.vue</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> AnnouncementContent.vue</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">pages</a> ClassworkPage.vue</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -258,33 +258,7 @@
 <a name='L193'></a><a href='#L193'>193</a>
 <a name='L194'></a><a href='#L194'>194</a>
 <a name='L195'></a><a href='#L195'>195</a>
-<a name='L196'></a><a href='#L196'>196</a>
-<a name='L197'></a><a href='#L197'>197</a>
-<a name='L198'></a><a href='#L198'>198</a>
-<a name='L199'></a><a href='#L199'>199</a>
-<a name='L200'></a><a href='#L200'>200</a>
-<a name='L201'></a><a href='#L201'>201</a>
-<a name='L202'></a><a href='#L202'>202</a>
-<a name='L203'></a><a href='#L203'>203</a>
-<a name='L204'></a><a href='#L204'>204</a>
-<a name='L205'></a><a href='#L205'>205</a>
-<a name='L206'></a><a href='#L206'>206</a>
-<a name='L207'></a><a href='#L207'>207</a>
-<a name='L208'></a><a href='#L208'>208</a>
-<a name='L209'></a><a href='#L209'>209</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">82x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L196'></a><a href='#L196'>196</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">28x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -480,211 +454,198 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;div class="px-6 py-4"&gt;
-    &lt;div class="d-flex justify-between"&gt;
-      &lt;div class="d-flex"&gt;
-        &lt;v-avatar class="bg-primary mr-4" id="avatar" size="48"&gt;&lt;/v-avatar&gt;
-        &lt;div&gt;
-          &lt;div id="author"&gt;
-            {{ name }}
-          &lt;/div&gt;
-          &lt;div id="date" class="text-sm text-textGray"&gt;
-            {{ announcementDate }}
-          &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;v-menu id="menu" v-if="this.isCurrentUserTheAuthor()" bottom right&gt;
+  &lt;v-container&gt;
+    &lt;div class="my-10 mx-10"&gt;
+      &lt;v-menu v-if="this.userIsTeacher"&gt;
         &lt;template v-slot:activator="{ on, attrs }"&gt;
-          &lt;v-btn icon v-bind="attrs" v-on="on"&gt;
-            &lt;v-icon&gt;mdi-dots-vertical&lt;/v-icon&gt;
+          &lt;v-btn
+            dark
+            class="mb-2"
+            color="primary"
+            v-bind="attrs"
+            v-on="on"
+            id="create-button"
+          &gt;
+            + Create
           &lt;/v-btn&gt;
         &lt;/template&gt;
-&nbsp;
         &lt;v-list&gt;
-          &lt;v-list-item id="editForm" link @click="isEditing = true"&gt;
-            &lt;v-list-item-title class="w-28 text-sm"&gt; Edit &lt;/v-list-item-title&gt;
+          &lt;v-list-item&gt;
+            &lt;v-btn
+              block
+              class="mt-1"
+              elevation="0"
+              @click="redirectToCreateTopic(id)"
+            &gt;
+              Topic
+            &lt;/v-btn&gt;
           &lt;/v-list-item&gt;
-          &lt;v-list-item
-            id="deleteAnnouncement"
-            v-if="this.$props.isComment !== true"
-            link
-            @click="deleteAnnouncement"
-          &gt;
-            &lt;v-list-item-title class="w-28 text-sm text-error"&gt;
-              Delete
-            &lt;/v-list-item-title&gt;
+          &lt;v-list-item&gt;
+            &lt;v-btn
+              block
+              class="mt-1"
+              elevation="0"
+              @click="redirectToCreateMaterial(id)"
+            &gt;
+              Material
+            &lt;/v-btn&gt;
           &lt;/v-list-item&gt;
-          &lt;v-list-item
-            id="deleteComment"
-            v-if="this.$props.isComment"
-            link
-            @click="deleteComment"
-          &gt;
-            &lt;v-list-item-title class="w-28 text-sm text-error"&gt;
-              Delete
-            &lt;/v-list-item-title&gt;
+          &lt;v-list-item&gt;
+            &lt;v-btn block class="mt-1" elevation="0"&gt; Assignment&lt;/v-btn&gt;
+          &lt;/v-list-item&gt;
+          &lt;v-list-item&gt;
+            &lt;v-btn block class="mt-1" elevation="0"&gt; Quiz&lt;/v-btn&gt;
           &lt;/v-list-item&gt;
         &lt;/v-list&gt;
       &lt;/v-menu&gt;
-    &lt;/div&gt;
-    &lt;div id="content" class="mt-4" v-if="!isEditing"&gt;
-      {{ content }}
-    &lt;/div&gt;
-    &lt;div id="edit-form" v-if="isEditing"&gt;
-      &lt;v-form v-model="isFormValid" ref="form" class="mx-6 my-4"&gt;
-        &lt;div&gt;
-          &lt;v-textarea
-            outlined
-            v-model="announcement"
-            :rules="announceRules.concat(lengthRules)"
-            :counter="65535"
-          &gt;&lt;/v-textarea&gt;
+      &lt;div id="title" v-for="topic in topics" v-bind:key="topic.id"&gt;
+        &lt;div class="mb-16"&gt;
+          &lt;div class="text-primary text-lg my-4"&gt;
+            &lt;div
+              v-if="topic.title"
+              class="flex justify-between px-6"
+            &gt;
+              {{ topic.title }}
+              &lt;v-menu&gt;
+                &lt;template v-slot:activator="{ on, attrs }"&gt;
+                  &lt;v-btn icon v-bind="attrs" v-on="on"&gt;
+                    &lt;v-icon&gt;mdi-dots-vertical&lt;/v-icon&gt;
+                  &lt;/v-btn&gt;
+                &lt;/template&gt;
+                &lt;v-list&gt;
+                  &lt;v-list-item&gt;
+                    &lt;v-btn
+                      block
+                      class="mt-1"
+                      elevation="0"
+                      @click="redirectToUpdateTopic(topic.courseId, topic.id)"
+                    &gt;
+                      Update
+                    &lt;/v-btn&gt;
+                  &lt;/v-list-item&gt;
+                  &lt;v-list-item&gt;
+                    &lt;v-btn block class="mt-1" elevation="0" @click="deleteTopic(topic.id)"&gt; Delete&lt;/v-btn&gt;
+                  &lt;/v-list-item&gt;
+                &lt;/v-list&gt;
+              &lt;/v-menu&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div v-if="topic.title"&gt;
+            &lt;v-divider color="#06BBD3"&gt;&lt;/v-divider&gt;
+          &lt;/div&gt;
+          &lt;div v-for="lessonMaterial in topic.lessonMaterials" v-bind:key="lessonMaterial.id"&gt;
+            &lt;v-hover v-slot="{ hover }"&gt;
+              &lt;div
+                id="lesson-material"
+                class="py-3 d-flex items-center justify-space-between px-6 cursor-pointer"
+                :class="hover? `bg-light` : `bg-white`"
+                @click="redirectToMaterialDetails(topic.courseId, lessonMaterial.id)"
+              &gt;
+                &lt;div class="d-flex items-center"&gt;
+                  &lt;div class="w-7 h-7 bg-secondary rounded-full text-base d-flex justify-center items-center mr-4"&gt;
+                    &lt;v-icon
+                      small
+                      color="white"
+                    &gt;
+                      mdi-book-open
+                    &lt;/v-icon&gt;
+                  &lt;/div&gt;
+                  &lt;div class="truncate max-w-sm"&gt;
+                    {{ lessonMaterial.title }}
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="text-sm"&gt;
+                  {{ countDate(lessonMaterial.createdAt) }}
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/v-hover&gt;
+            &lt;v-divider&gt;&lt;/v-divider&gt;
+          &lt;/div&gt;
         &lt;/div&gt;
-        &lt;div class="text-right"&gt;
-          &lt;v-btn
-            depressed
-            color="light"
-            @click="
-              isEditing = false;
-              announcement = content;
-            "
-            class="mr-4"
-          &gt;
-            &lt;div id="cancel-button" class="text-primary"&gt;Cancel&lt;/div&gt;
-          &lt;/v-btn&gt;
-          &lt;v-btn
-            v-if="this.$props.isComment !== true"
-            id="post-announcement-button"
-            depressed
-            color="primary"
-            @click="editAnnouncement"
-            :disabled="!isFormValid"
-          &gt;
-            Post
-          &lt;/v-btn&gt;
-          &lt;v-btn
-            v-if="this.$props.isComment"
-            id="post-comment-button"
-            depressed
-            color="primary"
-            @click="editComment"
-            :disabled="!isFormValid"
-          &gt;
-            Post
-          &lt;/v-btn&gt;
-        &lt;/div&gt;
-      &lt;/v-form&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
+  &lt;/v-container&gt;
 &lt;/template&gt;
-&nbsp;
 &lt;script&gt;
-import {
-  deleteAnnouncementAPI,
-  editAnnouncementAPI,
-} from "../../api/announcement";
-import { deleteComment, editComment } from "../../api/comment";
+&nbsp;
+import CourseStream from "./courseStream.vue";
+import AppLayout from "../components/Layout/AppLayout.vue";
+import {getTopicAPI, deleteTopicAPI} from "../../api/topic";
+import {courseDetail} from "../../api/course/detail";
+import {dateSlicing} from "../../api/utils/dateSlicing";
 &nbsp;
 export default {
-  name: "AnnouncementContent",
-  props: [
-    "id",
-    "name",
-    "date",
-    "content",
-    "authorId",
-    "removeCard",
-    "isComment",
-  ],
+  layout: [AppLayout, CourseStream],
+  props: {
+    id: String
+  },
   data() {
     return {
-      announcementDate: this.dateSlicing(),
-      announcement: this.$props.content,
-      isEditing: false,
-      isFormValid: false,
-      announceRules: [(v) =&gt; !!v || "Form cannot be empty"],
-      lengthRules: [(v) =&gt; v.length &lt;= 65535 || "Characters are off limit"],
+      topics: [],
+      course: {},
+      userIsTeacher: false,
     };
   },
   methods: {
-    validate() {
-      this.$refs.form.validate();
-    },
-    isCurrentUserTheAuthor() {
-      const userId = (this.$store.state.user.id === this.$props.authorId);
-      const author = (this.$store.state.user.name === this.$props.name);
-      return (userId || author);
-    },
-    async editAnnouncement() {
-      if (this.isFormValid) {
-        const { error, errorMessage } = await editAnnouncementAPI(
-          {
-            content: this.announcement,
-          },
-          this.$props.id
-        );
-&nbsp;
-        if (error) {
-          this.showSnackbar(errorMessage);
-        } else {
-          this.isEditing = false;
-          this.$props.content = this.announcement;
-        }
-      }
+    redirectToCreateTopic(id) {
+      this.$inertia.visit(`/course/${id}/classwork/create`);
     },
 &nbsp;
-    async editComment() {
-      if (this.isFormValid) {
-        const { data, error, errorMessage } = await editComment(
-          {
-            content: this.announcement,
-          },
-          this.$props.id
-        );
-&nbsp;
-        if (error) {
-          this.showSnackbar(errorMessage);
-        } else {
-          this.isEditing = false;
-          this.$props.content = this.announcement;
-        }
-      }
+    redirectToUpdateTopic(courseId, topicId) {
+      this.$inertia.visit(`/course/${courseId}/classwork/update/${topicId}`);
     },
 &nbsp;
-    async deleteAnnouncement() {
-      const { error, errorMessage } = await deleteAnnouncementAPI(
-        this.$props.id
-      );
-      if (error) {
-        this.showSnackbar(errorMessage);
-      } else {
-        this.$props.removeCard();
-      }
+    redirectToCreateMaterial(id) {
+      this.$inertia.visit(`/course/${id}/classwork/create/material`);
     },
 &nbsp;
-    async deleteComment() {
-      const { data, error, errorMessage } = await deleteComment(this.$props.id);
-      if (error) {
-        this.showSnackbar(errorMessage);
-      } else {
+    redirectToMaterialDetails(id, materialId) {
+      this.$inertia.visit(`/course/${id}/classwork/material/${materialId}`);
+    },
+&nbsp;
+    async deleteTopic(topicId) {
+      try {
+        const response = await deleteTopicAPI(topicId);
         location.reload();
+      } catch (error) {
       }
     },
 &nbsp;
-    dateSlicing() {
-      let datestring;
-      if (this.$props.date){
-        datestring = this.$props.date.slice(-1) == "Z"
-          ? this.$props.date
-          : `${this.$props.date}Z`;
+    async getTopic(courseId) {
+      const response = await getTopicAPI(courseId);
+      if (response.error) {
+        await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
+      } else {
+        this.topics = response.data;
+        for (let i = 0; i &lt; this.topics.length; i++) {
+          this.topics[i].push({courseId: this.$props.id})
+        }
       }
-      let date = new Date(datestring);
-      date = date.toString().split(" ");
-      return (
-        date[0] + ", " + date[2] + " " + date[1] + " " + date[3] + " " + date[4]
-      );
     },
-  },
+&nbsp;
+    async getCourse(id) {
+      try {
+        const response = await courseDetail(id);
+        this.course = response.data;
+        this.isCurrentUserTheTeacher(response.data.createdBy);
+      } catch (error) {
+        await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
+      }
+    },
+&nbsp;
+    isCurrentUserTheTeacher(teacher) {
+      this.userIsTeacher = this.$store.state.user.id === teacher;
+    },
+&nbsp;
+    countDate(givenDate) {
+      return dateSlicing(givenDate);
+    },
+  }
+  ,
+  created() {
+    this.getTopic(parseInt(this.$props.id));
+    this.getCourse(parseInt(this.$props.id));
+  }
 };
 &lt;/script&gt;
 &nbsp;</pre></td></tr></table></pre>
