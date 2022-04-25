@@ -31,7 +31,10 @@
       :name="comment.createdBy.name"
       :date="comment.createdAt"
       :content="comment.content"
-      :id="comment.id"
+      :contentId="comment.id"
+      :authorId="comment.createdBy.id"
+      :courseId="material.courseId"
+      :teacherId="teacherId"
     >
     </ListComment>
     </div>
@@ -49,6 +52,7 @@ import CreationLayout from "../../components/Layout/CreationLayout";
 import CreateComment from "../../components/CreateComment";
 import ListComment from "../../components/ListComment";
 import { getCourseMaterialById } from "../../../api/course/lessonMaterial";
+import { courseDetail } from "../../../api/course/detail";
 
 export default {
   name: "CourseMaterial",
@@ -61,6 +65,7 @@ export default {
   data() {
     return {
       material: {},
+      teacherId: String,
     }
   },
   methods: {
@@ -75,9 +80,20 @@ export default {
         await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
       }
     },
+    async getTeacher(courseId) {
+      try {
+        const response = await courseDetail(courseId);
+        if (response.data.createdBy){
+          this.teacherId = response.data.createdBy
+        }
+      } catch (error) {
+        await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
+      }
+    },
   },
   created() {
     this.getCourseMaterial();
+    this.getTeacher(this.$props.courseId);
   },
 }
 </script>
