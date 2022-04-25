@@ -85,7 +85,6 @@ export default {
         }
         this.material = response.data;
       } catch (error) {
-        console.log(error);
         await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
       }
     },
