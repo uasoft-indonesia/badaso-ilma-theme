@@ -168,7 +168,7 @@ export default {
           const fileUrlResponse = await uploadFile(this.file);
           if (fileUrlResponse.errorMessage) {
             throw fileUrlResponse.errorMessage;
-          }S
+          }
           this.form.file_url = fileUrlResponse.data;
         } else {
           this.form.file_url = "";
