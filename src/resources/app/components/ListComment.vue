@@ -22,7 +22,7 @@
         </template>
         <v-list>
           <v-list-item id="editForm" link @click="isEditing = true">
-            <v-list-item-title class="w-28 text-sm"> Edit </v-list-item-title>
+            <v-list-item-title v-if="this.isCurrentUserTheAuthor()" class="w-28 text-sm"> Edit </v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
@@ -98,6 +98,10 @@ export default {
       const userId = (this.$store.state.user.id === this.$props.authorId);
       const teacherId = (this.$store.state.user.id === this.$props.teacherId);
       return (userId || teacherId);
+    },
+    isCurrentUserTheAuthor(){
+      const userId = (this.$store.state.user.id === this.$props.authorId);
+      return userId;
     },
     async editComment() {
       if (this.isFormValid) {
