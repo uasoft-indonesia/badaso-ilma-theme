@@ -21,8 +21,17 @@
           </v-btn>
         </template>
         <v-list>
-          <v-list-item id="editForm" link @click="isEditing = true">
-            <v-list-item-title v-if="this.isCurrentUserTheAuthor()" class="w-28 text-sm"> Edit </v-list-item-title>
+          <v-list-item v-if="this.isCurrentUserTheAuthor()" id="editForm" link @click="isEditing = true">
+            <v-list-item-title  class="w-28 text-sm"> Edit </v-list-item-title>
+          </v-list-item>
+          <v-list-item
+            id="deleteComment"
+            link
+            @click="deleteComment"
+          >
+            <v-list-item-title class="w-28 text-sm text-error">
+              Delete
+            </v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
@@ -69,7 +78,7 @@
 
 <script>
 import { dateSlicing } from "../../api/utils/dateSlicing";
-import { editMaterialComment } from "../../api/course/materialComment";
+import { editMaterialComment, deleteMaterialComment } from "../../api/course/materialComment";
 
 export default {
   name: "ListComment",
@@ -118,6 +127,14 @@ export default {
           this.isEditing = false;
           this.$props.content = this.comment;
         }
+      }
+    },
+    async deleteComment() {
+      const { data, error, errorMessage } = await deleteMaterialComment(this.$props.contentId);
+      if (error) {
+        await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
+      } else {
+        location.reload();
       }
     },
   }
