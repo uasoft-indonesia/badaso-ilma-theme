@@ -70,6 +70,14 @@ class InertiaController extends Controller
         ], 'lms-theme::app');
     }
 
+    public function updateMaterial($id, $materialId)
+    {
+        return Inertia::render('course/EditCourseMaterial', [
+            'courseId' => $id,
+            'materialId' => $materialId,
+        ], 'lms-theme::app');
+    }
+
     public function pageNotFound()
     {
         return Inertia::render('404', [], 'lms-theme::app');
