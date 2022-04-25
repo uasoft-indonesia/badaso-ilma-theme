@@ -1,8 +1,10 @@
 export const dateSlicing = (givenDate) => {
   let dateString;
-  dateString = givenDate.slice(-1) === "Z"
-    ? givenDate
-    : `${givenDate}Z`;
+  if (givenDate) {
+    dateString = givenDate.slice(-1) === "Z"
+      ? givenDate
+      : `${givenDate}Z`;
+  }
   let date = new Date(dateString);
   date = date.toString().split(" ");
   return (
