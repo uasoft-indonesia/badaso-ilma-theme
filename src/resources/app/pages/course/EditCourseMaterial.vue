@@ -7,28 +7,28 @@
       <v-autocomplete
         id="drop-down"
         v-model="form.topic_id"
-        :items="items"
         label="Topic"
         outlined
+        required
+        :items="items"
         :item-text="getItemText"
         :item-value="getItemValue"
-        required
       ></v-autocomplete>
       <v-text-field
         id="title-form"
         label="Title"
+        v-model="form.title"
+        outlined
+        required
         :rules="fieldRules.concat(lengthRules)"
         :counter="255"
-        outlined
-        v-model="form.title"
-        required
       ></v-text-field>
       <v-textarea
         id="description"
         label="Description"
         placeholder="This material is about..."
-        outlined
         v-model="form.content"
+        outlined
         required
       ></v-textarea>
       <div class="flex">
@@ -38,11 +38,11 @@
         <v-file-input
           id="file-form"
           truncate-length="100"
-          outlined
           accept="image/png, image/jpeg, application/pdf, image/jpg"
           label="File"
           prepend-icon=""
           v-model="file"
+          outlined
         ></v-file-input>
       </div>
       <div class="flex">
@@ -52,8 +52,8 @@
         <v-text-field
           id="link-form"
           label="Link"
-          outlined
           v-model="form.link_url"
+          outlined
         ></v-text-field>
       </div>
     </v-form>
