@@ -6,12 +6,25 @@
     :contentId="this.$props.materialId"
     contentType="material"
   >
-    <div
-      id="description"
-      v-if="this.material.content"
-      class="text-base mb-9"
-    >
+    <div id="description" v-if="this.material.content" class="text-base mb-9">
       {{ this.material.content }}
+    </div>
+    <div
+      v-if="this.material.fileUrl"
+      class="flex flex-col justify-center items-center"
+    >
+      <embed :src="this.material.fileUrl" width="80%" height="500px" />
+      <a :href="this.material.fileUrl" target="_blank" class="mt-2 mb-10">
+        <v-btn color="primary">Download File</v-btn>
+      </a>
+    </div>
+    <div
+      v-if="this.material.linkUrl"
+      class="flex flex-col justify-center items-center"
+    >
+      <a :href="this.material.linkUrl" target="_blank" class="mt-2 mb-10">
+        {{ this.material.linkUrl }}
+      </a>
     </div>
     <div
       id="header-comment"
@@ -26,7 +39,7 @@
       </v-icon>
       <v-divider id="divider" color="#06BBD3" class="mb-4"></v-divider>
     </div>
-    <div v-for="comment in material.comments" v-bind:key="material.id">
+    <div v-for="comment in material.comments" v-bind:key="comment.id">
     <ListComment 
       :name="comment.createdBy.name"
       :date="comment.createdAt"
@@ -72,8 +85,8 @@ export default {
     async getCourseMaterial() {
       try {
         let response = await getCourseMaterialById(this.$props.materialId);
-        if (response.data.topic === null){
-          response.data.topic = {title: ''}
+        if (response.data.topic === null) {
+          response.data.topic = { title: "" };
         }
         this.material = response.data;
       } catch (error) {

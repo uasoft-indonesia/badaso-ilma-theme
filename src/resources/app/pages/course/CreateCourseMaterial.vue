@@ -134,11 +134,13 @@ export default {
     async postData() {
       this.isSubmitting = true;
       try {
-        const fileUrlResponse = await uploadFile(this.file);
-        if (fileUrlResponse.errorMessage) {
-          throw fileUrlResponse.errorMessage;
+        if (this.file) {
+          const fileUrlResponse = await uploadFile(this.file);
+          if (fileUrlResponse.errorMessage) {
+            throw fileUrlResponse.errorMessage;
+          }
+          this.form.file_url = fileUrlResponse.data;
         }
-        this.form.file_url = fileUrlResponse.data;
         const response = await createCourseMaterial(this.form);
         if (response.errorMessage) {
           throw response.errorMessage;
