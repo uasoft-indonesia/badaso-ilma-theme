@@ -1,111 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\CreateClassMaterial.spec.js">
-    <testCase name="CreateCourseMaterial when loaded should renders" duration="1622"/>
-  </file>
-  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\announcement\AnnouncementCard.spec.js">
-    <testCase name="AnnouncementCard when loaded and when no comment exist should renders" duration="1224"/>
-    <testCase name="AnnouncementCard when loaded and when comment exist comments should be rendered" duration="633"/>
-  </file>
-  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\classwork.spec.js">
-    <testCase name="ClassworkPage when loaded and current user is course creator should renders" duration="788"/>
-    <testCase name="ClassworkPage when loaded and current user is not course creator should renders" duration="130"/>
-    <testCase name="ClassworkPage when loaded and lesson material exists should renders" duration="162"/>
-    <testCase name="ClassworkPage when loaded and lesson material does not exist should renders" duration="102"/>
-    <testCase name="CreateTopic when loaded should renders" duration="268"/>
-    <testCase name="CreateTopic UpdateTopic when loaded should renders" duration="294"/>
-  </file>
-  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\announcement\AnnouncementContent.spec.js">
-    <testCase name="AnnouncementContent when loaded and when not editing and when announcement belong to current user should renders" duration="792"/>
-    <testCase name="AnnouncementContent when loaded and when not editing and when announcement is not belong to current user should renders" duration="164"/>
-    <testCase name="AnnouncementContent when loaded and when editing announcement should renders" duration="1550"/>
-    <testCase name="AnnouncementContent when loaded and when editing comment should renders" duration="305"/>
-  </file>
-  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\course\create.spec.js">
-    <testCase name="CreateCourse.vue should render correct forms" duration="884"/>
-    <testCase name="CreateCourse.vue when user is not authenticated should redirect to login page" duration="360"/>
-    <testCase name="CreateCourse.vue when user is authenticated should not redirect anywhere" duration="234"/>
-    <testCase name="CreateCourse.vue when all fields are filled form should be valid" duration="536"/>
-    <testCase name="CreateCourse.vue when submitted successfully should redirect to course page" duration="408"/>
-    <testCase name="CreateCourse.vue when submission is failed should display snackbar with error message" duration="327"/>
-    <testCase name="CreateCourse.vue when cancel button is clicked should redirect to home page" duration="231"/>
-  </file>
-  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\404.spec.js">
-    <testCase name="JoinCoursePage when loaded should renders" duration="467"/>
-  </file>
-  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\login.spec.js">
-    <testCase name="Login when loaded has all of the required elements" duration="1005"/>
-    <testCase name="Login when loaded test data input for login component" duration="370"/>
-  </file>
   <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\ListComment.spec.js">
-    <testCase name="ListComment when loaded and when comment exist should renders" duration="957"/>
+    <testCase name="ListComment when loaded and when comment exist should renders" duration="772"/>
   </file>
-  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\PeopleInCourse.spec.js">
-    <testCase name="PeopleInCourse when loaded should renders" duration="337"/>
-  </file>
-  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\register.spec.js">
-    <testCase name="Register when loaded has all of the required elements" duration="1165"/>
-    <testCase name="Register when sending request should show loading on button" duration="472"/>
-  </file>
-  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\ViewCourse.spec.js">
-    <testCase name="ViewCourse Component when loaded should renders" duration="570"/>
-    <testCase name="ViewCourse Component when user is not authenticated should redirect to login page" duration="160"/>
-    <testCase name="ViewCourse Component when user is authenticated should not redirect anywhere" duration="214"/>
-  </file>
-  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\announcement\CreateAnnouncement.spec.js">
-    <testCase name="CreateAnnouncement when loaded should renders" duration="525"/>
-    <testCase name="CreateAnnouncement when initial form is clicked should hide and load components" duration="298"/>
-  </file>
-  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\AddCourseCard.spec.js">
-    <testCase name="AddCourseCard Component when loaded should renders" duration="170"/>
-    <testCase name="AddCourseCard Component when create button clicked should redirect to create course page" duration="105"/>
-    <testCase name="AddCourseCard Component when join button clicked should redirect to join course page" duration="82"/>
-  </file>
-  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\CourseMaterial.spec.js">
-    <testCase name="CourseMaterial when loaded and description is NOT given should renders" duration="1134"/>
-    <testCase name="CourseMaterial when loaded and description is given should renders" duration="440"/>
-    <testCase name="CourseMaterial when loaded header comment is exist should renders" duration="289"/>
-  </file>
-  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\CreationLayout.spec.js">
-    <testCase name="CreationLayout when loaded and topic title and content type is NOT given should renders" duration="217"/>
-    <testCase name="CreationLayout when loaded and topic title and content type is given should renders" duration="151"/>
-  </file>
-  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\announcement\AnnouncementContainer.spec.js">
-    <testCase name="AnnouncementContainer when loaded should renders" duration="485"/>
-  </file>
-  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\CourseCard.spec.js">
-    <testCase name="CourseCard Component when loaded should renders" duration="272"/>
-    <testCase name="CourseCard Component when course card clicked should redirect to course page" duration="87"/>
-  </file>
-  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\announcement\AnnouncementPage.spec.js">
-    <testCase name="Announcement when loaded should renders" duration="910"/>
+  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\CreateClassMaterial.spec.js">
+    <testCase name="CreateCourseMaterial when loaded should renders" duration="2134"/>
   </file>
   <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\copyClassCode.spec.js">
-    <testCase name="Class Code Widget when loaded should renders" duration="668"/>
-    <testCase name="Class Code Widget When click should call function" duration="334"/>
+    <testCase name="Class Code Widget when loaded should renders" duration="1506"/>
+    <testCase name="Class Code Widget When click should call function" duration="643"/>
   </file>
-  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\JoinClass.spec.js">
-    <testCase name="JoinCoursePage when loaded should renders" duration="668"/>
+  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\CourseMaterial.spec.js">
+    <testCase name="CourseMaterial when loaded and description is NOT given should renders" duration="1643"/>
+    <testCase name="CourseMaterial when loaded and description is given should renders" duration="628"/>
+    <testCase name="CourseMaterial when loaded header comment is exist should renders" duration="419"/>
+  </file>
+  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\classwork.spec.js">
+    <testCase name="ClassworkPage when loaded and current user is course creator should renders" duration="1416"/>
+    <testCase name="ClassworkPage when loaded and current user is not course creator should renders" duration="258"/>
+    <testCase name="ClassworkPage when loaded and lesson material exists should renders" duration="277"/>
+    <testCase name="ClassworkPage when loaded and lesson material does not exist should renders" duration="136"/>
+    <testCase name="CreateTopic when loaded should renders" duration="319"/>
+    <testCase name="CreateTopic UpdateTopic when loaded should renders" duration="363"/>
+  </file>
+  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\announcement\AnnouncementContent.spec.js">
+    <testCase name="AnnouncementContent when loaded and when not editing and when announcement belong to current user should renders" duration="952"/>
+    <testCase name="AnnouncementContent when loaded and when not editing and when announcement is not belong to current user should renders" duration="402"/>
+    <testCase name="AnnouncementContent when loaded and when editing announcement should renders" duration="2093"/>
+    <testCase name="AnnouncementContent when loaded and when editing comment should renders" duration="448"/>
+  </file>
+  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\course\create.spec.js">
+    <testCase name="CreateCourse.vue should render correct forms" duration="1463"/>
+    <testCase name="CreateCourse.vue when user is not authenticated should redirect to login page" duration="684"/>
+    <testCase name="CreateCourse.vue when user is authenticated should not redirect anywhere" duration="437"/>
+    <testCase name="CreateCourse.vue when all fields are filled form should be valid" duration="651"/>
+    <testCase name="CreateCourse.vue when submitted successfully should redirect to course page" duration="547"/>
+    <testCase name="CreateCourse.vue when submission is failed should display snackbar with error message" duration="441"/>
+    <testCase name="CreateCourse.vue when cancel button is clicked should redirect to home page" duration="309"/>
+  </file>
+  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\login.spec.js">
+    <testCase name="Login when loaded has all of the required elements" duration="1377"/>
+    <testCase name="Login when loaded test data input for login component" duration="758"/>
+  </file>
+  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\announcement\AnnouncementPage.spec.js">
+    <testCase name="Announcement when loaded should renders" duration="665"/>
+  </file>
+  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\announcement\AnnouncementCard.spec.js">
+    <testCase name="AnnouncementCard when loaded and when no comment exist should renders" duration="866"/>
+    <testCase name="AnnouncementCard when loaded and when comment exist comments should be rendered" duration="798"/>
+  </file>
+  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\ViewCourse.spec.js">
+    <testCase name="ViewCourse Component when loaded should renders" duration="394"/>
+    <testCase name="ViewCourse Component when user is not authenticated should redirect to login page" duration="311"/>
+    <testCase name="ViewCourse Component when user is authenticated should not redirect anywhere" duration="248"/>
+  </file>
+  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\register.spec.js">
+    <testCase name="Register when loaded has all of the required elements" duration="918"/>
+    <testCase name="Register when sending request should show loading on button" duration="540"/>
   </file>
   <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\Sidebar.spec.js">
-    <testCase name="App Layout.vue should contains navigation drawer" duration="358"/>
-    <testCase name="App Layout.vue should contains user&apos;s name" duration="118"/>
-    <testCase name="App Layout.vue should fetch courses data" duration="104"/>
-    <testCase name="App Layout.vue should contains logout button" duration="130"/>
+    <testCase name="App Layout.vue should contains navigation drawer" duration="397"/>
+    <testCase name="App Layout.vue should contains user&apos;s name" duration="196"/>
+    <testCase name="App Layout.vue should fetch courses data" duration="105"/>
+    <testCase name="App Layout.vue should contains logout button" duration="274"/>
   </file>
-  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\example.spec.js">
-    <testCase name="displays message should renders" duration="259"/>
+  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\announcement\CreateAnnouncement.spec.js">
+    <testCase name="CreateAnnouncement when loaded should renders" duration="275"/>
+    <testCase name="CreateAnnouncement when initial form is clicked should hide and load components" duration="408"/>
+  </file>
+  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\PeopleInCourse.spec.js">
+    <testCase name="PeopleInCourse when loaded should renders" duration="605"/>
+  </file>
+  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\404.spec.js">
+    <testCase name="JoinCoursePage when loaded should renders" duration="239"/>
+  </file>
+  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\CreationLayout.spec.js">
+    <testCase name="CreationLayout when loaded and topic title and content type is NOT given should renders" duration="369"/>
+    <testCase name="CreationLayout when loaded and topic title and content type is given should renders" duration="355"/>
+  </file>
+  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\announcement\AnnouncementContainer.spec.js">
+    <testCase name="AnnouncementContainer when loaded should renders" duration="491"/>
+  </file>
+  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\JoinClass.spec.js">
+    <testCase name="JoinCoursePage when loaded should renders" duration="765"/>
+  </file>
+  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\Snackbar.spec.js">
+    <testCase name="App Layout.vue should contains snackbar component" duration="203"/>
+    <testCase name="App Layout.vue should contains snackbar content" duration="142"/>
+  </file>
+  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\CourseCard.spec.js">
+    <testCase name="CourseCard Component when loaded should renders" duration="447"/>
+    <testCase name="CourseCard Component when course card clicked should redirect to course page" duration="160"/>
+  </file>
+  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\AddCourseCard.spec.js">
+    <testCase name="AddCourseCard Component when loaded should renders" duration="277"/>
+    <testCase name="AddCourseCard Component when create button clicked should redirect to create course page" duration="253"/>
+    <testCase name="AddCourseCard Component when join button clicked should redirect to join course page" duration="137"/>
   </file>
   <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\notAuthenticated.spec.js">
-    <testCase name="Not Authenticated Guard when not authenticated should pass" duration="5"/>
+    <testCase name="Not Authenticated Guard when not authenticated should pass" duration="8"/>
     <testCase name="Not Authenticated Guard when authenticated should redirect to homepage" duration="1"/>
   </file>
   <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\AppLayout.spec.js">
-    <testCase name="AppLayout.vue should contains sidebar" duration="112"/>
-    <testCase name="AppLayout.vue should contains snackbar" duration="42"/>
+    <testCase name="AppLayout.vue should contains sidebar" duration="165"/>
+    <testCase name="AppLayout.vue should contains snackbar" duration="102"/>
   </file>
-  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\Snackbar.spec.js">
-    <testCase name="App Layout.vue should contains snackbar component" duration="117"/>
-    <testCase name="App Layout.vue should contains snackbar content" duration="58"/>
+  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\example.spec.js">
+    <testCase name="displays message should renders" duration="262"/>
   </file>
 </testExecutions>

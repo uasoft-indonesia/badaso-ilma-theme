@@ -30,7 +30,7 @@ describe("ListComment", () => {
 
                 await wrapper.setProps({
                     name: 'Human',
-                    date: 'Mon Mar 3 2020',
+                    date: '2022-04-21T20:20:28.000000Z',
                     content: 'Test',
                 })
 

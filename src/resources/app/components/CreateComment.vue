@@ -51,19 +51,11 @@ export default {
       isFormValid: false,
       commentRules: [(v) => (!!v || "Comment cannot be empty")],
       lengthRules: [(v) => (v.length <= 65535 || "Characters are off limit")],
-      snackbar: {
-        isVisible: false,
-        text: "",
-      },
     }
   },
   methods: {
     validate() {
       this.$refs.form.validate();
-    },
-    showSnackbar(text) {
-      this.snackbar.text = text;
-      this.snackbar.isVisible = true;
     },
     async postComment() {
       this.validate();
@@ -74,7 +66,7 @@ export default {
           });
 
           if (error) {
-            this.showSnackbar(errorMessage);
+            await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
           } else {
             this.$refs.form.reset();
             this.$props.getCourseMaterial();

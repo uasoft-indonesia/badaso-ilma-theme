@@ -9,7 +9,7 @@
           {{ name }}
         </div>
         <div id="date" class="text-sm text-textGray">
-          {{ commentDate }}
+          {{ countDate(date) }}
         </div>
       </div>
     </div>
@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import { dateSlicing } from "../../api/utils/dateSlicing";
+
 export default {
   name: "ListComment",
   props: [
@@ -28,21 +30,10 @@ export default {
     "date",
     "content",
   ],
-  data() {
-    return {
-      commentDate: this.dateSlicing(),
-    }
-  },
   methods: {
-    dateSlicing() {
-      let datestring;
-      datestring = this.$props.date;
-      let date = new Date(datestring);
-      date = date.toString().split(" ");
-      return (
-        date[0] + ", " + date[2] + " " + date[1] + " " + date[3] + " " + date[4]
-      );
+    countDate(givenDate) {
+      return dateSlicing(givenDate);
     },
-  },
+  }
 }
 </script>

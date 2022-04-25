@@ -15,12 +15,12 @@
     </div>
     <div
       id="header-comment"
-      class="text-black text-lg font-medium"
+      class="text-primary text-lg font-medium"
     >
       Comments 
       <v-icon
         id="icon-comment"
-        color="black"
+        color="primary"
       >
         mdi-forum
       </v-icon>
