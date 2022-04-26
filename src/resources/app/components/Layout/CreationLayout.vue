@@ -32,7 +32,7 @@
           </div>
           <v-menu
             id="menu"
-            v-if="contentType"
+            v-if="this.isCurrentUserTheTeacher()"
             bottom
             rights
           >
@@ -78,6 +78,7 @@ export default {
     topicTitle: String,
     contentType: String,
     contentId: String,
+    teacherId: String
   },
   name: "CreationLayout",
   methods: {
@@ -96,7 +97,11 @@ export default {
         console.log(error);
         await this.$store.dispatch("OPEN_SNACKBAR", "Error deleting data");
       }
-    }
-  }
+    },
+    isCurrentUserTheTeacher() {
+      const teacherId = (this.$store.state.user.id === this.$props.teacherId);
+      return teacherId && this.$props.contentType;
+    },
+  },
 }
 </script>

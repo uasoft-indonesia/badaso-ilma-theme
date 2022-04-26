@@ -4,6 +4,7 @@
     :pageTitle="this.material.title"
     :topicTitle="this.material.topic.title"
     :contentId="this.$props.materialId"
+    :teacherId="this.teacherId"
     contentType="material"
   >
     <div id="description" v-if="this.material.content" class="text-base mb-9">
