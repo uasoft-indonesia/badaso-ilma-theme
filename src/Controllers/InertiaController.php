@@ -7,87 +7,87 @@ use Inertia\Inertia;
 
 class InertiaController extends Controller
 {
-    public function joinCourse()
-    {
-        return Inertia::render('JoinCourse', [], 'lms-theme::app');
-    }
+  public function joinCourse()
+  {
+    return Inertia::render('JoinCourse', [], 'lms-theme::app');
+  }
 
-    public function classwork($id)
-    {
-        return Inertia::render('ClassworkPage', ['id' => $id], 'lms-theme::app');
-    }
+  public function classwork($id)
+  {
+    return Inertia::render('ClassworkPage', ['id' => $id], 'lms-theme::app');
+  }
 
-    public function createTopic($id)
-    {
-        return Inertia::render('CreateTopic', ['id' => $id], 'lms-theme::app');
-    }
+  public function createTopic($id)
+  {
+    return Inertia::render('CreateTopic', ['id' => $id], 'lms-theme::app');
+  }
 
-    public function updateTopic($id, $topicId)
-    {
-        return Inertia::render('UpdateTopic', ['id' => $id, 'topicId' => $topicId], 'lms-theme::app');
-    }
+  public function updateTopic($id, $topicId)
+  {
+    return Inertia::render('UpdateTopic', ['id' => $id, 'topicId' => $topicId], 'lms-theme::app');
+  }
 
-    public function people($id)
-    {
-        return Inertia::render('PeopleInCourse', ['id' => $id], 'lms-theme::app');
-    }
+  public function people($id)
+  {
+    return Inertia::render('PeopleInCourse', ['id' => $id], 'lms-theme::app');
+  }
 
-    public function register()
-    {
-        return Inertia::render('register', [], 'lms-theme::app');
-    }
+  public function register()
+  {
+    return Inertia::render('register', [], 'lms-theme::app');
+  }
 
-    public function view()
-    {
-        return Inertia::render('ViewCourse', [], 'lms-theme::app');
-    }
+  public function view()
+  {
+    return Inertia::render('ViewCourse', [], 'lms-theme::app');
+  }
 
-    public function login()
-    {
-        return Inertia::render('login', [], 'lms-theme:app');
-    }
+  public function login()
+  {
+    return Inertia::render('login', [], 'lms-theme:app');
+  }
 
-    public function createCourse()
-    {
-        return Inertia::render('course/CreateCourse', [], 'lms-theme::app');
-    }
+  public function createCourse()
+  {
+    return Inertia::render('course/CreateCourse', [], 'lms-theme::app');
+  }
 
-    public function announcement($id)
-    {
-        return Inertia::render('course/Announcement', ['id' => $id], 'lms-theme::app');
-    }
+  public function announcement($id)
+  {
+    return Inertia::render('course/Announcement', ['id' => $id], 'lms-theme::app');
+  }
 
-    public function createMaterial($id)
-    {
-        return Inertia::render('course/CreateCourseMaterial', ['id' => $id], 'lms-theme::app');
-    }
+  public function createMaterial($id)
+  {
+    return Inertia::render('course/CreateCourseMaterial', ['id' => $id], 'lms-theme::app');
+  }
 
-    public function lessonMaterial($id, $materialId)
-    {
-        return Inertia::render('course/CourseMaterial', [
-            'courseId' => $id,
-            'materialId' => $materialId,
-        ], 'lms-theme::app');
-    }
+  public function lessonMaterial($id, $materialId)
+  {
+    return Inertia::render('course/CourseMaterial', [
+      'courseId' => $id,
+      'materialId' => $materialId,
+    ], 'lms-theme::app');
+  }
 
-    public function updateMaterial($id, $materialId)
-    {
-        return Inertia::render('course/EditCourseMaterial', [
-            'courseId' => $id,
-            'materialId' => $materialId,
-        ], 'lms-theme::app');
-    }
+  public function updateMaterial($id, $materialId)
+  {
+    return Inertia::render('course/EditCourseMaterial', [
+      'courseId' => $id,
+      'materialId' => $materialId,
+    ], 'lms-theme::app');
+  }
 
-    public function assignment($id, $assignmentId)
-    {
-      return Inertia::render('course/Assignment', [
-        'courseId' => $id,
-        'assignmentId' => $assignmentId,
-      ], 'lms-theme:app');
-    }
+  public function assignment($id, $assignmentId)
+  {
+    return Inertia::render('course/Assignment', [
+      'courseId' => $id,
+      'assignmentId' => $assignmentId,
+    ], 'lms-theme:app');
+  }
 
-    public function pageNotFound()
-    {
-        return Inertia::render('404', [], 'lms-theme::app');
-    }
+  public function pageNotFound()
+  {
+    return Inertia::render('404', [], 'lms-theme::app');
+  }
 }
