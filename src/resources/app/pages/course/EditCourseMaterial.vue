@@ -1,34 +1,35 @@
 <template>
   <CreationLayout
-    :courseId="this.$props.id"
-    pageTitle="Create Material"
+    :courseId="this.$props.courseId"
+    :contentId="this.$props.materialId"
+    pageTitle="Update Material"
   >
     <v-form ref="form" v-model="isValid">
       <v-autocomplete
         id="drop-down"
         v-model="form.topic_id"
-        :items="items"
         label="Topic"
         outlined
+        required
+        :items="items"
         :item-text="getItemText"
         :item-value="getItemValue"
-        required
       ></v-autocomplete>
       <v-text-field
         id="title-form"
         label="Title"
+        v-model="form.title"
+        outlined
+        required
         :rules="fieldRules.concat(lengthRules)"
         :counter="255"
-        outlined
-        v-model="form.title"
-        required
       ></v-text-field>
       <v-textarea
         id="description"
         label="Description"
         placeholder="This material is about..."
-        outlined
         v-model="form.content"
+        outlined
         required
       ></v-textarea>
       <div class="flex">
@@ -38,11 +39,12 @@
         <v-file-input
           id="file-form"
           truncate-length="100"
-          outlined
           accept="image/png, image/jpeg, application/pdf, image/jpg"
           label="File"
           prepend-icon=""
           v-model="file"
+          outlined
+          @change="setFileChanged"
         ></v-file-input>
       </div>
       <div class="flex">
@@ -52,8 +54,8 @@
         <v-text-field
           id="link-form"
           label="Link"
-          outlined
           v-model="form.link_url"
+          outlined
         ></v-text-field>
       </div>
     </v-form>
@@ -67,7 +69,7 @@
         Cancel
       </v-btn>
       <v-btn
-        id="create-button"
+        id="update-button"
         class="ml-4"
         color="primary"
         elevation="0"
@@ -75,7 +77,7 @@
         :disabled="!isValid"
         :loading="isSubmitting"
       >
-        Create
+        Update
       </v-btn>
     </div>
   </CreationLayout>
@@ -85,14 +87,15 @@
 import AppLayout from "../../components/Layout/AppLayout";
 import CreationLayout from "../../components/Layout/CreationLayout";
 import { getTopicAPI } from "../../../api/topic";
-import { createCourseMaterial, uploadFile } from "../../../api/course/lessonMaterial";
+import { updateCourseMaterialById, uploadFile, getCourseMaterialById } from "../../../api/course/lessonMaterial";
 import { courseDetail } from "../../../api/course/detail";
 
 export default {
   components: {CreationLayout},
   layout: [AppLayout],
   props: {
-    id: String,
+    courseId: String,
+    materialId: String,
   },
   name: "CreateCourseMaterial",
   data() {
@@ -106,15 +109,17 @@ export default {
       lengthRules: [(v) => (v.length <= 255 || "Characters are off limit")],
       isValid: false,
       isSubmitting: false,
+      fileChanged: false,
       file: null,
       form: {
-        topic_id: '',
-        title: '',
-        content: '',
-        file_url: '',
-        link_url: '',
-        course_id: this.$props.id,
+        topic_id: "",
+        title: "",
+        content: "",
+        file_url: "",
+        link_url: "",
+        course_id: this.$props.courseId,
       },
+      currentMaterial: {}
     };
   },
   methods: {
@@ -124,28 +129,55 @@ export default {
     async getTopic() {
       this.isSubmitting = true;
       try {
-        const response = await getTopicAPI(this.$props.id);
+        const response = await getTopicAPI(this.$props.courseId);
         this.items = response.data;
       } catch (error) {
         await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
       }
       this.isSubmitting = false;
     },
+     async getCourseMaterial() {
+      try {
+        let response = await getCourseMaterialById(this.$props.materialId);
+        if (response.data.topic === null) {
+          response.data.topic = { title: "" };
+        }
+        this.currentMaterial = response.data;
+        this.form.content = response.data.content;
+        this.form.title = response.data.title;
+        this.form.topic_id = response.data.topic.id;
+        this.form.link_url = response.data.linkUrl ?? "";
+        if (response.data.fileUrl) {
+          const filename = response.data.fileUrl.split("files/")[1];
+          const fileResponse = await fetch(response.data.fileUrl);
+          const blob = fileResponse.blob();
+          const file = new File([blob], filename, { type: 'application/pdf' });
+          this.file = file;
+        }
+      } catch (error) {
+        await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
+      }
+    },
     async postData() {
       this.isSubmitting = true;
       try {
-        if (this.file) {
+        if (!this.fileChanged) {
+          this.form.file_url = this.currentMaterial.fileUrl;
+        }
+        else if (this.file) {
           const fileUrlResponse = await uploadFile(this.file);
           if (fileUrlResponse.errorMessage) {
             throw fileUrlResponse.errorMessage;
           }
           this.form.file_url = fileUrlResponse.data;
+        } else {
+          this.form.file_url = "";
         }
-        const response = await createCourseMaterial(this.form);
+        const response = await updateCourseMaterialById(this.$props.materialId, this.form);
         if (response.errorMessage) {
           throw response.errorMessage;
         }
-        this.$inertia.visit(`/course/${this.$props.id}/classwork`);
+        this.redirectBackToClasswork()
       } catch (error) {
         await this.$store.dispatch("OPEN_SNACKBAR", "Error uploading data");
       }
@@ -154,7 +186,7 @@ export default {
     async checkTeacher(courseId) {
       try {
         const response = await courseDetail(courseId);
-        if (response.data.createdBy !== this.$store.state.user.id){
+        if (response.data.createdBy !== this.$store.state.user.id) {
           this.$inertia.visit("/404");
         }
       } catch (error) {
@@ -162,7 +194,7 @@ export default {
       }
     },
     redirectBackToClasswork() {
-      this.$inertia.visit(`/course/${this.$props.id}/classwork`);
+      this.$inertia.visit(`/course/${this.$props.courseId}/classwork/material/${this.$props.materialId}`);
     },
     showSnackbar(text) {
       this.snackbar.text = text;
@@ -174,10 +206,14 @@ export default {
     getItemText(item) {
       return item.title;
     },
+    setFileChanged() {
+      this.fileChanged = true
+    }
   },
   mounted() {
+    this.checkTeacher(this.$props.courseId);
+    this.getCourseMaterial();
     this.getTopic();
-    this.checkTeacher(this.$props.id);
   },
 };
 </script>

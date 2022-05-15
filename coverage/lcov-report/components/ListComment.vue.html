@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/Snackbar.vue</title>
+    <title>Code coverage report for components/ListComment.vue</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> Snackbar.vue</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> ListComment.vue</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/4</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/4</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/4</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -98,15 +98,11 @@
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">42x</span>
-=======
-<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">45x</span>
->>>>>>> e9956af18b4c6271de22379dc80b46342c70df93
-=======
-<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">48x</span>
->>>>>>> 72461d0c5ba09e691c8fdbed8f52bcaaa0dddd06
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -128,53 +124,61 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;v-snackbar :value="getIsVisible" top class="snackbar"&gt;
-    &lt;span id="snackbar-content"&gt;{{ getContent }}&lt;/span&gt;
-    &lt;template v-slot:action="{ attrs }"&gt;
-      &lt;v-btn
-        color="blue"
-        text
-        v-bind="attrs"
-        @click="close"
-        id="snackbar-close-btn"
-      &gt;
-        Close
-      &lt;/v-btn&gt;
-    &lt;/template&gt;
-  &lt;/v-snackbar&gt;
+  &lt;v-card 
+    flat
+  &gt;
+    &lt;div class="d-flex"&gt;
+      &lt;v-avatar class="bg-primary mr-4" id="avatar" size="40"&gt;&lt;/v-avatar&gt;
+      &lt;div&gt;
+        &lt;div id="author"&gt;
+          {{ name }}
+        &lt;/div&gt;
+        &lt;div id="date" class="text-sm text-textGray"&gt;
+          {{ countDate(date) }}
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id="content" class="ms-14 mt-1"&gt;
+      {{ content }}
+    &lt;/div&gt;
+    &lt;v-divider id="divider" color="#CECECE" class="my-2"&gt;&lt;/v-divider&gt;
+  &lt;/v-card&gt;
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
+import { dateSlicing } from "../../api/utils/dateSlicing";
+&nbsp;
 export default {
-  name: "Snackbar",
-  computed: {
-    getIsVisible() {
-      return this.$store.state.snackbar.isVisible;
-    },
-    getContent() {
-      return this.$store.state.snackbar.content;
-    },
-  },
+  name: "ListComment",
+  props: [
+    "name",
+    "date",
+    "content",
+  ],
   methods: {
-<span class="fstat-no" title="function not covered" >    close() {</span>
-<span class="cstat-no" title="statement not covered" >      commit("SET_SNACKBAR", { content, isVisible: false });</span>
+    countDate(givenDate) {
+      return dateSlicing(givenDate);
     },
-  },
-};
+  }
+}
 &lt;/script&gt;
 &nbsp;</pre></td></tr></table></pre>
 
@@ -183,15 +187,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                at Tue Apr 19 2022 09:07:04 GMT+0700 (Western Indonesia Time)
-=======
-                at Sat Apr 23 2022 08:38:14 GMT+0700 (Western Indonesia Time)
->>>>>>> e9956af18b4c6271de22379dc80b46342c70df93
-=======
                 at Tue Apr 26 2022 04:49:37 GMT+0700 (Western Indonesia Time)
->>>>>>> 72461d0c5ba09e691c8fdbed8f52bcaaa0dddd06
             </div>
         <script src="../prettify.js"></script>
         <script>

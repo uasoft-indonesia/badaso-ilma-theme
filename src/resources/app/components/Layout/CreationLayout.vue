@@ -32,7 +32,7 @@
           </div>
           <v-menu
             id="menu"
-            v-if="contentType"
+            v-if="this.isCurrentUserTheTeacher()"
             bottom
             rights
           >
@@ -46,12 +46,12 @@
               </v-btn>
             </template>
             <v-list>
-              <v-list-item link>
+              <v-list-item link @click="redirectToEditCourseMaterial">
                 <v-list-item-title class="w-28 text-sm">
                   Edit
                 </v-list-item-title>
               </v-list-item>
-              <v-list-item link>
+              <v-list-item link @click="deleteCourseMaterial">
                 <v-list-item-title class="w-28 text-sm text-error">
                   Delete
                 </v-list-item-title>
@@ -68,6 +68,7 @@
 
 <script>
 import AppLayout from "./AppLayout";
+import { deleteCourseMaterialById } from '../../../api/course/lessonMaterial'
 
 export default {
   layout: [AppLayout],
@@ -77,12 +78,30 @@ export default {
     topicTitle: String,
     contentType: String,
     contentId: String,
+    teacherId: String
   },
   name: "CreationLayout",
   methods: {
     redirectBackToClasswork() {
       this.$inertia.visit(`/course/${this.$props.courseId}/classwork`);
     },
-  }
+    redirectToEditCourseMaterial() {
+      this.$inertia.visit(`/course/${this.$props.courseId}/classwork/material/${this.$props.contentId}/update`);
+    },
+    async deleteCourseMaterial() {
+      this.$store.dispatch("OPEN_SNACKBAR", "Deleting lesson material")
+      try {
+        await deleteCourseMaterialById(this.$props.contentId);
+        this.redirectBackToClasswork();
+      } catch (error) {
+        console.log(error);
+        await this.$store.dispatch("OPEN_SNACKBAR", "Error deleting data");
+      }
+    },
+    isCurrentUserTheTeacher() {
+      const teacherId = (this.$store.state.user.id === this.$props.teacherId);
+      return teacherId && this.$props.contentType;
+    },
+  },
 }
 </script>
