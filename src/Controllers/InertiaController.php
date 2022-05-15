@@ -81,8 +81,8 @@ class InertiaController extends Controller
     public function assignment($id, $assignmentId)
     {
         return Inertia::render('course/Assignment', [
-          'courseId' => $id,
-          'assignmentId' => $assignmentId,
+            'courseId' => $id,
+            'assignmentId' => $assignmentId,
         ], 'lms-theme:app');
     }
 
