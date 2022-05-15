@@ -49,9 +49,7 @@
         class="ml-4"
         color="primary"
         elevation="0"
-        @click="postData"
         :disabled="!isValid"
-        :loading="isSubmitting"
       >
         Save
       </v-btn>
@@ -72,6 +70,7 @@ export default {
   data(){
     return {
       isValid: false,
+      file: null,
       items: [],
       form: {
         file_url: '',
@@ -80,6 +79,9 @@ export default {
     }
   },
   methods: {
+    redirectBackToClasswork() {
+      this.$inertia.visit(`/course/${this.$props.courseId}/classwork`);
+    },
     getItemValue(item) {
       return item.id;
     },
