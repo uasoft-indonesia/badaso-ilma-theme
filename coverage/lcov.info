@@ -103,15 +103,7 @@ FN:1,(anonymous_0)
 FNF:1
 FNH:1
 FNDA:10,(anonymous_0)
-<<<<<<< HEAD
-<<<<<<< HEAD
-DA:1,56
-=======
-DA:1,59
->>>>>>> e9956af18b4c6271de22379dc80b46342c70df93
-=======
 DA:1,62
->>>>>>> 72461d0c5ba09e691c8fdbed8f52bcaaa0dddd06
 LF:1
 LH:1
 BRDA:1,0,0,1
@@ -131,15 +123,7 @@ FNDA:2,getIsVisible
 FNDA:2,getContent
 FNDA:0,close
 FNDA:2,(anonymous_3)
-<<<<<<< HEAD
-<<<<<<< HEAD
-DA:1,42
-=======
-DA:1,45
->>>>>>> e9956af18b4c6271de22379dc80b46342c70df93
-=======
 DA:1,48
->>>>>>> 72461d0c5ba09e691c8fdbed8f52bcaaa0dddd06
 DA:23,2
 DA:26,2
 DA:31,0
@@ -166,15 +150,7 @@ FN:1,(anonymous_0)
 FNF:1
 FNH:1
 FNDA:2,(anonymous_0)
-<<<<<<< HEAD
-<<<<<<< HEAD
-DA:1,39
-=======
-DA:1,42
->>>>>>> e9956af18b4c6271de22379dc80b46342c70df93
-=======
 DA:1,45
->>>>>>> 72461d0c5ba09e691c8fdbed8f52bcaaa0dddd06
 LF:1
 LH:1
 BRF:0
@@ -212,54 +188,7 @@ BRF:1
 BRH:1
 end_of_record
 TN:
-<<<<<<< HEAD
-<<<<<<< HEAD
-SF:src/resources/app/pages/Classwork.vue
-FN:85,data
-FN:92,redirectToCreateTopic
-FN:96,redirectToUpdateTopic
-FN:100,redirectToCreateMaterial
-FN:104,deleteTopic
-FN:112,getTopic
-FN:124,mounted
-FN:127,created
-FN:1,(anonymous_10)
-FNF:9
-FNH:0
-FNDA:0,data
-FNDA:0,redirectToCreateTopic
-FNDA:0,redirectToUpdateTopic
-FNDA:0,redirectToCreateMaterial
-FNDA:0,deleteTopic
-FNDA:0,getTopic
-FNDA:0,mounted
-FNDA:0,created
-FNDA:0,(anonymous_10)
-DA:1,0
-DA:86,0
-DA:93,0
-DA:97,0
-DA:101,0
-DA:112,0
-DA:114,0
-DA:115,0
-DA:116,0
-DA:117,0
-DA:125,0
-DA:128,0
-LF:12
-LH:0
-BRDA:112,0,0,0
-BRDA:112,0,1,0
-BRDA:112,0,2,0
-BRDA:112,0,3,0
-BRDA:112,0,4,0
-BRF:5
-=======
-SF:src/resources/app/pages/404.vue
-=======
 SF:src\resources\app\pages\404.vue
->>>>>>> 72461d0c5ba09e691c8fdbed8f52bcaaa0dddd06
 FN:1,(anonymous_0)
 FNF:1
 FNH:1
@@ -268,7 +197,6 @@ DA:1,6
 LF:1
 LH:1
 BRF:0
->>>>>>> e9956af18b4c6271de22379dc80b46342c70df93
 BRH:0
 end_of_record
 TN:
@@ -276,14 +204,6 @@ SF:src\resources\app\pages\ClassworkPage.vue
 FN:1,(anonymous_0)
 FNF:1
 FNH:1
-<<<<<<< HEAD
-FNDA:2,(anonymous_0)
-DA:1,9
-LF:1
-LH:1
-BRF:0
-BRH:0
-=======
 FNDA:10,(anonymous_0)
 DA:1,28
 LF:1
@@ -292,7 +212,6 @@ BRDA:1,0,0,1
 BRDA:1,0,1,8
 BRF:2
 BRH:2
->>>>>>> e9956af18b4c6271de22379dc80b46342c70df93
 end_of_record
 TN:
 SF:src\resources\app\pages\CreateTopic.vue

@@ -32,11 +32,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-<<<<<<< HEAD
-                <span class='fraction'>0/0</span>
-=======
                 <span class='fraction'>2/2</span>
->>>>>>> e9956af18b4c6271de22379dc80b46342c70df93
             </div>
         
             
@@ -184,9 +180,6 @@
 <a name='L115'></a><a href='#L115'>115</a>
 <a name='L116'></a><a href='#L116'>116</a>
 <a name='L117'></a><a href='#L117'>117</a>
-<<<<<<< HEAD
-<a name='L118'></a><a href='#L118'>118</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">9x</span>
-=======
 <a name='L118'></a><a href='#L118'>118</a>
 <a name='L119'></a><a href='#L119'>119</a>
 <a name='L120'></a><a href='#L120'>120</a>
@@ -344,7 +337,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
->>>>>>> e9956af18b4c6271de22379dc80b46342c70df93
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -464,11 +456,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
   &lt;v-container&gt;
     &lt;div class="my-10 mx-10"&gt;
-<<<<<<< HEAD
-      &lt;v-menu&gt;
-        &lt;template v-slot:activator="{ on, attrs }"&gt;
-          &lt;v-btn color="primary" dark v-bind="attrs" v-on="on" id="create-button"&gt;
-=======
       &lt;v-menu v-if="this.userIsTeacher"&gt;
         &lt;template v-slot:activator="{ on, attrs }"&gt;
           &lt;v-btn
@@ -479,7 +466,6 @@
             v-on="on"
             id="create-button"
           &gt;
->>>>>>> e9956af18b4c6271de22379dc80b46342c70df93
             + Create
           &lt;/v-btn&gt;
         &lt;/template&gt;
@@ -495,15 +481,6 @@
             &lt;/v-btn&gt;
           &lt;/v-list-item&gt;
           &lt;v-list-item&gt;
-<<<<<<< HEAD
-            &lt;v-btn block class="mt-1" elevation="0"&gt; Material &lt;/v-btn&gt;
-          &lt;/v-list-item&gt;
-          &lt;v-list-item&gt;
-            &lt;v-btn block class="mt-1" elevation="0"&gt; Assignment &lt;/v-btn&gt;
-          &lt;/v-list-item&gt;
-          &lt;v-list-item&gt;
-            &lt;v-btn block class="mt-1" elevation="0"&gt; Quiz &lt;/v-btn&gt;
-=======
             &lt;v-btn
               block
               class="mt-1"
@@ -518,43 +495,10 @@
           &lt;/v-list-item&gt;
           &lt;v-list-item&gt;
             &lt;v-btn block class="mt-1" elevation="0"&gt; Quiz&lt;/v-btn&gt;
->>>>>>> e9956af18b4c6271de22379dc80b46342c70df93
           &lt;/v-list-item&gt;
         &lt;/v-list&gt;
       &lt;/v-menu&gt;
       &lt;div id="title" v-for="topic in topics" v-bind:key="topic.id"&gt;
-<<<<<<< HEAD
-        &lt;v-row class="text-primary text-lg my-4"&gt;
-          &lt;div class="flex justify-between"&gt;
-          {{ topic.title }}
-          &lt;v-menu&gt;
-            &lt;template v-slot:activator="{ on, attrs }"&gt;
-              &lt;v-btn icon v-bind="attrs" v-on="on"&gt;
-                &lt;v-icon&gt;mdi-dots-vertical&lt;/v-icon&gt;
-              &lt;/v-btn&gt;
-            &lt;/template&gt;
-            &lt;v-list&gt;
-              &lt;v-list-item&gt;
-                &lt;v-btn
-                  block
-                  class="mt-1"
-                  elevation="0"
-                  @click="redirectToUpdateTopic(topic.courseId, topic.id)"
-                &gt;
-                  Update
-                &lt;/v-btn&gt;
-              &lt;/v-list-item&gt;
-              &lt;v-list-item&gt;
-                &lt;v-btn block class="mt-1" elevation="0" @click="deleteTopic(topic.id)"&gt; Delete &lt;/v-btn&gt;
-              &lt;/v-list-item&gt;
-            &lt;/v-list&gt;
-          &lt;/v-menu&gt;
-          &lt;/div&gt;
-        &lt;/v-row&gt;
-        &lt;v-row&gt;
-          &lt;v-divider&gt;&lt;/v-divider&gt;
-        &lt;/v-row&gt;
-=======
         &lt;div class="mb-16"&gt;
           &lt;div class="text-primary text-lg my-4"&gt;
             &lt;div
@@ -618,7 +562,6 @@
             &lt;v-divider&gt;&lt;/v-divider&gt;
           &lt;/div&gt;
         &lt;/div&gt;
->>>>>>> e9956af18b4c6271de22379dc80b46342c70df93
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/v-container&gt;
@@ -627,13 +570,9 @@
 &nbsp;
 import CourseStream from "./courseStream.vue";
 import AppLayout from "../components/Layout/AppLayout.vue";
-<<<<<<< HEAD
-import { getTopicAPI, deleteTopicAPI } from "../../api/topic";
-=======
 import {getTopicAPI, deleteTopicAPI} from "../../api/topic";
 import {courseDetail} from "../../api/course/detail";
 import {dateSlicing} from "../../api/utils/dateSlicing";
->>>>>>> e9956af18b4c6271de22379dc80b46342c70df93
 &nbsp;
 export default {
   layout: [AppLayout, CourseStream],
@@ -642,14 +581,9 @@ export default {
   },
   data() {
     return {
-<<<<<<< HEAD
-      topics: [
-      ],
-=======
       topics: [],
       course: {},
       userIsTeacher: false,
->>>>>>> e9956af18b4c6271de22379dc80b46342c70df93
     };
   },
   methods: {
@@ -661,8 +595,6 @@ export default {
       this.$inertia.visit(`/course/${courseId}/classwork/update/${topicId}`);
     },
 &nbsp;
-<<<<<<< HEAD
-=======
     redirectToCreateMaterial(id) {
       this.$inertia.visit(`/course/${id}/classwork/create/material`);
     },
@@ -671,7 +603,6 @@ export default {
       this.$inertia.visit(`/course/${id}/classwork/material/${materialId}`);
     },
 &nbsp;
->>>>>>> e9956af18b4c6271de22379dc80b46342c70df93
     async deleteTopic(topicId) {
       try {
         const response = await deleteTopicAPI(topicId);
@@ -681,21 +612,6 @@ export default {
     },
 &nbsp;
     async getTopic(courseId) {
-<<<<<<< HEAD
-      try {
-        const response = await getTopicAPI(courseId);
-        this.topics = response.data;
-        for (let i=0; i&lt;topics.length; i++) {
-          topics[i].push({courseId: this.$props.id})
-        }
-      } catch (error) {
-      }
-    }
-&nbsp;
-  },
-  created() {
-    this.getTopic(parseInt(this.$props.id));
-=======
       const response = await getTopicAPI(courseId);
       if (response.error) {
         await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
@@ -729,7 +645,6 @@ export default {
   created() {
     this.getTopic(parseInt(this.$props.id));
     this.getCourse(parseInt(this.$props.id));
->>>>>>> e9956af18b4c6271de22379dc80b46342c70df93
   }
 };
 &lt;/script&gt;
@@ -740,15 +655,7 @@ export default {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                at Tue Apr 19 2022 09:07:04 GMT+0700 (Western Indonesia Time)
-=======
-                at Sat Apr 23 2022 08:38:14 GMT+0700 (Western Indonesia Time)
->>>>>>> e9956af18b4c6271de22379dc80b46342c70df93
-=======
                 at Tue Apr 26 2022 04:49:37 GMT+0700 (Western Indonesia Time)
->>>>>>> 72461d0c5ba09e691c8fdbed8f52bcaaa0dddd06
             </div>
         <script src="../prettify.js"></script>
         <script>
