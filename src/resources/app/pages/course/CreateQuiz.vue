@@ -179,8 +179,8 @@ export default {
       const duration = this.duration.split(":");
       const hours = parseInt(duration[0]) * 3600;
       const minutes = parseInt(duration[1]) * 60;
-      this.form.start_time = new Date(this.start_time).toISOString();
-      this.form.end_time = new Date(this.end_time).toISOString();
+      this.form.start_time = new Date(this.start_time).toISOString().slice(0,-5) + "Z";
+      this.form.end_time = new Date(this.end_time).toISOString().slice(0,-5) + "Z";
       this.form.duration = hours + minutes;
     },
     async postData() {
