@@ -87,4 +87,12 @@ class InertiaController extends Controller
     {
         return Inertia::render('course/CreateQuiz', ['id' => $id], 'lms-theme::app');
     }
+
+    public function quiz($id, $quizId)
+    {
+        return Inertia::render('course/Quiz', [
+            'courseId' => $id,
+            'quizId' => $quizId,
+        ], 'lms-theme::app');
+    }
 }

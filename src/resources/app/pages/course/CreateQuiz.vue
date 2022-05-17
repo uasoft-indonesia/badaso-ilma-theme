@@ -134,7 +134,7 @@
 import AppLayout from "../../components/Layout/AppLayout";
 import CreationLayout from "../../components/Layout/CreationLayout";
 import { getTopicAPI } from "../../../api/topic";
-import { createQuiz } from "../../../api/course/quia";
+import { createQuiz } from "../../../api/course/quiz";
 import { courseDetail } from "../../../api/course/detail";
 
 export default {
