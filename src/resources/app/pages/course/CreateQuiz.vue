@@ -1,8 +1,5 @@
 <template>
-  <CreationLayout
-    :courseId="this.$props.id"
-    pageTitle="Create Quiz"
-  >
+  <CreationLayout :courseId="this.$props.id" pageTitle="Create Quiz">
     <v-form ref="form" v-model="isValid">
       <v-autocomplete
         id="drop-down"
@@ -32,10 +29,7 @@
         required
       ></v-textarea>
       <v-row justify="space-between">
-        <v-col
-          cols="12"
-          sm="6"
-        >
+        <v-col cols="12" sm="6">
           <v-text-field
             id="start-time-form"
             label="Start Time"
@@ -46,10 +40,7 @@
             required
           ></v-text-field>
         </v-col>
-        <v-col
-          cols="12"
-          sm="6"
-        >
+        <v-col cols="12" sm="6">
           <v-text-field
             id="end-time-form"
             label="End Time"
@@ -62,10 +53,7 @@
         </v-col>
       </v-row>
       <v-row justify="space-between">
-        <v-col
-          cols="12"
-          sm="6"
-        >
+        <v-col cols="12" sm="6">
           <v-text-field
             id="duration-form"
             label="Duration"
@@ -77,10 +65,7 @@
             required
           ></v-text-field>
         </v-col>
-        <v-col
-          cols="12"
-          sm="6"
-        >
+        <v-col cols="12" sm="6">
           <v-text-field
             id="max-point-form"
             label="Max Point"
@@ -134,7 +119,7 @@
 import AppLayout from "../../components/Layout/AppLayout";
 import CreationLayout from "../../components/Layout/CreationLayout";
 import { getTopicAPI } from "../../../api/topic";
-import { createQuiz } from "../../../api/course/quia";
+import { createQuiz } from "../../../api/course/quiz";
 import { courseDetail } from "../../../api/course/detail";
 
 export default {
@@ -151,25 +136,27 @@ export default {
         isVisible: false,
         text: "",
       },
-      fieldRules: [(v) => (!!v || "Field cannot be empty")],
-      lengthRules: [(v) => (v.length <= 255 || "Characters are off limit")],
-      minDateRule: [(v) => (new Date(v) >= new Date() || "Cannot set before today")],
+      fieldRules: [(v) => !!v || "Field cannot be empty"],
+      lengthRules: [(v) => v.length <= 255 || "Characters are off limit"],
+      minDateRule: [
+        (v) => new Date(v) >= new Date() || "Cannot set before today",
+      ],
       isValid: false,
       isSubmitting: false,
       file: null,
-      duration: '',
-      start_time: '',
-      end_time: '',
-      duration: '',
+      duration: "",
+      start_time: "",
+      end_time: "",
+      duration: "",
       form: {
-        topic_id: '',
-        title: '',
-        content: '',
-        link_url: '',
-        start_time: '',
-        end_time: '',
-        duration: '',
-        max_point: '',
+        topic_id: "",
+        title: "",
+        content: "",
+        link_url: "",
+        start_time: "",
+        end_time: "",
+        duration: "",
+        max_point: "",
         course_id: this.$props.id,
       },
     };
@@ -189,17 +176,17 @@ export default {
       this.isSubmitting = false;
     },
     convertTime() {
-      const duration = this.duration.split(":")
-      const hours = parseInt(duration[0]) * 3600
-      const minutes = parseInt(duration[1]) * 60
-      this.form.start_time = new Date(this.start_time).toISOString()
-      this.form.end_time = new Date(this.end_time).toISOString()
-      this.form.duration = hours + minutes
+      const duration = this.duration.split(":");
+      const hours = parseInt(duration[0]) * 3600;
+      const minutes = parseInt(duration[1]) * 60;
+      this.form.start_time = new Date(this.start_time).toISOString();
+      this.form.end_time = new Date(this.end_time).toISOString();
+      this.form.duration = hours + minutes;
     },
     async postData() {
       this.isSubmitting = true;
       try {
-        this.convertTime()
+        this.convertTime();
         const response = await createQuiz(this.form);
         if (response.errorMessage) {
           throw response.errorMessage;
@@ -213,7 +200,7 @@ export default {
     async checkTeacher(courseId) {
       try {
         const response = await courseDetail(courseId);
-        if (response.data.createdBy !== this.$store.state.user.id){
+        if (response.data.createdBy !== this.$store.state.user.id) {
           this.$inertia.visit("/404");
         }
       } catch (error) {
