@@ -23,7 +23,7 @@
       <v-textarea
         id="description"
         label="Description"
-        placeholder="This material is about..."
+        placeholder="This quiz is about..."
         outlined
         v-model="form.content"
         required
@@ -71,7 +71,7 @@
             label="Max Point"
             :rules="fieldRules"
             outlined
-            v-model="form.max_point"
+            v-model="form.point"
             type="number"
             required
           ></v-text-field>
@@ -156,7 +156,7 @@ export default {
         start_time: "",
         end_time: "",
         duration: "",
-        max_point: "",
+        point: "",
         course_id: this.$props.id,
       },
     };
