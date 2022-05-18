@@ -17,6 +17,9 @@ describe("CreateQuiz", () => {
     store = new Vuex.Store({
       state: {
         isAuthenticated: true,
+        user: {
+          id: 1
+        }
       },
     });
   });
