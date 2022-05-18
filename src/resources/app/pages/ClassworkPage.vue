@@ -36,7 +36,14 @@
             </v-btn>
           </v-list-item>
           <v-list-item>
-            <v-btn block class="mt-1" elevation="0"> Assignment</v-btn>
+            <v-btn 
+              block
+              class="mt-1"
+              elevation="0"
+              @click="redirectToCreateAssignment(id)"
+            > 
+              Assignment
+            </v-btn>
           </v-list-item>
           <v-list-item>
             <v-btn
@@ -113,6 +120,34 @@
             </v-hover>
             <v-divider></v-divider>
           </div>
+          <div v-for="assignments in topic.assignments" v-bind:key="assignments.id">
+            <v-hover v-slot="{ hover }">
+              <div
+                id="lesson-material"
+                class="py-3 d-flex items-center justify-space-between px-6 cursor-pointer"
+                :class="hover? `bg-light` : `bg-white`"
+                @click="redirectToAssignmentDetails(topic.courseId, assignments.id)"
+              >
+                <div class="d-flex items-center">
+                  <div class="w-7 h-7 bg-secondary rounded-full text-base d-flex justify-center items-center mr-4">
+                    <v-icon
+                      small
+                      color="white"
+                    >
+                      mdi-clipboard-text
+                    </v-icon>
+                  </div>
+                  <div class="truncate max-w-sm">
+                    {{ assignments.title }}
+                  </div>
+                </div>
+                <div class="text-sm">
+                  {{ countDate(assignments.createdAt) }}
+                </div>
+              </div>
+            </v-hover>
+            <v-divider></v-divider>
+          </div>
         </div>
       </div>
     </div>
@@ -161,6 +196,15 @@ export default {
 
     redirectToQuiz(id, quizId) {
       this.$inertia.visit(`/course/${id}/classwork/quiz/${quizId}`);
+
+    },
+    
+    redirectToCreateAssignment(id) {
+      this.$inertia.visit(`/course/${id}/classwork/create/assignment`);
+    },
+
+    redirectToAssignmentDetails(id, assignmentId) {
+      this.$inertia.visit(`/course/${id}/classwork/assignment/${assignmentId}`);
     },
 
     async deleteTopic(topicId) {

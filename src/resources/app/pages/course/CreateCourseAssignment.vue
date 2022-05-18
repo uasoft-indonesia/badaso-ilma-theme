@@ -1,36 +1,33 @@
 <template>
   <CreationLayout
-    :courseId="this.$props.courseId"
-    :contentId="this.$props.materialId"
-    pageTitle="Update Material"
+    :courseId="this.$props.id"
+    pageTitle="Create Assignment"
   >
     <v-form ref="form" v-model="isValid">
       <v-autocomplete
         id="drop-down"
         v-model="form.topic_id"
+        :items="items"
         label="Topic"
         outlined
-        required
-        :items="items"
         :item-text="getItemText"
         :item-value="getItemValue"
       ></v-autocomplete>
       <v-text-field
         id="title-form"
         label="Title"
-        v-model="form.title"
-        outlined
-        required
         :rules="fieldRules.concat(lengthRules)"
         :counter="255"
+        outlined
+        v-model="form.title"
+        required
       ></v-text-field>
       <v-textarea
         id="description"
-        label="Description"
-        placeholder="This material is about..."
-        v-model="form.content"
+        label="Assignment Instruction"
+        placeholder="This assignment is about..."
         outlined
-        required
+        v-model="form.description"
       ></v-textarea>
       <div class="flex">
         <v-btn color="primary" elevation="0" class="mr-6" height="56">
@@ -39,12 +36,11 @@
         <v-file-input
           id="file-form"
           truncate-length="100"
+          outlined
           accept="image/png, image/jpeg, application/pdf, image/jpg"
           label="File"
           prepend-icon=""
           v-model="file"
-          outlined
-          @change="setFileChanged"
         ></v-file-input>
       </div>
       <div class="flex">
@@ -54,10 +50,38 @@
         <v-text-field
           id="link-form"
           label="Link"
-          v-model="form.link_url"
           outlined
+          v-model="form.link_url"
         ></v-text-field>
       </div>
+      <v-row justify="space-between">
+        <v-col
+          cols="12"
+          sm="6"
+        >
+          <v-text-field
+            id="due-date"
+            label="Due date"
+            :rules="fieldRules.concat(minDateRule)"
+            outlined
+            type="datetime-local"
+            v-model="due_date"
+            required
+          ></v-text-field>
+        </v-col>
+        <v-col
+          cols="12"
+          sm="6"
+        >
+          <v-text-field
+            id="max-point-form"
+            label="Max Point"
+            outlined
+            v-model="form.point"
+            type="number"
+          ></v-text-field>
+        </v-col>
+      </v-row>
     </v-form>
     <div class="text-right mt-7">
       <v-btn
@@ -69,7 +93,7 @@
         Cancel
       </v-btn>
       <v-btn
-        id="update-button"
+        id="create-button"
         class="ml-4"
         color="primary"
         elevation="0"
@@ -77,7 +101,7 @@
         :disabled="!isValid"
         :loading="isSubmitting"
       >
-        Update
+        Create
       </v-btn>
     </div>
   </CreationLayout>
@@ -87,17 +111,16 @@
 import AppLayout from "../../components/Layout/AppLayout";
 import CreationLayout from "../../components/Layout/CreationLayout";
 import { getTopicAPI } from "../../../api/topic";
-import { updateCourseMaterialById, uploadFile, getCourseMaterialById } from "../../../api/course/lessonMaterial";
+import { createCourseAssignment, uploadFile } from "../../../api/course/assignment";
 import { courseDetail } from "../../../api/course/detail";
 
 export default {
   components: {CreationLayout},
   layout: [AppLayout],
   props: {
-    courseId: String,
-    materialId: String,
+    id: String,
   },
-  name: "CreateCourseMaterial",
+  name: "CreateCourseAssignment",
   data() {
     return {
       items: [],
@@ -106,20 +129,21 @@ export default {
         text: "",
       },
       fieldRules: [(v) => (!!v || "Field cannot be empty")],
-      lengthRules: [(v) => (v.length <= 255 || "Characters are off limit")],
+      minDateRule: [(v) => (new Date(v) >= new Date() || "Cannot set before today")],
       isValid: false,
       isSubmitting: false,
-      fileChanged: false,
       file: null,
+      due_date: '',
       form: {
-        topic_id: "",
-        title: "",
-        content: "",
-        file_url: "",
-        link_url: "",
-        course_id: this.$props.courseId,
+        course_id: this.$props.id,
+        topic_id: '',
+        title: '',
+        due_date: '',
+        description: '',
+        point:'',
+        file_url: '',
+        link_url: '',
       },
-      currentMaterial: {}
     };
   },
   methods: {
@@ -129,55 +153,32 @@ export default {
     async getTopic() {
       this.isSubmitting = true;
       try {
-        const response = await getTopicAPI(this.$props.courseId);
+        const response = await getTopicAPI(this.$props.id);
         this.items = response.data;
       } catch (error) {
         await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
       }
       this.isSubmitting = false;
     },
-     async getCourseMaterial() {
-      try {
-        let response = await getCourseMaterialById(this.$props.materialId);
-        if (response.data.topic === null) {
-          response.data.topic = { title: "" };
-        }
-        this.currentMaterial = response.data;
-        this.form.content = response.data.content;
-        this.form.title = response.data.title;
-        this.form.topic_id = response.data.topic.id;
-        this.form.link_url = response.data.linkUrl ?? "";
-        if (response.data.fileUrl) {
-          const filename = response.data.fileUrl.split("files/")[1];
-          const fileResponse = await fetch(response.data.fileUrl);
-          const blob = fileResponse.blob();
-          const file = new File([blob], filename, { type: 'application/pdf' });
-          this.file = file;
-        }
-      } catch (error) {
-        await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
-      }
+    convertTime() {
+      this.form.due_date = new Date(this.due_date).toISOString().slice(0,-5) + "Z"
     },
     async postData() {
       this.isSubmitting = true;
       try {
-        if (!this.fileChanged) {
-          this.form.file_url = this.currentMaterial.fileUrl;
-        }
-        else if (this.file) {
+        if (this.file) {
           const fileUrlResponse = await uploadFile(this.file);
           if (fileUrlResponse.errorMessage) {
             throw fileUrlResponse.errorMessage;
           }
           this.form.file_url = fileUrlResponse.data;
-        } else {
-          this.form.file_url = "";
         }
-        const response = await updateCourseMaterialById(this.$props.materialId, this.form);
+        this.convertTime();
+        const response = await createCourseAssignment(this.form);
         if (response.errorMessage) {
           throw response.errorMessage;
         }
-        this.redirectBackToClasswork()
+        this.$inertia.visit(`/course/${this.$props.id}/classwork`);
       } catch (error) {
         await this.$store.dispatch("OPEN_SNACKBAR", "Error uploading data");
       }
@@ -186,7 +187,7 @@ export default {
     async checkTeacher(courseId) {
       try {
         const response = await courseDetail(courseId);
-        if (response.data.createdBy !== this.$store.state.user.id) {
+        if (response.data.createdBy !== this.$store.state.user.id){
           this.$inertia.visit("/404");
         }
       } catch (error) {
@@ -194,7 +195,7 @@ export default {
       }
     },
     redirectBackToClasswork() {
-      this.$inertia.visit(`/course/${this.$props.courseId}/classwork/material/${this.$props.materialId}`);
+      this.$inertia.visit(`/course/${this.$props.id}/classwork`);
     },
     showSnackbar(text) {
       this.snackbar.text = text;
@@ -206,14 +207,10 @@ export default {
     getItemText(item) {
       return item.title;
     },
-    setFileChanged() {
-      this.fileChanged = true
-    }
   },
   mounted() {
-    this.checkTeacher(this.$props.courseId);
-    this.getCourseMaterial();
     this.getTopic();
+    this.checkTeacher(this.$props.id);
   },
 };
 </script>
