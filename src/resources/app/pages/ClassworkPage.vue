@@ -46,7 +46,14 @@
             </v-btn>
           </v-list-item>
           <v-list-item>
-            <v-btn block class="mt-1" elevation="0"> Quiz</v-btn>
+            <v-btn
+              block
+              class="mt-1"
+              elevation="0"
+              @click="redirectToCreateQuiz(id)"
+            >
+             Quiz
+            </v-btn>
           </v-list-item>
         </v-list>
       </v-menu>
@@ -179,10 +186,19 @@ export default {
       this.$inertia.visit(`/course/${id}/classwork/create/material`);
     },
 
+    redirectToCreateQuiz(id) {
+      this.$inertia.visit(`/course/${id}/classwork/create/quiz`);
+    },
+
     redirectToMaterialDetails(id, materialId) {
       this.$inertia.visit(`/course/${id}/classwork/material/${materialId}`);
     },
 
+    redirectToQuiz(id, quizId) {
+      this.$inertia.visit(`/course/${id}/classwork/quiz/${quizId}`);
+
+    },
+    
     redirectToCreateAssignment(id) {
       this.$inertia.visit(`/course/${id}/classwork/create/assignment`);
     },
