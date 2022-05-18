@@ -45,7 +45,7 @@
     "collectCoverageFrom": [
       "**/*.vue"
     ],
-    "testEnvironment": "jsdom",
+    "testEnvironment": "jest-environment-jsdom-thirteen",
     "testResultsProcessor": "jest-sonar-reporter",
     "setupFiles": [
       "<rootDir>/tests/unit/setup.js"
