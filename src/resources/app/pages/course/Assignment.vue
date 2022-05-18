@@ -68,7 +68,7 @@
         class="ml-4"
         color="primary"
         elevation="0"
-        :disabled="!isValid"
+        :disabled="!(form.link_url || file)"
       >
         Save
       </v-btn>
@@ -92,6 +92,7 @@ export default {
   data(){
     return {
       isValid: false,
+      hasSubmission: false,
       file: null,
       items: [],
       assignment: {},
