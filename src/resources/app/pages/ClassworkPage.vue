@@ -130,9 +130,6 @@
                     {{ quiz.title }}
                   </div>
                 </div>
-                <div class="text-sm">
-                  {{ countDate(quiz.createdAt) }}
-                </div>
               </div>
             </v-hover>
             <v-divider></v-divider>
