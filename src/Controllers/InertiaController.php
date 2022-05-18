@@ -78,12 +78,17 @@ class InertiaController extends Controller
         ], 'lms-theme::app');
     }
 
+    public function createAssignment($id)
+    {
+        return Inertia::render('course/CreateCourseAssignment', ['id' => $id], 'lms-theme::app');
+    }
+
     public function assignment($id, $assignmentId)
     {
         return Inertia::render('course/Assignment', [
             'courseId' => $id,
             'assignmentId' => $assignmentId,
-        ], 'lms-theme:app');
+        ], 'lms-theme::app');
     }
 
     public function pageNotFound()
