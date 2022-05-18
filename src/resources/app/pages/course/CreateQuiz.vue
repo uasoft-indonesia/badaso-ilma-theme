@@ -1,12 +1,8 @@
 <template>
-<<<<<<< HEAD
   <CreationLayout
     :courseId="this.$props.id"
     pageTitle="Create Quiz"
   >
-=======
-  <CreationLayout :courseId="this.$props.id" pageTitle="Create Quiz">
->>>>>>> f846fc47a8b51760d2abfcc40cca70455dd5392b
     <v-form ref="form" v-model="isValid">
       <v-autocomplete
         id="drop-down"
@@ -30,24 +26,13 @@
       <v-textarea
         id="description"
         label="Description"
-<<<<<<< HEAD
-        placeholder="This material is about..."
-=======
         placeholder="This quiz is about..."
->>>>>>> f846fc47a8b51760d2abfcc40cca70455dd5392b
         outlined
         v-model="form.content"
         required
       ></v-textarea>
       <v-row justify="space-between">
-<<<<<<< HEAD
-        <v-col
-          cols="12"
-          sm="6"
-        >
-=======
         <v-col cols="12" sm="6">
->>>>>>> f846fc47a8b51760d2abfcc40cca70455dd5392b
           <v-text-field
             id="start-time-form"
             label="Start Time"
@@ -58,14 +43,7 @@
             required
           ></v-text-field>
         </v-col>
-<<<<<<< HEAD
-        <v-col
-          cols="12"
-          sm="6"
-        >
-=======
         <v-col cols="12" sm="6">
->>>>>>> f846fc47a8b51760d2abfcc40cca70455dd5392b
           <v-text-field
             id="end-time-form"
             label="End Time"
@@ -78,14 +56,7 @@
         </v-col>
       </v-row>
       <v-row justify="space-between">
-<<<<<<< HEAD
-        <v-col
-          cols="12"
-          sm="6"
-        >
-=======
         <v-col cols="12" sm="6">
->>>>>>> f846fc47a8b51760d2abfcc40cca70455dd5392b
           <v-text-field
             id="duration-form"
             label="Duration"
@@ -97,24 +68,13 @@
             required
           ></v-text-field>
         </v-col>
-<<<<<<< HEAD
-        <v-col
-          cols="12"
-          sm="6"
-        >
-=======
         <v-col cols="12" sm="6">
->>>>>>> f846fc47a8b51760d2abfcc40cca70455dd5392b
           <v-text-field
             id="max-point-form"
             label="Max Point"
             :rules="fieldRules"
             outlined
-<<<<<<< HEAD
-            v-model="form.max_point"
-=======
             v-model="form.point"
->>>>>>> f846fc47a8b51760d2abfcc40cca70455dd5392b
             type="number"
             required
           ></v-text-field>
@@ -179,27 +139,6 @@ export default {
         isVisible: false,
         text: "",
       },
-<<<<<<< HEAD
-      fieldRules: [(v) => (!!v || "Field cannot be empty")],
-      lengthRules: [(v) => (v.length <= 255 || "Characters are off limit")],
-      minDateRule: [(v) => (new Date(v) >= new Date() || "Cannot set before today")],
-      isValid: false,
-      isSubmitting: false,
-      file: null,
-      duration: '',
-      start_time: '',
-      end_time: '',
-      duration: '',
-      form: {
-        topic_id: '',
-        title: '',
-        content: '',
-        link_url: '',
-        start_time: '',
-        end_time: '',
-        duration: '',
-        max_point: '',
-=======
       fieldRules: [(v) => !!v || "Field cannot be empty"],
       lengthRules: [(v) => v.length <= 255 || "Characters are off limit"],
       minDateRule: [
@@ -221,7 +160,6 @@ export default {
         end_time: "",
         duration: "",
         point: "",
->>>>>>> f846fc47a8b51760d2abfcc40cca70455dd5392b
         course_id: this.$props.id,
       },
     };
@@ -241,30 +179,17 @@ export default {
       this.isSubmitting = false;
     },
     convertTime() {
-<<<<<<< HEAD
-      const duration = this.duration.split(":")
-      const hours = parseInt(duration[0]) * 3600
-      const minutes = parseInt(duration[1]) * 60
-      this.form.start_time = new Date(this.start_time).toISOString()
-      this.form.end_time = new Date(this.end_time).toISOString()
-      this.form.duration = hours + minutes
-=======
       const duration = this.duration.split(":");
       const hours = parseInt(duration[0]) * 3600;
       const minutes = parseInt(duration[1]) * 60;
       this.form.start_time = new Date(this.start_time).toISOString().slice(0,-5) + "Z";
       this.form.end_time = new Date(this.end_time).toISOString().slice(0,-5) + "Z";
       this.form.duration = hours + minutes;
->>>>>>> f846fc47a8b51760d2abfcc40cca70455dd5392b
     },
     async postData() {
       this.isSubmitting = true;
       try {
-<<<<<<< HEAD
-        this.convertTime()
-=======
         this.convertTime();
->>>>>>> f846fc47a8b51760d2abfcc40cca70455dd5392b
         const response = await createQuiz(this.form);
         if (response.errorMessage) {
           throw response.errorMessage;
@@ -278,11 +203,7 @@ export default {
     async checkTeacher(courseId) {
       try {
         const response = await courseDetail(courseId);
-<<<<<<< HEAD
-        if (response.data.createdBy !== this.$store.state.user.id){
-=======
         if (response.data.createdBy !== this.$store.state.user.id) {
->>>>>>> f846fc47a8b51760d2abfcc40cca70455dd5392b
           this.$inertia.visit("/404");
         }
       } catch (error) {
