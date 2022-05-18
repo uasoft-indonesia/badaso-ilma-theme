@@ -3,7 +3,7 @@ import Vuetify from 'vuetify';
 
 import { createLocalVue, mount } from "@vue/test-utils";
 import Vuex from "vuex";
-import CreateQuiz from "../../src/resources/app/pages/course/CreateCourseAssignment";
+import CreateAssignment from "../../src/resources/app/pages/course/CreateCourseAssignment";
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
@@ -17,18 +17,21 @@ describe("Create Assignment", () => {
         store = new Vuex.Store({
             state: {
                 isAuthenticated: true,
+                user: {
+                    id: 1,
+                }
             },
         });
     });
 
     describe("when loaded", () => {
         it("should renders all form inputs", () => {
-            const wrapper = mount(CreateQuiz, {
+            const wrapper = mount(CreateAssignment, {
                 localVue,
                 vuetify,
                 store,
                 props: {
-                    id: 1
+                    id: 1,
                 }
             });
 
@@ -37,7 +40,7 @@ describe("Create Assignment", () => {
 
             expect(wrapper.find("#title-form").exists()).toBe(true);
             expect(wrapper.find("#description").exists()).toBe(true);
-            expect(wrapper.find("due-date").exists()).toBe(true);
+            expect(wrapper.find("#due-date").exists()).toBe(true);
             expect(wrapper.find("#max-point-form").exists()).toBe(true);
             expect(wrapper.find("#file-form").exists()).toBe(true);
             expect(wrapper.find("#link-form").exists()).toBe(true);
