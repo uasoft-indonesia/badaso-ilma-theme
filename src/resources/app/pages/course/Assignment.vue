@@ -1,15 +1,6 @@
 <template>
   <CreationLayout
     :courseId="this.$props.courseId"
-<<<<<<< HEAD
-    pageTitle="Worksheet 1"
-    topicTitle="Numerical Analysis"
-    :contentId="this.$props.materialId"
-    teacherId="1"
-    contentType="material"
-  >
-    This is assignment page
-=======
     :pageTitle="this.assignment.title"
     :topicTitle="this.assignment.topic.title"
     :contentId="this.$props.assignmentId"
@@ -36,7 +27,6 @@
         {{ this.assignment.linkUrl }}
       </a>
     </div>
->>>>>>> 7b036c3020950a52ab7a214d39f2e629cee1b463
     <v-form ref="form" v-model="isValid" class="mt-8">
       <div class="flex">
         <v-btn color="primary" elevation="0" class="mr-6" height="56">
@@ -88,34 +78,24 @@
 <script>
 import CreationLayout from "../../components/Layout/CreationLayout";
 import AppLayout from "../../components/Layout/AppLayout";
-<<<<<<< HEAD
-=======
 import { getCourseAssignmentById } from "../../../api/course/assignment";
 import { courseDetail } from "../../../api/course/detail";
 
->>>>>>> 7b036c3020950a52ab7a214d39f2e629cee1b463
 export default {
   name: "Assignment",
   components: {CreationLayout},
   layout: [AppLayout],
   props: {
     courseId: String,
-<<<<<<< HEAD
-    materialId: String,
-=======
     assignmentId: String,
->>>>>>> 7b036c3020950a52ab7a214d39f2e629cee1b463
   },
   data(){
     return {
       isValid: false,
       file: null,
       items: [],
-<<<<<<< HEAD
-=======
       assignment: {},
       teacherId: String,
->>>>>>> 7b036c3020950a52ab7a214d39f2e629cee1b463
       form: {
         file_url: '',
         link_url: '',
@@ -123,8 +103,6 @@ export default {
     }
   },
   methods: {
-<<<<<<< HEAD
-=======
     async getCourseAssignment() {
       try {
         let response = await getCourseAssignmentById(this.$props.assignmentId);
@@ -146,7 +124,6 @@ export default {
         await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
       }
     },
->>>>>>> 7b036c3020950a52ab7a214d39f2e629cee1b463
     redirectBackToClasswork() {
       this.$inertia.visit(`/course/${this.$props.courseId}/classwork`);
     },
@@ -156,14 +133,10 @@ export default {
     getItemText(item) {
       return item.title;
     },
-<<<<<<< HEAD
-  }
-=======
   },
   created() {
     this.getCourseAssignment();
     this.getTeacher(this.$props.courseId);
   },
->>>>>>> 7b036c3020950a52ab7a214d39f2e629cee1b463
 }
 </script>
