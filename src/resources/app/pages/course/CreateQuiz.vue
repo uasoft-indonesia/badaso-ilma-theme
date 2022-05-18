@@ -1,5 +1,8 @@
 <template>
-  <CreationLayout :courseId="this.$props.id" pageTitle="Create Quiz">
+  <CreationLayout
+    :courseId="this.$props.id"
+    pageTitle="Create Quiz"
+  >
     <v-form ref="form" v-model="isValid">
       <v-autocomplete
         id="drop-down"

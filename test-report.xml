@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testExecutions version="1">
-  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\Assignment.spec.js">
-  </file>
-  <file path="C:\Users\Ilma Mannix\Documents\badaso-lms-demo\package\badaso\badaso-lms-theme\tests\unit\CreateAssignment.spec.js">
-    <testCase name="Create Assignment when loaded should renders all form inputs" duration="1162"/>
-  </file>
-</testExecutions>
