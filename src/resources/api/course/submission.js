@@ -1,4 +1,4 @@
-import api, {apiPrefix} from "../config";
+import api, { apiPrefix } from "../config";
 
 export const createSubmission = async (payload) => {
   const apiUrl = `${apiPrefix}/module/lms/v1/submission`;
