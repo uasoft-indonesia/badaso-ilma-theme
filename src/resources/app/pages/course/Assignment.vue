@@ -93,7 +93,7 @@ import AppLayout from "../../components/Layout/AppLayout";
 import {getCourseAssignmentById} from "../../../api/course/assignment";
 import {courseDetail} from "../../../api/course/detail";
 import {uploadFile} from "../../../api/course/lessonMaterial";
-import {createSubmission, readSubmission} from "../../../api/course/submission";
+import {createSubmission, editSubmission, readSubmission} from "../../../api/course/submission";
 
 export default {
   name: "Assignment",
@@ -113,6 +113,7 @@ export default {
       teacherId: String,
       isSubmitting: false,
       uploadText: "Save",
+      submissionId: null,
       form: {
         assignment_id: '',
         file_url: '',
@@ -153,7 +154,12 @@ export default {
           }
           this.form.file_url = fileUrlResponse.data;
         }
-        const response = await createSubmission(this.form);
+        let response;
+        if (!this.hasSubmission) {
+          response = await createSubmission(this.form);
+        } else {
+          response = await editSubmission(this.form, this.submissionId);
+        }
         if (response.errorMessage) {
           throw response.errorMessage;
         }
@@ -166,7 +172,9 @@ export default {
     async getExistingSubmission() {
       try {
         let response = await readSubmission(this.$props.assignmentId);
+        console.log(response)
         this.form.link_url = response?.data.linkUrl;
+        this.submissionId = response?.data.id;
 
         if (response.data.fileUrl) {
           const filename = response.data.fileUrl.split("files/")[1];
@@ -175,8 +183,9 @@ export default {
           this.file = new File([blob], filename, {type: 'application/pdf'});
         }
 
-        if (this.form.link_url || this.file) {
+        if (response.data.status === 'submitted') {
           this.uploadText = "Edit";
+          this.hasSubmission = true;
         }
       } catch (error) {
         await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
