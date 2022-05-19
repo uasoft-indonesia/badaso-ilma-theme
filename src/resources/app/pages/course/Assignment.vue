@@ -172,7 +172,6 @@ export default {
     async getExistingSubmission() {
       try {
         let response = await readSubmission(this.$props.assignmentId);
-        console.log(response)
         this.form.link_url = response?.data.linkUrl;
         this.submissionId = response?.data.id;
 
