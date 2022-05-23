@@ -110,11 +110,9 @@ export default {
       return `${date.toDateString()} ${date.toLocaleTimeString()}`
     },
     checkTime() {
-      const startTime = moment(this.startTime)
-      const endTime = moment(this.endTime)
+      const startTime = moment(this.quiz.startTime)
+      const endTime = moment(this.quiz.endTime)
       const now = moment()
-      console.log(startTime)
-      console.log(endTime)
       console.log(now)
       if (startTime > now) {
         return 0
