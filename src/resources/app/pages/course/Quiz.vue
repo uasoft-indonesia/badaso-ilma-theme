@@ -7,7 +7,7 @@
     :teacherId="this.teacherId"
     contentType="quiz"
   >
-    <div id="description" v-if="this.quiz.content" class="text-base mb-9">
+    <div id="description" v-if="this.quiz.description" class="text-base mb-9">
       {{ this.quiz.description }}
     </div>
     <div id="start-time" class="text-base mb-5">
