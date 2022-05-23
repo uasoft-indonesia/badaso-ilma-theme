@@ -28,7 +28,11 @@
     <div id="detail-assignment" class="mt-5">
       <v-row>
         <v-col cols="2"> Status </v-col>
-        <v-col> : No Submission </v-col>
+        <v-col
+          :class="hasSubmission ? 'text-success' : this.isOverdue ? 'text-error' : 'text-textGray'"
+        > : {{
+          this.hasSubmission? "Submitted" : "No Submission"
+          }} </v-col>
       </v-row>
       <v-row>
         <v-col cols="2"> Due Date </v-col>
@@ -52,7 +56,7 @@
           label="File"
           prepend-icon=""
           v-model="file"
-          :disabled="uploadText === 'Edit'"
+          :disabled="uploadText === 'Edit' || isOverdue"
         ></v-file-input>
       </div>
       <div class="flex"
@@ -72,7 +76,7 @@
           label="Link"
           outlined
           v-model="form.link_url"
-          :disabled="uploadText === 'Edit'"
+          :disabled="uploadText === 'Edit' || isOverdue"
         ></v-text-field>
       </div>
     </v-form>
@@ -118,6 +122,7 @@ export default {
   },
   data() {
     return {
+      isOverdue: false,
       isValid: false,
       hasSubmission: false,
       file: null,
@@ -142,6 +147,7 @@ export default {
           response.data.topic = {title: ""};
         }
         this.assignment = response.data;
+        this.isOverdue = this.overdue(this.assignment.dueDate);
       } catch (error) {
         await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
       }
@@ -219,8 +225,13 @@ export default {
         this.uploadText = "Save"
       }
     },
+    overdue(dueDate) {
+      let now = new Date();
+      now = now.getFullYear() + `${(parseInt(now.getMonth()) + 1) > 9 ? "-" : "-0"}` + (parseInt(now.getMonth()) + 1) + "-" + now.getDate() + "T" + now.getHours() + ":" + now.getMinutes() + ":00Z";
+      return now > dueDate
+    },
     date(givenDate) {
-      return dateSlicing(givenDate);
+      return `${dateSlicing(givenDate)}` + " " + `${givenDate.slice(11,16)}`;
     },
   },
   created() {
