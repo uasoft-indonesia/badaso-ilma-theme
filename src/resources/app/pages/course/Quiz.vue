@@ -113,7 +113,6 @@ export default {
       const startTime = moment(this.quiz.startTime)
       const endTime = moment(this.quiz.endTime)
       const now = moment()
-      console.log(now)
       if (startTime > now) {
         return 0
       } else if (endTime < now) {
