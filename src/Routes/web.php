@@ -31,6 +31,7 @@ Route::prefix($lms_route_prefix)
             Route::get('/{id}/classwork/material/{materialId}/update', [InertiaController::class, 'updateMaterial']);
             Route::get('/{id}/classwork/create/assignment', [InertiaController::class, 'createAssignment']);
             Route::get('/{id}/classwork/assignment/{assignmentId}', [InertiaController::class, 'assignment']);
+            Route::get('/{id}/classwork/assignment/{assignmentId}/update', [InertiaController::class, 'updateAssignment']);
             Route::get('/{id}/people', [InertiaController::class, 'people']);
         });
     });
