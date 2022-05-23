@@ -62,3 +62,35 @@ export const getCourseAssignmentById = async (assignmentId) => {
 
     return { data, error, errorMessage };
 };
+
+export const deleteAssignmentById = async (assignmentId) => {
+    const apiUrl = `${apiPrefix}/module/lms/v1/assignment/${assignmentId}`;
+    
+    let [data, error, errorMessage] = [null, null, null];
+    try {
+        const response = await api.delete(apiUrl);
+        if (!!response.errors) {
+            throw response.errors;
+        }
+        data = response.data;
+    } catch (e) {
+        error = e;
+        errorMessage = "Something went wrong, please try again later";
+    }
+};
+
+export const updateAssignmentById = async (assignmentId, payload) => {
+    const apiUrl = `${apiPrefix}/module/lms/v1/assignment/${assignmentId}`;
+    
+    let [data, error, errorMessage] = [null, null, null];
+    try {
+        const response = await api.put(apiUrl, payload);
+        if (!!response.errors) {
+            throw response.errors;
+        }
+        data = response.data;
+    } catch (e) {
+        error = e;
+        errorMessage = "Something went wrong, please try again later";
+    }
+};
