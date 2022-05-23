@@ -104,7 +104,7 @@ import CreationLayout from "../../components/Layout/CreationLayout";
 import AppLayout from "../../components/Layout/AppLayout";
 import { getCourseAssignmentById } from "../../../api/course/assignment";
 import { courseDetail } from "../../../api/course/detail";
-import { uploadFile } from "../../../api/course/lessonMaterial";
+import { uploadFile } from "../../../api/course/assignment";
 import { createSubmission, editSubmission, readSubmission } from "../../../api/course/submission";
 import { dateSlicing } from "../../../api/utils/dateSlicing";
 
