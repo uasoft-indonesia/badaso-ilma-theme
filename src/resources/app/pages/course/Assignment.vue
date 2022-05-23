@@ -12,20 +12,32 @@
     </div>
     <div
       v-if="this.assignment.fileUrl"
-      class="flex flex-col justify-center items-center"
     >
-      <embed :src="this.assignment.fileUrl" width="80%" height="500px"/>
       <a :href="this.assignment.fileUrl" target="_blank" class="mt-2 mb-10">
-        <v-btn color="primary">Download File</v-btn>
+        <v-btn color="primary"><v-icon left> mdi-download</v-icon> Download File </v-btn>
       </a>
     </div>
     <div
       v-if="this.assignment.linkUrl"
-      class="flex flex-col justify-center items-center"
+      class="mt-5"
     >
       <a :href="this.assignment.linkUrl" target="_blank" class="mt-2 mb-10">
         {{ this.assignment.linkUrl }}
       </a>
+    </div>
+    <div id="detail-assignment" class="mt-5">
+      <v-row>
+        <v-col cols="2"> Status </v-col>
+        <v-col> : No Submission </v-col>
+      </v-row>
+      <v-row>
+        <v-col cols="2"> Due Date </v-col>
+        <v-col> : {{ date(this.assignment.dueDate) }} </v-col>
+      </v-row>
+      <v-row v-if="this.assignment.point">
+        <v-col cols="2"> Max Point </v-col>
+        <v-col> : {{ this.assignment.point }} </v-col>
+      </v-row>
     </div>
     <v-form ref="form" v-model="isValid" class="mt-8">
       <div class="flex">
@@ -94,6 +106,7 @@ import { getCourseAssignmentById } from "../../../api/course/assignment";
 import { courseDetail } from "../../../api/course/detail";
 import { uploadFile } from "../../../api/course/lessonMaterial";
 import { createSubmission, editSubmission, readSubmission } from "../../../api/course/submission";
+import { dateSlicing } from "../../../api/utils/dateSlicing";
 
 export default {
   name: "Assignment",
@@ -205,7 +218,10 @@ export default {
       } else {
         this.uploadText = "Save"
       }
-    }
+    },
+    date(givenDate) {
+      return dateSlicing(givenDate);
+    },
   },
   created() {
     this.getCourseAssignment();
