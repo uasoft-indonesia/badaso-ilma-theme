@@ -20,16 +20,23 @@
       Duration: {{ calculateDuration(this.quiz.duration) }}
     </div>
     <div class="w-full flex justify-center">
-    <v-btn
-        dark
-        class="mb-2"
-        color="primary"
-        v-bind="attrs"
-        v-on="on"
-        id="create-button"
-      >
-        Start Attempt
+      <v-btn
+          v-if="checkTime() == 2"
+          dark
+          class="mb-2"
+          color="primary"
+          v-bind="attrs"
+          v-on="on"
+          id="create-button"
+        >
+          Start Attempt
       </v-btn>
+      <div v-if="checkTime() == 0">
+        This quiz is not available yet
+      </div>
+      <div v-if="checkTime() == 1">
+        This quiz has been ended
+      </div>
     </div>
   </CreationLayout>
 </template>
@@ -39,6 +46,7 @@ import AppLayout from "../../components/Layout/AppLayout";
 import CreationLayout from "../../components/Layout/CreationLayout";
 import { getQuizById } from "../../../api/course/quiz";
 import { courseDetail } from "../../../api/course/detail";
+import * as moment from 'moment';
 
 export default {
   name: "Quiz",
@@ -101,6 +109,21 @@ export default {
       const date = new Date(givenDate)
       return `${date.toDateString()} ${date.toLocaleTimeString()}`
     },
+    checkTime() {
+      const startTime = moment(this.startTime)
+      const endTime = moment(this.endTime)
+      const now = moment()
+      console.log(startTime)
+      console.log(endTime)
+      console.log(now)
+      if (startTime > now) {
+        return 0
+      } else if (endTime < now) {
+        return 1
+      } else if (startTime <= now && endTime >= now) {
+        return 2
+      }
+    }
   },
   created() {
     this.getCourseQuiz();

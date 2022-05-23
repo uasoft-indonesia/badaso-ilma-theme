@@ -51,7 +51,7 @@
                   Edit
                 </v-list-item-title>
               </v-list-item>
-              <v-list-item link @click="deleteCourseMaterial">
+              <v-list-item link @click="deleteContent">
                 <v-list-item-title class="w-28 text-sm text-error">
                   Delete
                 </v-list-item-title>
@@ -69,6 +69,7 @@
 <script>
 import AppLayout from "./AppLayout";
 import { deleteCourseMaterialById } from '../../../api/course/lessonMaterial'
+import { deleteQuizById } from '../../../api/course/quiz'
 
 export default {
   layout: [AppLayout],
@@ -86,10 +87,43 @@ export default {
       this.$inertia.visit(`/course/${this.$props.courseId}/classwork`);
     },
     redirectToEditCourseMaterial() {
-      this.$inertia.visit(`/course/${this.$props.courseId}/classwork/material/${this.$props.contentId}/update`);
+      this.$inertia.visit(`/course/${this.$props.courseId}/classwork/${this.$props.contentType}/${this.$props.contentId}/update`);
     },
     async deleteCourseMaterial() {
       this.$store.dispatch("OPEN_SNACKBAR", "Deleting lesson material")
+      try {
+        await deleteCourseMaterialById(this.$props.contentId);
+        this.redirectBackToClasswork();
+      } catch (error) {
+        console.log(error);
+        await this.$store.dispatch("OPEN_SNACKBAR", "Error deleting data");
+      }
+    },
+    async deleteContent() {
+      switch( this.$props.contentType ) {
+         case "quiz":
+           await this.deleteQuiz()
+           break;
+         case "assignment":
+          // await this.deleteAssignment()
+          break;
+         case "material":
+          await this.deleteCourseMaterial()
+          break;
+      }
+    },
+    async deleteQuiz() {
+      this.$store.dispatch("OPEN_SNACKBAR", "Deleting quiz")
+      try {
+        await deleteQuizById(this.$props.contentId);
+        this.redirectBackToClasswork();
+      } catch (error) {
+        console.log(error);
+        await this.$store.dispatch("OPEN_SNACKBAR", "Error deleting data");
+      }
+    },
+    async deleteAssignment() {
+      this.$store.dispatch("OPEN_SNACKBAR", "Deleting assignment")
       try {
         await deleteCourseMaterialById(this.$props.contentId);
         this.redirectBackToClasswork();
