@@ -77,15 +77,23 @@ class InertiaController extends Controller
             'materialId' => $materialId,
         ], 'lms-theme::app');
     }
-
+    
     public function createAssignment($id)
     {
         return Inertia::render('course/CreateCourseAssignment', ['id' => $id], 'lms-theme::app');
     }
-
+    
     public function assignment($id, $assignmentId)
     {
         return Inertia::render('course/Assignment', [
+            'courseId' => $id,
+            'assignmentId' => $assignmentId,
+        ], 'lms-theme::app');
+    }
+    
+    public function updateAssignment($id, $assignmentId)
+    {
+        return Inertia::render('course/EditCourseAssignment', [
             'courseId' => $id,
             'assignmentId' => $assignmentId,
         ], 'lms-theme::app');
