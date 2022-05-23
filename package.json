@@ -73,7 +73,7 @@
     "jspdf-autotable": "^3.5.14",
     "luxon": "^1.25.0",
     "material-icons": "^0.3.1",
-    "moment": "^2.29.1",
+    "moment": "^2.29.3",
     "popper.js": "^1.12",
     "prismjs": "^1.17.1",
     "resolve-url-loader": "^4.0.0",

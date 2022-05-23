@@ -2,7 +2,7 @@
   <v-app>
     <v-container>
       <div class="mt-16">
-        <v-btn v-if="this.$props.contentType === 'material'"
+        <v-btn v-if="this.$props.contentType !== 'assignment'"
           id="back"
           color="white"
           elevation="0"
@@ -63,7 +63,7 @@
                   Edit
                 </v-list-item-title>
               </v-list-item>
-              <v-list-item link @click="deleteCourseMaterial">
+              <v-list-item link @click="deleteContent">
                 <v-list-item-title class="w-28 text-sm text-error">
                   Delete
                 </v-list-item-title>
@@ -81,6 +81,18 @@
                 </v-list-item-title>
               </v-list-item>
             </v-list>
+            <v-list v-if="this.$props.contentType === 'quiz'">
+              <v-list-item link @click="redirectToEditCourseMaterial">
+                <v-list-item-title class="w-28 text-sm">
+                  Edit
+                </v-list-item-title>
+              </v-list-item>
+              <v-list-item link @click="deleteQuiz">
+                <v-list-item-title class="w-28 text-sm text-error">
+                  Delete
+                </v-list-item-title>
+              </v-list-item>
+            </v-list>
           </v-menu>
         </div>
         <v-divider id="divider" color="#06BBD3" class="mb-6"></v-divider>
@@ -93,6 +105,7 @@
 <script>
 import AppLayout from "./AppLayout";
 import { deleteCourseMaterialById } from '../../../api/course/lessonMaterial'
+import { deleteQuizById } from '../../../api/course/quiz'
 import { deleteAssignmentById } from '../../../api/course/assignment'
 
 export default {
@@ -112,7 +125,7 @@ export default {
       this.$inertia.visit(`/course/${this.$props.courseId}/classwork`);
     },
     redirectToEditCourseMaterial() {
-      this.$inertia.visit(`/course/${this.$props.courseId}/classwork/material/${this.$props.contentId}/update`);
+      this.$inertia.visit(`/course/${this.$props.courseId}/classwork/${this.$props.contentType}/${this.$props.contentId}/update`);
     },
     async deleteCourseMaterial() {
       this.$store.dispatch("OPEN_SNACKBAR", "Deleting lesson material")
@@ -129,6 +142,19 @@ export default {
     },
     redirectToEditCourseAssignment() {
       this.$inertia.visit(`/course/${this.$props.courseId}/classwork/assignment/${this.$props.contentId}/update`);
+    },
+    redirectToEditQuiz() {
+      this.$inertia.visit(`/course/${this.$props.courseId}/classwork/quiz/${this.$props.contentId}/update`);
+    },
+    async deleteQuiz() {
+      this.$store.dispatch("OPEN_SNACKBAR", "Deleting Quiz")
+      try {
+        await deleteQuizById(this.$props.contentId);
+        this.redirectBackToClasswork();
+      } catch (error) {
+        console.log(error);
+        await this.$store.dispatch("OPEN_SNACKBAR", "Error deleting data");
+      }
     },
     async deleteCourseAssignment() {
       this.$store.dispatch("OPEN_SNACKBAR", "Deleting Assignment")
