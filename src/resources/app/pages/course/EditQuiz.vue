@@ -28,7 +28,7 @@
         label="Description"
         placeholder="This quiz is about..."
         outlined
-        v-model="form.content"
+        v-model="form.description"
         required
       ></v-textarea>
       <v-row justify="space-between">
@@ -153,7 +153,7 @@ export default {
       form: {
         topic_id: "",
         title: "",
-        content: "",
+        description: "",
         link_url: "",
         start_time: "",
         end_time: "",

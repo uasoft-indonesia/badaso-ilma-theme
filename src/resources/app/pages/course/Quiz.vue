@@ -8,7 +8,7 @@
     contentType="quiz"
   >
     <div id="description" v-if="this.quiz.content" class="text-base mb-9">
-      {{ this.quiz.content }}
+      {{ this.quiz.description }}
     </div>
     <div id="start-time" class="text-base mb-5">
       Start Time: {{ countDate(this.quiz.startTime) }}
@@ -63,7 +63,7 @@ export default {
           title: ""
         },
         title: "",
-        content: "",
+        description: "",
         startTime: "",
         endTime: "",
         duration: 0

@@ -28,7 +28,7 @@
         label="Description"
         placeholder="This quiz is about..."
         outlined
-        v-model="form.content"
+        v-model="form.description"
         required
       ></v-textarea>
       <v-row justify="space-between">
