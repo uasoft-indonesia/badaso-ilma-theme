@@ -95,7 +95,7 @@
         color="primary"
         elevation="0"
         @click="uploadText === 'Edit' ? changeUploadText(): postData()"
-        :disabled="!(form.link_url || file)"
+        :disabled="!(form.link_url || file) || isOverdue"
         :loading="isSubmitting"
       >
         {{ this.uploadText }}
