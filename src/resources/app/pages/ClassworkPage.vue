@@ -36,12 +36,12 @@
             </v-btn>
           </v-list-item>
           <v-list-item>
-            <v-btn 
+            <v-btn
               block
               class="mt-1"
               elevation="0"
               @click="redirectToCreateAssignment(id)"
-            > 
+            >
               Assignment
             </v-btn>
           </v-list-item>
@@ -174,6 +174,7 @@
                 </div>
             </div>
             </v-hover>
+            <v-divider></v-divider>
           </div>
         </div>
       </div>
@@ -224,7 +225,7 @@ export default {
       this.$inertia.visit(`/course/${id}/classwork/quiz/${quizId}`);
 
     },
-    
+
     redirectToCreateAssignment(id) {
       this.$inertia.visit(`/course/${id}/classwork/create/assignment`);
     },
