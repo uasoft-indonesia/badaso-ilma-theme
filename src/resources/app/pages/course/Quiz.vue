@@ -11,10 +11,10 @@
       {{ this.quiz.content }}
     </div>
     <div id="start-time" class="text-base mb-5">
-      Start Time: {{ countDate(this.quiz.start_time) }}
+      Start Time: {{ countDate(this.quiz.startTime) }}
     </div>
     <div id="end-time" class="text-base mb-5">
-      End Time: {{ countDate(this.quiz.end_time) }}
+      End Time: {{ countDate(this.quiz.endTime) }}
     </div>
     <div id="duration" class="text-base mb-5">
       Duration: {{ calculateDuration(this.quiz.duration) }}
@@ -52,13 +52,13 @@ export default {
     return {
       quiz: {
         topic: {
-          title: "Test"
+          title: ""
         },
-        title: "Quiz #1",
-        content: "TEST",
-        start_time: "2022-05-17T06:45:10.163Z",
-        end_time: "2022-05-17T06:45:10.163Z",
-        duration: 14460
+        title: "",
+        content: "",
+        startTime: "",
+        endTime: "",
+        duration: 0
       },
       teacherId: String,
     }
@@ -86,12 +86,18 @@ export default {
       }
     },
     calculateDuration(seconds) {
+      if (!seconds) {
+        return ""
+      }
       const hours = Math.floor(seconds / 3600)
       const remainder = seconds % 3600
       const minutes = Math.floor(remainder / 60)
-      return `${hours && hours + " Hours"} ${minutes && minutes + " Minutes"}`
+      return `${hours && hours + " Hours"} ${minutes !== 0 ? minutes + " Minutes" : ""}`
     },
     countDate(givenDate) {
+      if (!givenDate) {
+        return ""
+      }
       const date = new Date(givenDate)
       return `${date.toDateString()} ${date.toLocaleTimeString()}`
     },

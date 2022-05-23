@@ -129,10 +129,10 @@
           <div v-for="quiz in topic.quizzes" v-bind:key="quiz.id">
             <v-hover v-slot="{ hover }">
               <div
-                id="lesson-material"
+                id="quiz"
                 class="py-3 d-flex items-center justify-space-between px-6 cursor-pointer"
                 :class="hover ? `bg-light` : `bg-white`"
-                @click="redirectToMaterialDetails(topic.courseId, quiz.id)"
+                @click="redirectToQuiz(topic.courseId, quiz.id)"
               >
                 <div class="d-flex items-center">
                   <div
@@ -151,7 +151,7 @@
           <div v-for="assignments in topic.assignments" v-bind:key="assignments.id">
             <v-hover v-slot="{ hover }">
             <div
-                id="lesson-material"
+                id="assignment"
                 class="py-3 d-flex items-center justify-space-between px-6 cursor-pointer"
                 :class="hover? `bg-light` : `bg-white`"
                 @click="redirectToAssignmentDetails(topic.courseId, assignments.id)"
