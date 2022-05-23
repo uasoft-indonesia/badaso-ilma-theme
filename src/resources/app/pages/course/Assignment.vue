@@ -231,7 +231,7 @@ export default {
       return now > dueDate
     },
     date(givenDate) {
-      return `${dateSlicing(givenDate)}` + " " + `${givenDate.slice(11,16)}`;
+      return `${dateSlicing(givenDate)} ${givenDate.slice(11,16)}`;
     },
   },
   created() {
