@@ -105,7 +105,7 @@ class InertiaController extends Controller
     {
         return Inertia::render('course/EditQuiz', [
             'id' => $id,
-            "quizId" => $quizId
+            'quizId' => $quizId
         ], 'lms-theme::app');
     }
 
