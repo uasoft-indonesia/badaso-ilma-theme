@@ -28,15 +28,15 @@
     <div id="detail-assignment" class="mt-5">
       <v-row>
         <v-col cols="2"> Status </v-col>
-        <v-col> :No Submission </v-col>
+        <v-col> : No Submission </v-col>
       </v-row>
       <v-row>
         <v-col cols="2"> Due Date </v-col>
-        <v-col> :{{ date(this.assignment.dueDate) }} </v-col>
+        <v-col> : {{ date(this.assignment.dueDate) }} </v-col>
       </v-row>
       <v-row v-if="this.assignment.point">
         <v-col cols="2"> Max Point </v-col>
-        <v-col> :{{ this.assignment.point }} </v-col>
+        <v-col> : {{ this.assignment.point }} </v-col>
       </v-row>
     </div>
     <v-form ref="form" v-model="isValid" class="mt-8">
