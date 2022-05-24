@@ -91,6 +91,14 @@ class InertiaController extends Controller
         ], 'lms-theme::app');
     }
 
+    public function updateAssignment($id, $assignmentId)
+    {
+        return Inertia::render('course/EditCourseAssignment', [
+            'courseId' => $id,
+            'assignmentId' => $assignmentId,
+        ], 'lms-theme::app');
+    }
+
     public function pageNotFound()
     {
         return Inertia::render('404', [], 'lms-theme::app');
@@ -99,6 +107,14 @@ class InertiaController extends Controller
     public function createQuiz($id)
     {
         return Inertia::render('course/CreateQuiz', ['id' => $id], 'lms-theme::app');
+    }
+
+    public function updateQuiz($id, $quizId)
+    {
+        return Inertia::render('course/EditQuiz', [
+            'id' => $id,
+            'quizId' => $quizId,
+        ], 'lms-theme::app');
     }
 
     public function quiz($id, $quizId)
