@@ -16,7 +16,9 @@
       </div>
 
       <div class="flex flex-row-reverse">
-        <v-avatar class="bg-gray z-0 mt-5 mr-5" size="60"></v-avatar>
+        <v-avatar class="bg-light z-0 mt-5 mr-5" size="60">
+          <v-icon large color="secondary"> mdi-account </v-icon>
+        </v-avatar>
       </div>
     </div>
 
