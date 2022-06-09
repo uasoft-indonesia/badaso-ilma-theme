@@ -93,6 +93,7 @@
         </v-list-item-icon>
         <v-list-item-title>Settings</v-list-item-title>
       </v-list-item>
+      <div class="absolute bottom-7 w-11/12">
       <v-list-item link @click="logout" class="logout">
         <v-list-item-icon v-show="mini">
           <v-icon color="error">mdi-logout</v-icon>
@@ -102,6 +103,7 @@
           Logout
         </v-btn>
       </v-list-item>
+      </div>
     </v-list>
   </v-navigation-drawer>
 </template>
