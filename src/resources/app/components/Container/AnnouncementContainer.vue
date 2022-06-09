@@ -7,7 +7,7 @@
     <div v-for="announcement in announcements" v-bind:key="announcement.id">
       <AnnouncementCard
         :content="announcement.content"
-        :author="announcement.author"
+        :author="announcement.createdBy.name"
         :date="announcement.createdAt"
         :id="announcement.id"
         :comments="announcement.comments"
@@ -37,6 +37,7 @@ export default {
       try {
         const response = await getAnnouncementsAPI(courseId);
         this.announcements = response.data;
+        console.log(this.announcements)
       } catch (error) {
       }
     },

@@ -15,8 +15,8 @@
     >
       <v-card
         :elevation="hover && !startWriting ? 5 : 0"
-        class="mx-auto my-3"
-        width="650"
+        class="mx-10 my-3"
+        width="auto"
         outlined
       >
         <div
@@ -25,7 +25,9 @@
           v-if="!startWriting"
           class="cursor-pointer px-6 py-4"
         >
-          <v-avatar class="bg-primary mr-4" id="avatar" size="48"></v-avatar>
+          <v-avatar class="bg-secondary mr-4" id="avatar" size="48">
+            <v-icon medium color="white"> mdi-account </v-icon>
+          </v-avatar>
           <span
             id="initial-text"
             class="text-textGray"

@@ -2,12 +2,21 @@
   <div class="px-6 py-4">
     <div class="d-flex justify-between">
       <div class="d-flex">
-        <v-avatar class="bg-primary mr-4" id="avatar" size="48"></v-avatar>
+        <v-avatar class="bg-secondary mr-4" id="avatar" size="48">
+          <v-icon medium color="white"> mdi-account </v-icon>
+        </v-avatar>
         <div>
-          <div id="author">
+          <div
+            id="author"
+            :class="this.$props.isParrent && `font-medium`"
+          >
             {{ name }}
           </div>
-          <div id="date" class="text-sm text-textGray">
+          <div
+            id="date"
+            class="text-sm text-textGray"
+            :class="this.$props.isParrent && `text-secondary font-medium`"
+          >
             {{ announcementDate }}
           </div>
         </div>
@@ -114,6 +123,7 @@ export default {
     "authorId",
     "removeCard",
     "isComment",
+    "isParrent"
   ],
   data() {
     return {
