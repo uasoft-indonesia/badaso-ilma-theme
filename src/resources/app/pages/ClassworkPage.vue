@@ -94,7 +94,7 @@
             </div>
           </div>
           <div v-if="topic.title">
-            <v-divider color="#06BBD3"></v-divider>
+            <v-divider class="bg-primary"></v-divider>
           </div>
           <div
             v-for="lessonMaterial in topic.lessonMaterials"
