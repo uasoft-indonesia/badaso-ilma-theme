@@ -31,17 +31,17 @@
       id="header-comment"
       class="text-primary text-lg font-medium"
     >
-      Comments 
+      Comments
       <v-icon
         id="icon-comment"
         color="primary"
       >
         mdi-forum
       </v-icon>
-      <v-divider id="divider" color="#06BBD3" class="mb-4"></v-divider>
+      <v-divider id="divider" class="mb-4 bg-primary"></v-divider>
     </div>
     <div v-for="comment in material.comments" v-bind:key="comment.id">
-    <ListComment 
+    <ListComment
       :name="comment.createdBy.name"
       :date="comment.createdAt"
       :content="comment.content"
@@ -57,7 +57,7 @@
       :getCourseMaterial = "this.getCourseMaterial"
     >
     </CreateComment>
-  </CreationLayout> 
+  </CreationLayout>
 </template>
 
 <script>
