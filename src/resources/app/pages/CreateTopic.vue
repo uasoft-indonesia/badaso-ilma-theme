@@ -33,8 +33,8 @@
 
 <script>
 import AppLayout from "../components/Layout/AppLayout.vue";
-import { createTopicAPI } from "../../api/topic";
 import CreationLayout from "../components/Layout/CreationLayout";
+import { createTopicAPI } from "../../api/topic";
 
 export default {
   components: {CreationLayout},

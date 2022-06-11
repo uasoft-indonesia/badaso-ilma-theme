@@ -37,7 +37,6 @@ export default {
       try {
         const response = await getAnnouncementsAPI(courseId);
         this.announcements = response.data;
-        console.log(this.announcements)
       } catch (error) {
       }
     },
