@@ -4,7 +4,7 @@
     <div id="title">
       <v-row class="text-primary text-lg my-4" id="update-topic-text"> Update Topic </v-row>
       <v-row>
-        <v-divider color="#06BBD3"></v-divider>
+        <v-divider class="bg-primary"></v-divider>
       </v-row>
     </div>
     <v-form v-model="isFormValid" ref="form">

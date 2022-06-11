@@ -3,11 +3,11 @@
     v-if="!isDeleted"
   >
     <v-card
-      class="mx-auto my-3"
-      width="650"
+      class="mx-10 my-3"
+      width="auto"
       outlined
     >
-      <div id="announcement">
+      <div id="announcement" class="bg-light">
         <AnnouncementContent
           :name="this.$props.author"
           :date="this.$props.date"
@@ -15,6 +15,7 @@
           :id="this.$props.id"
           :authorId="this.$props.authorId"
           :removeCard="this.removeCard"
+          :isParrent="true"
         />
       </div>
 
@@ -27,8 +28,8 @@
       >
         <v-divider></v-divider>
         <AnnouncementContent
-          :name="comment.author"
-          :date="comment.datetime"
+          :name="comment.createdBy.name"
+          :date="comment.createdAt"
           :content="comment.content"
           :id="comment.id"
           :isComment= "true"

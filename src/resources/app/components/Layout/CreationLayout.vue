@@ -95,7 +95,7 @@
             </v-list>
           </v-menu>
         </div>
-        <v-divider id="divider" color="#06BBD3" class="mb-6"></v-divider>
+        <v-divider id="divider" class="mb-6 bg-primary"></v-divider>
         <slot/>
       </div>
     </v-container>

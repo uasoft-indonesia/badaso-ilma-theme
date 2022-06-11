@@ -7,7 +7,7 @@
       <v-row>
         <v-col md="12" class="mb-4">
           <v-card class="rounded-lg" elevation="0" color="primary">
-            <v-card-text id="course-title">
+            <v-card-text id="course-title" class="font-weight-medium">
               {{ this.course.name }}
             </v-card-text>
           </v-card>
@@ -48,7 +48,7 @@
       </v-row>
       <v-row>
         <v-col md="2" class="mt-4">
-          <v-card outlined class="rounded-lg">
+          <v-card outlined class="rounded-lg" v-if="this.isCurrentUserTheTeacher()">
             <v-card-text>
               <h2 id="code-title">Class code</h2>
               <div class="font-bold text-lg" id="class-code">
@@ -144,6 +144,9 @@ export default {
         this.$store.dispatch("OPEN_SNACKBAR", "Error getting course detail");
       }
       this.loading = false;
+    },
+    isCurrentUserTheTeacher() {
+      return (this.$store.state.user.id === this.course.createdBy)
     },
   },
   beforeMount() {

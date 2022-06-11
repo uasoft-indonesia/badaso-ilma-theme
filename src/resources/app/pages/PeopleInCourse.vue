@@ -1,32 +1,37 @@
 <template>
   <v-container>
-    <div class="my-10 mx-10">
-      <v-col cols="6">
-        <v-row class="text-primary text-lg" id="title"> Teachers </v-row>
-        <v-row>
-          <v-divider class="bg-primary my-1"></v-divider>
-        </v-row>
-        <v-row
-          v-for="teacher in peoples"
-          v-bind:key="teacher.name"
-          v-if="teacher.role == 'teacher'"
-        >
-          <v-avatar class="bg-primary my-3" id="avatar" size="36"></v-avatar>
-          <div class="ml-3 my-4" id="name">{{ teacher.name }}</div>
-        </v-row>
-        <v-row class="text-primary text-lg" id="title"> Classmates </v-row>
-        <v-row>
-          <v-divider class="bg-primary my-1"></v-divider>
-        </v-row>
-        <v-row
-          v-for="student in peoples"
-          v-bind:key="student.name"
-          v-if="student.role == 'student'"
-        >
-          <v-avatar class="bg-primary my-3" id="avatar" size="36"></v-avatar>
-          <div class="ml-3 my-4" id="name">{{ student.name }}</div>
-        </v-row>
-      </v-col>
+    <div class="mx-10">
+      <div class="text-primary text-lg px-6 my-4 font-medium" id="title"> Teachers </div>
+      <v-divider class="bg-primary"></v-divider>
+      <div
+        v-for="teacher in peoples"
+        v-bind:key="teacher.name"
+        v-if="teacher.role == 'teacher'"
+        class="mb-16"
+      >
+        <div class="py-3 d-flex items-center px-6">
+          <v-avatar class="bg-secondary" id="avatar" size="48">
+            <v-icon medium color="white"> mdi-account </v-icon>
+          </v-avatar>
+          <div class="ml-4" id="name">{{ teacher.name }}</div>
+        </div>
+        <v-divider></v-divider>
+      </div>
+      <div class="text-primary text-lg px-6 my-4 font-medium" id="title"> Classmates </div>
+      <v-divider class="bg-primary"></v-divider>
+      <div
+        v-for="student in peoples"
+        v-bind:key="student.name"
+        v-if="student.role == 'student'"
+      >
+        <div class="py-3 d-flex items-center px-6">
+          <v-avatar class="bg-secondary" id="avatar" size="48">
+            <v-icon medium color="white"> mdi-account </v-icon>
+          </v-avatar>
+          <div class="ml-4" id="name">{{ student.name }}</div>
+        </div>
+        <v-divider></v-divider>
+      </div>
     </div>
   </v-container>
 </template>

@@ -9,12 +9,12 @@
     <v-list>
       <v-list-item class="px-2" v-show="mini">
         <v-list-item-avatar>
-          <img :src="getAvatar" alt="User Avatar" />
+          <img :src="getAvatar" alt="User Avatar"/>
         </v-list-item-avatar>
       </v-list-item>
       <v-list-item v-show="mini" link @click="redirectToCreateCoursePage">
         <v-list-item-icon>
-          <v-icon color="primary"> mdi-plus </v-icon>
+          <v-icon color="primary"> mdi-plus</v-icon>
         </v-list-item-icon>
       </v-list-item>
       <v-list-item v-show="!mini" @click.stop="hideSidebar">
@@ -27,7 +27,7 @@
         v-show="!mini"
         class="flex justify-center items-center flex-col my-4"
       >
-        <img class="avatar-expanded" :src="getAvatar" alt="User Avatar" />
+        <img class="avatar-expanded" :src="getAvatar" alt="User Avatar"/>
         <p class="font-bold text-lg mt-4 user-name">{{ getName }}</p>
         <v-btn
           class="mb-4"
@@ -36,7 +36,7 @@
           color="primary"
           depressed
         >
-          <v-icon left> mdi-plus </v-icon>
+          <v-icon left> mdi-plus</v-icon>
           Add Course
         </v-btn>
       </div>
@@ -93,15 +93,17 @@
         </v-list-item-icon>
         <v-list-item-title>Settings</v-list-item-title>
       </v-list-item>
-      <v-list-item link @click="logout" class="logout">
-        <v-list-item-icon v-show="mini">
-          <v-icon color="error">mdi-logout</v-icon>
-        </v-list-item-icon>
-        <v-btn width="90%" class="mx-auto" color="error" depressed v-if="!mini">
-          <v-icon left> mdi-logout </v-icon>
-          Logout
-        </v-btn>
-      </v-list-item>
+      <div class="absolute bottom-7 w-11/12">
+        <v-list-item link @click="logout" class="logout">
+          <v-list-item-icon v-show="mini">
+            <v-icon color="error">mdi-logout</v-icon>
+          </v-list-item-icon>
+          <v-btn width="90%" class="mx-auto" color="error" depressed v-if="!mini">
+            <v-icon left> mdi-logout</v-icon>
+            Logout
+          </v-btn>
+        </v-list-item>
+      </div>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -185,6 +187,7 @@ export default {
   height: 100px;
   border-radius: 50%;
 }
+
 .nav-drawer {
   box-shadow: 0px 4px 20px 5px rgba(0, 0, 0, 0.1);
 }

@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <div class="my-10 mx-10">
+    <div class="mx-10">
       <v-menu v-if="this.userIsTeacher">
         <template v-slot:activator="{ on, attrs }">
           <v-btn
@@ -60,7 +60,7 @@
       <div id="title" v-for="topic in topics" v-bind:key="topic.id">
         <div class="mb-16">
           <div class="text-primary text-lg my-4">
-            <div v-if="topic.title" class="flex justify-between px-6">
+            <div v-if="topic.title" class="flex justify-between px-6 font-medium">
               {{ topic.title }}
               <v-menu>
                 <template v-slot:activator="{ on, attrs }">
@@ -94,7 +94,7 @@
             </div>
           </div>
           <div v-if="topic.title">
-            <v-divider color="#06BBD3"></v-divider>
+            <v-divider class="bg-primary"></v-divider>
           </div>
           <div
             v-for="lessonMaterial in topic.lessonMaterials"
@@ -111,9 +111,9 @@
               >
                 <div class="d-flex items-center">
                   <div
-                    class="w-7 h-7 bg-secondary rounded-full text-base d-flex justify-center items-center mr-4"
+                    class="w-12 h-12 bg-secondary rounded-full text-base d-flex justify-center items-center mr-4"
                   >
-                    <v-icon small color="white"> mdi-book-open </v-icon>
+                    <v-icon medium color="white"> mdi-book-open </v-icon>
                   </div>
                   <div class="truncate max-w-sm">
                     {{ lessonMaterial.title }}
@@ -157,13 +157,10 @@
                 @click="redirectToAssignmentDetails(topic.courseId, assignments.id)"
               >
                 <div class="d-flex items-center">
-                  <div class="w-7 h-7 bg-secondary rounded-full text-base d-flex justify-center items-center mr-4">
-                    <v-icon
-                      small
-                      color="white"
-                    >
-                      mdi-clipboard-text
-                    </v-icon>
+                  <div
+                    class="w-12 h-12 bg-secondary rounded-full text-base d-flex justify-center items-center mr-4"
+                  >
+                    <v-icon medium color="white"> mdi-clipboard-text </v-icon>
                   </div>
                   <div class="truncate max-w-sm">
                     {{ assignments.title }}
