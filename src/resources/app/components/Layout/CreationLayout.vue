@@ -63,7 +63,7 @@
                   Edit
                 </v-list-item-title>
               </v-list-item>
-              <v-list-item link @click="deleteContent">
+              <v-list-item link @click="deleteCourseMaterial">
                 <v-list-item-title class="w-28 text-sm text-error">
                   Delete
                 </v-list-item-title>
@@ -133,7 +133,6 @@ export default {
         await deleteCourseMaterialById(this.$props.contentId);
         this.redirectBackToClasswork();
       } catch (error) {
-        console.log(error);
         await this.$store.dispatch("OPEN_SNACKBAR", "Error deleting data");
       }
     },
@@ -152,7 +151,6 @@ export default {
         await deleteQuizById(this.$props.contentId);
         this.redirectBackToClasswork();
       } catch (error) {
-        console.log(error);
         await this.$store.dispatch("OPEN_SNACKBAR", "Error deleting data");
       }
     },
@@ -162,7 +160,6 @@ export default {
         await deleteAssignmentById(this.$props.contentId);
         this.redirectBackToClasswork();
       } catch (error) {
-        console.log(error);
         await this.$store.dispatch("OPEN_SNACKBAR", "Error deleting data");
       }
     },

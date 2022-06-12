@@ -164,9 +164,7 @@ export default {
       this.isSubmitting = false;
     },
     convertTime() {
-      console.log(this.due_date)
       this.form.due_date = new Date(this.due_date).toISOString().slice(0,-5) + "Z"
-      console.log(this.form.due_date)
     },
     async getAssignment() {
     	try {
@@ -204,9 +202,8 @@ export default {
         }
         this.convertTime();
         const response = await updateAssignmentById(this.$props.assignmentId, this.form);
-        this.redirectBackToClasswork()
+        this.redirectBackToAssignment()
       } catch (error) {
-        console.log(error)
         await this.$store.dispatch("OPEN_SNACKBAR", "Error uploading data");
       }
       this.isSubmitting = false;
