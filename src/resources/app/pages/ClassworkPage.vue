@@ -136,9 +136,9 @@
               >
                 <div class="d-flex items-center">
                   <div
-                    class="w-7 h-7 bg-secondary rounded-full text-base d-flex justify-center items-center mr-4"
+                    class="w-12 h-12 bg-secondary rounded-full text-base d-flex justify-center items-center mr-4"
                   >
-                    <v-icon small color="white"> mdi-clipboard-outline </v-icon>
+                    <v-icon medium color="white"> mdi-clipboard-outline </v-icon>
                   </div>
                   <div class="truncate max-w-sm">
                     {{ quiz.title }}
