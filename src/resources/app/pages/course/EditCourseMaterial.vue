@@ -64,7 +64,7 @@
         id="cancel-button"
         color="error"
         elevation="0"
-        @click="redirectBackToClasswork"
+        @click="redirectBackToCourseMaterial"
       >
         Cancel
       </v-btn>
@@ -177,7 +177,7 @@ export default {
         if (response.errorMessage) {
           throw response.errorMessage;
         }
-        this.redirectBackToClasswork()
+        this.redirectBackToCourseMaterial()
       } catch (error) {
         await this.$store.dispatch("OPEN_SNACKBAR", "Error uploading data");
       }
@@ -193,7 +193,7 @@ export default {
         await this.$store.dispatch("OPEN_SNACKBAR", "Error getting data");
       }
     },
-    redirectBackToClasswork() {
+    redirectBackToCourseMaterial() {
       this.$inertia.visit(`/course/${this.$props.courseId}/classwork/material/${this.$props.materialId}`);
     },
     showSnackbar(text) {

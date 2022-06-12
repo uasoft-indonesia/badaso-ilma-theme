@@ -4,7 +4,9 @@
   >
     <div class="d-flex justify-between">
       <div class="d-flex">
-        <v-avatar class="bg-primary mr-4" id="avatar" size="40"></v-avatar>
+        <v-avatar class="bg-secondary mr-4" id="avatar" size="48">
+          <v-icon medium color="white"> mdi-account </v-icon>
+        </v-avatar>
         <div>
           <div id="author">
             {{ name }}
