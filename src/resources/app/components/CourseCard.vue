@@ -7,7 +7,7 @@
   >
     <div class="bg-primary h-24 font-semibold text-base text-slate-50">
       <div class="flex flex-row">
-        <div class="pl-5 pt-5 text-base" id="course-name">
+        <div class="px-5 pt-5 text-base text-truncate" id="course-name">
           {{ courseName }}
         </div>
         <button class="flex flex-col items-end space-x-0 space-y-0 pr-1 pt-5">
